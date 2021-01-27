@@ -1,1 +1,1 @@
-## WaLSAlib: WaLSA Library for Analysis Codes
+## **WaLSAlib**: WaLSA Library for Analysis Codes
