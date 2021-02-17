@@ -1,1 +1,1 @@
-## WaLSA Code Repository for Detection and Analysis Tools
+## WaLSA Code Repository for Wave Detection and Analysis Tools
