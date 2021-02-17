@@ -1,1 +1,1 @@
-## WaLSA Code Repository for Detection and Analysis Techniques
+## WaLSA Code Repository for Detection and Analysis Tools
