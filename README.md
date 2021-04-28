@@ -6,7 +6,7 @@
     <a href="#"><img src="https://img.shields.io/badge/license-MIT-yellow.svg"></a>
 </p>
 
-WaLSAtools is a collection of IDL codes, developed and provided by the [**WaLSA team**](https://WaLSA.team), for analysing waves and oscillations, with a particular emphasis on such phenomena occurring in the lower atmosphere of the Sun.
+WaLSAtools is a collection of IDL codes, developed and provided by the [**WaLSA team**](https://WaLSA.team){target=_blank}, for analysing waves and oscillations, with a particular emphasis on such phenomena occurring in the lower atmosphere of the Sun.
 
 
 <a href="https://WaLSAteam.github.io/WaLSAtools" target="_blank"><img align="right" src="docs/assets/screenshots/WaLSAtool_documentation_screenshot.jpg" alt="" width="485" height="auto" /></a>
