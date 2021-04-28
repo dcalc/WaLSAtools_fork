@@ -17,9 +17,9 @@ If you use **WaLSAtools** in your work, please cite it, as instructed below, in 
 In addition, if you use any of the particular analysis techniques listed below, please cite the original publications where those codes (or approaches) where first used/introduced.
 
 - **k-&#969; Diagram and Fourier Filtering**: [Jess et al. 2017, ApJ, 842, 59][1]{target=_blank}
-  ```sh
+  ```
   @ARTICLE{2017ApJ...842...59J,
-         author = {{Jess}, David B. and {Van Doorsselaere}, Tom and {Verth}, Gary and {Fedun}, Viktor and {Krishna Prasad}, S. and {Erd{\'e}lyi}, Robert and {Keys}, Peter H. and {Grant}, Samuel D.~T. and {Uitenbroek}, Han and {Christian}, Damian J.},
+         author = {Jess, David B. and Van Doorsselaere, Tom and Verth, Gary and Fedun, Viktor and Krishna Prasad, S. and Erd{\'elyi}, Robert and Keys, Peter H. and Grant, Samuel D.~T. and Uitenbroek, Han and Christian, Damian J.},
           title = "{An Inside Look at Sunspot Oscillations with Higher Azimuthal Wavenumbers}",
         journal = {\apj},
        keywords = {Sun: chromosphere, Sun: magnetic fields, Sun: oscillations, Sun: photosphere, sunspots, Astrophysics - Solar and Stellar Astrophysics},
@@ -38,10 +38,11 @@ In addition, if you use any of the particular analysis techniques listed below, 
   }
   ```
 <br>
+
 - **B-&#969; Diagram**: [Stangalini et al. 2021, A&A, in press][2]{target=_blank}
   ```
   @ARTICLE{2021arXiv210311639S,
-         author = {{Stangalini}, M. and {Jess}, D.~B. and {Verth}, G. and {Fedun}, V. and {Fleck}, B. and {Jafarzadeh}, S. and {Keys}, P.~H. and {Murabito}, M. and {Calchetti}, D. and {Aldhafeeri}, A.~A. and {Berrilli}, F. and {Del Moro}, D. and {Jefferies}, S.~M. and {Terradas}, J. and {Soler}, R.},
+         author = {Stangalini, M. and Jess, D.~B. and Verth, G. and Fedun, V. and Fleck, B. and Jafarzadeh, S. and Keys, P.~H. and Murabito, M. and Calchetti, D. and Aldhafeeri, A.~A. and Berrilli, F. and Del Moro, D. and Jefferies, S.~M. and Terradas, J. and Soler, R.},
           title = "{A novel approach to identify resonant MHD wave modes in solar pores and sunspot umbrae: $B-\omega$ analysis}",
         journal = {arXiv e-prints},
        keywords = {Astrophysics - Solar and Stellar Astrophysics},
@@ -56,6 +57,7 @@ In addition, if you use any of the particular analysis techniques listed below, 
         adsnote = {Provided by the SAO/NASA Astrophysics Data System}
   }
   ``` 
+
 ## Software Package :material-book-sync:
 
 - **Open source software package:** `Zenodo DOI (to be created)`
