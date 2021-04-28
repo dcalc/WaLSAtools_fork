@@ -18,7 +18,7 @@ In addition, if you use any of the particular analysis techniques listed below, 
 
 - **k-&#969; Diagram and Fourier Filtering**: [Jess et al. 2017, ApJ, 842, 59][1]{target=_blank}
 
-  ```
+  ```sh
   @ARTICLE{2017ApJ...842...59J,
          author = {{Jess}, David B. and {Van Doorsselaere}, Tom and {Verth}, Gary and {Fedun}, Viktor and {Krishna Prasad}, S. and {Erd{\'e}lyi}, Robert and {Keys}, Peter H. and {Grant}, Samuel D.~T. and {Uitenbroek}, Han and {Christian}, Damian J.},
           title = "{An Inside Look at Sunspot Oscillations with Higher Azimuthal Wavenumbers}",
