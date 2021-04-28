@@ -105,10 +105,8 @@ nav:
 # Plugins
 plugins:
   - search
-  # - pdf-export
   - minify:
       minify_html: true
-  # - git-revision-date
 
 # Extensions
 markdown_extensions:
