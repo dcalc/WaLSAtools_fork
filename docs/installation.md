@@ -9,7 +9,7 @@ The **WaLSAtools** package requires the [Interactive Data Language (**IDL**)][3]
 
 ## With git :octicons-mark-github-16:
 
-**WaLSAtools** should preferably be used from [GitHub][2] by cloning the repository into a subfolder of your IDL library, or a location of your preference (that requires [setting your IDL PATH][4] by pointing to that location).
+**WaLSAtools** should preferably be used from [GitHub][2] by cloning the repository into your IDL library, or a location of your preference (that requires [setting your IDL PATH][4] by pointing to that location).
 
 ```
 git clone https://github.com/WaLSAteam/WaLSAtools
