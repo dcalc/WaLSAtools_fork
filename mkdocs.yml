@@ -1,0 +1,168 @@
+# Project information
+site_name: WaLSA Analysis Tools
+site_description: Analysis tools for Waves in the Lower Solar Atmosphere (WaLSA)
+site_author: WaLSA Team (https://WaLSA.team)
+site_url: https://WaLSAteam.github.io/WaLSAtools/
+
+# Repository
+repo_name: WaLSAtools
+repo_url: https://github.com/WaLSAteam/WaLSAtools
+edit_uri: ""
+# edit_uri: edit/master/docs/
+
+# Copyright
+copyright: Copyright &copy; 2021 <a href="https://WaLSA.team" target="_blank">WaLSA Team</a>
+
+## Social Media
+extra:
+  social:
+    - icon: fontawesome/solid/home
+      link: https://WaLSA.team
+    - icon: fontawesome/brands/github
+      link: https://github.com/WaLSAteam
+      name: GitHub.com/WaLSAteam
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/WaLSAteam
+      name: Facebook.com/WaLSAteam
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/WaLSAteam
+      name: Twitter.com/WaLSAteam
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/walsa-team
+      name: LinkedIn.com/company/walsa-team
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/WaLSA_team
+      name: Instagram.com/WaLSA_team
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/WaLSAteam
+      name: YouTube.com/WaLSAteam
+    - icon: fontawesome/solid/envelope
+      link: mailto:WaLSAtools@WaLSA.team
+      name: Contact us
+  disqus: ""
+  manifest: manifest.webmanifest
+  # version:
+  #     provider: mike
+
+# Configuration
+theme:
+  name: null
+  custom_dir: docs/theme
+  # 404 page
+  static_templates:
+    - 404.html
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  features:
+    # - navigation.instant
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    # - toc.integrate
+  palette:
+    scheme: default
+    primary: deep-orange
+    accent: red
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
+    repo: fontawesome/brands/github
+
+# Page tree
+nav:
+  - Home: index.md
+  - Getting started:
+    - Introduction: introduction.md
+    - Installation: installation.md
+    - Setting IDL PATH: setting-idl-path.md
+    - Troubleshooting: troubleshooting.md
+  - Analysis Tools: 
+    - WaLSAtools.md
+    - Examples:
+        - Power Spectra: power-spectra-example.md
+        - k-&#969; Diagram and Filtering: k-omega-example.md
+        - B-&#969; Diagram: B-omega-example.md
+    - Under the Hood: 
+        - Main Routines: routines.md
+  - About:
+    - Contribution: contribution.md
+    - Development: development.md
+    - License and Credits: license.md
+    - Acknowledgements: acknowledgements.md
+    - Citation: citation.md
+    - Changelog: changelog.md
+    - Release Notes:
+        - '1.0': releases/1.0.md
+
+# Plugins
+plugins:
+  - search
+  # - pdf-export
+  - minify:
+      minify_html: true
+  # - git-revision-date
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - markdown.extensions.admonition
+  - markdown.extensions.attr_list
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      baselevel: 1
+      permalink: true
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shortener: true
+      repo_url_shorthand: true
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.snippets
+  - pymdownx.striphtml
+
+extra_css:
+  - theme/assets/stylesheets/extra.css
