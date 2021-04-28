@@ -64,7 +64,7 @@ We strive to provide not only reliable and user-friendly analysis tools, but als
   [10]: https://git-scm.com
   [11]: https://github.com/WaLSAteam/WaLSAtools
   [12]: https://guides.github.com
-  [13]: https://training.github.com/downloads/github-git-cheat-sheet/
+  [13]: https://docs.github.com/en
   [14]: https://guides.github.com/activities/forking/
   [15]: https://guides.github.com/activities/forking/#making-a-pull-request
   [16]: https://guides.github.com/features/issues/
