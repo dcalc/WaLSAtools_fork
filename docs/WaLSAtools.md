@@ -6,9 +6,12 @@ template: overrides/mainat.html
 
 Below you can find information on how to use **WaLSAtools**. Please first read [**description of the analysis methods**][1] performed by **WaLSAtools**. Work examples of various analysis techniques are also provided (see the left menu), along with some hints on plotting the results.
 
-We strongly encourage all users to perform their analyses by running **WaLSAtools** directly, instead of calling individual routines used within **WaLSAtools**. 
+We strongly encourage all users to perform their analyses by running **WaLSAtools** directly, instead of calling individual routines used within **WaLSAtools**. Please check out the [License and Credits][7] as well as the [Acknowledgements][8], and if you use **WaLSAtools** in your research, please [cite][9] it as instructed.
 
   [1]: introduction.md
+  [7]: license.md
+  [8]: acknowledgements.md
+  [9]: citation.md
 
 !!! walsa-gear "How to use WaLSAtools"
 
