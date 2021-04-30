@@ -84,7 +84,12 @@ We strongly encourage all users to perform their analyses by running **WaLSAtool
                                (in DN^2/mHz, i.e., normalized to frequency resolution)
               frequencies:     1D array of frequencies (in mHz)
               significance:    significance array (same size and units as power)
-            ---------------------------------------------------------------------------------
+            -----------------------------------------------------------------------------------------
+            * CITATION:
+              Please cite the following article if you use WaLSAtools: 1D analysis with FFT
+              -- Jess et al. 2021, LRSP, in preparation
+                 (see www.WaLSA.tools/citation)
+            -----------------------------------------------------------------------------------------
             ```
         === "2"
             ```
@@ -124,7 +129,12 @@ We strongly encourage all users to perform their analyses by running **WaLSAtool
               frequencies:     1D array of frequencies (in mHz)
               significance:    significance array (same size and units as power)
               coicube:         cone-of-influence cube (when global or insideCOI are not set)
-            ---------------------------------------------------------------------------------
+            -----------------------------------------------------------------------------------------
+            * CITATION:
+              Please cite the following article if you use WaLSAtools: 1D analysis with Wavelet
+              -- Jess et al. 2021, LRSP, in preparation
+                 (see www.WaLSA.tools/citation)
+            -----------------------------------------------------------------------------------------
             ```
         === "3"
             ```
@@ -155,7 +165,12 @@ We strongly encourage all users to perform their analyses by running **WaLSAtool
                                (in DN^2/mHz, i.e., normalized to frequency resolution)
               frequencies:     1D array of frequencies (in mHz)
               significance:    significance array (same size and units as power)
-            ---------------------------------------------------------------------------------
+            -----------------------------------------------------------------------------------------
+            * CITATION:
+              Please cite the following article if you use WaLSAtools: 1D analysis with Lomb-Scargle
+              -- Jess et al. 2021, LRSP, in preparation
+                 (see www.WaLSA.tools/citation)
+            -----------------------------------------------------------------------------------------
             ```
         === "4"
             ```
@@ -193,7 +208,12 @@ We strongly encourage all users to perform their analyses by running **WaLSAtool
               significance:    significance array (same size and units as power)
               imf:             intrinsic mode functions (IMFs) from EMD alalysis, if emd is set
               instantfreq:     instantaneous frequencies of each component time series, if emd is set
-            ---------------------------------------------------------------------------------
+            -----------------------------------------------------------------------------------------
+            * CITATION:
+              Please cite the following article if you use WaLSAtools: 1D analysis with HHT
+              -- Jess et al. 2021, LRSP, in preparation
+                 (see www.WaLSA.tools/citation)
+            -----------------------------------------------------------------------------------------
             ```
     === "2"
         ```
@@ -251,7 +271,13 @@ We strongly encourage all users to perform their analyses by running **WaLSAtool
               frequencies:     1D array of frequencies (in mHz)
               wavenumber:      1D array of wavenumber (in arcsec^-1)
               filtered_cube:   3D array of filtered datacube (if filtering is set)
-            ---------------------------------------------------------------------------------
+            -----------------------------------------------------------------------------------------
+            * CITATION:
+              Please cite the following articles if you use WaLSAtools: k-ω analysis
+              -- Jess et al. 2021, LRSP, in preparation
+              -- Jess et al. 2017, ApJ, 842, 59
+                 (see www.WaLSA.tools/citation)
+            -----------------------------------------------------------------------------------------
             ```
         === "2"
             ```
@@ -292,7 +318,13 @@ We strongly encourage all users to perform their analyses by running **WaLSAtool
                                (in DN^2/mHz, i.e., normalized to frequency resolution)
               frequencies:     1D array of frequencies (y-axis) in mHz
               barray:          1D array of magnetic fields (x-axis) in G
-            ---------------------------------------------------------------------------------
+            -----------------------------------------------------------------------------------------
+            * CITATION:
+              Please cite the following articles if you use WaLSAtools: B-ω analysis
+              -- Jess et al. 2021, LRSP, in preparation
+              -- Stangalini et al. 2021, A&A, in press
+                 (see www.WaLSA.tools/citation)
+            -----------------------------------------------------------------------------------------
             ```
 
     If data, time or cadence, and the type of analysis are not provided, then the code returns the sequential information as documented above. 

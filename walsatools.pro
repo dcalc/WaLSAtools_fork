@@ -12,9 +12,10 @@
 ;   IDL> WaLSAtools
 ;   Type WaLSAtools in IDL for further information (and all keywords)
 ;
-; Documentation: www.WaLSA.tools
+; Documentation and info: www.WaLSA.tools
 ; GitHub repository: www.github.com/WaLSAteam/WaLSAtools
 ; © WaLSA Team (www.WaLSA.team)
+; Please see www.WaLSA.tools/license & www.WaLSA.tools/citation if you use WaLSAtools
 ;-
 
 pro walsatools,$
@@ -168,7 +169,16 @@ if help then begin
             if m1type eq 2 then begin
             PRINT,'   coicube:         cone-of-influence cube (when global or insideCOI are not set)'
             endif
-        PRINT,' ---------------------------------------------------------------------------------'
+        PRINT,' -----------------------------------------------------------------------------------------'
+        if m1type eq 1 then m1typecite='WaLSAtools: 1D analysis with FFT'
+        if m1type eq 2 then m1typecite='WaLSAtools: 1D analysis with Wavelet'
+        if m1type eq 3 then m1typecite='WaLSAtools: 1D analysis with Lomb-Scargle'
+        if m1type eq 4 then m1typecite='WaLSAtools: 1D analysis with HHT'
+        PRINT,' * CITATION:'
+        PRINT,'   Please cite the following article if you use '+m1typecite
+        PRINT,'   -- Jess et al. 2021, LRSP, in preparation' 
+        PRINT,'      (see www.WaLSA.tools/citation)'
+        PRINT,' -----------------------------------------------------------------------------------------'
         PRINT
     endif
     if type eq 2 then begin
@@ -276,7 +286,18 @@ if help then begin
             PRINT,'   frequencies:     1D array of frequencies (y-axis) in mHz'
             PRINT,'   barray:          1D array of magnetic fields (x-axis) in G'
         endif
-        PRINT,' ---------------------------------------------------------------------------------'
+        PRINT,' -----------------------------------------------------------------------------------------'
+        if m2type eq 1 then m2typecite='WaLSAtools: k-ω analysis'
+        if m2type eq 2 then m2typecite='WaLSAtools: B-ω analysis'
+        PRINT,' * CITATION:'
+        PRINT,'   Please cite the following articles if you use '+m2typecite
+        PRINT,'   -- Jess et al. 2021, LRSP, in preparation' 
+        if m2type eq 1 then $
+        PRINT,'   -- Jess et al. 2017, ApJ, 842, 59'
+        if m2type eq 2 then $
+        PRINT,'   -- Stangalini et al. 2021, A&A, in press'
+        PRINT,'      (see www.WaLSA.tools/citation)'
+        PRINT,' -----------------------------------------------------------------------------------------'
         PRINT
     endif
     return
