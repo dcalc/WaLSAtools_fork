@@ -30,7 +30,7 @@ You can define and add custom search paths to your `IDL_PATH` system environment
 		export IDL_DIR=PATH-TO-IDL-DIRECTORY
 		export IDL_PATH=+${IDL_DIR}/lib:+PATH-TO-THE-DIRECTORY/WaLSAtools
         ```
-		where `PATH-TO-IDL-DIRECTORY` and `PATH-TO-THE-DIRECTORY` are the locations of IDL and `WaLSAtools` directories (in your computer), respectively. You may add as many packages/libraries as you want to the end of the `IDL_PATH` separating them with `:+`
+		where `PATH-TO-IDL-DIRECTORY` and `PATH-TO-THE-DIRECTORY` are the locations of IDL software and `WaLSAtools` directories (in your computer), respectively. You may add as many packages/libraries as you want to the end of the `IDL_PATH` separating them with `:+`
 		
 		Finally, after adding the lines and saving the setup script, type the following command in terminal and press ++enter++
         ```
@@ -42,7 +42,7 @@ You can define and add custom search paths to your `IDL_PATH` system environment
 		setenv IDL_DIR PATH-TO-IDL-DIRECTORY
         setenv IDL_PATH +$IDL_DIR/lib:+PATH-TO-THE-DIRECTORY/WaLSAtools
         ```
-		where `PATH-TO-IDL-DIRECTORY` and `PATH-TO-THE-DIRECTORY` are the locations of IDL and `WaLSAtools` directories (in your computer), respectively. You may add as many packages/libraries as you want to the end of the `IDL_PATH` separating them with `:+`
+		where `PATH-TO-IDL-DIRECTORY` and `PATH-TO-THE-DIRECTORY` are the locations of IDL software and `WaLSAtools` directories (in your computer), respectively. You may add as many packages/libraries as you want to the end of the `IDL_PATH` separating them with `:+`
 		
 		Finally, after adding the lines and saving the setup script, type one of the following commands (depending on your shell environment) in terminal and press ++enter++
         ```
@@ -78,9 +78,9 @@ The `IDL_PATH` can also be customised via the IDL Workbench (idlde) Preferences 
 
      * :fontawesome-brands-linux: and :fontawesome-brands-windows: : Select Window > Preferences
 
-- Expand and select on the right pane of the preferences dialog the items, IDL > Paths. 
+- Expand and select on the left pane of the preferences dialog the items, IDL > Paths. 
 
-- Next, on the left side of the dialog, select "IDL path" from the pull down item.
+- Next, on the right side of the dialog, select "IDL path" from the pull down item.
 
 - Next, insert your additional IDL program search paths. 
 

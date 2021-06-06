@@ -89,13 +89,14 @@ FUNCTION walsa_hilbert_spec, $
     FREQ=freq, $
     INSTFREQ=instfreq, MARGINAL=marginal, $
     TIME=time, $
-    EDGE_TRUNCATE=edgetruncateopt
+    EDGE_TRUNCATE=edgetruncateopt, $
+	amplitudemarginal=amplitudemarginal
 
 ;***********************************************************************
 ; Constants and Options
 
-data = transpose(data) ; different IMF array as computed by walsa_emd_function
-
+data = transpose(data) ; different IMF array convention as computed by walsa_emd_function
+ 
 ; Number of components in the Data matrix
 nt = n_elements( data[*,0] )
 ncomp = n_elements( data[0,*] )
@@ -123,7 +124,7 @@ endelse
 
 ; Define the Hilbert transform of data
 z = 0. * im * data
-for i = 0L, ncomp-1 do z[*,i] = data[*,i] + im * real( hilbert( data[*,i] ) )
+for i = 0L, ncomp-1 do z[*,i] = data[*,i] + im * real( walsa_hilbert( data[*,i] ) )
 
 ; Transform z to polar coordinates
 ; Modulus of z
@@ -136,6 +137,9 @@ if nid ne 0 then angz[id] = angz[id] + pi
 ; Output matrices
 ; Amplitude spectrum
 spec = fltarr( nt, nt )
+
+specamp = fltarr( nt, nt )
+
 ; Instantaneous frequency
 instfreq = fltarr( nt, ncomp )
 ; Instantaneous frequency index
@@ -166,6 +170,7 @@ for i = 0L, ncomp-1 do begin
     if ( id ge 0 ) and ( id le nt - 1 ) then begin
       ; Convert to the power spectrum
       spec[id,j] = spec[id,j] + magz[j,i]^2
+	  specamp[id,j] = specamp[id,j] + z[j,i]
     endif else begin
       ctr = ctr + 1
     endelse
@@ -188,9 +193,12 @@ freq = findgen( nt ) / nt * 0.5 / dt
 ; Smooth spectral power matrix using a Hanning filter
 if n_elements(nfilter) eq 0 then nfilter=0
 if nfilter gt 0 then spec = filter_nd( spec, nfilter, 'hanning', edge_truncate=edgetruncateopt )
+if nfilter gt 0 then specamp = filter_nd( specamp, nfilter, 'hanning', edge_truncate=edgetruncateopt )
 
 ; Calculate the marginal power spectrum by integrating over time
 marginal = total( spec, 2, /nan ) * dt
+
+amplitudemarginal = total( specamp, 2, /nan ) * dt  ; ??
 ;***********************************************************************
 
 return, spec

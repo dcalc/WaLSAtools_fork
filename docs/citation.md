@@ -14,7 +14,7 @@ If you use **WaLSAtools** in your work, please cite it, as instructed below, in 
 
 ### Articles for particular functions:
 
-In addition, if you use any of the particular analysis techniques listed below, please cite the original publications where those codes (or approaches) where first used/introduced.
+In addition, if you use any of the particular analysis techniques listed below, please cite the original publications where those codes (or approaches) were first used/introduced.
 
 - **k-&#969; Diagram and Fourier Filtering**: [Jess et al. 2017, ApJ, 842, 59][1]{target=_blank}
   ```

@@ -6,7 +6,7 @@ template: overrides/main.html
 
 The [**WaLSA team**][8]{target=_blank} is committed to facilitating openness, transparency, and reproducibility of its research. We freely share our codes through this open-access repository (on GitHub). The codes are collaboratively developed and advanced over time. Sharing codes not only make them available to other researchers, but can also give us ideas for improvements. 
 
-The initial **WaLSAtools** package we have provided here is just a starting point and our hope is that the community will help us in the journey improving and extending the methods and codes. We also appreciate that Python is becoming more popular, particularly among younger generations, thus we are grateful for helps with translation of the IDL codes into Python.
+The initial **WaLSAtools** package we have provided here is just a starting point and our hope is that the community will help us in the journey improving and extending the methods and codes. We also appreciate that Python is becoming a more popular programming language, particularly among younger generations, thus we are grateful for helps with translation of the IDL codes into Python.
 
 Contributions are very welcome and appreciated!
 

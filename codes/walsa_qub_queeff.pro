@@ -75,7 +75,7 @@ pro walsa_qub_queeff, datacube, arcsecpx, cadence=cadence, time=time, $ ; main i
                       clt=clt, koclt=koclt, threemin=threemin, fivemin=fivemin, xlog=xlog, ylog=ylog, xrange=xrange, yrange=yrange, $ ; plotting keywords
                       epsfilename=epsfilename, noy2=noy2, nox2=nox2, smooth=smooth, silent=silent, mode=mode
 
-if n_elements(cadence) eq 0 then cadence=round(walsa_mode(walsa_diff(time)))
+if n_elements(cadence) eq 0 then cadence=walsa_mode(walsa_diff(time))
 ; DEFINE THE SCREEN RESOLUTION TO ENSURE THE PLOTS DO NOT SPILL OVER THE EDGES OF THE SCREEN
 dimensions = GET_SCREEN_SIZE(RESOLUTION=resolution)
 xscreensize = dimensions[0]
@@ -220,7 +220,7 @@ IF silent EQ 0 THEN BEGIN
 
 ENDIF
 
-IF EPS eq 1 THEN walsa_endeps, filename=epsfilename
+IF EPS eq 1 THEN walsa_endeps, filename=epsfilename, /noboundingbox
 
 power = komegamap
 wavenumber = kopower_xscale[1:*]

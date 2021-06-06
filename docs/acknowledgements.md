@@ -4,7 +4,7 @@ template: overrides/main.html
 
 # Acknowledgements
 
-All people who have contributed, in one way or another, to the development of **WaLSAtools**, as well as third‐parties whose codes have been used in the package, are sincerely acknowledged. **WaLSAtools** is a result of scientific discussions with the [**WaLSA team**][1]{target=_blank} which is supported by the Research Council of Norway (project number 262622), and The Royal Society (grant Hooke18b/SCTM).
+All people who have contributed, in one way or another, to the development of **WaLSAtools**, as well as third‐parties whose codes have been used in the package, are sincerely acknowledged. **WaLSAtools** is a result of scientific discussions with the [**WaLSA team**][1]{target=_blank} which has been supported by the Research Council of Norway (project number 262622), and The Royal Society (grant Hooke18b/SCTM).
 
 While we make every effort to ensure that acknowledgements/credits in this document are complete and accurate, errors may occur. If you see an error or omission, please help us improve this document by sending us an [**email**][2]. 
 

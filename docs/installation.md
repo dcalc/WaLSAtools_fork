@@ -5,7 +5,7 @@ title: Installation
 
 # Installation
 
-The **WaLSAtools** package requires the [Interactive Data Language (**IDL**)][3]{target=_blank}. The package has primarily been tested with IDL version 8.5, but should, in principle, work with earlier or later versions too.
+The **WaLSAtools** package requires the [Interactive Data Language (**IDL**)][3]{target=_blank}. The package has primarily been tested with IDL version 8.5, but should, in principle, work with earlier or later versions too. The packages includes all dependencies (i.e., no third-party libraries are required).
 
 ## With git :octicons-mark-github-16:
 
@@ -22,7 +22,7 @@ cd PATH-TO-THE-DIRECTORY/WaLSAtools
 git pull
 ```
 
-where `PATH-TO-THE-DIRECTORY` is the location in where you have put the `WaLSAtools` directory (in your computer).
+where `PATH-TO-THE-DIRECTORY` is the location in where you have cloned the `WaLSAtools` (in your computer).
 
 ## Direct Download :octicons-download-16:
 
@@ -42,28 +42,33 @@ Alternatively, the **WaLSAtools** package can be downloaded as a [zip file][5]. 
     The package is successfully installed if the results will look like this:
 
     ```
-    % Compiled module: WALSATOOLS.
+	% Compiled module: WALSATOOLS.
 
-        __          __          _          _____
-        \ \        / /         | |        / ____|     /\
-         \ \  /\  / /  ▄▄▄▄▄   | |       | (___      /  \
-          \ \/  \/ /   ▀▀▀▀██  | |        \___ \    / /\ \
-           \  /\  /   ▄██▀▀██  | |____    ____) |  / ____ \
-            \/  \/    ▀██▄▄██  |______|  |_____/  /_/    \_\
+	    __          __          _          _____
+	    \ \        / /         | |        / ____|     /\
+	     \ \  /\  / /  ▄▄▄▄▄   | |       | (___      /  \
+	      \ \/  \/ /   ▀▀▀▀██  | |        \___ \    / /\ \
+	       \  /\  /   ▄██▀▀██  | |____    ____) |  / ____ \
+	        \/  \/    ▀██▄▄██  |______|  |_____/  /_/    \_\
 
 
-      © WaLSA Team (www.WaLSA.team)
-     ---------------------------------------------------------------------------------
-      WaLSAtools v1.0
-      Documentation: www.WaLSA.tools
-      GitHub repository: www.github.com/WaLSAteam/WaLSAtools
-     ---------------------------------------------------------------------------------
-      Performing various spectral analyses on time-series (1D signal or [x,y,t] cube)
-      Methods:
-      (1) 1D analysis with: FFT (Fast Fourier Transform), Lomb-Scargle,
-                            Wavelet, or HHT (Hilbert-Huang Transform)
-      (2) 2D analysis: k-ω (with optional Fourier filtering) or B-ω diagrams
-     ---------------------------------------------------------------------------------
+	  © WaLSA Team (www.WaLSA.team)
+	 -----------------------------------------------------------------------------------
+	  WaLSAtools v1.0
+	  Documentation: www.WaLSA.tools
+	  GitHub repository: www.github.com/WaLSAteam/WaLSAtools
+	 -----------------------------------------------------------------------------------
+	  Performing various wave analysis techniques on
+	  (a) Single time series (1D signal or [x,y,t] cube)
+	      Methods:
+	      (1) 1D analysis with: FFT (Fast Fourier Transform), Wavelet,
+	                            Lomb-Scargle, or HHT (Hilbert-Huang Transform)
+	      (2) 3D analysis: k-ω (with optional Fourier filtering) or B-ω diagrams
+
+	  (b) Two time series (cross correlations between two signals)
+	      With: FFT (Fast Fourier Transform), Wavelet,
+	            Lomb-Scargle, or HHT (Hilbert-Huang Transform)
+	 ----------------------------------------------------------------------------
     ```
 
 !!! walsa-question "Installation issues"

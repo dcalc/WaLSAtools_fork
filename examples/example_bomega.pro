@@ -20,7 +20,7 @@ nt = n_elements(data[0,0,*])
 time = findgen(nt)*cadence
 
 ; create an eps file of the B-omega diagram for frequency and wavenumber ranges of interest
-WaLSAtools, /bomega, data=data, time=time, bmap=bmap, power=p, frequencies=f, barray=b, $
+WaLSAtools, /bomega, signal=data, time=time, bmap=bmap, power=p, frequencies=f, barray=b, $
             yrange=[1,20], /smooth, /threemin, /fivemin, eps='sample_data/b-omega', koclt=1, /ylog
 
 PRINT

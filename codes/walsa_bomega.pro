@@ -38,6 +38,18 @@
 ;   xtickinterval    x-asis (i.e., magnetic fields) tick intervals in G (default: 400 G)   
 ;   epsfilename:     if provided (as a string), an eps file of the k-ω diagram is made
 ;   mode:            outputted power mode: 0 = log(power) (default), 1 = linear power, 2 = sqrt(power) = amplitude
+; ---- detrending, and apodization parameters----
+;   apod:           extent of apodization edges (of a Tukey window); default 0.1
+;   nodetrendapod:  if set, neither detrending nor apodization is performed!
+;   pxdetrend:      subtract linear trend with time per pixel. options: 1=simple, 2=advanced; default: 2
+;   polyfit:        the degree of polynomial fit to the data to detrend it.
+;                   if set, instead of linear fit this polynomial fit is performed.
+;   meantemporal:   if set, only a very simple temporal detrending is performed by subtracting the mean signal from the signal.
+;                   i.e., the fitting procedure (linear or higher polynomial degrees) is omitted.
+;   meandetrend:    if set, subtract linear trend with time for the image means (i.e., spatial detrending)
+;   recon:          optional keyword that will Fourier reconstruct the input timeseries.
+;                   note: this does not preserve the amplitudes and is only useful when attempting 
+;                   to examine frequencies that are far away from the 'untrustworthy' low frequencies.
 ;
 ; + OUTPUTS:
 ;   power:          B-ω map, a stack of average power spectra (in magnetic-field bins)
@@ -57,7 +69,7 @@ pro walsa_bomega, datacube, Bmap, cadence=cadence, time=time, binsize=binsize, p
                   xrange=xrange, yrange=yrange, epsfilename=epsfilename, noy2=noy2, smooth=smooth, normalizedbins=normalizedbins, $
                   xtickinterval=xtickinterval, mode=mode
 
-if n_elements(cadence) eq 0 then cadence=round(walsa_mode(walsa_diff(time)))
+if n_elements(cadence) eq 0 then cadence=walsa_mode(walsa_diff(time))
 
 nx = N_ELEMENTS(datacube[*,0,0])
 ny = N_ELEMENTS(datacube[0,*,0])
@@ -80,6 +92,8 @@ nyb = N_ELEMENTS(Bmap[0,*,0])
 dimensions = GET_SCREEN_SIZE(RESOLUTION=resolution)
 xscreensize = dimensions[0]
 yscreensize = dimensions[1]
+IF (xscreensize le yscreensize) THEN smallest_screensize = xscreensize
+IF (yscreensize le xscreensize) THEN smallest_screensize = yscreensize
 
 if nx gt nxb OR ny gt nyb then begin
     print, ' [!] The datacube and B-map must have the same [x,y] size.'
@@ -93,16 +107,22 @@ if n_elements(noy2) eq 0 then noy2 = 0
 if n_elements(normalizedbins) eq 0 then normalizedbins = 0 else normalizedbins = 1 
 if n_elements(epsfilename) eq 0 then eps = 0 else eps = 1 
 if n_elements(xtickinterval) eq 0 then xtickinterval = 400 ; in G
-if not keyword_set(mode) then mode=0
+if n_elements(mode) eq 0 then mode=0
 if n_elements(xlog) eq 0 then xlog = 0
 if n_elements(ylog) eq 0 then ylog = 0
+if n_elements(nodetrendapod) eq 0 then nodetrendapod = 0 else nodetrendapod = 1
 
 Bmap = ABS(Bmap)
 
 brange = minmax(Bmap, /nan)
 nbin = floor((brange[1]-brange[0])/binsize)
 
-datacube = walsa_apodcube(datacube,0.1,1,2)
+; detrend and apodize the cube
+if nodetrendapod eq 0 then begin
+    print, ' '
+    print, ' -- Detrend and apodize the cube .....'
+    datacube=walsa_detrend_apod(datacube,apod,meandetrend,pxdetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,cadence=cadence) 
+endif
 
 frequencies = 1./(cadence*2)*findgen(nt/2+1)/(nt/2)
 nff=n_elements(frequencies)
@@ -197,7 +217,7 @@ if silent eq 0 then begin
         !y.ticklen=-0.025
     endif else begin
         if (xscreensize ge 1000) AND (yscreensize ge 1000) then begin 
-            WINdoW, 0, xsize=1000, ysize=1000, title='QUEEFF: k-omega diagram'
+            WINdoW, 0, xsize=1000, ysize=1000, title='B-omega diagram'
             !p.charsize=1.7
             !p.charthick=1
             !x.thick=2
@@ -206,7 +226,7 @@ if silent eq 0 then begin
             !y.ticklen=-0.025
         endif
         if (xscreensize lt 1000) OR  (yscreensize lt 1000) then begin 
-            WINdoW, 0, xsize=FIX(smallest_screensize*0.9), ysize=FIX(smallest_screensize*0.9), title='QUEEFF: k-omega diagram'
+            WINdoW, 0, xsize=FIX(smallest_screensize*0.9), ysize=FIX(smallest_screensize*0.9), title='B-omega diagram'
             !p.charsize=1
             !p.charthick=1
             !x.thick=2
@@ -231,7 +251,7 @@ if silent eq 0 then begin
     cgcolorbar, bottom=0, ncolors=255,  minrange=MIN(bopower[1:*,1:*],/nan), maxrange=MAX(bopower[1:*,1:*],/nan), /top, $
         ticknames=tickmarknames, yticklen=0.00001, position=positioncb, title=cbtitle
     
-    if EPS eq 1 then walsa_endeps, filename=epsfilename
+    if EPS eq 1 then walsa_endeps, filename=epsfilename, /noboundingbox
 endif
 
 power = bopower

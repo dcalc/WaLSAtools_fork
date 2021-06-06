@@ -20,7 +20,7 @@ device, decomposed=0
 ; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 if not eps then begin
-    window, 0, xs=1500, ys=800
+    window, 0, xs=1500, ys=800, title='WaLSAtools: power spectra'
     charsize = 3.3
     barthick = 15
     distbar = 15
@@ -38,16 +38,16 @@ endelse
 !x.thick=1.6
 !y.thick=1.6
 
-; range of frequency (in mHz), for plotting. 
-; if limit=0, it the power spectra are plotted for the full frequency range
+; define range of frequency (in mHz), for plotting. 
+; if limit=0, thne the power spectra are plotted over the full frequency range
 limit = 1
-limn = 0.8
-xr=[0.8,10]
+limn = 0.2
+xr=[0.2,10]
 
 pos = cgLayout([3,3], OXMargin=[10,4], OYMargin=[7,5], XGap=10, YGap=11)
 ; --------------------------------------------------------------------------------  
 ; Wavelet power spectrum: Morlet
-WaLSAtools, /wavelet, data=signal, time=time, power=ipower, frequencies=frequencies, significance=isig, mother='Morlet', mode=1, coi=icoi
+WaLSAtools, /wavelet, signal=signal, time=time, power=ipower, frequencies=frequencies, significance=isig, mother='Morlet', mode=1, coi=icoi
 
 iperiod = 1000./reform(frequencies) ; period in sec
 nt = n_elements(reform(ipower[*,0])) ; number of data points in time
@@ -66,8 +66,8 @@ sigi = ipower/isig
 ii = where(ipower lt 0., cii) & if cii gt 0 then ipower(ii) = 0. & ipower = 100.*ipower/max(ipower)
 xrg = minmax(itime) & yrg = [max(iperiod),min(iperiod)]
 loadct, 20
-walsa_image_plot, ipower, xrange=xrg, yrange=yrg, nobar=0, zrange=minmax(ipower,/nan), /ylog, /revx2ticks, $ ;
-          contour=0, /nocolor, yaxyy=8, ztitle='(a) Power (Morlet Wavelet)!C', xtitle='Time (s)', $
+walsa_image_plot, ipower, xrange=xrg, yrange=yrg, nobar=0, zrange=minmax(ipower,/nan), /ylog, $
+          contour=0, /nocolor, ztitle='(a) Power (Morlet Wavelet)!C', xtitle='Time (s)', $
           exact=1, aspect=0, cutaspect=0, barpos=1, zlen=-0.45, distbar=barthick, xticklen=-0.04, yticklen=-0.03, xxlen=-0.04, $
           barthick=barthick, charsize=charsize, position= [0.063666670, 0.588499991, 0.287, 0.91833335], ystyle=5
 
@@ -76,15 +76,16 @@ cgAxis, YAxis=1, YRange=[1000./yrg[0],1000./yrg[1]], ystyle=1, /ylog, title='Fre
 
 plots, itime, icoi, noclip=0, linestyle=0, thick=2, color=cgColor('Black')
 ncoi = n_elements(icoi) & y = fltarr(ncoi) & for j=0, ncoi-1 do y(j) = maxp
-sjcurvefill, itime, y, icoi, color = cgColor('Black'), thick=1, /LINE_FILL, ORIENTATION=45
-sjcurvefill, itime, y, icoi, color = cgColor('Black'), thick=1, /LINE_FILL, ORIENTATION=-45
+walsa_curvefill, itime, y, icoi, color = cgColor('Black'), thick=1, /LINE_FILL, ORIENTATION=45
+walsa_curvefill, itime, y, icoi, color = cgColor('Black'), thick=1, /LINE_FILL, ORIENTATION=-45
+
 cgContour, sigi, /noerase, levels=1.01, XTICKFORMAT="(A1)", YTICKFORMAT="(A1)", $
      xthick=1.e-40, ythick=1.e-40, xticklen=1.e-40, yticklen=1.e-40, xticks=1.e-40, yticks=1.e-40, $
      c_colors=[cgColor('Navy')], label=0, $
      c_linestyle=0, c_thick=1
 ; --------------------------------------------------------------------------------
 ; Wavelet power spectrum: DOG
-WaLSAtools, /wavelet, data=signal, time=time, power=ipower, frequencies=frequencies, significance=isig ,mother='DOG', mode=1, coi=icoi
+WaLSAtools, /wavelet, signal=signal, time=time, power=ipower, frequencies=frequencies, significance=isig ,mother='DOG', mode=1, coi=icoi
 
 iperiod = 1000./reform(frequencies)
 nt = n_elements(reform(ipower[*,0])) & nf = n_elements(reform(iperiod))
@@ -102,8 +103,8 @@ sigi = ipower/isig
 ii = where(ipower lt 0., cii) & if cii gt 0 then ipower(ii) = 0. & ipower = 100.*ipower/max(ipower)
 xrg = minmax(itime) & yrg = [max(iperiod),min(iperiod)]
 loadct, 20
-walsa_image_plot, ipower, xrange=xrg, yrange=yrg, nobar=0, zrange=minmax(ipower,/nan), /ylog, /revx2ticks, $ ;
-          contour=0, /nocolor, yaxyy=8, ztitle='(b) Power (Mexican-Hat Wavelet)!C', xtitle='Time (s)', $
+walsa_image_plot, ipower, xrange=xrg, yrange=yrg, nobar=0, zrange=minmax(ipower,/nan), /ylog, $
+          contour=0, /nocolor, ztitle='(b) Power (Mexican-Hat Wavelet)!C', xtitle='Time (s)', $
           exact=1, aspect=0, cutaspect=0, barpos=1, zlen=-0.45, distbar=barthick, xticklen=-0.04, yticklen=-0.03, xxlen=-0.04, $
           barthick=barthick, charsize=charsize, position= [0.063666670, 0.087499991, 0.287, 0.40833335], ystyle=5
 
@@ -112,8 +113,9 @@ cgAxis, YAxis=1, YRange=[1000./yrg[0],1000./yrg[1]], ystyle=1, /ylog, title='Fre
 
 plots, itime, icoi, noclip=0, linestyle=0, thick=2, color=cgColor('Black')
 ncoi = n_elements(icoi) & y = fltarr(ncoi) & for j=0, ncoi-1 do y(j) = maxp
-sjcurvefill, itime, y, icoi, color = cgColor('Black'), thick=1, /LINE_FILL, ORIENTATION=45
-sjcurvefill, itime, y, icoi, color = cgColor('Black'), thick=1, /LINE_FILL, ORIENTATION=-45
+walsa_curvefill, itime, y, icoi, color = cgColor('Black'), thick=1, /LINE_FILL, ORIENTATION=45
+walsa_curvefill, itime, y, icoi, color = cgColor('Black'), thick=1, /LINE_FILL, ORIENTATION=-45
+
 cgContour, sigi, /noerase, levels=1.01, XTICKFORMAT="(A1)", YTICKFORMAT="(A1)", $
      xthick=1.e-40, ythick=1.e-40, xticklen=1.e-40, yticklen=1.e-40, xticks=1.e-40, yticks=1.e-40, $
      c_colors=[cgColor('Navy')], label=0, $
@@ -121,7 +123,8 @@ cgContour, sigi, /noerase, levels=1.01, XTICKFORMAT="(A1)", YTICKFORMAT="(A1)", 
 ; --------------------------------------------------------------------------------
 cgColorFill, [0.345, 1., 1., 0.345], [0, 0, 1, 1], /NORMAL, COLOR='WT2'
 ; --------------------------------------------------------------------------------
-acube = (reform(walsa_apodcube(signal))+mean(signal))/100
+; Plot the detrended & apodized light curve
+acube = (reform(walsa_detrend_apod(signal))+mean(signal))/100
 title='(c) Time series'
 cgplot, time, acube, Thick=2, Color=cgColor('DodgerBlue'), xtitle='Time (s)', charsize=charsize, xticklen=-0.06, pos=pos[*,1], $
     xs=1, yr=[min(reform(acube))-1.50, max(reform(acube))+1.50], /NOERASE, ytitle='DN (arb. unit)'
@@ -131,7 +134,7 @@ note = 'linearly detrended & apodized with Tukey window'
 xyouts, min(time)+((max(time)-min(time))/2.), max(reform(acube))+0.2, ALIGNMENT=0.5, CHARSIZE=charsize/2.55, /data, note, color=cgColor('Black')
 ; --------------------------------------------------------------------------------
 ; FFT power spectrum
-WaLSAtools, /fft, data=signal, time=time, power=pm, frequencies=frequencies, significance=significance, mode=1, nperm=5000
+WaLSAtools, /fft, signal=signal, time=time, power=pm, frequencies=frequencies, significance=significance, mode=1, nperm=5000
 
 if limit then pm1 = pm[where(frequencies ge limn and frequencies le 10)] 
 pm = 100.*pm/max(pm1)
@@ -151,7 +154,7 @@ cgPlots, [loc[0],loc[0]+0.75], [loc[1],loc[1]], linestyle=3, color=cgColor('Blac
 xyouts, loc[0]-0.2, loc[1]-3.0, '95% confidence level', ALIGNMENT=1, CHARSIZE=charsize/2.5, /data, color=cgColor('Black')
 ; --------------------------------------------------------------------------------
 ; Global Wavelet power spectrum: Morlet (m=6)
-WaLSAtools, /wavelet, data=signal, time=time, power=pm, frequencies=frequencies, significance=significance, mode=1, /global, nperm=5000
+WaLSAtools, /wavelet, signal=signal, time=time, power=pm, frequencies=frequencies, significance=significance, mode=1, /global, nperm=5000, mother='Morlet'
 
 if limit then pm1 = pm[where(frequencies ge limn and frequencies le 10)]
 pm = 100.*pm/max(pm1)
@@ -167,7 +170,7 @@ xyouts, xr[0]+((xr[1]-xr[0])/2.), 135, ALIGNMENT=0.5, CHARSIZE=charsize/2., /dat
 oplot, frequencies, 100.*significance/max(pm1), color=cgColor('Black'), linest=3, Thick=2
 
 ; Global Wavelet power spectrum: DOG (the real-valued Mexican hat wavelet; m=2)
-WaLSAtools, /wavelet, data=signal, time=time, power=pm, frequencies=frequencies, significance=significance, mode=1, /global, nperm=5000, mother='DOG'
+WaLSAtools, /wavelet, signal=signal, time=time, power=pm, frequencies=frequencies, significance=significance, mode=1, /global, nperm=5000, mother='DOG'
 
 if limit then pm1 = pm[where(frequencies ge limn and frequencies le 10)]
 pm = 100.*pm/max(pm1)
@@ -182,7 +185,7 @@ for fac=0L, 1 do begin
 endfor
 ; --------------------------------------------------------------------------------
 ; Lomb-scargle power spectrum: suitable for unevenly sampled data.
-WaLSAtools, /lomb, data=signal, time=time, power=pm, frequencies=frequencies, significance=significance, mode=1, nperm=5000
+WaLSAtools, /lomb, signal=signal, time=time, power=pm, frequencies=frequencies, significance=significance, mode=1, nperm=5000
 
 if limit then pm1 = pm[where(frequencies ge limn and frequencies le 10)]
 pm = 100.*pm/max(pm1)
@@ -197,12 +200,12 @@ oplot, frequencies, 100.*significance/max(pm1), color=cgColor('Black'), linest=3
 sjhline, 105, color=cgColor('Black')
 xyouts, xr[0]+((xr[1]-xr[0])/2.), 135, ALIGNMENT=0.5, CHARSIZE=charsize/2., /data, title, color=cgColor('Black')
 ; --------------------------------------------------------------------------------
-; Global Wavelet power spectrum inside COI: Morlet m=6
-WaLSAtools, /wavelet, data=signal, time=time, power=pm, frequencies=frequencies, significance=significance, mode=1, /insideCOI, nperm=5000
+; Sensible Wavelet power spectrum (power-weighted frequency distribution with significant power & unaffected by CoI): Morlet m=6
+WaLSAtools, /wavelet, signal=signal, time=time, power=pm, frequencies=frequencies, significance=significance, mode=1, /sensible, mother='Morlet'
 
 if limit then pm1 = pm[where(frequencies ge limn and frequencies le 10)]
 pm = 100.*pm/max(pm1)
-title='(e) Global Wavelet (inside COI)'
+title='(e) Sensible Wavelet'
 cgplot, frequencies, pm, yr=[0,119], XTICKINTERVAL=1, xr=xr, xminor=4, charsize=charsize, xticklen=-0.06, pos=pos[*,7], $
     /NOERASE, YTICKINTERVAL=30, xtitle='Frequency (mHz)', ytitle='Power'
 cgColorFill, [3.0303030,3.7037036,3.7037036,3.0303030], [0,0,105.,105.], Color='Papaya' ; 5-min band
@@ -213,8 +216,8 @@ oplot, frequencies, 100.*significance/max(pm1), color=cgColor('Black'), linest=3
 sjhline, 105, color=cgColor('Black')
 xyouts, xr[0]+((xr[1]-xr[0])/2.), 135, ALIGNMENT=0.5, CHARSIZE=charsize/2., /data, title, color=cgColor('Black')
 
-; Global Wavelet power spectrum inside COI: DOG m=2 (Mexican hat)
-WaLSAtools, /wavelet, data=signal, time=time, power=pm, frequencies=frequencies, significance=significance, mode=1, /insideCOI, nperm=5000, mother='DOG'
+; Sensible Wavelet power spectrum (power-weighted frequency distribution with significant power & unaffected by CoI): DOG m=2 (Mexican hat)
+WaLSAtools, /wavelet, signal=signal, time=time, power=pm, frequencies=frequencies, significance=significance, mode=1, /sensible, mother='DOG'
 
 if limit then pm1 = pm[where(frequencies ge limn and frequencies le 10)]
 pm = 100.*pm/max(pm1)
@@ -222,7 +225,7 @@ oplot, frequencies, pm, Thick=2, Color=cgColor('DarkGreen'), linestyle=2
 oplot, frequencies, 100.*significance/max(pm1), color=cgColor('Blue'), linest=4, Thick=2
 ; --------------------------------------------------------------------------------
 ; HHT power spectrum
-WaLSAtools, /hht, data=signal, time=time, power=pm, frequencies=frequencies, significance=significance, mode=1, /nosignificance, stdlimit=0.05
+WaLSAtools, /hht, signal=signal, time=time, power=pm, frequencies=frequencies, significance=significance, mode=1, nperm=50, stdlimit=0.05
 
 if limit then pm1 = pm[where(frequencies ge limn and frequencies le 10)]
 pm = 100.*pm/max(pm1)
@@ -233,12 +236,12 @@ cgColorFill, [3.0303030,3.7037036,3.7037036,3.0303030], [0,0,105.,105.], Color='
 cgColorFill, [4.7619047,6.6666665,6.6666665,4.7619047], [0,0,105.,105.], Color='Lavender' ; 3-min band
 sjvline, frequencies, color=cgColor('Navy'), yrange=[105,119]
 oplot, frequencies, pm, Thick=2, Color=cgColor('Red')
-
+oplot, frequencies, 100.*significance/max(pm1), color=cgColor('Black'), linest=3, Thick=2
 sjhline, 105, color=cgColor('Black')
 xyouts, xr[0]+((xr[1]-xr[0])/2.), 135, ALIGNMENT=0.5, CHARSIZE=charsize/2., /data, title, color=cgColor('Black')
 ; --------------------------------------------------------------------------------
 
-if eps then walsa_endeps, filename='sample_data/example_power_spectra'
+if eps then walsa_endeps, filename='sample_data/example_power_spectra', /noboundingbox
 
 !P.Multi = 0
 Cleanplot, /Silent

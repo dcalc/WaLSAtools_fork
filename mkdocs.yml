@@ -90,6 +90,8 @@ nav:
         - Power Spectra: power-spectra-example.md
         - k-&#969; Diagram and Filtering: k-omega-example.md
         - B-&#969; Diagram: B-omega-example.md
+        - Dominant Frequency: dominant-frequency-example.md
+        - Cross Correlations: cross-correlation-example.md
     - Under the Hood: 
         - Main Routines: routines.md
   - About:
@@ -164,3 +166,8 @@ markdown_extensions:
 
 extra_css:
   - theme/assets/stylesheets/extra.css
+
+extra_javascript:
+  - theme/javascripts/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

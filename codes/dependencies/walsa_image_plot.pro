@@ -1,24 +1,8 @@
-pro walsa_image_plot, aorig,xorig,yorig, $
-                   WINDOW_SCALE = window_scale, ASPECT = aspect, $
-                   INTERP = interp,contour=cont, $
-                   xrange=xrg_orig,yrange=yrg_orig,zrange=zrg_orig, $
-                   xtitle=xtitle,ytitle=ytitle,title=title,ztitle=ztitle, $
-                   _extra=_extra,zlog=zlog,only_colorbar=only_colorbar, $
-                   zticks=zticks,ztickv=ztickv,color_range=color_range, cblog=cblog, $
-                   transparent=transparent,position=position,label=label, $
-                   nvcolor=nvcolor,barpos=barpos,cutaspect=cutaspect, $
-                   retpos=retpos,integerzoom=integerzoom,onlypos=onlypos, $
-                   outside=outside,posnorm=posnorm, $
-                   noxval=noxval, noyval=noyval, distbar=distbar, barthick=barthick, $
-                   zlen=zlen, levels=levels, oc_color=oc_color, oc_thick=oc_thick, $
-                   oc_linestyle=oc_linestyle, nobar=nobar, oc_im=oc_im, oc_nlevels=oc_nlevels, $
-                   barzrange=barzrange, cumulative=cumulative, oc_fill=oc_fill, noy2axis=noy2axis, $
-                   BARZTICKINTERVAL=BARZTICKINTERVAL, revy2ticks=revy2ticks, revx2ticks=revx2ticks, $
-                   C_ORIENTATION=C_ORIENTATION, C_SPACING=C_SPACING, yaxyy=yaxyy, charsize=charsize, $
-                   xxlen=xxlen, zminor=zminor, nocolor=nocolor, cbfac=cbfac
 ;+
 ; NAME:
-;   IMAGE_CONT
+;   WaLSA_image_plot
+;   part of -- WaLSAtools --
+;	modified version of IMAGE_CONT (from Andreas Lagg)
 ;
 ; PURPOSE:
 ;   Overlay an image and a contour plot.
@@ -80,13 +64,36 @@ pro walsa_image_plot, aorig,xorig,yorig, $
 ; Copyright (c) 1988-2003, Research Systems, Inc. 
 ; Modifications by Shahin Jafarzadeh 2010-2021
 ;-
- 
+pro walsa_image_plot, aorig,xorig,yorig, $
+                   WINDOW_SCALE = window_scale, ASPECT = aspect, $
+                   INTERP = interp,contour=cont, $
+                   xrange=xrg_orig,yrange=yrg_orig,zrange=zrg_orig, $
+                   xtitle=xtitle,ytitle=ytitle,title=title,ztitle=ztitle, $
+                   _extra=_extra,zlog=zlog,only_colorbar=only_colorbar, $
+                   zticks=zticks,ztickv=ztickv,color_range=color_range, cblog=cblog, $
+                   transparent=transparent,position=position,label=label, $
+                   nvcolor=nvcolor,barpos=barpos,cutaspect=cutaspect, $
+                   retpos=retpos,integerzoom=integerzoom,onlypos=onlypos, $
+                   outside=outside,posnorm=posnorm, $
+                   noxval=noxval, noyval=noyval, distbar=distbar, barthick=barthick, $
+                   zlen=zlen, levels=levels, oc_color=oc_color, oc_thick=oc_thick, $
+                   oc_linestyle=oc_linestyle, nobar=nobar, oc_im=oc_im, oc_nlevels=oc_nlevels, $
+                   barzrange=barzrange, cumulative=cumulative, oc_fill=oc_fill, noy2axis=noy2axis, nox2axis=nox2axis, $
+                   BARZTICKINTERVAL=BARZTICKINTERVAL, revy2ticks=revy2ticks, revx2ticks=revx2ticks, $
+                   C_ORIENTATION=C_ORIENTATION, C_SPACING=C_SPACING, yaxyy=yaxyy, charsize=charsize, $
+                   xxlen=xxlen, yylen=yylen, zminor=zminor, nocolor=nocolor, cbfac=cbfac, resample=resample
+
   if n_elements(aorig) eq 0 then begin
     message,/cont,'No array specified.'
     return
   endif
   
   if n_elements(label) eq 0 then label=1
+  if n_elements(resample) eq 0 then resample=1 ; resampling factor
+  
+  nx = n_elements(aorig[*,0])
+  ny = n_elements(aorig[0,*])
+  aorig = congrid(iris_histo_opt(aorig),nx*resample, ny*resample, /INTERP, /CENTER, /MINUS_ONE,cubic=-0.5)
   
   ;do scaling if zrange is present
   a=aorig
@@ -109,11 +116,15 @@ pro walsa_image_plot, aorig,xorig,yorig, $
   if not (keyword_set(oc_nlevels)) then oc_nlevels=1
   if not (keyword_set(cbfac)) then cbfac=1
 
-  if n_elements(revx2ticks) eq 0 then revx2ticks=0
+  if n_elements(nox2axis) eq 0 then nox2axis=0
   if n_elements(noy2axis) eq 0 then noy2axis=0
+  if n_elements(revx2ticks) eq 0 then revx2ticks=0
   if n_elements(revy2ticks) eq 0 then revy2ticks=0
   
   if n_elements(xxlen) eq 0 then xxlen=0
+  if n_elements(yylen) eq 0 then yylen=0
+  
+  if n_elements(charsize) eq 0 then charsize=1.
   
   if n_elements(xrg_orig) eq 2 then xrange=xrg_orig
   if n_elements(yrg_orig) eq 2 then yrange=yrg_orig
@@ -575,25 +586,26 @@ pro walsa_image_plot, aorig,xorig,yorig, $
     end
   endcase
   
-  xtl=!x.ticklen & ytl=!y.ticklen
+  xtl=!x.ticklen
+  ytl=!y.ticklen
   if xtl eq 0 then xtl = xxlen
+  if xtl eq 0 then ytl = yylen
   
   if noxval then axis,xaxis=xax1,0,posx1,/xst,xtitle=xtitle,_extra=_extra, color=cgColor('Black'), xtickformat='(A1)',charsize=charsize else $
   axis,xaxis=xax1,0,posx1,/xst,xtitle=xtitle,_extra=_extra, color=cgColor('Black'),charsize=charsize
   
-  if noy2axis eq 0 then begin
-      if revx2ticks eq 1 then axis,xaxis=xax2,0,posx2,/xst,_extra=exx,xtickname=xtn, xticklen=(-1)*xtl, color=cgColor('Black'),charsize=charsize else $
-          axis,xaxis=xax2,0,posy2,/xst,_extra=exx,xtickname=xtn, color=cgColor('Black'), xticklen=0.00001,charsize=0.00001
-  endif
-  
   if noyval then axis,yaxis=yax1,posy1,/yst,ytitle=ytitle,_extra=_extra, color=cgColor('Black'), ytickformat='(A1)',charsize=charsize else $
   axis,yaxis=yax1,posy1,/yst,ytitle=ytitle,_extra=_extra, color=cgColor('Black'),charsize=charsize
   
-  if n_elements(yaxyy) eq 0 then yaxyy = 0
-  if yaxyy eq 0 then begin
-  if revy2ticks eq 1 then axis,yaxis=yax2,posy2,/yst,_extra=exy,ytickname=ytn, yticklen=(-1)*ytl, color=cgColor('Black'),charsize=charsize else $
-      print, ' '
-  endif else axis,yaxis=yax2,posy2,/yst,_extra=exy,ytickname=ytn,color=cgColor('Black'),charsize=charsize
+  if nox2axis eq 0 then begin
+      if revx2ticks eq 1 then axis,xaxis=1, 0,posx2,/xst,_extra=exx,xtickname=xtn, xticklen=(-1)*xtl, color=cgColor('Black'),charsize=charsize else $
+          axis, xaxis=1, 0, posx2,/xst,_extra=exx, xtickname=xtn, xticklen=xtl, color=cgColor('Black'),charsize=charsize
+  endif else axis, xaxis=1, 0, posx2,/xst,_extra=exx,xtickname=xtn, color=cgColor('Black'), xticklen=0.00001,charsize=0.00001
+  
+  if noy2axis eq 0 then begin
+      if revy2ticks eq 1 then axis,yaxis=1,posy2,/yst,_extra=exx,ytickname=ytn, yticklen=(-1)*ytl, color=cgColor('Black'),charsize=charsize else $
+          axis,yaxis=1,posy2,/yst,_extra=exx, ytickname=ytn, yticklen=ytl, color=cgColor('Black'),charsize=charsize
+  endif else axis,yaxis=1,posy2,/yst,_extra=exx,ytickname=ytn, color=cgColor('Black'), yticklen=0.00001,charsize=0.00001
   
   return
 end
