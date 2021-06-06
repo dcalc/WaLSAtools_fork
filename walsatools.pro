@@ -14,7 +14,7 @@
 ;                     Lomb-Scargle, or HHT (Hilbert-Huang Transform
 ;
 ; CALLING SEQUENCE:
-;   IDL> WaLSAtools
+;   IDL> WaLSAtools 
 ;   Type WaLSAtools in IDL for further information (and all keywords)
 ;
 ; Documentation and info: www.WaLSA.tools
@@ -24,7 +24,7 @@
 ;-
 
 pro walsatools,$
-; (1) 1D analysis with: FFT, Wavelet, Long-Scargle, EMD, or HHT:
+; (1) 1D analysis with: FFT, Wavelet, Long-Scargle, EMD, or HHT: 
 signal=signal,time=time,$ ; main inputs
 power=power, frequencies=frequencies, significance=significance, coi=coi, averagedpower=averagedpower,$ ; main (additional) outputs
 fft=fft, lombscargle=lombscargle, wavelet=wavelet, hht=hht,$ ; type of analysis
