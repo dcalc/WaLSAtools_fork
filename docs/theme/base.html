@@ -1,11 +1,11 @@
-{#-
-  This file was automatically generated - do not edit
--#}
-{% import "partials/language.html" as lang with context %}
 <?php
 $users = array('{{ config.extra.username }}' => '{{ config.extra.password }}');
 require_once('{{ base_url }}/basic_auth.php');
 ?>
+{#-
+  This file was automatically generated - do not edit
+-#}
+{% import "partials/language.html" as lang with context %}
 <!doctype html>
 <html lang="{{ lang.t('language') }}" class="no-js">
   <head>
