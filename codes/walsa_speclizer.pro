@@ -556,7 +556,7 @@ function getpowerWAVELET,cube,cadence,dj=dj,mother=mother,siglevel=siglevel,glob
             for i=0L, nt-1 do begin
                 pcol = reform(power[i,*])
                 ii = where(reform(period) lt coi[i], pnum)
-                if pnum gt 0 then ipower(i,ii) = pcol(ii)
+                if pnum gt 0 then ipower[i,ii] = pcol[ii]
             endfor
             ipower = total(ipower,1,/nan)
             ftcube[ix,iy,*] = (ipower*padding); /frequencies[nf-1] ; in DN^2
