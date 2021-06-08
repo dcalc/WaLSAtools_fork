@@ -41,6 +41,8 @@ extra:
       name: Contact us
   disqus: ""
   manifest: manifest.webmanifest
+  username: "WaLSA Team"
+  password: "WaLSAtools@CaII8542"
   # version:
   #     provider: mike
 
