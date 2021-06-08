@@ -10,7 +10,7 @@ Here is an example of the **WaLSAtools** application on calculating cross correl
 
 !!! walsa-example "Co-spectrum, coherence, and phase difference for two pixels at `[233,231]` and `[231,238]` of the AIA 170 nm sample datacube" 
 
-	To learn how **WaLSAtools** is employed to compute and plot the Co-spectrum, coherence, and phase difference (using both FFT and Wavelet) in this example, please go through its source code accessible at the bottom of this page. 
+	To learn how **WaLSAtools** is employed to compute and plot the co-spectrum, coherence, and phase difference (using both FFT and Wavelet analysis methods) in this example, please go through its source code accessible at the bottom of this page. 
 	The example IDL procedure can also be found under the `example` directory of the package. The sample datacubes are located in the `sample_data` folder under the `example` directory. 
 	To run the example code, simply type the following command (while in the `example` directory, which can be placed anywhere in your machine, also outside your `IDL PATH`) and press ++enter++ 
 
