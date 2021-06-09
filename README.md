@@ -15,5 +15,6 @@ WaLSAtools is a collection of IDL codes, developed and provided by the [**WaLSA 
 
 See the documentation at **[https://WaLSA.tools](https://WaLSA.tools)** for **getting started guides**, **descriptions**, **examples**, and all information about **WaLSAtools**.
 
-**User:** WaLSA
-**Password:** WaLSA@8542
+**User:** `WaLSA`
+
+**Password:** `WaLSA@8542`
