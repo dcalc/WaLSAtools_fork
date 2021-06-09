@@ -71,7 +71,7 @@ In the following example, **WaLSAtools** is performed to calculate mean power sp
     
     The figure below displays the results of the **FFT** analysis. The left panel shows the average power spectrum (averaged over all power spectra calculated at individual pixels), the right panel illustrates the dominant frequency map (i.e., the dominant frequency at all pixels of the field of view).
 	The average power spectrum is plotted with a frequency range from the lowest detectable frequency (i.e., fundamental frequency) to 10 mHz (above which no power was found), and the power is normalised to its maximum value.
-	The dominant frequency maps are calculated within the 0.4 and 10 mHz frequency range (i.e., slow variations, which are likely due to intrinsic evolution of the magnetic fields and not oscillations, do not enter our calculations).
+	The dominant frequency maps are calculated within the 0.4 and 10 mHz frequency range (i.e., slow variations, which are likely due to intrinsic evolution of the magnetic fields and not oscillations, are excluded).
     
     ![dfFFT]
 
