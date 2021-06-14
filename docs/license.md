@@ -74,7 +74,7 @@ Everyone is permitted to copy and distribute verbatim copies of this license doc
 
 ## This Documentation 
 
-This documentation is generated using [MkDocs][3]{target=_blank}, building the static HTML site from Markdown files.
+This documentation is generated using [MkDocs][3]{target=_blank} (building the static HTML site from Markdown files), hosted on [GitHub][6]{target=_blank}, and deployed to [GitHub Pages][5]{target=_blank} (accessible through our custom domain [WaLSA.tools][7]). 
 
 ```
 Copyright © 2014-present, Tom Christie. All rights reserved.
@@ -103,5 +103,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   [2]: https://bit.ly/37mx9ic
   [3]: https://github.com/mkdocs/mkdocs/
   [4]: https://github.com/squidfunk/mkdocs-material
+  [5]: https://pages.github.com
+  [6]: https://github.com
+  [7]: https://WaLSA.tools
 
 <br>
