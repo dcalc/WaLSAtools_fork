@@ -97,7 +97,7 @@ function getpowerHHT,cube,cadence,stdlimit,nfilter=nfilter,significance=signific
                      frequencies=frequencies,nosignificance=nosignificance,emd=emd,imf=imf,instantfreq=instantfreq,averagedpower=averagedpower,$
                      dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,amplitude=amplitude,$
                      originalcube=originalcube,apod=apod,nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,$
-                     meantemporal=meantemporal,recon=recon
+                     meantemporal=meantemporal,recon=recon,silent=silent
   ; Hilbert-Huang Transform (HHT) power spectra
   
   if padding gt 1 then begin ; zero padding (optional): to increase frequency resolution
@@ -213,7 +213,7 @@ function getpowerLS,cube,time,OFAC=OFAC,siglevel=siglevel,frequencies=frequencie
                     nosignificance=nosignificance,averagedpower=averagedpower,amplitude=amplitude,originalcube=originalcube,$
                     dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,$
                     apod=apod,nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,$
-                    meantemporal=meantemporal,recon=recon
+                    meantemporal=meantemporal,recon=recon,silent=silent
   ; Lomb-scargle power spectra
   ; The periodogram values (from LNP_TEST) are converted to power (comparable to FFT values) by myltiplying
   ; with 2.*variance(signal,/double)/nt (see Numerical Recipes in C: The Art of Scientific Computing; Press at al. 2007)
@@ -291,7 +291,7 @@ end
 ;----------------------------------- FOURIER ----------------------------------
 function getpowerFFT,cube,cadence,siglevel=siglevel,padding=padding,frequencies=frequencies,significance=significance,$
                      nperm=nperm,nosignificance=nosignificance,averagedpower=averagedpower,amplitude=amplitude,originalcube=originalcube,$
-                     dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,apod=apod,$
+                     dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,apod=apod,silent=silent,$
                      nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon
   ; Fast Fourier Transform (FFT) power spectra
   
@@ -689,7 +689,7 @@ if fft then begin
     power=getpowerFFT(apocube,cadence,siglevel=siglevel,padding=padding,frequencies=frequencies,significance=significance,averagedpower=averagedpower,$
         nperm=nperm,nosignificance=nosignificance,dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,$
         amplitude=amplitude,originalcube=cube,apod=apod,nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,$
-        meantemporal=meantemporal,recon=recon)
+        meantemporal=meantemporal,recon=recon,silent=silent)
 endif
 
 if lombscargle then begin
@@ -700,7 +700,7 @@ if lombscargle then begin
 	endif
     power=getpowerLS(apocube,time,OFAC=padding,siglevel=siglevel,frequencies=frequencies,significance=significance,averagedpower=averagedpower,amplitude=amplitude,$
         nperm=nperm,nosignificance=nosignificance,dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,originalcube=cube,$
-        apod=apod,nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon)
+        apod=apod,nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,silent=silent)
 endif
 
 if wavelet then begin
@@ -724,7 +724,7 @@ if hht then begin
     power=getpowerHHT(apocube,cadence,stdlimit,nfilter=nfilter,significance=significance,siglevel=siglevel,nperm=nperm,originalcube=cube,$
         padding=padding,frequencies=frequencies,nosignificance=nosignificance,emd=emd,imf=imf,instantfreq=instantfreq,amplitude=amplitude,$
         dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,averagedpower=averagedpower,$
-        apod=apod,nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon)
+        apod=apod,nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,silent=silent)
 endif
 
 period = 1000./frequencies

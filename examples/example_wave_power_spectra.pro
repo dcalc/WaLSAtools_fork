@@ -241,7 +241,7 @@ sjhline, 105, color=cgColor('Black')
 xyouts, xr[0]+((xr[1]-xr[0])/2.), 135, ALIGNMENT=0.5, CHARSIZE=charsize/2., /data, title, color=cgColor('Black')
 ; --------------------------------------------------------------------------------
 
-if eps then walsa_endeps, filename='sample_data/example_power_spectra', /noboundingbox
+if eps then walsa_endeps, filename='~/example_power_spectra', /noboundingbox
 
 !P.Multi = 0
 Cleanplot, /Silent
