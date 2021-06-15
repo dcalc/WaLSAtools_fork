@@ -447,10 +447,10 @@ We strongly encourage all users to perform their analyses by running **WaLSAtool
 		      recon:           optional keyword that will Fourier reconstruct the input timeseries
 		                       note: this does not preserve the amplitudes and is only useful when attempting
 		                       to examine frequencies that are far away from the -untrustworthy- low frequencies
-		      stdlimit:        standard deviation to be achieved before accepting an IMF
-		                       (recommended value between 0.2 and 0.3; perhaps even smaller); default: 0.2
-		      nfilter:         Hanning window width for two dimensional smoothing of the Hilbert spectrum. default: 3
-		                       (an odd integer, preferably equal to or larger than 3; equal to 0 to avoid the windowing)
+		      n_segments:      number of euqal segments (to which both datasets are broken prior to the analyses; default: 1)
+		                       Each of these segments is considered an independent realisation of the underlying process.
+		                       The cross spectrum for each segement are averaged together to provide phase and coherence
+		                       estimates at each frequency.
 		      siglevel:        significance level (default: 0.05 = 5% significance = 95% confidence)
 		      nperm:           number of random permutations for the significance test (default: 50)
 		                       note: the default value is set for quick tests. Choose a large number
@@ -576,10 +576,10 @@ We strongly encourage all users to perform their analyses by running **WaLSAtool
 		      recon:           optional keyword that will Fourier reconstruct the input timeseries
 		                       note: this does not preserve the amplitudes and is only useful when attempting
 		                       to examine frequencies that are far away from the -untrustworthy- low frequencies
-		      stdlimit:        standard deviation to be achieved before accepting an IMF
-		                       (recommended value between 0.2 and 0.3; perhaps even smaller); default: 0.2
-		      nfilter:         Hanning window width for two dimensional smoothing of the Hilbert spectrum. default: 3
-		                       (an odd integer, preferably equal to or larger than 3; equal to 0 to avoid the windowing)
+		      n_segments:      number of euqal segments (to which both datasets are broken prior to the analyses; default: 1)
+		                       Each of these segments is considered an independent realisation of the underlying process.
+		                       The cross spectrum for each segement are averaged together to provide phase and coherence
+		                       estimates at each frequency.
 		      siglevel:        significance level (default: 0.05 = 5% significance = 95% confidence)
 		      nperm:           number of random permutations for the significance test (default: 50)
 		                       note: the default value is set for quick tests. Choose a large number
@@ -628,6 +628,10 @@ We strongly encourage all users to perform their analyses by running **WaLSAtool
 		      recon:           optional keyword that will Fourier reconstruct the input timeseries
 		                       note: this does not preserve the amplitudes and is only useful when attempting
 		                       to examine frequencies that are far away from the -untrustworthy- low frequencies
+		      n_segments:      number of euqal segments (to which both datasets are broken prior to the analyses; default: 1)
+		                       Each of these segments is considered an independent realisation of the underlying process.
+		                       The cross spectrum for each segement are averaged together to provide phase and coherence
+		                       estimates at each frequency.
 		      stdlimit:        standard deviation to be achieved before accepting an IMF
 		                       (recommended value between 0.2 and 0.3; perhaps even smaller); default: 0.2
 		      nfilter:         Hanning window width for two dimensional smoothing of the Hilbert spectrum. default: 3

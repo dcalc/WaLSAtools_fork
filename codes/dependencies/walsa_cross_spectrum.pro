@@ -48,6 +48,10 @@
 ;   nfilter:        Hanning window width for two dimensional smoothing of the Hilbert spectrum. default: 3 
 ;                   (an odd integer, prefrabely equal to or larger than 3; equal to 0 to avoid the windowing)
 ;
+;	n_segments:     number of euqal segments (to which both datasets are broken prior to the analyses; default: 1)
+;					Each of these segments is considered an independent realisation of the underlying process. 
+;					The cross spectrum for each segement are averaged together to provide phase and coherence estimates at each frequency.
+;
 ; + OUTPUTS:
 ;
 ;   cospectrum:     co-spectrum, i.e., magnitude of the complex cross spectrum
@@ -56,6 +60,8 @@
 ;   coherence:      coherence of two series
 ;   signif_cross:   significance levels for the cospectrum (1D array)
 ;   signif_coh:     significance levels for the coherence (1D array)
+;	d1_power:		power spectrum of data1
+;	d2_power:		power spectrum of data2
 ;
 ;  Shahin Jafarzadeh & David B. Jess | WaLSA Team
 ;  + some routines/recipe from CROSS_SPECTRUM.pro of Simon Vaughan

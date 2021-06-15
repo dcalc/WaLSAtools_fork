@@ -429,6 +429,12 @@ if help then begin
             PRINT,'   recon:           optional keyword that will Fourier reconstruct the input timeseries'
             PRINT,'                    note: this does not preserve the amplitudes and is only useful when attempting'
             PRINT,'                    to examine frequencies that are far away from the -untrustworthy- low frequencies'
+            PRINT,'   n_segments:      number of euqal segments (to which both datasets are broken prior to the analyses; default: 1)'
+            PRINT,'                    Each of these segments is considered an independent realisation of the underlying process.'
+            PRINT,'                    The cross spectrum for each segement are averaged together to provide phase and coherence '
+            PRINT,'                    estimates at each frequency.'
+		endif
+		if c1type eq 4 then begin
             ; ----HHT parameters/options----
             PRINT,'   stdlimit:        standard deviation to be achieved before accepting an IMF'
             PRINT,'                    (recommended value between 0.2 and 0.3; perhaps even smaller); default: 0.2'
