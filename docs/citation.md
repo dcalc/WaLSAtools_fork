@@ -10,7 +10,7 @@ If you use **WaLSAtools** in your work, please cite it, as instructed below, in 
 
 ### Main articles:
 
-- Jafarzadeh, S., Jess, D. B., Stangalini, M., Keys, P. H., Centeno, R., Fleck, B., Gafeira, R., Grant, S. D. T., Jefferies, S. M., Khomenko E., Morton, R. J., Norton, A. A., Rajaguru, P., Schunker, H., Steiner, O., Sych, R., Verth, G. 2022, Nature Reviews Methods Primers, in preparation
+- WaLSA Team 2022, Nature Reviews Methods Primers, in preparation
 
 - Jess, D. B., Jafarzadeh, S., Keys, P. H., Stangalini, M., and Verth G. 2021, Living Reviews in Solar Physics, in preparation
 
