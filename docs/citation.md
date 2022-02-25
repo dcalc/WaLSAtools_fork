@@ -10,7 +10,7 @@ If you use **WaLSAtools** in your work, please cite it, as instructed below, in 
 
 ### Main articles:
 
-- WaLSA Team 2022, Nature Reviews Methods Primers, in preparation
+- WaLSA Team 2022, Nature Reviews Methods Primers, in preparation  
 
 - Jess, D. B., Jafarzadeh, S., Keys, P. H., Stangalini, M., and Verth G. 2021, Living Reviews in Solar Physics, in preparation
 
@@ -41,7 +41,7 @@ In addition, if you use any of the particular analysis techniques listed below, 
   ```
 <br>
 
-- **B-&#969; Diagram**: [Stangalini et al. 2021, Astronomy & Astrophysics, 649, A169][2]{target=_blank}
+- **B-&#969; Diagram**: [Stangalini et al. 2021, Astronomy & Astrophysics, 649, A169][2]{target=_blank} 
   ```
   @ARTICLE{2021A&A...649A.169S,
          author = {Stangalini, M. and Jess, D.~B. and Verth, G. and Fedun, V. and Fleck, B. and Jafarzadeh, S. and Keys, P.~H. and Murabito, M. and Calchetti, D. and Aldhafeeri, A.~A. and Berrilli, F. and Del Moro, D. and Jefferies, S.~M. and Terradas, J. and Soler, R.},
