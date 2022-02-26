@@ -7,7 +7,7 @@ title: Introduction
 
 ## Overview :material-telescope:
 
-**WaLSAtools** is a collection of analysis routines (currently available in [IDL][1]{target=_blank}), developed and provided by the [**WaLSA team**][2]{target=_blank}, for studying waves and oscillations, with a particular emphasis on such phenomena occurring in the lower atmosphere of the Sun.
+**WaLSAtools** is a collection of analysis routines (in both [IDL][1]{target=_blank} and [Python][9]{target=_blank} programming languages), collected, developed, and provided by the [**WaLSA team**][2]{target=_blank}, for studying waves and oscillations, with a particular emphasis on such phenomena occurring in the lower atmosphere of the Sun.
 
 The main goal is to develop suitable techniques for various aspects of wave studies in the lower solar atmosphere (and beyond) &#8212; facilitating reliability and reproducibility of such analyses.
 
@@ -154,11 +154,13 @@ Analyses of single time series also fall into two sections, one related to those
 
 Further analysis and visualising methods are being added to **WaLSAtools** over time. In particular, the following tools are currently under development:
 
-- Improving the **Dominant Frequency** method for cases with multiple strong power peaks (also, by adding uncertainty approximation).
+- Collecting and developing the Python codes, and make the two languages equivalent.
 
-- Adding other analysis methods, such as **Welch** and **ALIF**.
+- Improving the **Dominant Frequency** method for cases with multiple strong power peaks (also, by adding uncertainty approximation), in IDL.
 
-- Implementing other techniques in to the **k-&#969;** and **B-&#969;** analyses (currently FFT is the only spectral analysis method in those tools).
+- Adding other analysis methods, such as **Welch** and **ALIF**, in IDL.
+
+- Implementing other techniques in to the **k-&#969;** and **B-&#969;** analyses (currently FFT is the only spectral analysis method in those tools), in IDL.
 
 <br>
 
@@ -173,4 +175,5 @@ Further analysis and visualising methods are being added to **WaLSAtools** over 
   [6]: assets/pdf/QUEEFF_manual.pdf
   [7]: https://iopscience.iop.org/article/10.3847/1538-4357/aa73d6/pdf
   [8]: https://arxiv.org/pdf/2103.11639.pdf
+  [9]: https://www.python.org/about/
   
