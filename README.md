@@ -1,4 +1,4 @@
-## WaLSAtools: WaLSA Analysis Tools</strong>
+## WaLSAtools: WaLSA Analysis Tools
 
 <p align="left">
     <a href="#"><img src="https://img.shields.io/badge/WaLSAtools-v1.0-bd1a1f"></a> 
