@@ -3,13 +3,13 @@ site_name: WaLSA Analysis Tools
 site_description: Analysis tools for Waves in the Lower Solar Atmosphere (WaLSA)
 site_author: WaLSA Team (https://WaLSA.team)
 site_url: https://WaLSA.tools
-docs_dir: '../../docs/python'
+docs_dir: tree/master/docs/python
 
 # Repository
 repo_name: WaLSAtools
 repo_url: https://github.com/WaLSAteam/WaLSAtools
 # edit_uri: ""
-edit_uri: ../../tree/master/docs/python/
+edit_uri: tree/master/docs/python/
 
 # Copyright
 copyright: Copyright &copy; 2022 <a href="https://WaLSA.team" target="_blank">WaLSA Team</a>
@@ -57,7 +57,7 @@ extra:
 # Configuration
 theme:
   name: null
-  custom_dir: ../../docs/theme
+  custom_dir: tree/master/docs/theme
   # 404 page
   static_templates:
     - 404.html

@@ -9,7 +9,7 @@ docs_dir: '../../docs/idl'
 repo_name: WaLSAtools
 repo_url: https://github.com/WaLSAteam/WaLSAtools
 # edit_uri: ""
-edit_uri: ../../tree/master/docs/idl/
+edit_uri: tree/master/docs/idl/
 
 # Copyright
 copyright: Copyright &copy; 2022 <a href="https://WaLSA.team" target="_blank">WaLSA Team</a>
@@ -57,7 +57,7 @@ extra:
 # Configuration
 theme:
   name: null
-  custom_dir: ../../docs/theme
+  custom_dir: tree/master/docs/theme
   # 404 page
   static_templates:
     - 404.html
