@@ -43,6 +43,13 @@ extra:
   manifest: manifest.webmanifest
   username: "WaLSA Team"
   password: "WaLSAtools@CaII8542"
+  alternate:
+    - name: IDL
+      link: /idl/ 
+      lang: en
+    - name: Python
+      link: /python/
+      lang: en
   # version:
   #     provider: mike
 
