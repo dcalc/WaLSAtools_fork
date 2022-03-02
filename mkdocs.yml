@@ -62,10 +62,14 @@ theme:
     - navigation.instant
     - navigation.sections
     - navigation.tabs
+    # - navigation.tabs.sticky
     - navigation.top
     - search.highlight
     - search.suggest
-    # - toc.integrate
+    - toc.integrate
+    - navigation.indexes
+    - navigation.tracking
+    # - navigation.expand
   palette:
     scheme: default
     primary: deep-orange
@@ -109,8 +113,8 @@ nav:
 # Plugins
 plugins:
   - search
-#   - minify:
-#       minify_html: true
+# - minify:
+#     minify_html: true
 
 # Extensions
 markdown_extensions:
