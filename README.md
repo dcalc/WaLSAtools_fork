@@ -19,3 +19,7 @@ See the documentation at **[https://WaLSA.tools](https://WaLSA.tools)** for **ge
 :exclamation: The online documentation is currently password protected:<br/>
 **Username:** `WaLSA`<br/>
 **Password:** `WaLSA@8542`
+
+---
+
+### Link to working repository
