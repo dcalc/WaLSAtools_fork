@@ -46,10 +46,10 @@ extra:
   password: "WaLSAtools@CaII8542"
   alternate:
     - name: IDL
-      link: /idl/installation.md
+      link: /idl/installation
       lang: en
     - name: Python
-      link: /python/installation.md
+      link: /python/installation
       lang: en
   # version:
   #     provider: mike
@@ -68,7 +68,7 @@ theme:
   language: en
   features:
     - navigation.instant
-    # - navigation.sections
+    - navigation.sections
     - navigation.tabs
     # - navigation.tabs.sticky
     - navigation.top
