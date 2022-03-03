@@ -3,7 +3,7 @@
 <p align="left">
     <a href="#"><img src="https://img.shields.io/badge/WaLSAtools-v1.0-bd1a1f"></a> 
     <a href="https://walsa.team" title="" target="_blank"><img src="https://img.shields.io/badge/copyright-WaLSA%20Team-000d1a"></a>
-    <a href="#"><img src="https://img.shields.io/badge/license-MIT-yellow.svg"></a>
+    <a href="https://walsa.tools/license"><img src="https://img.shields.io/badge/license-MIT-yellow.svg"></a>
     <a href="https://github.com/WaLSAteam/WaLSAtools/actions/workflows/ci.yml"><img src="https://github.com/WaLSAteam/WaLSAtools/workflows/workflow/badge.svg"></a>
 </p>
 
