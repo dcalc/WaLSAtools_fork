@@ -4,6 +4,7 @@
     <a href="#"><img src="https://img.shields.io/badge/WaLSAtools-v1.0-bd1a1f"></a> 
     <a href="https://walsa.team" title="" target="_blank"><img src="https://img.shields.io/badge/copyright-WaLSA%20Team-000d1a"></a>
     <a href="#"><img src="https://img.shields.io/badge/license-MIT-yellow.svg"></a>
+    [![docs build and publish](https://github.com/WaLSAteam/WaLSAtools/workflows/workflow/badge.svg)](https://github.com/WaLSAteam/WaLSAtools/actions/workflows/ci.yml)
 </p>
 
 WaLSAtools is a collection of analysis routines (in both IDL and Python programming languages), collected and/or developed by the [**WaLSA team**](https://WaLSA.team), for studying waves and oscillations, with a particular emphasis on such phenomena occurring in the lower atmosphere of the Sun.
