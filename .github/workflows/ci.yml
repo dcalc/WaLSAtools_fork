@@ -1,4 +1,4 @@
-name: ci 
+name: workflow 
 on:
   push:
     branches:
