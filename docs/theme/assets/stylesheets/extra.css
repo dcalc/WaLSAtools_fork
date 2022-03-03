@@ -312,3 +312,10 @@
   width: 100% !important; 
   }
 }
+
+.md-grid {
+  max-width: 1440px;
+}
+/* .md-grid {
+  max-width: initial;
+} */
