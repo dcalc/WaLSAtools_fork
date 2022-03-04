@@ -1,7 +1,7 @@
 ## WaLSAtools: WaLSA Analysis Tools
 
 <p align="left">
-    <a href="#"><img src="https://img.shields.io/badge/WaLSAtools-v1.0-bd1a1f"></a> 
+    <a href="#"><img src="https://img.shields.io/badge/WaLSAtools-v1.0-0066cc"></a> 
     <a href="https://walsa.team" title="" target="_blank"><img src="https://img.shields.io/badge/copyright-WaLSA%20Team-000d1a"></a>
     <a href="https://walsa.tools/license"><img src="https://img.shields.io/badge/license-MIT-yellow.svg"></a>
     <a href="#"><img src="https://zenodo.org/badge/DOI/zenodo:%20tbd.svg"></a> 
