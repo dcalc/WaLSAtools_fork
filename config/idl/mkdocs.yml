@@ -3,7 +3,7 @@ site_name: WaLSA Analysis Tools
 site_description: Analysis tools for Waves in the Lower Solar Atmosphere (WaLSA)
 site_author: WaLSA Team (https://WaLSA.team)
 site_url: https://WaLSA.tools
-docs_dir: ../../docs
+docs_dir: ../../docs/idl
 
 # Repository
 repo_name: WaLSAtools
@@ -94,19 +94,19 @@ nav:
   - Home: index.md
   - Getting started:
     - Introduction: introduction.md
-    - Installation: idl/installation.md
-    - Setting IDL PATH: idl/setting-idl-path.md
-    - Troubleshooting: idl/troubleshooting.md
+    - Installation: installation.md
+    - Setting IDL PATH: setting-idl-path.md
+    - Troubleshooting: troubleshooting.md
   - Analysis Tools: 
-    - idl/WaLSAtools.md
+    - WaLSAtools.md
     - Examples:
-        - Power Spectra: idl/power-spectra-example.md
-        - k-&#969; Diagram and Filtering: idl/k-omega-example.md
-        - B-&#969; Diagram: idl/B-omega-example.md
-        - Dominant Frequency: idl/dominant-frequency-example.md
-        - Cross Correlations: idl/cross-correlation-example.md
+        - Power Spectra: power-spectra-example.md
+        - k-&#969; Diagram and Filtering: k-omega-example.md
+        - B-&#969; Diagram: B-omega-example.md
+        - Dominant Frequency: dominant-frequency-example.md
+        - Cross Correlations: cross-correlation-example.md
     - Under the Hood: 
-        - Main Routines: idl/routines.md
+        - Main Routines: routines.md
   - About:
     - Contribution: contribution.md
     - Development: development.md
