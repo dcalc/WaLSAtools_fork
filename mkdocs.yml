@@ -3,7 +3,6 @@ site_name: WaLSA Analysis Tools
 site_description: Analysis tools for Waves in the Lower Solar Atmosphere (WaLSA)
 site_author: WaLSA Team (https://WaLSA.team)
 site_url: https://WaLSA.tools
-docs_dir: ../../docs/idl
 
 # Repository
 repo_name: WaLSAtools
@@ -44,25 +43,15 @@ extra:
   manifest: manifest.webmanifest
   username: "WaLSA Team"
   password: "WaLSAtools@CaII8542"
-  alternate:
-    - name: IDL
-      link: /idl/
-      lang: en
-    - name: Python
-      link: /python/
-      lang: en
 
 # Configuration
 theme:
   name: null
-  custom_dir: ../../docs/theme
-  # 404 page
+  custom_dir: docs/theme
   static_templates:
     - 404.html
-  # Don't include MkDocs' JavaScript
   include_search_page: false
   search_index_only: true
-  # Default values, taken from mkdocs_theme.yml
   language: en
   features:
     - navigation.instant
@@ -94,19 +83,19 @@ nav:
   - Home: index.md
   - Getting started:
     - Introduction: introduction.md
-    - Installation: installation.md
-    - Setting IDL PATH: setting-idl-path.md
-    - Troubleshooting: troubleshooting.md
+    - Installation: idl/installation.md
+    - Setting IDL PATH: idl/setting-idl-path.md
+    - Troubleshooting: idl/troubleshooting.md
   - Analysis Tools: 
-    - WaLSAtools.md
+    - idl/WaLSAtools.md
     - Examples:
-        - Power Spectra: power-spectra-example.md
-        - k-&#969; Diagram and Filtering: k-omega-example.md
-        - B-&#969; Diagram: B-omega-example.md
-        - Dominant Frequency: dominant-frequency-example.md
-        - Cross Correlations: cross-correlation-example.md
+        - Power Spectra: idl/power-spectra-example.md
+        - k-&#969; Diagram and Filtering: idl/k-omega-example.md
+        - B-&#969; Diagram: idl/B-omega-example.md
+        - Dominant Frequency: idl/dominant-frequency-example.md
+        - Cross Correlations: idl/cross-correlation-example.md
     - Under the Hood: 
-        - Main Routines: routines.md
+        - Main Routines: idl/routines.md
   - About:
     - Contribution: contribution.md
     - Development: development.md
