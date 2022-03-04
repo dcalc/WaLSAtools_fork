@@ -8,7 +8,7 @@ site_url: https://WaLSA.tools
 repo_name: WaLSAtools
 repo_url: https://github.com/WaLSAteam/WaLSAtools
 # edit_uri: ""
-edit_uri: edit/master/docs/
+# edit_uri: edit/master/docs/
 
 # Copyright
 copyright: Copyright &copy; 2022 <a href="https://WaLSA.team" target="_blank">WaLSA Team</a>
