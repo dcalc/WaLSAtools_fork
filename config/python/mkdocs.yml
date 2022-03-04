@@ -3,7 +3,7 @@ site_name: WaLSA Analysis Tools
 site_description: Analysis tools for Waves in the Lower Solar Atmosphere (WaLSA)
 site_author: WaLSA Team (https://WaLSA.team)
 site_url: https://WaLSA.tools
-docs_dir: ../../docs/python
+docs_dir: ../../docs
 
 # Repository
 repo_name: WaLSAtools
@@ -44,15 +44,13 @@ extra:
   manifest: manifest.webmanifest
   username: "WaLSA Team"
   password: "WaLSAtools@CaII8542"
-  alternate:
-    - name: IDL
-      link: /idl/installation
-      lang: en
-    - name: Python
-      link: /python/installation
-      lang: en
-  # version:
-  #     provider: mike
+  # alternate:
+  #   - name: IDL
+  #     link: /idl/installation
+  #     lang: en
+  #   - name: Python
+  #     link: /python/installation
+  #     lang: en
 
 # Configuration
 theme:
@@ -92,30 +90,30 @@ theme:
 
 # Page tree
 nav:
-  - Home: ../index.md
+  - Home: index.md
   - Getting started:
-    - Introduction: ../introduction.md
-    - Installation: installation.md
-    - Troubleshooting: troubleshooting.md
+    - Introduction: introduction.md
+    - Installation: python/installation.md
+    - Troubleshooting: python/troubleshooting.md
   - Analysis Tools: 
-    - WaLSAtools.md
+    - python/WaLSAtools.md
     - Examples:
-        - Power Spectra: power-spectra-example.md
-        - k-&#969; Diagram and Filtering: k-omega-example.md
-        - B-&#969; Diagram: B-omega-example.md
-        - Dominant Frequency: dominant-frequency-example.md
-        - Cross Correlations: cross-correlation-example.md
+        - Power Spectra: python/power-spectra-example.md
+        - k-&#969; Diagram and Filtering: python/k-omega-example.md
+        - B-&#969; Diagram: python/B-omega-example.md
+        - Dominant Frequency: python/dominant-frequency-example.md
+        - Cross Correlations: python/cross-correlation-example.md
     - Under the Hood: 
-        - Main Routines: routines.md
+        - Main Routines: python/routines.md
   - About:
-    - Contribution: ../contribution.md
-    - Development: ../development.md
-    - License and Credits: ../license.md
-    - Acknowledgements: ../acknowledgements.md
-    - Citation: ../citation.md
-    - Changelog: ../changelog.md
+    - Contribution: contribution.md
+    - Development: development.md
+    - License and Credits: license.md
+    - Acknowledgements: acknowledgements.md
+    - Citation: citation.md
+    - Changelog: changelog.md
     - Release Notes:
-        - '1.0': ../releases/1.0.md
+        - '1.0': releases/1.0.md
 
 # Plugins
 plugins:
