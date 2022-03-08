@@ -36,7 +36,7 @@ Below is a list of individuals who have contributed to **WaLSAtools** (either di
   [3]: https://www.l3harrisgeospatial.com/Software-Technology/IDL
   [4]: http://www.idlcoyote.com
   [5]: http://climate.web.runbox.net/idl_lib/
-  [6]: https://www.mn.uio.no/astro/english/people/aca/shahinj/
+  [6]: https://walsa.team/shahin.jafarzadeh
   [7]: https://star.pst.qub.ac.uk/wiki/doku.php/users/djess/start
   [8]: https://www.researchgate.net/profile/Marco-Stangalini
   [9]: https://star.pst.qub.ac.uk/wiki/doku.php/users/sgrant/start#dr_samuel_grant
