@@ -1341,6 +1341,18 @@ html .md-footer-meta.md-typeset a:is(:focus, :hover) {
     position: relative;
     width: 100%;
 }
+
+@media (max-width: 768px) {
+    .md-header__title {
+        flex-grow: 1;
+        font-size: 0.8rem;
+        height: 2rem;
+        line-height: 2rem;
+        margin-right: 0.2rem;
+        margin-left: 0.4rem;
+    }
+}
+
 .md-header__option {
     display: flex;
     flex-shrink: 0;

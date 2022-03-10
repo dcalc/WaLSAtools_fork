@@ -104,14 +104,14 @@ nav:
     - Setting IDL PATH: idl/setting-idl-path.md
     - Troubleshooting: idl/troubleshooting.md
     # Python:
-    - Installation: python/installation.md
-    - Troubleshooting: python/troubleshooting.md
+    # - Installation: python/installation.md
+    # - Troubleshooting: python/troubleshooting.md
 
   - Analysis Tools: 
     # IDL:
     - idl/WaLSAtools.md
     # Python:
-    - python/WaLSAtools.md
+    # - python/WaLSAtools.md
 
     - Examples:
         # IDL:
@@ -121,17 +121,17 @@ nav:
         - Dominant Frequency: idl/dominant-frequency-example.md
         - Cross Correlations: idl/cross-correlation-example.md
         # Python:
-        - Power Spectra: python/power-spectra-example.md
-        - k-&#969; Diagram and Filtering: python/k-omega-example.md
-        - B-&#969; Diagram: python/B-omega-example.md
-        - Dominant Frequency: python/dominant-frequency-example.md
-        - Cross Correlations: python/cross-correlation-example.md
+        # - Power Spectra: python/power-spectra-example.md
+        # - k-&#969; Diagram and Filtering: python/k-omega-example.md
+        # - B-&#969; Diagram: python/B-omega-example.md
+        # - Dominant Frequency: python/dominant-frequency-example.md
+        # - Cross Correlations: python/cross-correlation-example.md
 
     - Under the Hood:
         # IDL: 
         - Main Routines: idl/routines.md
         # Python:
-        - Main Routines: python/routines.md
+        # - Main Routines: python/routines.md
         
   - About:
     - Contribution: contribution.md
