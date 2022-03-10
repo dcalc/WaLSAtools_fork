@@ -108,13 +108,13 @@ Below are two examples for plotting a k-&#969; diagram using **WaLSAtools**, as 
     
     As a guide, see [this scientific article][2]{target=_blank} where such Fourier filtering could help revealing a particular MHD wave mode in a sunspot.
 
-  [komega1]: assets/screenshots/WaLSAtools_k-omega_1.jpg
-  [komega2]: assets/screenshots/WaLSAtools_k-omega_2.jpg
-  [filtering]: assets/screenshots/WaLSAtools_Fourier_filtring.jpg
-  [filtering21]: assets/screenshots/WaLSAtools_k-omega_fig2_1.jpg
-  [filtering22]: assets/screenshots/WaLSAtools_k-omega_fig2_2.jpg
-  [image1]: assets/screenshots/original_image.jpg
-  [image2]: assets/screenshots/filtered_image.jpg
+  [komega1]: ../assets/screenshots/WaLSAtools_k-omega_1.jpg
+  [komega2]: ../assets/screenshots/WaLSAtools_k-omega_2.jpg
+  [filtering]: ../assets/screenshots/WaLSAtools_Fourier_filtring.jpg
+  [filtering21]: ../assets/screenshots/WaLSAtools_k-omega_fig2_1.jpg
+  [filtering22]: ../assets/screenshots/WaLSAtools_k-omega_fig2_2.jpg
+  [image1]: ../assets/screenshots/original_image.jpg
+  [image2]: ../assets/screenshots/filtered_image.jpg
   [1]: WaLSAtools.md
   [2]: https://iopscience.iop.org/article/10.3847/1538-4357/aa73d6/pdf
   [3]: routines.md#k-diagram-and-filtering

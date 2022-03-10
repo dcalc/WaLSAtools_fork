@@ -52,8 +52,8 @@ contributing to the codes, please check out [Development][7] for more informatio
 
 We strive to provide not only reliable and user-friendly analysis tools, but also helpful documentations and examples. If you feel the documentation can still be improved, your contribution is much appreciated. Check out [Development][7] for more information on the *package layout* and *editing documents*.
 
-  [1]: troubleshooting.md
-  [2]: WaLSAtools.md
+  [1]: idl/troubleshooting.md
+  [2]: idl/WaLSAtools.md
   [3]: https://github.com/WaLSAteam/WaLSAtools/discussions
   [4]: https://github.com/WaLSAteam/WaLSAtools/issues
   [5]: https://github.com/WaLSAteam/WaLSAtools/issues/new

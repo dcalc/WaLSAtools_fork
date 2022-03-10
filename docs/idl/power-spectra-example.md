@@ -72,7 +72,7 @@ Here is an example where all various power spectra, currently available through 
     The output figure of this example is shown below.
     
     ![logos]
-      [logos]: assets/screenshots/example_power_spectra.jpg
+      [logos]: ../assets/screenshots/example_power_spectra.jpg
 
     The 1D signal (i.e., temporal variation of intensity at pixel [10,10] of the AIA 170 nm sample datacube) is illustrated in panel (**c**) after the application of linear detrending and apodisation (with a Tukey window).
     Panels (**a**) and (**b**) display wavelet power spectra of the signal using the Morlet and Mexican-Hat wavelets, respectively. 

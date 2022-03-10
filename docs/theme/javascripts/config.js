@@ -15,3 +15,6 @@ document$.subscribe(() => {
   MathJax.typesetPromise()
 })
 
+
+
+document.getElementById( 'nameTarget' ).innerHTML = document.getElementById( 'programming-language' ).value;

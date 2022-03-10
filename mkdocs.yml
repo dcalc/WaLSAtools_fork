@@ -50,25 +50,41 @@ theme:
   custom_dir: docs/theme
   static_templates:
     - 404.html
+  feature:
+    tabs: true
   include_search_page: false
   search_index_only: true
   language: en
   features:
-    # - navigation.instant
+    - navigation.instant
     - navigation.sections
     - navigation.tabs
     - navigation.top
     - search.highlight
     - search.suggest
-    # - toc.integrate
-    # - navigation.indexes
-    # - navigation.tracking
-    # - content.code.annotate
+    - toc.integrate
+    - navigation.indexes
+    - navigation.tracking
+    - content.code.annotate
     # - navigation.expand
-  palette:
-    scheme: default
-    primary: deep-orange
-    accent: red
+  palette: 
+    - scheme: default
+      primary: deep-orange
+      accent: red
+      toggle:
+        icon: material/weather-sunny
+        name: IDL
+    - scheme: default 
+      primary: deep-orange
+      accent: red
+      toggle:
+        icon: material/weather-night
+        name: Python
+        
+    # scheme: default
+    # primary: deep-orange
+    # accent: red
+
   font:
     text: Roboto
     code: Roboto Mono
@@ -80,21 +96,43 @@ theme:
 # Page tree
 nav:
   - Home: index.md
+
   - Getting started:
     - Introduction: introduction.md
+    # IDL:
     - Installation: idl/installation.md
     - Setting IDL PATH: idl/setting-idl-path.md
     - Troubleshooting: idl/troubleshooting.md
+    # Python:
+    - Installation: python/installation.md
+    - Troubleshooting: python/troubleshooting.md
+
   - Analysis Tools: 
+    # IDL:
     - idl/WaLSAtools.md
+    # Python:
+    - python/WaLSAtools.md
+
     - Examples:
+        # IDL:
         - Power Spectra: idl/power-spectra-example.md
         - k-&#969; Diagram and Filtering: idl/k-omega-example.md
         - B-&#969; Diagram: idl/B-omega-example.md
         - Dominant Frequency: idl/dominant-frequency-example.md
         - Cross Correlations: idl/cross-correlation-example.md
-    - Under the Hood: 
+        # Python:
+        - Power Spectra: python/power-spectra-example.md
+        - k-&#969; Diagram and Filtering: python/k-omega-example.md
+        - B-&#969; Diagram: python/B-omega-example.md
+        - Dominant Frequency: python/dominant-frequency-example.md
+        - Cross Correlations: python/cross-correlation-example.md
+
+    - Under the Hood:
+        # IDL: 
         - Main Routines: idl/routines.md
+        # Python:
+        - Main Routines: python/routines.md
+        
   - About:
     - Contribution: contribution.md
     - Development: development.md
@@ -108,6 +146,7 @@ nav:
 # Plugins
 plugins:
   - search
+  - tags
 
 # Extensions
 markdown_extensions:
@@ -151,12 +190,13 @@ markdown_extensions:
       repo_url_shorthand: true
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde

@@ -91,7 +91,7 @@ In the following example, **WaLSAtools** is performed to calculate mean power sp
         --8<-- "examples/example_dominant_frequency.pro"
         ```
 
-  [dfFFT]: assets/screenshots/example_dominant_frequency_FFT.jpg
-  [dfwavelet]: assets/screenshots/example_dominant_frequency_sensible_wavelet.jpg
+  [dfFFT]: ../assets/screenshots/example_dominant_frequency_FFT.jpg
+  [dfwavelet]: ../assets/screenshots/example_dominant_frequency_sensible_wavelet.jpg
 
 <br>

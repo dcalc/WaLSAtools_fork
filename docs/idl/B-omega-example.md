@@ -67,8 +67,8 @@ Below is an example for plotting a B-&#969; diagram using **WaLSAtools** for a t
 	
 	As a guide, see [this scientific article][2]{target=_blank} where this approach could help revealing signatures of resonant MHD oscillations in a pore umbra.
 	
-  [bomega]: assets/screenshots/WaLSAtools_b-omega.jpg
-  [sdoim]: assets/screenshots/sdo_images.jpg
+  [bomega]: ../assets/screenshots/WaLSAtools_b-omega.jpg
+  [sdoim]: ../assets/screenshots/sdo_images.jpg
   [1]: WaLSAtools.md
   [2]: https://arxiv.org/pdf/2103.11639.pdf
   

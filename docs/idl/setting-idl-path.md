@@ -89,7 +89,7 @@ The `IDL_PATH` can also be customised via the IDL Workbench (idlde) Preferences 
 - Click on Apply and then OK to save your changes.
 
 ![logos]
-  [logos]: assets/screenshots/idl_path.jpg
+  [logos]: ../assets/screenshots/idl_path.jpg
 
 
   [1]: installation.md

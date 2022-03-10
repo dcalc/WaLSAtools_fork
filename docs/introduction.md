@@ -7,7 +7,9 @@ title: Introduction
 
 ## Overview :material-telescope:
 
-**WaLSAtools** is a collection of analysis routines (in both [IDL][1]{target=_blank} and [Python][9]{target=_blank} programming languages), collected, developed, and provided by the [**WaLSA team**][2]{target=_blank}, for studying waves and oscillations, with a particular emphasis on such phenomena occurring in the lower atmosphere of the Sun.
+**WaLSAtools** is a collection of analysis routines (in both [IDL][1]{target=_blank} and [Python][9]{target=_blank} programming languages), collected and/or developed by the [**WaLSA team**][2]{target=_blank}, for studying waves and oscillations, with a particular emphasis on such phenomena occurring in the lower atmosphere of the Sun.
+
+!!! walsa-code "To switch documentations for the programming language of your choice, click on name of the current language on top of the webpages."
 
 The main goal is to develop suitable techniques for various aspects of wave studies in the lower solar atmosphere (and beyond) &#8212; facilitating reliability and reproducibility of such analyses.
 
@@ -23,7 +25,7 @@ Analyses of single time series also fall into two sections, one related to those
 
 !!! walsa-waveform "One Dimensional (1D) Signal"
     The following analysis methods decompose a signal (i.e., 1D time series) into its frequency components, resulting in the so-called *frequency spectrum*. They employ slightly different approaches, thus making them suitable for specific situations. Therefore, choosing the right technique is an essential step before start applying it to your data.
-    
+
     === "Fast Fourier Transform (FFT)"
         Fast Fourier Transform (FFT; *Cooley and Tukey 1965*) is an optimised approach for the implementation of the Fourier analysis (*Fourier 1824*; or strictly speaking, of the Discrete Fourier Transformation) by reducing the number of computations required.
         The algorithm estimates the frequency spectrum by decomposing the signal into a set of sinusoidal/cosinusoidal oscillations at distinct frequencies with their own amplitudes and phases.
@@ -46,7 +48,7 @@ Analyses of single time series also fall into two sections, one related to those
         Note that the choice of wavelet function is very important (i.e., various functions may result in different resolution in time and/or frequency). 
         The Morlet mother function is often found a good choice in analysing waves and oscillations in the solar atmosphere, as it satisfies a good balance between frequency and time localisations.
         Wavelet analysis also identifies areas in the time-frequency space that are subject to edge effect (that is introduced due to the convolution of the wavelet function close to the edges of the finite time series). 
-		Such regions are marked with the so-called Cone of Influence (CoI) and mark unreliable areas of the 2D power spectrum.
+        Such regions are marked with the so-called Cone of Influence (CoI) and mark unreliable areas of the 2D power spectrum.
         
         **Wavelet transform is particularly suitable for studying transient oscillations, weak signals, or quasi-periodic signatures.** 
         In addition to the 2D time-frequency spectrum, *traditionally*, a 1D spectrum (so-called *global wavelet*) can also be computed by averaging the power along the entire time domain, which, however, also includes the power subject to the edge effect.
@@ -61,30 +63,30 @@ Analyses of single time series also fall into two sections, one related to those
         ***However, the right choice of parameters for EMD (hence correct decomposition) requires great care (i.e., the default parameters may not necessarily work for all datasets).*** 
         The instantaneous frequencies can reveal dominant frequencies of the oscillations, but be aware that their uncertainties can be large at particular times.
         The marginal HHT spectrum may particularly be useful for low-amplitude fast frequency oscillations.
-    
+
 !!! walsa-info "Info"
     - **Power Spectral Density (PSD):** The analysis methods described here initially output wave amplitudes at different frequencies &#8212; the frequency spectrum. 
       **WaLSAtools** will then return Power Spectral Density (PSD; *Stull 1988*) which is the square of wave amplitude (i.e., power spectrum) normalised by frequency resolution. 
       This helps ensure that different signals can be compared independently of their frequency resolution (which is determined by length of the time series). 
       In addition, single-sided power is outputted (i.e., the *identical* power at negative frequencies are wrapped into positive frequencies), thus the PSD values are doubled.
-	  Throughout this documentation, the terms *power*, *power spectrum*, and *PSD* may be used interchangeably, but they convey the same meaning (i.e., PSD).
+      Throughout this documentation, the terms *power*, *power spectrum*, and *PSD* may be used interchangeably, but they convey the same meaning (i.e., PSD).
     - **Confidence levels:** To pinpoint significant power (i.e., to disentangle power produced by real signals from that by noise and spurious signals) **WaLSAtools** can perform a   statistical randomisation test (optional) to estimate significance/confidence levels.
       Note that, e.g., a 95% confidence level means that the power is significant to the 5% level.
 
 
 !!! walsa-wavecube "Three Dimensional (3D) Cube"
     Distribution of oscillations power over a spatial extent is often crucial to identify wave modes. 
-	One way is to average the temporal power over similar spatial scales, thus localisation of power at particular frequencies and spatial scales can be realised.
-	Another approach is to average the power over pixels with similar underlying magnetic fields (within a field of view of interest) rather than similar spatial scales. 
-	In addition, a science case may require the spatially-averaged power spectrum over a large field of view (irrespective of spatial scales and/or underlying magnetic fields), or the spatial distribution of dominant frequencies (i.e., frequencies corresponding to maximum power at each pixel).
-	These are introduced in the following analysis tools.
-    
+    One way is to average the temporal power over similar spatial scales, thus localisation of power at particular frequencies and spatial scales can be realised.
+    Another approach is to average the power over pixels with similar underlying magnetic fields (within a field of view of interest) rather than similar spatial scales. 
+    In addition, a science case may require the spatially-averaged power spectrum over a large field of view (irrespective of spatial scales and/or underlying magnetic fields), or the spatial distribution of dominant frequencies (i.e., frequencies corresponding to maximum power at each pixel).
+    These are introduced in the following analysis tools.
+
     === "k-&#969; Analysis and Fourier Filtering"
         k-&#969; diagram represents the azimuthally averaged (FFT) power spectra of a 3D datacube (time series of 2D images) in the wavenumber-frequency space (i.e., in both spatial and temporal frequencies, respectively). 
         The relationship between the two domains can reveal dispersion relations of various waves / wave modes. 
         Furthermore, power in spatial or temporal domains, or a combination of both, can be filtered (either interactively, or by providing the ranges) within the k-&#969; analysis.
-		The process can then be reversed (by utilising an inverse FFT) to reconstruct a new time series of images which contain only the wavenumbers and frequencies of interest.
-        
+        The process can then be reversed (by utilising an inverse FFT) to reconstruct a new time series of images which contain only the wavenumbers and frequencies of interest.
+
         **Fourier filtering helps identify wave signatures with, e.g., relatively small amplitudes, against macroscopic flows and/or dominant MHD wave modes (with often considerably larger power).** 
         For further description on the Fourier filtering, check out the [step-by-step guide][6]{target=_blank} of the original (QUEEFF) code integrated in **WaLSAtools**.
         The code was first used in [this publication][7]{target=_blank}.
@@ -98,31 +100,31 @@ Analyses of single time series also fall into two sections, one related to those
         
         **B-&#969; diagram prevents mixing wave signatures from structures with different magnetic-field strength, thus facilitates identification of MHD wave modes.**
         The analysis method was first introduced in [this publication][8]{target=_blank}.
-		
+
     === "Mean Power"
         Spatially-averaged power spectrum is obtained by avrageing all power spectra determined at individual pixels over an entire field of view of interest. 
-		Note that the average is performed in the frequency space not in the spatial domin (i.e., we first calculate power spectra at all individual pixels, then average the power spectra).
-		The mean power can be determined for 1D power spectra calculated from any of the analysis methods described above (i.e., FFT, Lomb-Scargle, Wavelet, and HHT).
-		
-		**The mean power represents the average (most pronounced) behaviour of a region of interest**, irrespective of individual oscilaltions at particular pixels/regions within the same area.
-		
+        Note that the average is performed in the frequency space not in the spatial domin (i.e., we first calculate power spectra at all individual pixels, then average the power spectra).
+        The mean power can be determined for 1D power spectra calculated from any of the analysis methods described above (i.e., FFT, Lomb-Scargle, Wavelet, and HHT).
+
+        **The mean power represents the average (most pronounced) behaviour of a region of interest**, irrespective of individual oscilaltions at particular pixels/regions within the same area.
+
     === "Dominant Frequency"
         It is often important to find the dominant frequency at a particular pixel, or at all pixels over a region of interest. 
-		The latter can iluustrate the spatial distribution of dominant frequency of the region.
-		However, this is worth noting that such dominant frequencies should be interpreted with great caution because multiple high-power peaks (with equal or comparable powers) may occur in a power spectrum.
-		If there exist more than one peak with the exact same power, then the peak corresponding to the lowest frequency is returned.
-		The dominant frequency can be determined for 1D power spectra calculated from any of the analysis methods described above (i.e., FFT, Lomb-Scargle, Wavelet, and HHT).
-		
-		**The dominant-frequeny map shows the statistical distribution of osillations frequency over the region of interest**, though it may be biased to some extent.
+        The latter can iluustrate the spatial distribution of dominant frequency of the region.
+        However, this is worth noting that such dominant frequencies should be interpreted with great caution because multiple high-power peaks (with equal or comparable powers) may occur in a power spectrum.
+        If there exist more than one peak with the exact same power, then the peak corresponding to the lowest frequency is returned.
+        The dominant frequency can be determined for 1D power spectra calculated from any of the analysis methods described above (i.e., FFT, Lomb-Scargle, Wavelet, and HHT).
+
+        **The dominant-frequeny map shows the statistical distribution of osillations frequency over the region of interest**, though it may be biased to some extent.
 
 !!! walsa-wavecross "Cross Correlations between two datasets"
     Correlations between any two (aligned) time series (e.g., two different parameters, or one parameter at, e.g., two different heights/locations in the solar atmosphere) can be explored by calculating the so-called **cross-spectrum** (also known as co-spectrum or cross-power), **coherence** levels, and **phase relationships**. These parameters can be determined for all the different analysis methods described above (i.e., FFT, Lomb-Scargle, Wavelet, and HHT).
-    
+
     === "Cross Spectrum"
         Cross spectrum identifies common oscillations power between two time series (i.e., high power in the same spectral frequency, or time-frequency, regions of the two power spectra).
-		The cross spectrum is computed by multiplying power spectrum of a signal by the complex conjugate of the other, which hence, is a complex-valued function. 
-		
-		**The co-spectrum (i.e., absolute value of the complex cross spectrum) is a measure of the relationship between the two time series as a function of frequency.**
+        The cross spectrum is computed by multiplying power spectrum of a signal by the complex conjugate of the other, which hence, is a complex-valued function. 
+
+        **The co-spectrum (i.e., absolute value of the complex cross spectrum) is a measure of the relationship between the two time series as a function of frequency.**
     
     === "Coherence"
         When both or one of the power spectra (of two time series) do not show strong peaks (e.g., indistinguishable from red noise), then the 'cross spectrum' may not be able to reveal any correllation, if should exist.
@@ -170,8 +172,8 @@ Further analysis and visualising methods are being added to **WaLSAtools** over 
   [1]: https://www.l3harrisgeospatial.com/Software-Technology/IDL
   [2]: https://WaLSA.team
   [3]: contribution.md
-  [4]: WaLSAtools.md
-  [5]: k-omega-example.md
+  [4]: idl/WaLSAtools.md
+  [5]: idl/k-omega-example.md
   [6]: assets/pdf/QUEEFF_manual.pdf
   [7]: https://iopscience.iop.org/article/10.3847/1538-4357/aa73d6/pdf
   [8]: https://arxiv.org/pdf/2103.11639.pdf

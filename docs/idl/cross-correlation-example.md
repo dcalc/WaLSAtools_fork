@@ -6,8 +6,6 @@ template: overrides/mainat.html
 
 Here is an example of the **WaLSAtools** application on calculating cross correlations between oscillations in two time series, i.e., two random pixels in a sunspot's umbra from observations with SDO/AIA 170 nm. In this example, the 1D power spectra and their cross-correlation parameters, namely, co-spectrum (i.e., absolute values of cross-power spectrum), coherence spectrum, as well as phase lag are calculated (through FFT analysis) and plotted as a function of frequency. In addition, a similar analysis is performed using Wavelet, thus all spectra are computed and plotted in 2D (in time-frequency space).
 
-  [1]: introduction.md 
-
 !!! walsa-example "Co-spectrum, coherence, and phase difference for two pixels at `[233,231]` and `[231,238]` of the AIA 170 nm sample datacube" 
 
 	To learn how **WaLSAtools** is employed to compute and plot the co-spectrum, coherence, and phase difference (using both FFT and Wavelet analysis methods) in this example, please go through its source code accessible at the bottom of this page. 
@@ -82,16 +80,16 @@ Here is an example of the **WaLSAtools** application on calculating cross correl
 	
 	See [here][1] to learn about all keywords available to this analysis tool.
   
-  [CCfft]: assets/screenshots/example_cross-correlations_FFT.jpg
-  [wavelet1]: assets/screenshots/example_wavelet_data1.jpg
-  [wavelet2]: assets/screenshots/example_wavelet_data2.jpg
-  [wavelet-cospectrum]: assets/screenshots/example_wavelet_cospectrum.jpg
-  [wavelet-coherence]: assets/screenshots/example_wavelet_coherence.jpg
-  [1]: WaLSAtools.md
-  
 	??? source-code "Source code"
 	    ``` python linenums="1" hl_lines="16 17 18 94 95 99 100 104 105 106 112 113 114"
 	    --8<-- "examples/example_cross_correlation.pro"
 	    ```
+
+  [CCfft]: ../assets/screenshots/example_cross-correlations_FFT.jpg
+  [wavelet1]: ../assets/screenshots/example_wavelet_data1.jpg
+  [wavelet2]: ../assets/screenshots/example_wavelet_data2.jpg
+  [wavelet-cospectrum]: ../assets/screenshots/example_wavelet_cospectrum.jpg
+  [wavelet-coherence]: ../assets/screenshots/example_wavelet_coherence.jpg
+  [1]: WaLSAtools.md
 
 <br>
