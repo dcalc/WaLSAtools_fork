@@ -6,7 +6,7 @@ template: overrides/main.html
 
 ## WaLSAtools
 
-### 1.0. <small>_ April 18, 2021</small>
+### 1.0. <small>_ March 21, 2022</small>
 
 - Initial release
 

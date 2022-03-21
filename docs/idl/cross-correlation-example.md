@@ -1,5 +1,5 @@
 ---
-template: overrides/mainat.html
+template: overrides/main.html
 ---
 
 # Cross Correlations
@@ -9,8 +9,8 @@ Here is an example of the **WaLSAtools** application on calculating cross correl
 !!! walsa-example "Co-spectrum, coherence, and phase difference for two pixels at `[233,231]` and `[231,238]` of the AIA 170 nm sample datacube" 
 
 	To learn how **WaLSAtools** is employed to compute and plot the co-spectrum, coherence, and phase difference (using both FFT and Wavelet analysis methods) in this example, please go through its source code accessible at the bottom of this page. 
-	The example IDL procedure can also be found under the `example` directory of the package. The sample datacubes are located in the `sample_data` folder under the `example` directory. 
-	To run the example code, simply type the following command (while in the `example` directory, which can be placed anywhere in your machine, also outside your `IDL PATH`) and press ++enter++ 
+	The example IDL procedure can also be found under the `examples/idl/` directory of the package. The sample datacubes are located in the `sample_data` folder under the `examples` directory. 
+	To run the example code, simply type the following command (while in the `examples/idl/` directory, which can be placed anywhere in your machine, also outside your `IDL PATH`) and press ++enter++ 
 
 	```sh
 	IDL> .r example_cross_correlation
@@ -82,14 +82,14 @@ Here is an example of the **WaLSAtools** application on calculating cross correl
   
 	??? source-code "Source code"
 	    ``` python linenums="1" hl_lines="16 17 18 94 95 99 100 104 105 106 112 113 114"
-	    --8<-- "examples/example_cross_correlation.pro"
+	    --8<-- "examples/idl/example_cross_correlation.pro"
 	    ```
 
-  [CCfft]: ../assets/screenshots/example_cross-correlations_FFT.jpg
-  [wavelet1]: ../assets/screenshots/example_wavelet_data1.jpg
-  [wavelet2]: ../assets/screenshots/example_wavelet_data2.jpg
-  [wavelet-cospectrum]: ../assets/screenshots/example_wavelet_cospectrum.jpg
-  [wavelet-coherence]: ../assets/screenshots/example_wavelet_coherence.jpg
+  [CCfft]: ../images/idl/example_cross-correlations_FFT.jpg
+  [wavelet1]: ../images/idl/example_wavelet_data1.jpg
+  [wavelet2]: ../images/idl/example_wavelet_data2.jpg
+  [wavelet-cospectrum]: ../images/idl/example_wavelet_cospectrum.jpg
+  [wavelet-coherence]: ../images/idl/example_wavelet_coherence.jpg
   [1]: WaLSAtools.md
 
 <br>

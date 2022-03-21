@@ -11,30 +11,36 @@ There are a number of files for build, test, and continuous integration in the r
 ```
 .
 ├── codes
-│   └── dependencies
-│       ├── WaLSA_ssw
-│       ├── WaLSA_idl
-│       └── epstool-3.08
+│   ├── idl
+│   │   ├── dependencies_level1
+│   │   ├── dependencies_level2
+│   │   └── walsatools.pro
+│   └── python
+│       └── dependencies
 ├── docs
+│   ├── idl
+│   ├── python
+│   ├── images
+│   ├── pdf
 │   ├── releases
-│   ├── assets
 │   └── theme
 ├── examples
+│   ├── idl
+│   ├── python
 │   └── sample_data
-├── mkdocs.yml
-└── walsatools.pro
+└── mkdocs.yml
 ```
 
 Directory            | Description
 -------------------- | -----------
-`codes`              | This contains the main source codes (and their *dependencies*) for all analysis tools. Further sub-directories include third party components required for the package, as well as the `epstool-3.08` which is a utility to, e.g., fix bounding boxes, in EPS files.
-`docs`               | This contains the source files for the documentation. Pull request for changes of the Markdown (.md) files under the root level of the directory might be submitted. Other sub-directories include files for style of the web document and should not be changed.
+`codes`              | This contains the main source codes (and their *dependencies*) for all analysis tools in both IDL and Python programming languages. Further sub-directories include third party components required for the package, as well as the `epstool-3.08` package which is a utility to, e.g., fix bounding boxes, in EPS files.
+`docs`               | This contains the source files for the documentations. Pull request for changes of the Markdown (.md) files under the root level of the directory and under *idl* and *python* directories can be submitted. Other sub-directories include files for style of the web document and should not be changed. Images and PDF files should be put in the associated folders.
 `examples`           | This contains various examples on sample data sets (stored in the `sample_data` folder under this directory) to show how WaLSAtools can be used.
 
 Files                      | Description
 -------------------------- | -----------
-`mkdocs.yml`               | The main setup file for this documentation.
-`walsatools.pro`           | The main code which provides all necessary information. This is the prime (only) code which should be called when using WaLSAtools.
+`mkdocs.yml`               | The main configuration file for this documentation.
+`walsatools.pro`           | The main IDL code which provides all necessary information. This is the prime (only) code which should preferably be called when using WaLSAtools in IDL.
 
 ## Editing Documents :material-file-document-edit:
 

@@ -1001,7 +1001,7 @@ body {
     }
 }
 .md-footer__inner {
-    display: flex;
+    display: none;
     justify-content: space-between;
     overflow: auto;
     padding: 0.2rem;
@@ -1153,6 +1153,11 @@ html .md-footer-meta.md-typeset a:is(:focus, :hover) {
     background-color: var(--md-accent-fg-color);
     border-color: var(--md-accent-fg-color);
     color: var(--md-accent-bg-color);
+}
+@media (max-width: 991.98px) {
+  .md-button {
+    padding: 0.6em 1.2em !important;
+}
 }
 [dir="ltr"] .md-typeset .md-input {
     border-top-left-radius: 0.1rem;

@@ -90,7 +90,7 @@ Analyses of single time series also fall into two sections, one related to those
         **Fourier filtering helps identify wave signatures with, e.g., relatively small amplitudes, against macroscopic flows and/or dominant MHD wave modes (with often considerably larger power).** 
         For further description on the Fourier filtering, check out the [step-by-step guide][6]{target=_blank} of the original (QUEEFF) code integrated in **WaLSAtools**.
         The code was first used in [this publication][7]{target=_blank}.
-        For running the code through **WaLSAtools**, see [here][4] and [here][5] for instructions. 
+        For running the code through **WaLSAtools**, see the example **k-&#969; Diagram and Filtering**.
     
     === "B-&#969; Analysis"
         B-&#969; diagram is a novel approach which combines averaged (FFT) power spectra in various magnetic-field bins (within the field of view of observations) in one plot. 
@@ -150,7 +150,7 @@ Analyses of single time series also fall into two sections, one related to those
 	    The co-spectrum, coherence, and phase lag have one dimension for the 1D power spectra (i.e., for FFT, Lomb-Scargle, HHT, as well as Wavelet Global and Sensible power spectra), whereas they have two dimensions for the 2D Wavelet spectrum.
 
 !!! walsa-hint "Info"
-    Check out documentation on the [**Analysis Tools**][4] to learn how to run **WaLSAtools** and more about all inputs, keywords, and outputs.
+    Check out documentation on the **Analysis Tools** to learn how to run **WaLSAtools** and more about all inputs, keywords, and outputs.
 
 ## Under Development :material-text-box-plus:
 
@@ -171,10 +171,8 @@ Further analysis and visualising methods are being added to **WaLSAtools** over 
 
   [1]: https://www.l3harrisgeospatial.com/Software-Technology/IDL
   [2]: https://WaLSA.team
-  [3]: contribution.md
-  [4]: idl/WaLSAtools.md
-  [5]: idl/k-omega-example.md
-  [6]: assets/pdf/QUEEFF_manual.pdf
+  [3]: https://walsa.tools/contribution/
+  [6]: https://walsa.tools/pdf/QUEEFF_manual.pdf
   [7]: https://iopscience.iop.org/article/10.3847/1538-4357/aa73d6/pdf
   [8]: https://arxiv.org/pdf/2103.11639.pdf
   [9]: https://www.python.org/about/

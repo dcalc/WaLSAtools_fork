@@ -1,9 +1,7 @@
 ---
-template: overrides/mainat.html
+template: overrides/main.html
 ---
 
 # Dominant Frequency
 
-### Python
-
-<br>
+!!! walsa-wheel "The Python package and its documentation are currently under development ....."

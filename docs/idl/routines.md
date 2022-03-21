@@ -1,5 +1,5 @@
 ---
-template: overrides/mainat.html
+template: overrides/main.html
 ---
 
 # Under the Hood
@@ -20,7 +20,7 @@ However, for experts who want to make themselves familiar with the techniques an
 
 	??? source-code "WaLSA_speclizer.pro"
 	    ``` python linenums="1" hl_lines="95 96 97 98 99 100 211 212 213 214 215 216 291 292 293 294 295 379 380 381 382 383 384 385 588 589 590 591 592 593 594 595 596 597 598 599"
-	    --8<-- "codes/walsa_speclizer.pro"
+	    --8<-- "codes/idl/dependencies_level1/walsa_speclizer.pro"
 	    ```
 		
 ## k-&#969; Analysis and Fourier Filtering
@@ -31,14 +31,14 @@ However, for experts who want to make themselves familiar with the techniques an
 
 	??? source-code "WaLSA_qub_queeff.pro"
 	    ``` python linenums="1" hl_lines="133 134 208 209 210 230"
-	    --8<-- "codes/walsa_qub_queeff.pro"
+	    --8<-- "codes/idl/dependencies_level1/walsa_qub_queeff.pro"
 	    ```
 	
 	This code uses the following routine (originanly from Rob Rutten) to compute the k-&#969; power.
 	
 	??? source-code "WaLSA_plotkopower_funct.pro"
 	    ``` python linenums="1"
-	    --8<-- "codes/dependencies/walsa_plotkopower_funct.pro"
+	    --8<-- "codes/idl/dependencies_level2/walsa_plotkopower_funct.pro"
 	    ```
 		
 ## B-&#969; Analysis
@@ -49,7 +49,7 @@ However, for experts who want to make themselves familiar with the techniques an
 
 	??? source-code "WaLSA_bomega.pro"
 	    ``` python linenums="1" hl_lines="239 240 241"
-	    --8<-- "codes/walsa_bomega.pro"
+	    --8<-- "codes/idl/dependencies_level1/walsa_bomega.pro"
 	    ```
 
 ## Detrending and Apodisation
@@ -61,7 +61,7 @@ However, for experts who want to make themselves familiar with the techniques an
 
 	??? source-code "WaLSA_detrend_apod.pro"
 	    ``` python linenums="1"
-	    --8<-- "codes/dependencies/walsa_detrend_apod.pro"
+	    --8<-- "codes/idl/dependencies_level2/walsa_detrend_apod.pro"
 	    ```
 		
 ## Wavelet Analysis
@@ -72,14 +72,14 @@ However, for experts who want to make themselves familiar with the techniques an
 
 	??? source-code "WaLSA_wavelet.pro"
 	    ``` python linenums="1" hl_lines="162 184 205 233 234 235 236 237 238 239 240 241 242 243 244 245 246"
-	    --8<-- "codes/dependencies/walsa_wavelet.pro"
+	    --8<-- "codes/idl/dependencies_level2/walsa_wavelet.pro"
 	    ```
 	
 	This code also uses the following routine to plot the wavelet power spectrum (along with confidence levels and cone-of-influence regions).
 	
 	??? source-code "WaLSA_plot_wavelet_spectrum.pro"
 	    ``` python linenums="1" hl_lines="1 2"
-	    --8<-- "codes/dependencies/walsa_plot_wavelet_spectrum.pro"
+	    --8<-- "codes/idl/dependencies_level2/walsa_plot_wavelet_spectrum.pro"
 	    ```
 
 ## Cross Correlations: 1D power spectra
@@ -91,7 +91,7 @@ However, for experts who want to make themselves familiar with the techniques an
 
 	??? source-code "WaLSA_cross_spectrum.pro"
 	    ``` python linenums="1" hl_lines="152 153 154 155 156 157 158"
-	    --8<-- "codes/dependencies/walsa_cross_spectrum.pro"
+	    --8<-- "codes/idl/dependencies_level2/walsa_cross_spectrum.pro"
 	    ```
 
 ## Cross Correlations: Wavelet power spectra
@@ -102,14 +102,14 @@ However, for experts who want to make themselves familiar with the techniques an
 
 	??? source-code "WaLSA_wavelet_cross_spectrum.pro"
 	    ``` python linenums="1" hl_lines="237 238 239 240 241 242 243 244 245 246 247 248 249 250 251"
-	    --8<-- "codes/dependencies/walsa_wavelet_cross_spectrum.pro"
+	    --8<-- "codes/idl/dependencies_level2/walsa_wavelet_cross_spectrum.pro"
 	    ```
 	
 	This code also uses the following routine to plot the wavelet co-spectrum and coherence spectrum (along with confidence levels, cone-of-influence regions, and phase lags).
 	
 	??? source-code "WaLSA_plot_wavelet_cross_spectrum.pro"
 	    ``` python linenums="1" hl_lines="184 185 186 187"
-	    --8<-- "codes/dependencies/walsa_plot_wavelet_cross_spectrum.pro"
+	    --8<-- "codes/idl/dependencies_level2/walsa_plot_wavelet_cross_spectrum.pro"
 	    ```
 
   [3]: https://bit.ly/37mx9ic

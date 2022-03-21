@@ -1,5 +1,5 @@
 ---
-template: overrides/mainat.html
+template: overrides/main.html
 ---
 
 # WaLSAtools
@@ -8,7 +8,7 @@ Below you can find information on how to use **WaLSAtools**. Please first read [
 
 We strongly encourage all users to perform their analyses by running **WaLSAtools** directly, instead of calling individual routines used within **WaLSAtools**. Please check out the [license and credits][7] as well as the [acknowledgements][8], and if you use **WaLSAtools** in your research, please [cite][9] it as instructed.
 
-  [1]: ../introduction.md
+  [1]: introduction.md
   [7]: ../license.md
   [8]: ../acknowledgements.md
   [9]: ../citation.md
@@ -664,7 +664,7 @@ We strongly encourage all users to perform their analyses by running **WaLSAtool
 
     ??? source-code "Source code"
         ``` python linenums="1" hl_lines="17"
-        --8<-- "walsatools.pro"
+        --8<-- "codes/idl/walsatools.pro"
         ```
 
 <br>

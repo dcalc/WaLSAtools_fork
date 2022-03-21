@@ -1,5 +1,5 @@
 ---
-template: overrides/mainat.html
+template: overrides/main.html
 ---
 
 # k-&#969; Diagram and Filtering
@@ -11,9 +11,9 @@ Below are two examples for plotting a k-&#969; diagram using **WaLSAtools**, as 
     To learn how the datacube is read, and how the keywords are set, please check out the example source code at the bottom of this page.
     Please note that we are not using all optional keywords in this example. See [here][1] to learn about all keywords.
     If you, as an expert, are interested to see how the diagram is calculated and plotted see the `WaLSA_qub_queeff.pro` [source code][3]. 
-    The example IDL procedure can also be found under the `example` directory of the package. 
-    The sample datacube is located in the `sample_data` folder under the `example` directory.
-    To run the example code, simply type the following command (while in the `example` directory, which can be placed anywhere in your machine, also outside your `IDL_PATH`) and press ++enter++ 
+    The example IDL procedure can also be found under the `examples/idl/` directory of the package. 
+    The sample datacube is located in the `sample_data` folder under the `examples` directory.
+    To run the example code, simply type the following command (while in the `examples/idl/` directory, which can be placed anywhere in your machine, also outside your `IDL_PATH`) and press ++enter++ 
 
     ```sh
     IDL> .r example_komega
@@ -108,20 +108,20 @@ Below are two examples for plotting a k-&#969; diagram using **WaLSAtools**, as 
     
     As a guide, see [this scientific article][2]{target=_blank} where such Fourier filtering could help revealing a particular MHD wave mode in a sunspot.
 
-  [komega1]: ../assets/screenshots/WaLSAtools_k-omega_1.jpg
-  [komega2]: ../assets/screenshots/WaLSAtools_k-omega_2.jpg
-  [filtering]: ../assets/screenshots/WaLSAtools_Fourier_filtring.jpg
-  [filtering21]: ../assets/screenshots/WaLSAtools_k-omega_fig2_1.jpg
-  [filtering22]: ../assets/screenshots/WaLSAtools_k-omega_fig2_2.jpg
-  [image1]: ../assets/screenshots/original_image.jpg
-  [image2]: ../assets/screenshots/filtered_image.jpg
+  [komega1]: ../images/idl/WaLSAtools_k-omega_1.jpg
+  [komega2]: ../images/idl/WaLSAtools_k-omega_2.jpg
+  [filtering]: ../images/idl/WaLSAtools_Fourier_filtring.jpg
+  [filtering21]: ../images/idl/WaLSAtools_k-omega_fig2_1.jpg
+  [filtering22]: ../images/idl/WaLSAtools_k-omega_fig2_2.jpg
+  [image1]: ../images/idl/original_image.jpg
+  [image2]: ../images/idl/filtered_image.jpg
   [1]: WaLSAtools.md
   [2]: https://iopscience.iop.org/article/10.3847/1538-4357/aa73d6/pdf
   [3]: routines.md#k-diagram-and-filtering
   
     ??? source-code "Source code"
         ``` python linenums="1" hl_lines="17 18 21 22 25 26"
-        --8<-- "examples/example_komega.pro"
+        --8<-- "examples/idl/example_komega.pro"
         ```
 
 <br>

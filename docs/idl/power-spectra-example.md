@@ -1,5 +1,5 @@
 ---
-template: overrides/mainat.html
+template: overrides/main.html
 ---
 
 # Power-Spectra Examples
@@ -11,9 +11,9 @@ Here is an example where all various power spectra, currently available through 
 !!! walsa-example "Power Spectra at pixel `[10,10]` of the AIA 170 nm sample datacube"
 
     To learn how the datacube is read, and how the various power spectra are calculated, using **WaLSAtools**, and plotted, please go through the source code of this example accessible at the bottom of this page. 
-    The example IDL procedure can also be found under the `example` directory of the package. 
-	The sample datacube is located in the `sample_data` folder under the `example` directory. 
-	To run the example code, simply type the following command (while in the `example` directory, which can be placed anywhere in your machine, also outside your `IDL_PATH`) and press ++enter++ 
+    The example IDL procedure can also be found under the `examples/idl/` directory of the package. 
+	The sample datacube is located in the `sample_data` folder under the `examples` directory. 
+	To run the example code, simply type the following command (while in the `examples/idl/` directory, which can be placed anywhere in your machine, also outside your `IDL_PATH`) and press ++enter++ 
 
     ```sh
     IDL> .r example_wave_power_spectra
@@ -72,7 +72,7 @@ Here is an example where all various power spectra, currently available through 
     The output figure of this example is shown below.
     
     ![logos]
-      [logos]: ../assets/screenshots/example_power_spectra.jpg
+      [logos]: ../images/idl/example_power_spectra.jpg
 
     The 1D signal (i.e., temporal variation of intensity at pixel [10,10] of the AIA 170 nm sample datacube) is illustrated in panel (**c**) after the application of linear detrending and apodisation (with a Tukey window).
     Panels (**a**) and (**b**) display wavelet power spectra of the signal using the Morlet and Mexican-Hat wavelets, respectively. 
@@ -88,7 +88,7 @@ Here is an example where all various power spectra, currently available through 
 
     ??? source-code "Source code"
         ``` python linenums="1" hl_lines="49 50 87 88 136 137 156 157 172 173 187 188 203 204 219 220 227 228"
-        --8<-- "examples/example_wave_power_spectra.pro"
+        --8<-- "examples/idl/example_wave_power_spectra.pro"
         ```
 
 <br>

@@ -1,7 +1,7 @@
 ---
-template: overrides/mainat.html
+template: overrides/main.html
 ---
 
 # k-&#969; Diagram and Filtering
 
-### Python
+!!! walsa-wheel "The Python package and its documentation are currently under development ....."

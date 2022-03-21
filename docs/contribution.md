@@ -16,12 +16,12 @@ Contributions are very welcome and appreciated!
 
 ## Bug Report :material-bug:
 
-Bugs are tracked in our GitHub's [issue tracker][4]{target=_blank}. Before submitting a [new bug][5]{target=_blank}, please first [read the documentation][2], [check out the troubleshooting][1], and [search][4]{target=_blank} through the issues' database to try and find the answer to your question **before** posting an issue.
+Bugs are tracked in our GitHub's [issue tracker][4]{target=_blank}. Before submitting a [new bug][5]{target=_blank}, please first read the **Introduction** and check out the **troubleshooting** (both under ***Getting started***), and [search][4]{target=_blank} through the issues' database to try and find the answer to your question **before** posting an issue.
 
 When creating an [issue][5]{target=_blank}, please provide as much information as possible:
 
   - **WaLSAtools** version
-  - Version of IDL
+  - Version of IDL or Python
   - Operating System and version number
   - Error(s) in terminal
   - Detailed description of the issue
@@ -52,8 +52,6 @@ contributing to the codes, please check out [Development][7] for more informatio
 
 We strive to provide not only reliable and user-friendly analysis tools, but also helpful documentations and examples. If you feel the documentation can still be improved, your contribution is much appreciated. Check out [Development][7] for more information on the *package layout* and *editing documents*.
 
-  [1]: idl/troubleshooting.md
-  [2]: idl/WaLSAtools.md
   [3]: https://github.com/WaLSAteam/WaLSAtools/discussions
   [4]: https://github.com/WaLSAteam/WaLSAtools/issues
   [5]: https://github.com/WaLSAteam/WaLSAtools/issues/new

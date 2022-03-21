@@ -9,12 +9,12 @@
     <div class="md-grid md-typeset">
       <div class="tx-hero">
         <div class="tx-hero__image">
-          <img src="assets/images/WaLSA_analysis_tools_illustration.png" alt="" width="1730" height="1148" draggable="false">
+          <img src="images/WaLSA_analysis_tools_illustration.png" alt="" width="1730" height="1148" draggable="false">
         </div>
         <div class="tx-hero__content">
           <h1>Documentation for<br><span style="color:#FFCC00;">WaLSA</span> Analysis <span style="color:#FFCC00;">Tools</span></h1>
           <p>Information on an ever-expanding set of <strong>wave analysis tools</strong> (in both IDL and Python), from the <a href="https://WaLSA.team" style="text-decoration: none !important; color: #ffffff !important; font-weight: bolder;" target="_blank"><span style="color:#FFCC00;">WaLSA Team</span></a>, with a focus on reliability, reproducibility, and open science &mdash; linked to an article in <strong><a href="https://www.nature.com/nrmp/" style="text-decoration: none !important; color: #ffffff !important; font-weight: bolder;" target="_blank">Nature Reviews Methods Primers</a></strong>.</p>
-          <a href="{{ page.next_page.url | url }}" title="" class="md-button md-button--primary">
+          <a onclick="prolanguage()" title="" class="md-button md-button--primary">
             Getting started
           </a>
           <a href="https://github.com/WaLSAteam/WaLSAtools" title="" class="md-button">
@@ -24,6 +24,16 @@
       </div>
     </div>
   </section>
-{% endblock %}
+<script>
+  function prolanguage() {
+    var thprolans = __md_get("__palette") || { index: e.findIndex((r) => matchMedia(r.getAttribute("data-md-color-media")).matches) };
+    if (thprolans.index == 0) {
+       window.location = "https://walsa.tools/idl/introduction/";
+    } else if (thprolans.index == 1) {
+      window.location = "https://walsa.tools/python/introduction/";
+    }
+  };
+</script>
+  {% endblock %}
 {% block content %}{% endblock %}
 {% block footer %}{% endblock %}

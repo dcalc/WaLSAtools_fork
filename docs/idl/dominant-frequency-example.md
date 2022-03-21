@@ -1,5 +1,5 @@
 ---
-template: overrides/mainat.html
+template: overrides/main.html
 ---
 
 # Dominant Frequency
@@ -11,9 +11,9 @@ In the following example, **WaLSAtools** is performed to calculate mean power sp
 !!! walsa-example "Power Spectra at pixel `[10,10]` of the AIA 170 nm sample datacube"
 
     To learn how the datacube is read, and how the various power spectra are calculated, using **WaLSAtools**, and plotted, please go through the source code of this example accessible at the bottom of this page. 
-    The example IDL procedure can also be found under the `example` directory of the package. 
-	The sample datacube is located in the `sample_data` folder under the `example` directory. 
-	To run the example code, simply type the following command (while in the `example` directory, which can be placed anywhere in your machine, also outside your `IDL_PATH`) and press ++enter++ 
+    The example IDL procedure can also be found under the `examples/idl/` directory of the package. 
+	The sample datacube is located in the `sample_data` folder under the `examples` directory. 
+	To run the example code, simply type the following command (while in the `examples/idl/` directory, which can be placed anywhere in your machine, also outside your `IDL_PATH`) and press ++enter++ 
 
     ```sh
     IDL> .r example_dominant_frequency
@@ -88,10 +88,10 @@ In the following example, **WaLSAtools** is performed to calculate mean power sp
 	
     ??? source-code "Source code"
         ``` python linenums="1" hl_lines="34 35 36 76 77 78"
-        --8<-- "examples/example_dominant_frequency.pro"
+        --8<-- "examples/idl/example_dominant_frequency.pro"
         ```
 
-  [dfFFT]: ../assets/screenshots/example_dominant_frequency_FFT.jpg
-  [dfwavelet]: ../assets/screenshots/example_dominant_frequency_sensible_wavelet.jpg
+  [dfFFT]: ../images/idl/example_dominant_frequency_FFT.jpg
+  [dfwavelet]: ../images/idl/example_dominant_frequency_sensible_wavelet.jpg
 
 <br>

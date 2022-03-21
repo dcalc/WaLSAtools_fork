@@ -1,5 +1,5 @@
 ---
-template: overrides/mainat.html
+template: overrides/main.html
 ---
 
 # B-&#969; Diagram
@@ -11,8 +11,8 @@ Below is an example for plotting a B-&#969; diagram using **WaLSAtools** for a t
 !!! walsa-example "B-&#969; diagram for a small region of interest in the sample datacube"
 
 	To learn how **WaLSAtools** is employed to compute and plot the B-&#969; diagram in this example, please go through its source code accessible at the bottom of this page. 
-	The example IDL procedure can also be found under the `example` directory of the package. The sample datacubes are located in the `sample_data` folder under the `example` directory. 
-	To run the example code, simply type the following command (while in the `example` directory, which can be placed anywhere in your machine, also outside your `IDL PATH`) and press ++enter++ 
+	The example IDL procedure can also be found under the `examples/idl/` directory of the package. The sample datacubes are located in the `sample_data` folder under the `examples` directory. 
+	To run the example code, simply type the following command (while in the `examples/idl/` directory, which can be placed anywhere in your machine, also outside your `IDL PATH`) and press ++enter++ 
 
 	```sh
 	IDL> .r example_bomega
@@ -67,14 +67,14 @@ Below is an example for plotting a B-&#969; diagram using **WaLSAtools** for a t
 	
 	As a guide, see [this scientific article][2]{target=_blank} where this approach could help revealing signatures of resonant MHD oscillations in a pore umbra.
 	
-  [bomega]: ../assets/screenshots/WaLSAtools_b-omega.jpg
-  [sdoim]: ../assets/screenshots/sdo_images.jpg
+  [bomega]: ../images/idl/WaLSAtools_b-omega.jpg
+  [sdoim]: ../images/idl/sdo_images.jpg
   [1]: WaLSAtools.md
   [2]: https://arxiv.org/pdf/2103.11639.pdf
   
 	??? source-code "Source code"
 	    ``` python linenums="1" hl_lines="23 24"
-	    --8<-- "examples/example_bomega.pro"
+	    --8<-- "examples/idl/example_bomega.pro"
 	    ```
 
 <br>
