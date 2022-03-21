@@ -13,7 +13,7 @@ title: Introduction
 
 The main goal is to develop suitable techniques for various aspects of wave studies in the lower solar atmosphere (and beyond) &#8212; facilitating reliability and reproducibility of such analyses.
 
-!!! walsa-contribute "[Contributions][3] are welcome &#8212; to improve both codes and methods."
+!!! walsa-contribute "[Contributions][3] are welcome &#8212; to improve codes, methods, and/or documentations."
 
 ## Analysis Methods :material-white-balance-sunny:
 
