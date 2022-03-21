@@ -9,7 +9,7 @@ title: Introduction
 
 **WaLSAtools** is a collection of analysis routines (in both [IDL][1]{target=_blank} and [Python][9]{target=_blank} programming languages), collected and/or developed by the [**WaLSA team**][2]{target=_blank}, for studying waves and oscillations, with a particular emphasis on such phenomena occurring in the lower atmosphere of the Sun.
 
-!!! walsa-code "To switch between IDL and Python documentations, click on name of the current language on top of the webpages."
+!!! walsa-code "To switch between IDL and Python documentations, click on name of the current programming language on top of the webpages on this site."
 
 The main goal is to develop suitable techniques for various aspects of wave studies in the lower solar atmosphere (and beyond) &#8212; facilitating reliability and reproducibility of such analyses.
 
