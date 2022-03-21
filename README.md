@@ -12,7 +12,7 @@ WaLSAtools is a collection of analysis routines (in both IDL and Python programm
 
 The main goal is to develop suitable techniques for various aspects of wave studies in the lower solar atmosphere (and beyond) — facilitating reliability and reproducibility of such analyses.
 
-<a href="https://WaLSA.tools" target="_blank"><img align="right" src="docs/assets/screenshots/WaLSAtool_documentation_screenshot.jpg" alt="" width="485" height="auto" /></a>
+<a href="https://WaLSA.tools" target="_blank"><img align="right" src="docs/images/site/WaLSAtool_documentation_screenshot.jpg" alt="" width="485" height="auto" /></a>
 
 ## Documentation
 
