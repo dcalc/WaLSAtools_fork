@@ -99,15 +99,11 @@ theme:
       toggle:
         icon: material/weather-night
         name: Python
-        
-    # scheme: default
-    # primary: deep-orange
-    # accent: red
 
   font:
     text: Roboto
     code: Roboto Mono
-  favicon: images/site/favicon.png
+  favicon: images/misc/favicon.png
   icon:
     logo: logo
     repo: fontawesome/brands/github
