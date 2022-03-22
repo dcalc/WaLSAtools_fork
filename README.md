@@ -28,4 +28,4 @@ See the documentation at **[https://WaLSA.tools](https://WaLSA.tools)** for **ge
 
 ### Link to working repository
 
-To WaLSA Team Members: Please add your codes under the [**WaLSAtools Workin Repository**](https://github.com/WaLSAteam/WaLSAtools_working_repository).
+WaLSA Team Members: Please add your codes to the [**WaLSAtools Workin Repository**](https://github.com/WaLSAteam/WaLSAtools_working_repository) -- a temporary repository during the intial development phase.
