@@ -8,11 +8,11 @@
     <a href="https://github.com/WaLSAteam/WaLSAtools/actions/workflows/ci.yml"><img src="https://github.com/WaLSAteam/WaLSAtools/workflows/docs/badge.svg"></a>
 </p>
 
-WaLSAtools is a collection of analysis routines (in both IDL and Python programming languages), collected and/or developed by the <a href="https://WaLSA.team" target="_blank">**WaLSA team**</a>, for studying waves and oscillations, with a particular emphasis on such phenomena occurring in the lower atmosphere of the Sun.
+WaLSAtools is a collection of analysis routines (in both IDL and Python programming languages), collected and/or developed by the [**WaLSA team**](https://walsa.team), for studying waves and oscillations, with a particular emphasis on such phenomena occurring in the lower atmosphere of the Sun.
 
 The main goal is to develop suitable techniques for various aspects of wave studies in the lower solar atmosphere (and beyond) — facilitating reliability and reproducibility of such analyses.
 
-This repository is primarily linked to an article in <a href="https://www.nature.com/nrmp/" target="_blank">**Nature Reviews Methods Primers**</a> (to be submitted).
+This repository is primarily linked to an article in [**Nature Reviews Methods Primers**](https://www.nature.com/nrmp/) (to be submitted).
 
 <a href="https://WaLSA.tools" target="_blank"><img align="right" src="docs/images/misc/WaLSAtool_documentation_screenshot.jpg" alt="" width="485" height="auto" /></a>
 
