@@ -20,8 +20,8 @@
 ;   time:       time of the observations in sec
 ;
 ; + OPTIONAL KEYWORDS:
-;   binsize:    magnetic-field bin size (default: 50 G)
-;   silent:     if set, the B-ω map is not displayed.
+;   binsize:         magnetic-field bin size (default: 50 G)
+;   silent:          if set, the B-ω map is not displayed.
 ;   clt:             color table number (idl ctload)
 ;   koclt:           custom color tables for k-ω diagram (currently available: 1 and 2)
 ;   threemin:        if set, a horizontal line marks the three-minute periodicity
