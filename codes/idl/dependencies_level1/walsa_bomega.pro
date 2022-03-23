@@ -60,8 +60,11 @@
 ;   barray:         magnetic-field values of the middle of the bins
 ;                   (i.e., values of the x axis of the B-ω map)
 ;
-; if YOU USE THIS CODE, then PLEASE CITE THE ORIGINAL PUBLICATION WHERE IT WAS INTRODUCED:
-; Stangalini et al. 2021, A&A, in press (https://ui.adsabs.harvard.edu/abs/2021arXiv210311639S)
+;
+; + CREDITS:
+;   Author: Shahin Jafarzadeh, March 2021
+;   Note: if YOU USE THIS CODE, then PLEASE CITE THE ORIGINAL PUBLICATION WHERE IT WAS INTRODUCED:
+;          Stangalini et al. 2021, A&A, in press (https://ui.adsabs.harvard.edu/abs/2021arXiv210311639S)
 ;-
 
 pro walsa_bomega, datacube, Bmap, cadence=cadence, time=time, binsize=binsize, power=power, frequencies=frequencies, Barray=Barray, $
