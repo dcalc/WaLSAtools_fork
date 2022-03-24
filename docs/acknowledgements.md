@@ -37,13 +37,13 @@ Below is a list of individuals who have contributed to **WaLSAtools** (either di
   [4]: http://www.idlcoyote.com
   [5]: http://climate.web.runbox.net/idl_lib/
   [6]: https://walsa.team/shahin.jafarzadeh
-  [7]: https://star.pst.qub.ac.uk/wiki/doku.php/users/djess/start
+  [7]: https://davidjess.net
   [8]: https://www.researchgate.net/profile/Marco-Stangalini
-  [9]: https://star.pst.qub.ac.uk/wiki/doku.php/users/sgrant/start#dr_samuel_grant
+  [9]: https://pure.qub.ac.uk/en/persons/samuel-grant
   [10]: https://robrutten.nl
   [11]: https://sohowww.nascom.nasa.gov/solarsoft/
   [12]: https://gitlab.gwdg.de/andreas.lagg/helix
-  [16]: https://star.pst.qub.ac.uk/wiki/doku.php/users/pkeys/start
+  [16]: https://pure.qub.ac.uk/en/persons/peter-keys
 
 ## Sample Datasets :material-database:
 
