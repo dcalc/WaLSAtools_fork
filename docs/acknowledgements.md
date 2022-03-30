@@ -13,7 +13,7 @@ While we make every effort to ensure that acknowledgements/credits in this docum
 Below is a list of individuals who have contributed to **WaLSAtools** (either directly, or by providing their codes used as important part of the package).
 
   - [Dr Shahin Jafarzadeh][6]{target=_blank} (Leibniz Institute for Solar Physics, Germany)
-  - [Dr David B. Jess][7]{target=_blank} (Queen's University Belfast, UK)
+  - [Prof David B. Jess][7]{target=_blank} (Queen's University Belfast, UK)
   - [Dr Marco Stangalini][8]{target=_blank} (Italian Space Agency, Italy)
   - [Dr Peter H. Keys][16]{target=_blank} (Queen's University Belfast, UK)
   - [Dr Samuel D. T. Grant][9]{target=_blank} (Queen's University Belfast, UK)
@@ -37,13 +37,13 @@ Below is a list of individuals who have contributed to **WaLSAtools** (either di
   [4]: http://www.idlcoyote.com
   [5]: http://climate.web.runbox.net/idl_lib/
   [6]: https://walsa.team/shahin.jafarzadeh
-  [7]: https://star.pst.qub.ac.uk/wiki/doku.php/users/djess/start
+  [7]: https://davidjess.net
   [8]: https://www.researchgate.net/profile/Marco-Stangalini
-  [9]: https://star.pst.qub.ac.uk/wiki/doku.php/users/sgrant/start#dr_samuel_grant
+  [9]: https://pure.qub.ac.uk/en/persons/samuel-grant
   [10]: https://robrutten.nl
   [11]: https://sohowww.nascom.nasa.gov/solarsoft/
   [12]: https://gitlab.gwdg.de/andreas.lagg/helix
-  [16]: https://star.pst.qub.ac.uk/wiki/doku.php/users/pkeys/start
+  [16]: https://pure.qub.ac.uk/en/persons/peter-keys
 
 ## Sample Datasets :material-database:
 
