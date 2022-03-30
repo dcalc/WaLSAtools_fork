@@ -163,8 +163,9 @@ nav:
 plugins:
   - search
   - tags
-  - with-pdf:
-      output_path: WaLSAtools_document.pdf
+  # - with-pdf:
+  #     render_js: true
+  #     output_path: WaLSAtools_document.pdf
 
 # Extensions
 markdown_extensions:
