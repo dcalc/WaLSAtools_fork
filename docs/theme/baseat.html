@@ -7,12 +7,6 @@
   <head>
     {% block site_meta %}
       <meta charset="utf-8">
-      <meta http-equiv="cache-control" content="max-age=0">
-      <meta http-equiv="cache-control" content="no-cache">
-      <meta http-equiv="expires" content="-1">
-      <meta http-equiv="expires" content="Tue, 01 Jan 1980 11:00:00 GMT">
-      <meta http-equiv="pragma" content="no-cache">
-
       <meta name="viewport" content="width=device-width,initial-scale=1">
       {% if page and page.meta and page.meta.description %}
         <meta name="description" content="{{ page.meta.description }}">
@@ -40,6 +34,18 @@
       {% endif %}
     {% endblock %}
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script type='text/javascript'>
+      (function () {
+        if (window.localStorage) {
+          if (!localStorage.getItem('firstLoad')) {
+            localStorage['firstLoad'] = true;
+            window.location.reload();
+          }
+          else
+            localStorage.removeItem('firstLoad');
+        }
+      })();
+    </script>
     <!-- <script src="{{ 'theme/javascripts/nocache.js' | url }}"></script> -->
     {% block styles %}
       <link rel="stylesheet" href="{{ 'assets/stylesheets/main.2d9f7617.min.css' | url }}">

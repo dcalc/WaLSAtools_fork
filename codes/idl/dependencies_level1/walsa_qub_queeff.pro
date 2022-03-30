@@ -57,7 +57,7 @@
 ;   mode:            outputted power mode: 0 = log(power) (default), 1 = linear power, 2 = sqrt(power) = amplitude
 ;
 ; + OUTPUTS:
-;   power:           2d array of power in log10 scale
+;   power:           2d array of power (see mode for the scale)
 ;                    (in dn^2/mhz, i.e., normalized to frequency resolution)
 ;   frequencies:     1d array of frequencies (in mhz)
 ;   wavenumber:      1d array of wavenumber (in arcsec^-1)
@@ -145,6 +145,11 @@ Gaussian_kernel_norm = TOTAL(Gaussian_kernel,/nan)
 kopower_plot = kopower
 kopower_plot[*,1:*] = CONVOL(kopower[*,1:*],  Gaussian_kernel, Gaussian_kernel_norm, /edge_truncate)
 
+; normalise to frequency resolution (in mHz)
+freq = kopower_yscale[1:*]
+if freq[0] eq 0 then freq0 = freq[1] else freq0 = freq[0]
+kopower_plot = kopower_plot/freq0
+
 if mode eq 0 then kopower_plot = ALOG10(kopower_plot)
 if mode eq 2 then kopower_plot = SQRT(kopower_plot)
 
@@ -161,13 +166,13 @@ y2 = 0.80
 
 ; WHEN PLOTTING WE NEED TO IGNORE THE ZERO'TH ELEMENT (I.E., THE MEAN f=0) SINCE THIS WILL MESS UP THE LOG PLOT!
 komegamap = (kopower_plot)[1:*,1:*]>MIN((kopower_plot)[1:*,1:*],/nan)<MAX((kopower_plot)[1:*,1:*],/nan)
-    
+
 IF silent EQ 0 THEN BEGIN
     
     if n_elements(komega) eq 0 then komega = 0 else komega = 1 
     if n_elements(clt) eq 0 then clt = 13 else clt=clt 
     ctload, clt, /silent 
-    if n_elements(koclt) ne 0 then walsa_kopowercolor, koclt
+    if n_elements(koclt) ne 0 then walsa_powercolor, koclt
 
     !p.background = 255.
     !p.color = 0.

@@ -54,7 +54,7 @@
 ; + OUTPUTS:
 ;   power:          B-ω map, a stack of average power spectra (in magnetic-field bins)
 ;                   along y axis -> The x and y axes are B (in G) and 
-;                   frequency (in mHz); the map intensity is power in log10 scale
+;                   frequency (in mHz); in dn^2/mhz, i.e., normalized to frequency resolution (see mode for the scale)
 ;   frequencies:    frequencies of the power spectra 
 ;                   (i.e., values of the y axis of the B-ω map)
 ;   barray:         magnetic-field values of the middle of the bins
@@ -199,7 +199,7 @@ if silent eq 0 then begin
 
     if n_elements(clt) eq 0 then clt = 13 else clt=clt 
     ctload, clt, /silent 
-    if n_elements(koclt) ne 0 then walsa_kopowercolor, koclt
+    if n_elements(koclt) ne 0 then walsa_powercolor, koclt
 
     !p.background = 255.
     !p.color = 0.
@@ -264,8 +264,8 @@ if (mode eq 2) then print,' mode = 2: sqrt(power)'
 !P.Multi = 0
 Cleanplot, /Silent
 
-print,''
-print, 'COMPLETED!'
-print,''
+PRINT
+PRINT, 'COMPLETED!'
+PRINT
 
 end
