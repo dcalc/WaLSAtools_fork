@@ -26,6 +26,6 @@ See the documentation at **[https://WaLSA.tools](https://WaLSA.tools)** for **ge
 
 ---
 
-<h3>Link to <a href="https://github.com/WaLSAteam/WaLSAtools_working_repository">Working Repository</a></h3>
+<h3><a href="https://github.com/WaLSAteam/WaLSAtools_working_repository">Working Repository</a></h3>
 
-WaLSA Team Members: Please add your codes to the [**WaLSAtools Working Repository**](https://github.com/WaLSAteam/WaLSAtools_working_repository) — a temporary repository during the intial development phase. 
+WaLSA Team Members: Please add your codes to the **WaLSAtools** [**Working Repository**](https://github.com/WaLSAteam/WaLSAtools_working_repository) — a temporary repository during the intial development phase. 
