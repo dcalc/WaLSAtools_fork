@@ -62,7 +62,7 @@
 ;
 ;
 ; + CREDITS:
-;   Author: Shahin Jafarzadeh, March 2021
+;   Author: Shahin Jafarzadeh, March 2021. 
 ;   Note: if YOU USE THIS CODE, then PLEASE CITE THE ORIGINAL PUBLICATION WHERE IT WAS INTRODUCED:
 ;          Stangalini et al. 2021, A&A, in press (https://ui.adsabs.harvard.edu/abs/2021arXiv210311639S)
 ;-
