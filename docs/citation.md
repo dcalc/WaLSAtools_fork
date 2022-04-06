@@ -12,7 +12,7 @@ If you use **WaLSAtools** in your work, please cite it, as instructed below, in 
 
 - WaLSA Team 2022, Nature Reviews Methods Primers, in preparation  
 
-- Jess, D. B., Jafarzadeh, S., Keys, P. H., Stangalini, M., and Verth G. 2021, Living Reviews in Solar Physics, in preparation
+- Jess, D. B., Jafarzadeh, S., Keys, P. H., Stangalini, M., and Verth G. 2022, Living Reviews in Solar Physics, in preparation
 
 ### Articles for particular functions:
 
