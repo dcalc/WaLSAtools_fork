@@ -659,7 +659,7 @@ We strongly encourage all users to perform their analyses by running **WaLSAtool
 	
     If data, time or cadence, and the type of analysis are not provided, then the code returns the sequential information as documented above. 
     
-    Running **WaLSAtools** is relatively painless, and easy to understand, if you follow the instruction printed in terminal. 
+    Running **WaLSAtools** is relatively painless, and easy to understand, if you follow the instruction printed in the terminal. 
     Please note the format and unit of the input, keyword, and output parameters.
 
     ??? source-code "Source code"
