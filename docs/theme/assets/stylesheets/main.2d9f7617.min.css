@@ -1125,7 +1125,7 @@ html .md-footer-meta.md-typeset a:is(:focus, :hover) {
     vertical-align: -25%;
 }
 .md-typeset .md-button {
-    border: 0.1rem solid;
+    border: 0.07rem solid;
     border-radius: 0.1rem;
     color: var(--md-primary-fg-color);
     cursor: pointer;
