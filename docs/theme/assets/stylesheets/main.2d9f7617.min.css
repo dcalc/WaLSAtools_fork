@@ -121,7 +121,7 @@ input {
     --md-admonition-bg-color: var(--md-default-bg-color);
     --md-footer-fg-color: #fff;
     --md-footer-fg-color--light: hsla(0, 0%, 100%, 0.7);
-    --md-footer-fg-color--lighter: hsla(0, 0%, 100%, 0.3);
+    --md-footer-fg-color--lighter: hsla(0, 0%, 100%, 0.4);
     --md-footer-bg-color: rgba(0, 0, 0, 0.87);
     --md-footer-bg-color--dark: rgba(0, 0, 0, 0.32);
 }
