@@ -65,7 +65,7 @@ Analyses of single time series also fall into two sections, one related to those
         The marginal HHT spectrum may particularly be useful for low-amplitude fast frequency oscillations.
 
 !!! walsa-info "Info"
-    - **Power Spectral Density (PSD):** The analysis methods described here initially output wave amplitudes at different frequencies &#8212; the frequency spectrum. 
+    - **Power Spectral Density (PSD):** The analysis methods described here initially compute wave amplitudes at different frequencies &#8212; the frequency spectrum. 
       **WaLSAtools** will then return Power Spectral Density (PSD; *Stull 1988*) which is the square of wave amplitude (i.e., power spectrum) normalised by frequency resolution. 
       This helps ensure that different signals can be compared independently of their frequency resolution (which is determined by length of the time series). 
       In addition, single-sided power is outputted (i.e., the *identical* power at negative frequencies are wrapped into positive frequencies), thus the PSD values are doubled.
