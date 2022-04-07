@@ -12,7 +12,7 @@ Contributions are very welcome and appreciated!
 
 ## GitHub :material-github:
 
-**WaLSAtools** utilises [git][10]{target=_blank} as a distributed version control system and is hosted on [GitHub][11]{target=_blank}. For contribution, you would need an account on GitHub to [fork][14]{target=_blank} **WaLSAtools** and submit your changes via a [pull request][15]{target=_blank}, or to, e.g., submit [issues][16]{target=_blank} or questions on our GitHub repository (see below). If you are unfamiliar with GitHub, some useful information/guides can be found [here][12]{target=_blank} and [here][13]{target=_blank}.
+**WaLSAtools** utilises [git][10]{target=_blank} as a distributed version control system and is hosted on [GitHub][11]{target=_blank}. For contribution, you would need an account on GitHub to [fork][14]{target=_blank} **WaLSAtools** and submit your changes via a [pull request][15]{target=_blank}, or to, e.g., submit [issues][16]{target=_blank} or questions on our GitHub repository (see below). If you are unfamiliar with GitHub, some useful information/guides can be found [here][12]{target=_blank}.
 
 ## Bug Report :material-bug:
 
@@ -61,8 +61,7 @@ We strive to provide not only reliable and user-friendly analysis tools, but als
   [9]: https://github.com/WaLSAteam/WaLSAtools/pulls
   [10]: https://git-scm.com
   [11]: https://github.com/WaLSAteam/WaLSAtools
-  [12]: https://guides.github.com
-  [13]: https://docs.github.com/en
+  [12]: https://docs.github.com/en
   [14]: https://guides.github.com/activities/forking/
   [15]: https://guides.github.com/activities/forking/#making-a-pull-request
   [16]: https://guides.github.com/features/issues/
