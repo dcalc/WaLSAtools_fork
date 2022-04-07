@@ -48,7 +48,7 @@ Analyses of single time series also fall into two sections, one related to those
         Note that the choice of wavelet function is very important (i.e., various functions may result in different resolution in time and/or frequency). 
         The Morlet mother function is often found a good choice in analysing waves and oscillations in the solar atmosphere, as it satisfies a good balance between frequency and time localisations.
         Wavelet analysis also identifies areas in the time-frequency space that are subject to edge effect (that is introduced due to the convolution of the wavelet function close to the edges of the finite time series). 
-        Such regions are marked with the so-called Cone of Influence (CoI) and mark unreliable areas of the 2D power spectrum.
+        Such regions are marked with the so-called Cone of Influence (CoI), identifying unreliable areas of the 2D power spectrum.
         
         **Wavelet transform is particularly suitable for studying transient oscillations, weak signals, or quasi-periodic signatures.** 
         In addition to the 2D time-frequency spectrum, *traditionally*, a 1D spectrum (so-called *global wavelet*) can also be computed by averaging the power along the entire time domain, which, however, also includes the power subject to the edge effect.
