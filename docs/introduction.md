@@ -88,7 +88,7 @@ Analyses of single time series also fall into two sections, one related to those
         The process can then be reversed (by utilising an inverse FFT) to reconstruct a new time series of images which contain only the wavenumbers and frequencies of interest.
 
         **Fourier filtering helps identify wave signatures with, e.g., relatively small amplitudes, against macroscopic flows and/or dominant MHD wave modes (with often considerably larger power).** 
-        For further description on the Fourier filtering, check out the [step-by-step guide][6]{target=_blank} of the original (QUEEFF) code integrated in **WaLSAtools**.
+        For further description on the Fourier filtering, check out the [step-by-step guide][6]{target=_blank} of the original (QUEEFF) code integrated into **WaLSAtools**.
         The code was first used in [this publication][7]{target=_blank}.
         For running the code through **WaLSAtools**, see the example **k-&#969; Diagram and Filtering**.
     
