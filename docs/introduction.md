@@ -110,12 +110,12 @@ Analyses of single time series also fall into two sections, one related to those
 
     === "Dominant Frequency"
         It is often important to find the dominant frequency at a particular pixel, or at all pixels over a region of interest. 
-        The latter can iluustrate the spatial distribution of dominant frequency of the region.
+        The latter can illustrate the spatial distribution of dominant frequency of the region.
         However, this is worth noting that such dominant frequencies should be interpreted with great caution because multiple high-power peaks (with equal or comparable powers) may occur in a power spectrum.
         If there exist more than one peak with the exact same power, then the peak corresponding to the lowest frequency is returned.
         The dominant frequency can be determined for 1D power spectra calculated from any of the analysis methods described above (i.e., FFT, Lomb-Scargle, Wavelet, and HHT).
 
-        **The dominant-frequeny map shows the statistical distribution of osillations frequency over the region of interest**, though it may be biased to some extent.
+        **The dominant-frequency map shows the statistical distribution of oscillations frequency over the region of interest**, though it may be biased to some extent.
 
 !!! walsa-wavecross "Cross Correlations between two datasets"
     Correlations between any two (aligned) time series (e.g., two different parameters, or one parameter at, e.g., two different heights/locations in the solar atmosphere) can be explored by calculating the so-called **cross-spectrum** (also known as co-spectrum or cross-power), **coherence** levels, and **phase relationships**. These parameters can be determined for all the different analysis methods described above (i.e., FFT, Lomb-Scargle, Wavelet, and HHT).
@@ -127,19 +127,19 @@ Analyses of single time series also fall into two sections, one related to those
         **The co-spectrum (i.e., absolute value of the complex cross spectrum) is a measure of the relationship between the two time series as a function of frequency.**
     
     === "Coherence"
-        When both or one of the power spectra (of two time series) do not show strong peaks (e.g., indistinguishable from red noise), then the 'cross spectrum' may not be able to reveal any correllation, if should exist.
+        When both or one of the power spectra (of two time series) do not show strong peaks (e.g., indistinguishable from red noise), then the 'cross spectrum' may not be able to reveal any correlation, if should exist.
 		If so, such (hidden) coherent modes at particular frequencies can be identified in the coherency spectrum.
 		The coherence is the squared of the absolute value of the complex cross spectrum, normalised by the individual power spectra of the two time series. 
-		Thus, the coherence level varieas between '0' and '1', where one shows a perfect coherency and zero means no coherency between the two oscillations.
+		Thus, the coherence level varies between '0' and '1', where one shows a perfect coherency and zero means no coherency between the two oscillations.
 		
-		**The coherence spectrum identifis regions where the two time series co-move, but not necessarily pose high power.** 
-		This approach is particularly important for finding correllations between waves observed at, e.g., various atmospheric heights, or different physical parameters.
+		**The coherence spectrum identifies regions where the two time series co-move, but not necessarily pose high power.** 
+		This approach is particularly important for finding correlations between waves observed at, e.g., various atmospheric heights, or different physical parameters.
 		
 	=== "Phase Difference"
 		Phase difference is a measure of correlation between two time series.
 		It provides information on phase and time lags between the two oscillations. The phase lag is the phase of the complex cross spectrum (i.e. calculated from the complex and real arguments of the cross spectrum).
 		
-		Two oscillations are well correlated if they have zero phase difference (i.e., in-phase relationship), otherwise, one fluctuation may lag behind (or lead) the other one by a certain amount of degrees (ranging -180 to 180 degrees; &plusmn;180 degress indicates anti-phase relationship).
+		Two oscillations are well correlated if they have zero phase difference (i.e., in-phase relationship), otherwise, one fluctuation may lag behind (or lead) the other one by a certain amount of degrees (ranging -180 to 180 degrees; &plusmn;180 degrees indicates anti-phase relationship).
 		
 		The phase lag can be simply converted into a time lag as 
 		$$
