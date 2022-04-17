@@ -102,11 +102,11 @@ Analyses of single time series also fall into two sections, one related to those
         The analysis method was first introduced in [this publication][8]{target=_blank}.
 
     === "Mean Power"
-        Spatially-averaged power spectrum is obtained by avrageing all power spectra determined at individual pixels over an entire field of view of interest. 
-        Note that the average is performed in the frequency space not in the spatial domin (i.e., we first calculate power spectra at all individual pixels, then average the power spectra).
+        Spatially-averaged power spectrum is obtained by averaging all power spectra determined at individual pixels over an entire field of view of interest. 
+        Note that the average is performed in the frequency space not in the spatial domain (i.e., we first calculate power spectra at all individual pixels, then average the power spectra).
         The mean power can be determined for 1D power spectra calculated from any of the analysis methods described above (i.e., FFT, Lomb-Scargle, Wavelet, and HHT).
 
-        **The mean power represents the average (most pronounced) behaviour of a region of interest**, irrespective of individual oscilaltions at particular pixels/regions within the same area.
+        **The mean power represents the average (most pronounced) behaviour of a region of interest**, irrespective of individual oscillations at particular pixels/regions within the same area.
 
     === "Dominant Frequency"
         It is often important to find the dominant frequency at a particular pixel, or at all pixels over a region of interest. 
