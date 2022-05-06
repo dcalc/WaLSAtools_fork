@@ -252,12 +252,12 @@ if EPS eq 1 then begin
     !y.ticklen=-0.021
     barthick = 550
     distbar = 550
-	coithick = 3.
-	arrowsize = 20.
-	arrowthick = 3.5
-	c_thick = 3.
-	h_thick = 1.4
-	; arrowheadsize = 10.
+    coithick = 3.
+    arrowsize = 20.*arrowsize
+    arrowthick = (3.5/2.)*arrowthick
+    c_thick = 3.
+    h_thick = 1.4
+    ; arrowheadsize = 10.
 endif else begin
     if (xscreensize ge 1000) AND (yscreensize ge 1000) then begin 
 		if crossspectrum ne 0 then window, w, xs=900, ys = 650, title=strtrim(w,2)+': Cross Wavelet Spectrum'
