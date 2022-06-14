@@ -64,7 +64,7 @@ cgplot, frequencies, 100*averagedpower/max(averagedpower), ys=1, XTICKINTERVAL=1
 ppos = pos[*,0]
 xyouts, ppos[0]+((ppos[2]-ppos[0])/2.), ppos[3]+((1-ppos[3])/2.), ALIGNMENT=0.5, CHARSIZE=charsize, /normal, 'Mean Power Spectrum (FFT)', color=cgColor('Black')
 
-walsa_kopowercolor, 1
+walsa_powercolor, 1
 walsa_image_plot, dominantfreq, xrange=xrg, yrange=yrg, nobar=0, zrange=minmax(dominantfreq,/nan), $
           contour=0, /nocolor, ztitle='Dominant Frequency (mHz)!C', xtitle='(arcsec)', ytitle='(arcsec)', $
           exact=1, aspect=0, cutaspect=0, barpos=1, zlen=-0.45, distbar=barthick, xticklen=-0.03, yticklen=-0.03, $
@@ -106,7 +106,7 @@ cgplot, frequencies, 100*averagedpower/max(averagedpower), ys=1, XTICKINTERVAL=1
 ppos = pos[*,0]
 xyouts, ppos[0]+((ppos[2]-ppos[0])/2.), ppos[3]+((1-ppos[3])/2.), ALIGNMENT=0.5, CHARSIZE=charsize, /normal, 'Mean Power Spectrum (Sensible Wavelet)', color=cgColor('Black')
 
-walsa_kopowercolor, 1
+walsa_powercolor, 1
 walsa_image_plot, dominantfreq, xrange=xrg, yrange=yrg, nobar=0, zrange=minmax(dominantfreq,/nan), $
           contour=0, /nocolor, ztitle='Dominant Frequency (mHz)!C', xtitle='(arcsec)', ytitle='(arcsec)', $
           exact=1, aspect=0, cutaspect=0, barpos=1, zlen=-0.45, distbar=barthick, xticklen=-0.03, yticklen=-0.03, $
