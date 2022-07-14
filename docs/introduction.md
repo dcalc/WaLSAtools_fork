@@ -141,10 +141,7 @@ Analyses of single time series also fall into two sections, one related to those
 		
 		Two oscillations are well correlated if they have zero phase difference (i.e., in-phase relationship), otherwise, one fluctuation may lag behind (or lead) the other one by a certain amount of degrees (ranging -180 to 180 degrees; &plusmn;180 degrees indicates anti-phase relationship).
 		
-		The phase lag can be simply converted into a time lag as 
-		$$
-		time_lag(i)=\frac{phase_lag(i)}{2 \pi f(i)}
-		$$
+		The phase lag can be simply converted into a time lag as $time_lag(i)=\frac{phase_lag(i)}{2 \pi f(i)}$
         
 	!!! walsa-info "Note"
 	    The co-spectrum, coherence, and phase lag have one dimension for the 1D power spectra (i.e., for FFT, Lomb-Scargle, HHT, as well as Wavelet Global and Sensible power spectra), whereas they have two dimensions for the 2D Wavelet spectrum.
