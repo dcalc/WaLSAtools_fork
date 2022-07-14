@@ -81,24 +81,24 @@ Analyses of single time series also fall into two sections, one related to those
     In addition, a science case may require the spatially-averaged power spectrum over a large field of view (irrespective of spatial scales and/or underlying magnetic fields), or the spatial distribution of dominant frequencies (i.e., frequencies corresponding to maximum power at each pixel).
     These are introduced in the following analysis tools.
 
-    === "k-&#969; Analysis and Fourier Filtering"
-        k-&#969; diagram represents the azimuthally averaged (FFT) power spectra of a 3D datacube (time series of 2D images) in the wavenumber-frequency space (i.e., in both spatial and temporal frequencies, respectively). 
+    === "k-&omega; Analysis and Fourier Filtering"
+        k-&omega; diagram represents the azimuthally averaged (FFT) power spectra of a 3D datacube (time series of 2D images) in the wavenumber-frequency space (i.e., in both spatial and temporal frequencies, respectively). 
         The relationship between the two domains can reveal dispersion relations of various waves / wave modes. 
-        Furthermore, power in spatial or temporal domains, or a combination of both, can be filtered (either interactively, or by providing the ranges) within the k-&#969; analysis.
+        Furthermore, power in spatial or temporal domains, or a combination of both, can be filtered (either interactively, or by providing the ranges) within the k-&omega; analysis.
         The process can then be reversed (by utilising an inverse FFT) to reconstruct a new time series of images which contain only the wavenumbers and frequencies of interest.
 
         **Fourier filtering helps identify wave signatures with, e.g., relatively small amplitudes, against macroscopic flows and/or dominant MHD wave modes (with often considerably larger power).** 
         For further description on the Fourier filtering, check out the [step-by-step guide][6]{target=_blank} of the original (QUEEFF) code integrated into **WaLSAtools**.
         The code was first used in [this publication][7]{target=_blank}.
-        For running the code through **WaLSAtools**, see the example **k-&#969; Diagram and Filtering**.
+        For running the code through **WaLSAtools**, see the example **k-&omega; Diagram and Filtering**.
     
-    === "B-&#969; Analysis"
-        B-&#969; diagram is a novel approach which combines averaged (FFT) power spectra in various magnetic-field bins (within the field of view of observations) in one plot. 
+    === "B-&omega; Analysis"
+        B-&omega; diagram is a novel approach which combines averaged (FFT) power spectra in various magnetic-field bins (within the field of view of observations) in one plot. 
         Thus, each vertical column in the diagram represents the average power spectrum at a certain magnetic-field strength (with a range defining the bin size) on the horizontal axis. 
         Therefore, this analysis method requires a magnetic-field map associated to the field of view of observations (for the 3D datacube). 
         Here, individual pixels are analysed separately (i.e., only in the temporal domain) but the power spectra with field strengths lying in each bin are averaged.
         
-        **B-&#969; diagram prevents mixing wave signatures from structures with different magnetic-field strength, thus facilitates identification of MHD wave modes.**
+        **B-&omega; diagram prevents mixing wave signatures from structures with different magnetic-field strength, thus facilitates identification of MHD wave modes.**
         The analysis method was first introduced in [this publication][8]{target=_blank}.
 
     === "Mean Power"
@@ -160,7 +160,7 @@ Further analysis and visualising methods are being added to **WaLSAtools** over 
 
 - Adding other analysis methods, such as **Welch** and **ALIF**, in IDL.
 
-- Implementing other techniques in to the **k-&#969;** and **B-&#969;** analyses (currently FFT is the only spectral analysis method in those tools), in IDL.
+- Implementing other techniques in to the **k-&omega;** and **B-&omega;** analyses (currently FFT is the only spectral analysis method in those tools), in IDL.
 
 <br>
 
