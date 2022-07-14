@@ -127,10 +127,10 @@ Analyses of single time series also fall into two sections, one related to those
         **The co-spectrum (i.e., absolute value of the complex cross spectrum) is a measure of the relationship between the two time series as a function of frequency.**
     
     === "Coherence"
-        When both or one of the power spectra (of two time series) do not show strong peaks (e.g., indistinguishable from red noise), then the 'cross spectrum' may not be able to reveal any correlation, if should exist.
+        When both or one of the power spectra (of two time series) do not show strong peaks (e.g., indistinguishable from red noise), then the &lsquo;cross spectrum&rsquo; may not be able to reveal any correlation, if should exist.
 		If so, such (hidden) coherent modes at particular frequencies can be identified in the coherency spectrum.
 		The coherence is the squared of the absolute value of the complex cross spectrum, normalised by the individual power spectra of the two time series. 
-		Thus, the coherence level varies between '0' and '1', where one shows a perfect coherency and zero means no coherency between the two oscillations.
+		Thus, the coherence level varies between &lsquo;0&rsquo; and &lsquo;1&rsquo;, where one shows a perfect coherency and zero means no coherency between the two oscillations.
 		
 		**The coherence spectrum identifies regions where the two time series co-move, but not necessarily pose high power.** 
 		This approach is particularly important for finding correlations between waves observed at, e.g., various atmospheric heights, or different physical parameters.
