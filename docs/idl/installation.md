@@ -15,7 +15,7 @@ The **WaLSAtools** package requires the [Interactive Data Language (**IDL**)][3]
 git clone https://github.com/WaLSAteam/WaLSAtools
 ```
 
-Please note that you must have a GitHub account, and since 13 August 2021 you should enter your personal access token (PAT) for password authentication (see [here][6] for more information).
+Please note that you must have a GitHub account, and since 13 August 2021 you should enter your personal access token (PAT) for password authentication (see [here][6]{target=_blank} for more information).
 
 Update an existing installation to the **latest version** via:
 
