@@ -9,11 +9,13 @@ The **WaLSAtools** package requires the [Interactive Data Language (**IDL**)][3]
 
 ## With git :octicons-mark-github-16:
 
-**WaLSAtools** should preferably be used from [GitHub][2] by cloning the repository into your IDL library, or a location of your preference (that requires [setting your IDL PATH][4] by pointing to that location).
+**WaLSAtools** should preferably be used from [GitHub][2] by cloning (i.e., downloading) the repository into your IDL library, or a location of your preference (that requires [setting your IDL PATH][4] by pointing to that location).
 
 ```
 git clone https://github.com/WaLSAteam/WaLSAtools
 ```
+
+Please note that you must have a GitHub account, and since 13 August 2021 you should enter your personal access token (PAT) for password authentication (see [here][6] for more information).
 
 Update an existing installation to the **latest version** via:
 
@@ -81,4 +83,4 @@ Alternatively, the **WaLSAtools** package can be downloaded as a [zip file][5]. 
   [3]: https://www.l3harrisgeospatial.com/Software-Technology/IDL
   [4]: setting-idl-path.md
   [5]: https://github.com/WaLSAteam/WaLSAtools/zipball/master/
-  
+  [6]: https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls
