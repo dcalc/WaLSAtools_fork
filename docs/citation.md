@@ -8,16 +8,16 @@ If you use **WaLSAtools** in your work, please cite it, as instructed below, in 
 
 ## Software Package :material-book-sync:
 
-- WaLSA Team et al. 2022, WaLSAteam/WaLSAtools: v1.0, DOI: XX.XXXX/zenodo.XXXXXXX (to be created)
+- WaLSA Team et al. 2023, WaLSAteam/WaLSAtools: v1.0, DOI: XX.XXXX/zenodo.XXXXXXX (to be created)
 
 
 ## Scientific Articles :material-bookshelf:
 
 ### Main articles:
 
-- WaLSA Team 2022, Nature Reviews Methods Primers, in preparation  
+- WaLSA Team 2023, Nature Reviews Methods Primers, in preparation  
 
-- Jess, D. B., Jafarzadeh, S., Keys, P. H., Stangalini, M., and Verth G. 2022, Living Reviews in Solar Physics, in preparation
+- Jess, D. B., Jafarzadeh, S., Keys, P. H., Stangalini, M., Verth G., Grant, S. D. T. 2022, Living Reviews in Solar Physics, in press
 
 ### Articles for particular functions:
 
