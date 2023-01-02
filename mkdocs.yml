@@ -142,7 +142,7 @@ nav:
 # Plugins
 plugins:
   - search
-  - tags
+#   - tags
 
 # Extensions
 markdown_extensions:
