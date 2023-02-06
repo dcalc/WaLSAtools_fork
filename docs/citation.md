@@ -36,7 +36,7 @@ If you use **WaLSAtools** in your work, please cite it, as instructed below, in 
   primaryClass = {astro-ph.SR},
         adsurl = {https://ui.adsabs.harvard.edu/abs/2023LRSP...20....1J},
        adsnote = {Provided by the SAO/NASA Astrophysics Data System}
-  }
+       }
   ```
 
 ### Articles for particular functions:
