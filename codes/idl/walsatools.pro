@@ -328,7 +328,7 @@ if help then begin
                 PRINT,'   koclt:           custom colour tables for k-ω diagram (currently available: 1 and 2)'
                 PRINT,'   threemin:        if set, a horizontal line marks the three-minute periodicity'
                 PRINT,'   fivemin:         if set, a horizontal line marks the five-minute periodicity'
-                PRINT,'   xlog:            if set, x-axis (wavenumber) is plotted in logarithmic scale'
+                PRINT,'   xlog:            if set, x-axis (magnetic field) is plotted in logarithmic scale'
                 PRINT,'   ylog:            if set, y-axis (frequency) is plotted in logarithmic scale'
                 PRINT,'   xrange:          x-axis (wavenumber) range'
                 PRINT,'   yrange:          y-axis (frequency) range'

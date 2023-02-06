@@ -25,17 +25,21 @@
 ;                   default: 2
 ;
 ; + OPTIONAL KEYWORDS:
-;   polyfit:        the degree of polynomial fit to the data to detrend it.
-;                   if set, instead of linear fit this polynomial fit is performed.
-;   meantemporal:   if set, only a very simple temporal detrending is performed by subtracting 
-;                   the mean signal from the signal.
-;                   i.e., the fitting procedure (linear or higher polynomial degrees) is omitted.
-;   meandetrend:    if set, subtract linear trend with time for the image means 
-;                   (i.e., spatial detrending)
-;   recon:          optional keyword that will Fourier reconstruct the input timeseries.
-;                   note: this does not preserve the amplitudes and is only useful when attempting 
-;                   to examine frequencies that are far away from the 'untrustworthy' low frequencies.
-;   cadence:        cadence of the observations. it is required if recon is set.
+;   polyfit:        	the degree of polynomial fit to the data to detrend it.
+;                   	if set, instead of linear fit this polynomial fit is performed.
+;   meantemporal:  		if set, only a very simple temporal detrending is performed by subtracting 
+;                   	the mean signal from the signal.
+;                   	i.e., the fitting procedure (linear or higher polynomial degrees) is omitted.
+;   meandetrend:    	if set, subtract linear trend with time for the image means 
+;                   	(i.e., spatial detrending)
+;   recon:          	optional keyword that will Fourier reconstruct the input timeseries.
+;                   	note: this does not preserve the amplitudes and is only useful when attempting 
+;                   	to examine frequencies that are far away from the 'untrustworthy' low frequencies.
+;   cadence:        	cadence of the observations. it is required when recon is set.
+;	resample_original	if recon is set, then this keyword allow setting a range (i.e., min_resample and max_resample)
+;						to which the unpreserved amplitudes are resampled.
+;	min_resample		minimum value for resample_original. Default: min of each 1D array (time series) in data.
+;	max_resample		maximum value for resample_original. Default: max of each 1D array (time series) in data.
 ; 
 ; + OUTPUTS:
 ;   corrected_cube:     The detrended and apodised cube
@@ -54,7 +58,8 @@ FUNCTION linear, x, p
 END
 
 FUNCTION walsa_detrend_apod,cube,apod,meandetrend,pxdetrend,polyfit=polyfit,meantemporal=meantemporal,$
-                            recon=recon,cadence=cadence,silent=silent
+                            recon=recon,cadence=cadence,resample_original=resample_original,min_resample=min_resample,$
+							max_resample=max_resample,silent=silent
 
   if (n_elements(apod) ne 0) then apod=apod else apod=0.1
   if (n_elements(polyfit) eq 0) then apolyfit=0 else apolyfit=1
@@ -110,6 +115,7 @@ FUNCTION walsa_detrend_apod,cube,apod,meandetrend,pxdetrend,polyfit=polyfit,mean
   for ix=long(0),long(nx)-1 do begin  
       for iy=long(0),long(ny)-1 do begin
           col=cube[ix,iy,*]
+		  IF KEYWORD_SET(recon) THEN col = wave_recon(reform(col),cadence)
           meancol=walsa_avgstd(col)
           if (meandetrend) then col=col-meanfit
           if n_elements(meantemporal) eq 0 then begin 
@@ -128,7 +134,9 @@ FUNCTION walsa_detrend_apod,cube,apod,meandetrend,pxdetrend,polyfit=polyfit,mean
               endelse
           endif
           ocol=(col-meancol)*apodt+meancol
-          IF KEYWORD_SET(recon) THEN ocol = walsa_wave_recon(ocol,cadence)
+		  if not KEYWORD_SET(min_resample) then min_resample = min(cube[ix,iy,*])
+		   if not KEYWORD_SET(max_resample) then max_resample = max(cube[ix,iy,*])
+		  IF KEYWORD_SET(recon) THEN if KEYWORD_SET(resample_original) then ocol = scale_vector(ocol,min_resample,max_resample)
           apocube[ix,iy,*] = ocol
       endfor
       if silent eq 0 then if long(nx) gt 1 then if (pxdetrend ne 0) then $ 

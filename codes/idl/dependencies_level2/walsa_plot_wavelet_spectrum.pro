@@ -1,5 +1,5 @@
 pro walsa_plot_wavelet_spectrum, power, period, time, coi, significance, clt=clt, w=w, log=log, removespace=removespace, $
-								 koclt=koclt, normal=normal, epsfilename=epsfilename
+								 koclt=koclt, normal=normal, epsfilename=epsfilename, maxperiod=maxperiod
 
 if n_elements(log) eq 0 then log=1
 if n_elements(removespace) eq 0 then removespace=0
@@ -10,8 +10,8 @@ nt = n_elements(reform(time)) & np = n_elements(reform(period))
 significance = REBIN(TRANSPOSE(significance),nt,np)
 
 fundf = 1000./(time[nt-1]) ; fundamental frequency (frequency resolution) in mHz
-maxp = 1000./fundf ; longest period to be plotted
-if removespace ne 0 then maxp = max(coi) ; remove areas below the COI
+if n_elements(maxperiod) eq 0 then maxp = 1000./fundf else maxp = maxperiod ; longest period to be plotted
+if n_elements(maxperiod) eq 0 then if removespace ne 0 then maxp = max(coi) ; remove areas below the COI
 iit = closest_index(maxp,period)
 period = period[0:iit]
 significance = reform(significance[*,0:iit])
@@ -127,6 +127,6 @@ cgContour, sigi, /noerase, levels=1., XTICKFORMAT="(A1)", YTICKFORMAT="(A1)", $
     c_colors=[cgColor('Navy')], label=0, $
     c_linestyle=0, c_thick=c_thick
 
-if EPS eq 1 then walsa_endeps, filename=epsfilename, /noboundingbox
+if EPS eq 1 then walsa_endeps, filename=epsfilename, /noboundingbox, /pdf
 
 end

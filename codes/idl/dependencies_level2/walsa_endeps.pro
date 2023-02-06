@@ -11,7 +11,10 @@
 ;
 ;  Created by Shahin Jafarzadeh
 ;-
-pro walsa_endeps, filename=filename, noboundingbox=noboundingbox
+pro walsa_endeps, filename=filename, noboundingbox=noboundingbox, pdf=pdf, eps=eps
+	
+	if keyword_set(eps) eq 0 then pdf=1 else eps=1
+	if keyword_set(pdf) ne 0 then pdf=1
 
     if keyword_set(filename) eq 0 then filename='fig'
 	if not keyword_set(noboundingbox) then noboundingbox=0
@@ -26,6 +29,11 @@ pro walsa_endeps, filename=filename, noboundingbox=noboundingbox
 		spawn, epstooldir+'epstool-3.08/bin/epstool --copy --bbox ~/fig_out.eps'+' '+filename+'.eps'
 		if file_test(filename+'.eps') then spawn, 'rm -rf ~/fig_out.eps' else spawn, 'mv ~/fig_out.eps '+filename+'.eps'
 	endif else spawn, 'mv ~/fig_out.eps '+filename+'.eps'
+	
+	if pdf eq 1 then begin
+		spawn, 'epstopdf '+filename+'.eps'
+		spawn, 'rm '+filename+'.eps'
+	endif
     
     !P.Multi = 0
     

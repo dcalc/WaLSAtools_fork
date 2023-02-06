@@ -547,7 +547,7 @@ pro walsa_image_plot, aorig,xorig,yorig, $
   endif
   
   ;if n_elements(oc_color) eq 0 then oc_color=colors
-  if n_elements(oc_color) eq 0 then oc_color=cgColor('Black')
+  if n_elements(oc_color) eq 0 then oc_color=cgColor('Navy')
   
   ;set variables to allow overplot
   posnorm=convert_coord(/to_normal,/device,retpos([[0,1],[2,3]]))

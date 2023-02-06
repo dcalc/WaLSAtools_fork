@@ -58,8 +58,8 @@ if (cstyle EQ 0) then begin
     ; Plot the vectors omiting any vectors with NaNs
     z=[xpts, ypts]   
     if (TOTAL(FINITE(z)) EQ 12) then begin
-        PLOTS, [x0,x5,x3,x1,x2,x5], [y0,y5,y3,y1,y2,y5], COLOR=color, THICK=thick
-        POLYFILL, [x2,x1,x3],[y2,y1,y3], COLOR=color, THICK=thick
+        PLOTS, [x0,x5,x3,x1,x2,x5], [y0,y5,y3,y1,y2,y5], COLOR=color, THICK=thick, NOCLIP=0
+        POLYFILL, [x2,x1,x3],[y2,y1,y3], COLOR=color, THICK=thick, NOCLIP=0
     endif
  
 endif
@@ -183,7 +183,7 @@ end
 ;----------------------------------------------------------------------------
 pro walsa_plot_wavelet_cross_spectrum, power, period, time, coi, significancelevel=significancelevel, clt=clt, $
                                        phase_angle=phase_angle, log=log, crossspectrum=crossspectrum, normal=normal, epsfilename=epsfilename, $ 
-                                       coherencespectrum=coherencespectrum, noarrow=noarrow, w=w, nosignificance=nosignificance, $
+                                       coherencespectrum=coherencespectrum, noarrow=noarrow, w=w, nosignificance=nosignificance, maxperiod=maxperiod, $
                                        arrowdensity=arrowdensity,arrowsize=arrowsize,arrowheadsize=arrowheadsize,removespace=removespace, koclt=koclt
 
 if n_elements(crossspectrum) eq 0 then crossspectrum = 0
@@ -217,9 +217,10 @@ nt = n_elements(reform(time))
 np = n_elements(reform(period))
 
 fundf = 1000./(time[nt-1]) ; fundamental frequency (frequency resolution) in mHz
-maxp = 1000./fundf ; longest period to be plotted
-if removespace ne 0 then maxp = max(coi) ; remove areas below the COI
+if n_elements(maxperiod) eq 0 then maxp = 1000./fundf else maxp = maxperiod ; longest period to be plotted
+if n_elements(maxperiod) eq 0 then if removespace ne 0 then maxp = max(coi) ; remove areas below the COI
 iit = closest_index(maxp,period)
+
 period = period[0:iit]
 if nosignificance eq 0 then isig = reform(significancelevel[*,0:iit])
 power = reform(power[*,0:iit])
@@ -227,8 +228,8 @@ power = reverse(power,2)
 
 np = n_elements(reform(period))
 
-aphaseangle = reform(phase_angle[*,0:iit])
-aphaseangle = reverse(aphaseangle,2)
+aphaseangle = reverse(phase_angle,2)
+aphaseangle = reform(aphaseangle[*,0:iit])
 
 if nosignificance eq 0 then isig = reverse(isig,2)
 if nosignificance eq 0 then sigi = power/isig
@@ -249,7 +250,8 @@ if EPS eq 1 then begin
     !x.thick=4.
     !y.thick=4.
     !x.ticklen=-0.033
-    !y.ticklen=-0.021
+    !y.ticklen=-0.024
+	; !y.minor = 10
     barthick = 550
     distbar = 550
     coithick = 3.
@@ -257,6 +259,7 @@ if EPS eq 1 then begin
     arrowthick = (3.5/2.)*arrowthick
     c_thick = 3.
     h_thick = 1.4
+	; !y.tickinterval = 100.
     ; arrowheadsize = 10.
 endif else begin
     if (xscreensize ge 1000) AND (yscreensize ge 1000) then begin 
@@ -266,7 +269,7 @@ endif else begin
 		!x.thick=2.  
 		!y.thick=2.  
 		!x.ticklen=-0.033
-		!y.ticklen=-0.021
+		!y.ticklen=-0.022
 		; !X.MINOR=6
 		distbar = 30
 		barthick = 30
@@ -281,7 +284,7 @@ endif else begin
         !x.thick=2
         !y.thick=2
         !x.ticklen=-0.033
-        !y.ticklen=-0.021
+        !y.ticklen=-0.022
 		distbar = 25
 		barthick = 25
 		coithick = 2
@@ -331,8 +334,13 @@ walsa_image_plot, power, xrange=xrg, yrange=yrg, $
           barpos=1, zlen=-0.6, distbar=distbar, $ 
           barthick=barthick, position=[0.14,0.14,0.87,0.87]
 
-cgAxis, YAxis=0, YRange=yrg, ystyle=1, /ylog, title='Period (s)', charsize=charsize
+cgAxis, YAxis=0, YRange=yrg, ystyle=1, /ylog, charsize=charsize, ytitle='Period (s)'
+
+; Lblv = LOGLEVELS([max(period),min(period)])
+; axlabel, Lblv, charsize=charsize, color=cgColor('Black') ,format='(i12)'
+
 cgAxis, YAxis=1, YRange=[1000./yrg[0],1000./yrg[1]], ystyle=1, /ylog, title='Frequency (mHz)', charsize=charsize
+
 
 ; plot phase angles as arrows
 angle = aphaseangle
@@ -359,6 +367,6 @@ cgContour, sigi, /noerase, levels=1., XTICKforMAT="(A1)", YTICKforMAT="(A1)", $
      c_colors=[cgColor('Navy')], label=0, $
      c_linestyle=0, c_thick=c_thick
 
-if EPS eq 1 then walsa_endeps, filename=epsfilename, /noboundingbox
+if EPS eq 1 then walsa_endeps, filename=epsfilename, /noboundingbox, /pdf
 
 end

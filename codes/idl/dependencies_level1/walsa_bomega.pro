@@ -26,7 +26,7 @@
 ;   koclt:           custom color tables for k-ω diagram (currently available: 1 and 2)
 ;   threemin:        if set, a horizontal line marks the three-minute periodicity
 ;   fivemin:         if set, a horizontal line marks the five-minute periodicity
-;   xlog:            if set, x-axis (wavenumber) is plotted in logarithmic scale
+;   xlog:            if set, x-axis (magnetic field) is plotted in logarithmic scale
 ;   ylog:            if set, y-axis (frequency) is plotted in logarithmic scale
 ;   xrange:          x-axis (wavenumber) range
 ;   yrange:          y-axis (frequency) range
@@ -146,7 +146,7 @@ for i=0L, nbin-1 do begin
     
     if num gt 0 then begin
         coords = array_indices(Bmap,ii)
-        xx = coords[0,*]  &  yy = coords[1,*]
+        xx = reform(coords[0,*])  &  yy = reform(coords[1,*])
         nxy = n_elements(xx)
         
         poweravg = fltarr(numf)
