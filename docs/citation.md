@@ -18,25 +18,25 @@ If you use **WaLSAtools** in your work, please cite it, as instructed below, in 
 - Jafarzadeh et al. 2023, Nature Reviews Methods Primers, in prep.
 
 - **Waves in the lower solar atmosphere: the dawn of next-generation solar telescopes**: [Jess, D. B., Jafarzadeh, S., Keys, P. H., Stangalini, M., Verth G., Grant, S. D. T. 2023, Living Reviews in Solar Physics, 20, 1][5]{target=_blank} ([ADS][6]{target=_blank})
-  ```latex
-  @ARTICLE{2023LRSP...20....1J,
-        author = {Jess, D.~B. and Jafarzadeh, S. and Keys, P.~H. and Stangalini, M. and Verth, G. and Grant, S.~D.~T.},
-         title = "{Waves in the lower solar atmosphere: the dawn of next-generation solar telescopes}",
-       journal = {Living Reviews in Solar Physics},
-      keywords = {Shock waves, Sun: chromosphere, Sun: oscillations, Sun: photosphere, Telescopes, Astrophysics - Solar and Stellar Astrophysics},
-          year = 2023,
-         month = dec,
-        volume = {20},
-        number = {1},
-           eid = {1},
-         pages = {1},
-           doi = {10.1007/s41116-022-00035-6},
- archivePrefix = {arXiv},
-        eprint = {2212.09788},
-  primaryClass = {astro-ph.SR},
-        adsurl = {https://ui.adsabs.harvard.edu/abs/2023LRSP...20....1J},
-       adsnote = {Provided by the SAO/NASA Astrophysics Data System}
-       }
+  ```
+  @ARTICLE{2017ApJ...842...59J,
+         author = {Jess, David B. and Van Doorsselaere, Tom and Verth, Gary and Fedun, Viktor and Krishna Prasad, S. and Erd{\'elyi}, Robert and Keys, Peter H. and Grant, Samuel D.~T. and Uitenbroek, Han and Christian, Damian J.},
+          title = "{An Inside Look at Sunspot Oscillations with Higher Azimuthal Wavenumbers}",
+        journal = {\apj},
+       keywords = {Sun: chromosphere, Sun: magnetic fields, Sun: oscillations, Sun: photosphere, sunspots, Astrophysics - Solar and Stellar Astrophysics},
+           year = 2017,
+          month = jun,
+         volume = {842},
+         number = {1},
+            eid = {59},
+          pages = {59},
+            doi = {10.3847/1538-4357/aa73d6},
+  archivePrefix = {arXiv},
+         eprint = {1705.06282},
+   primaryClass = {astro-ph.SR},
+         adsurl = {https://ui.adsabs.harvard.edu/abs/2017ApJ...842...59J},
+        adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+  }
   ```
 
 ### Articles for particular functions:
