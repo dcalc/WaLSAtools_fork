@@ -13,7 +13,7 @@ If you use **WaLSAtools** in your work, please cite it, as instructed below, in 
 
 ## Scientific Articles :material-bookshelf:
 
-### Main articles:
+### Main articles
 
 - Jafarzadeh et al. 2023, Nature Reviews Methods Primers, in prep.
 
@@ -39,7 +39,7 @@ If you use **WaLSAtools** in your work, please cite it, as instructed below, in 
   }
   ```
 
-### Articles for particular functions:
+### Articles for particular functions
 
 In addition, if you use any of the particular analysis techniques listed below, please cite the original publications where those codes (or approaches) were first used/introduced.
 

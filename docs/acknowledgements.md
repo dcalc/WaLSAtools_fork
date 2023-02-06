@@ -17,7 +17,7 @@ Below is a list of individuals who have contributed to **WaLSAtools** (either di
   - [Dr Marco Stangalini][8]{target=_blank} (Italian Space Agency, Italy)
   - [Dr Peter H. Keys][16]{target=_blank} (Queen's University Belfast, UK)
   - [Dr Samuel D. T. Grant][9]{target=_blank} (Queen's University Belfast, UK)
-  - [Prof Rob Rutten][10]{target=_blank} (Lingezicht Astrophysics, Netherlands)
+  - [Prof Rob Rutten][10]{target=_blank} (Lingezicht Astrophysics, Netherlands) &#8212; :fontawesome-solid-ribbon: (1942-2022)
 
 ## IDL Libraries :material-library:
 
