@@ -20,7 +20,7 @@ If you use **WaLSAtools** in your work, please cite it, as instructed below, in 
 - **Waves in the lower solar atmosphere: the dawn of next-generation solar telescopes**: [Jess, D. B., Jafarzadeh, S., Keys, P. H., Stangalini, M., Verth G., Grant, S. D. T. 2023, Living Reviews in Solar Physics, 20, 1][5]{target=_blank} ([ADS][6]{target=_blank})
   ```
   @ARTICLE{2023LRSP...20....1J,
-        author = {{Jess}, David B. and {Jafarzadeh}, Shahin and {Keys}, Peter H. and {Stangalini}, Marco and {Verth}, Gary and {Grant}, Samuel D.~T.},
+        author = {Jess, D.~B. and Jafarzadeh, S. and Keys, P.~H. and Stangalini, M. and Verth, G. and Grant, S.~D.~T.},
          title = "{Waves in the lower solar atmosphere: the dawn of next-generation solar telescopes}",
        journal = {Living Reviews in Solar Physics},
       keywords = {Shock waves, Sun: chromosphere, Sun: oscillations, Sun: photosphere, Telescopes, Astrophysics - Solar and Stellar Astrophysics},
@@ -46,7 +46,7 @@ In addition, if you use any of the particular analysis techniques listed below, 
 - **k-&#969; Analysis and Fourier Filtering**: [Jess et al. 2017, The Astrophysical Journal, 842, 59][1]{target=_blank} ([ADS][2]{target=_blank})
   ```
   @ARTICLE{2017ApJ...842...59J,
-       author = {{Jess}, David B. and {Van Doorsselaere}, Tom and {Verth}, Gary and {Fedun}, Viktor and {Krishna Prasad}, S. and {Erd{\'e}lyi}, Robert and {Keys}, Peter H. and {Grant}, Samuel D.~T. and {Uitenbroek}, Han and {Christian}, Damian J.},
+       author = {Jess, D.~B. and Van Doorsselaere, T. and Verth, G. and Fedun, V. and Krishna Prasad, S. and Erd{\'e}lyi, R. and Keys, P.~H. and Grant, S.~D.~T. and Uitenbroek, H. and Christian, D.~J.},
         title = "{An Inside Look at Sunspot Oscillations with Higher Azimuthal Wavenumbers}",
       journal = {\apj},
      keywords = {Sun: chromosphere, Sun: magnetic fields, Sun: oscillations, Sun: photosphere, sunspots, Astrophysics - Solar and Stellar Astrophysics},
