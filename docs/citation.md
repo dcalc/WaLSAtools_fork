@@ -46,23 +46,23 @@ In addition, if you use any of the particular analysis techniques listed below, 
 - **k-&#969; Analysis and Fourier Filtering**: [Jess et al. 2017, The Astrophysical Journal, 842, 59][1]{target=_blank} ([ADS][2]{target=_blank})
   ```
   @ARTICLE{2017ApJ...842...59J,
-         author = {Jess, David B. and Van Doorsselaere, Tom and Verth, Gary and Fedun, Viktor and Krishna Prasad, S. and Erd{\'elyi}, Robert and Keys, Peter H. and Grant, Samuel D.~T. and Uitenbroek, Han and Christian, Damian J.},
-          title = "{An Inside Look at Sunspot Oscillations with Higher Azimuthal Wavenumbers}",
-        journal = {\apj},
-       keywords = {Sun: chromosphere, Sun: magnetic fields, Sun: oscillations, Sun: photosphere, sunspots, Astrophysics - Solar and Stellar Astrophysics},
-           year = 2017,
-          month = jun,
-         volume = {842},
-         number = {1},
-            eid = {59},
-          pages = {59},
-            doi = {10.3847/1538-4357/aa73d6},
-  archivePrefix = {arXiv},
-         eprint = {1705.06282},
-   primaryClass = {astro-ph.SR},
-         adsurl = {https://ui.adsabs.harvard.edu/abs/2017ApJ...842...59J},
-        adsnote = {Provided by the SAO/NASA Astrophysics Data System}
-  }
+       author = {{Jess}, David B. and {Van Doorsselaere}, Tom and {Verth}, Gary and {Fedun}, Viktor and {Krishna Prasad}, S. and {Erd{\'e}lyi}, Robert and {Keys}, Peter H. and {Grant}, Samuel D.~T. and {Uitenbroek}, Han and {Christian}, Damian J.},
+        title = "{An Inside Look at Sunspot Oscillations with Higher Azimuthal Wavenumbers}",
+      journal = {\apj},
+     keywords = {Sun: chromosphere, Sun: magnetic fields, Sun: oscillations, Sun: photosphere, sunspots, Astrophysics - Solar and Stellar Astrophysics},
+         year = 2017,
+        month = jun,
+       volume = {842},
+       number = {1},
+          eid = {59},
+        pages = {59},
+          doi = {10.3847/1538-4357/aa73d6},
+archivePrefix = {arXiv},
+       eprint = {1705.06282},
+ primaryClass = {astro-ph.SR},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2017ApJ...842...59J},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+      }
   ```
 <br>
 
