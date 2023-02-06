@@ -18,7 +18,7 @@ If you use **WaLSAtools** in your work, please cite it, as instructed below, in 
 - Jafarzadeh et al. 2023, Nature Reviews Methods Primers, in prep.
 
 - **Waves in the lower solar atmosphere: the dawn of next-generation solar telescopes**: [Jess, D. B., Jafarzadeh, S., Keys, P. H., Stangalini, M., Verth G., Grant, S. D. T. 2023, Living Reviews in Solar Physics, 20, 1][5]{target=_blank} ([ADS][6]{target=_blank})
-  ```
+  ```latex
   @ARTICLE{2023LRSP...20....1J,
         author = {Jess, D.~B. and Jafarzadeh, S. and Keys, P.~H. and Stangalini, M. and Verth, G. and Grant, S.~D.~T.},
          title = "{Waves in the lower solar atmosphere: the dawn of next-generation solar telescopes}",
@@ -43,8 +43,8 @@ If you use **WaLSAtools** in your work, please cite it, as instructed below, in 
 
 In addition, if you use any of the particular analysis techniques listed below, please cite the original publications where those codes (or approaches) were first used/introduced.
 
-- **k-&#969; Analysis and Fourier Filtering**: [Jess et al. 2017, The Astrophysical Journal, 842, 59][1]{target=_blank} ([ADS][2]{target=_blank})
-  ```
+- **k-&#969; Analysis and Fourier Filtering**: [Jess et al. 2017, The Astrophysical Journal, 842, 59][1]{target=_blank} ([ADS][2]{target=_blank)
+  ```latex
   @ARTICLE{2017ApJ...842...59J,
        author = {Jess, D.~B. and Van Doorsselaere, T. and Verth, G. and Fedun, V. and Krishna Prasad, S. and Erd{\'e}lyi, R. and Keys, P.~H. and Grant, S.~D.~T. and Uitenbroek, H. and Christian, D.~J.},
         title = "{An Inside Look at Sunspot Oscillations with Higher Azimuthal Wavenumbers}",
@@ -67,7 +67,7 @@ archivePrefix = {arXiv},
 <br>
 
 - **B-&#969; Analysis**: [Stangalini et al. 2021, Astronomy & Astrophysics, 649, A169][3]{target=_blank} ([ADS][4]{target=_blank})
-  ```
+  ```latex
   @ARTICLE{2021A&A...649A.169S,
          author = {Stangalini, M. and Jess, D.~B. and Verth, G. and Fedun, V. and Fleck, B. and Jafarzadeh, S. and Keys, P.~H. and Murabito, M. and Calchetti, D. and Aldhafeeri, A.~A. and Berrilli, F. and Del Moro, D. and Jefferies, S.~M. and Terradas, J. and Soler, R.},
           title = "{A novel approach to identify resonant MHD wave modes in solar pores and sunspot umbrae: $B-\omega$ analysis}",
