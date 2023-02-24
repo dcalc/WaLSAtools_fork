@@ -58,7 +58,6 @@ pro psset,ps=ps,close=close,size=sz,eps=eps,file=file,_extra=_extra, $
     if printfile eq 1 then xyouts,0,0,/normal,'!C!C'+psset.file
     
     device,/close
-    print,'Created PS-file: '+psset.file
     pdffile=''
     if psset.pdf eq 1 and psset.ps2pdf ne '' then begin
       if strmid(psset.file,strlen(psset.file)-4,4) eq '.eps' then $

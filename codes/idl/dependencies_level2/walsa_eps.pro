@@ -13,7 +13,7 @@
 pro walsa_eps, size=size
 
     if keyword_set(size) eq 0 then size=[20.,22.]
-    file = '~/fig_out.eps'
+    file = './fig_out.eps'
     psset, ps=1, size=size, file=file, /encaps, /no_x
 
 end
