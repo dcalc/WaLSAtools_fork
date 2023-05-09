@@ -97,7 +97,7 @@ yrg = [max(period),min(period)]
 
 if n_elements(clt) eq 0 then clt=20
 loadct, clt
-if n_elements(koclt) ne 0 then walsa_kopowercolor, koclt
+if n_elements(koclt) ne 0 then walsa_powercolor, koclt
 
 if log ne 0 then power = alog10(power)
 

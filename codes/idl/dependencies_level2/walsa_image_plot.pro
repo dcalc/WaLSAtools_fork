@@ -81,7 +81,7 @@ pro walsa_image_plot, aorig,xorig,yorig, $
                    barzrange=barzrange, cumulative=cumulative, oc_fill=oc_fill, noy2axis=noy2axis, nox2axis=nox2axis, $
                    BARZTICKINTERVAL=BARZTICKINTERVAL, revy2ticks=revy2ticks, revx2ticks=revx2ticks, $
                    C_ORIENTATION=C_ORIENTATION, C_SPACING=C_SPACING, yaxyy=yaxyy, charsize=charsize, $
-                   xxlen=xxlen, yylen=yylen, zminor=zminor, nocolor=nocolor, cbfac=cbfac, resample=resample
+                   xxlen=xxlen, yylen=yylen, zminor=zminor, nocolor=nocolor, cbfac=cbfac, resample=resample, actual=actual
 
   if n_elements(aorig) eq 0 then begin
     message,/cont,'No array specified.'
@@ -91,9 +91,12 @@ pro walsa_image_plot, aorig,xorig,yorig, $
   if n_elements(label) eq 0 then label=1
   if n_elements(resample) eq 0 then resample=1 ; resampling factor
   
+  if n_elements(actual) eq 0 then actual=0 else actual=1
+  
   nx = n_elements(aorig[*,0])
   ny = n_elements(aorig[0,*])
-  aorig = congrid(iris_histo_opt(aorig),nx*resample, ny*resample, /INTERP, /CENTER, /MINUS_ONE,cubic=-0.5)
+  if actual then aorig = congrid(iris_histo_opt(aorig),nx*resample, ny*resample) else $
+	  aorig = congrid(iris_histo_opt(aorig),nx*resample, ny*resample, /INTERP, /CENTER, /MINUS_ONE,cubic=-0.5)
   
   ;do scaling if zrange is present
   a=aorig
@@ -395,14 +398,14 @@ pro walsa_image_plot, aorig,xorig,yorig, $
     swx1=(pxo(1)-px(1))
     if (!d.flags and 1) ne 0 then begin ;Scalable pixels?
       if barpos eq 0 or barpos eq 2 then $
-      tv,zarr,pxl[0]+distbar,pyl[0],xsize=pxl[1]-(pxl[0]+distbar)+1+barthick, ysize=pyl[1]-pyl[0],/device else $
-      tv,zarr,pxl[0],pyl[0]+distbar,xsize=pxl[1]-pxl[0]+1, ysize=pyl[1]-(pyl[0]+distbar)+barthick,/device
+      tvscl,zarr,pxl[0]+distbar,pyl[0],xsize=pxl[1]-(pxl[0]+distbar)+1+barthick, ysize=pyl[1]-pyl[0],/device else $
+      tvscl,zarr,pxl[0],pyl[0]+distbar,xsize=pxl[1]-pxl[0]+1, ysize=pyl[1]-(pyl[0]+distbar)+barthick,/device
     endif else begin
       pzarr=poly_2d(zarr,$      ;Have to resample image
                     [[0,0],[szx/(pxl[1]-pxl[0]+1.),0]], $
                     [[0,szy/([pyl[1]-pyl[0]+1.])],[0,0]],$
                     keyword_set(interp),(pxl[1]-pxl[0])+1,pyl[1]-pyl[0]+1)
-      tv,pzarr,pxl[0],pyl[0]+distbar,/device
+      tvscl,pzarr,pxl[0],pyl[0]+distbar,/device
     endelse
     
     if n_elements(barzrange) eq 0 then barzrange = zrange
@@ -468,19 +471,19 @@ pro walsa_image_plot, aorig,xorig,yorig, $
       if (!d.flags and 1) ne 0 then begin   ;Scalable pixels?
         pxi=[pxi[1]-swxi,pxi[1]]
 ;        tv,((a)>cr(0))<cr(1),pxi[0],pyi[0],xsize = swxi, ysize = swyi, /device
-        tv,((a)),pxi[0],pyi[0],xsize = swxi, ysize = swyi, /device
+        tvscl,((a)),pxi[0],pyi[0],xsize = swxi, ysize = swyi, /device
 
       endif else begin                          ;Not scalable pixels    
         if keyword_set(window_scale) then begin ;Scale window to image?
           pxi=[pxi[1]-six,pxi[1]]
-          tv,a,pxi[0],pyi[0]    ;Output image
+          tvscl,a,pxi[0],pyi[0]    ;Output image
         endif else begin        ;Scale window
           pxi=[pxi[1]-swxi,pxi[1]]
                                 ;Have to resample image
           ap=poly_2d((a),[[0,0],[six/swxi,0]], [[0,siy/swyi],[0,0]],$
                      keyword_set(interp),swxi,swyi)
 ;          tv,((ap)>cr(0))<cr(1),pxi[0],pyi[0]
-          tv,((ap)),pxi[0],pyi[0]
+          tvscl,((ap)),pxi[0],pyi[0]
         endelse                 ;window_scale
       endelse                   ;scalable pixels
     endif else begin            ;overplot valid pixels only
@@ -505,13 +508,14 @@ pro walsa_image_plot, aorig,xorig,yorig, $
         szy=round(swyi*(iyadd+1)/siy)>2        
 ;        if total(finite(ap)) ge 1 then begin
           if (!d.flags and 1) ne 0 then begin   ;Scalable pixels?
-            tv,ap,pxi(0)+ix*swxi/six,pyi(0)+iy*swyi/siy, $
+            tvscl,ap,pxi(0)+ix*swxi/six,pyi(0)+iy*swyi/siy, $
               xsize=szx,ysize=szy,/device
           endif else begin
 ;           ap=poly_2d(ap,[[0,0],[1,0]], [[0,iyadd+1],[0,0]], $
 ;                      keyword_set(interp),szx,szy)
-            ap=congrid(ap,szx,szy,/interp)
-            tv,ap,pxi(0)+ix*swxi/six,pyi(0)+iy*swyi/siy,/device
+			if actual then ap=congrid(ap,szx,szy) else $
+				ap=congrid(ap,szx,szy,/INTERP, /CENTER, /MINUS_ONE,cubic=-0.5)
+            tvscl,ap,pxi(0)+ix*swxi/six,pyi(0)+iy*swyi/siy,/device
           endelse
 ;        endif
         iy=iy+iyadd
