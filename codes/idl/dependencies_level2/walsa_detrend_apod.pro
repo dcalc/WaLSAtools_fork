@@ -37,7 +37,7 @@
 ;                   	to examine frequencies that are far away from the 'untrustworthy' low frequencies.
 ;   cadence:        	cadence of the observations. it is required when recon is set.
 ;	resample_original	if recon is set, then this keyword allow setting a range (i.e., min_resample and max_resample)
-;						to which the unpreserved amplitudes are resampled.
+;						to which the unpreserved amplitudes are approximated.
 ;	min_resample		minimum value for resample_original. Default: min of each 1D array (time series) in data.
 ;	max_resample		maximum value for resample_original. Default: max of each 1D array (time series) in data.
 ; 
@@ -115,7 +115,7 @@ FUNCTION walsa_detrend_apod,cube,apod,meandetrend,pxdetrend,polyfit=polyfit,mean
   for ix=long(0),long(nx)-1 do begin  
       for iy=long(0),long(ny)-1 do begin
           col=cube[ix,iy,*]
-		  IF KEYWORD_SET(recon) THEN col = wave_recon(reform(col),cadence)
+		  IF KEYWORD_SET(recon) THEN col = walsa_wave_recon(reform(col),cadence)
           meancol=walsa_avgstd(col)
           if (meandetrend) then col=col-meanfit
           if n_elements(meantemporal) eq 0 then begin 
@@ -135,7 +135,7 @@ FUNCTION walsa_detrend_apod,cube,apod,meandetrend,pxdetrend,polyfit=polyfit,mean
           endif
           ocol=(col-meancol)*apodt+meancol
 		  if not KEYWORD_SET(min_resample) then min_resample = min(cube[ix,iy,*])
-		   if not KEYWORD_SET(max_resample) then max_resample = max(cube[ix,iy,*])
+		  if not KEYWORD_SET(max_resample) then max_resample = max(cube[ix,iy,*])
 		  IF KEYWORD_SET(recon) THEN if KEYWORD_SET(resample_original) then ocol = scale_vector(ocol,min_resample,max_resample)
           apocube[ix,iy,*] = ocol
       endfor
