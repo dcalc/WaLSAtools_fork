@@ -16,6 +16,8 @@ FUNCTION walsa_wave_recon, ts, delt, $
                             COI=coi,/PAD,SIGNIF=signif,siglvl=0.99,$
                             FFT_THEOR=fft_theor,mother=mother,DJ= 1./dj)
 
+	; set upper (and if necessary, lower) threshold on period. 
+	; if not provided, an default upper threshold is set: length_of_time_series / (3. * sqrt(2.))
     IF KEYWORD_SET(upper) THEN BEGIN
         good_per = ( WHERE(period GT hi_cutoff) )(0)
         bad_per = N_ELEMENTS(period)
