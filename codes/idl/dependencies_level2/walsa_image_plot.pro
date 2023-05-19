@@ -95,8 +95,8 @@ pro walsa_image_plot, aorig,xorig,yorig, $
   
   nx = n_elements(aorig[*,0])
   ny = n_elements(aorig[0,*])
-  if actual then aorig = congrid(iris_histo_opt(aorig),nx*resample, ny*resample) else $
-	  aorig = congrid(iris_histo_opt(aorig),nx*resample, ny*resample, /INTERP, /CENTER, /MINUS_ONE,cubic=-0.5)
+  if actual eq 1 then aorig = congrid(iris_histo_opt(aorig),nx*resample, ny*resample) else $
+	  aorig = congrid(iris_histo_opt(aorig),nx*resample, ny*resample, /INTERP, /CENTER,cubic=-0.5)
   
   ;do scaling if zrange is present
   a=aorig
@@ -513,8 +513,8 @@ pro walsa_image_plot, aorig,xorig,yorig, $
           endif else begin
 ;           ap=poly_2d(ap,[[0,0],[1,0]], [[0,iyadd+1],[0,0]], $
 ;                      keyword_set(interp),szx,szy)
-			if actual then ap=congrid(ap,szx,szy) else $
-				ap=congrid(ap,szx,szy,/INTERP, /CENTER, /MINUS_ONE,cubic=-0.5)
+			if actual eq 1 then ap=congrid(ap,szx,szy) else $
+				ap=congrid(ap,szx,szy,/INTERP, /CENTER,cubic=-0.5)
             tvscl,ap,pxi(0)+ix*swxi/six,pyi(0)+iy*swyi/siy,/device
           endelse
 ;        endif
