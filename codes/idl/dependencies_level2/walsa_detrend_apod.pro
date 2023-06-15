@@ -59,7 +59,7 @@ END
 
 FUNCTION walsa_detrend_apod,cube,apod,meandetrend,pxdetrend,polyfit=polyfit,meantemporal=meantemporal,$
                             recon=recon,cadence=cadence,resample_original=resample_original,min_resample=min_resample,$
-							max_resample=max_resample,silent=silent
+							max_resample=max_resample,silent=silent, dj=dj, lo_cutoff=lo_cutoff, hi_cutoff=hi_cutoff, upper=upper
 
   if (n_elements(apod) ne 0) then apod=apod else apod=0.1
   if (n_elements(polyfit) eq 0) then apolyfit=0 else apolyfit=1
@@ -115,7 +115,7 @@ FUNCTION walsa_detrend_apod,cube,apod,meandetrend,pxdetrend,polyfit=polyfit,mean
   for ix=long(0),long(nx)-1 do begin  
       for iy=long(0),long(ny)-1 do begin
           col=cube[ix,iy,*]
-		  IF KEYWORD_SET(recon) THEN col = walsa_wave_recon(reform(col),cadence)
+		  IF KEYWORD_SET(recon) THEN col = walsa_wave_recon(reform(col), cadence, dj=dj, lo_cutoff=lo_cutoff, hi_cutoff=hi_cutoff, upper=upper)
           meancol=walsa_avgstd(col)
           if (meandetrend) then col=col-meanfit
           if n_elements(meantemporal) eq 0 then begin 

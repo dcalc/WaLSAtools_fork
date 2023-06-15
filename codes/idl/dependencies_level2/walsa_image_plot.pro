@@ -604,12 +604,12 @@ pro walsa_image_plot, aorig,xorig,yorig, $
   if nox2axis eq 0 then begin
       if revx2ticks eq 1 then axis,xaxis=1, 0,posx2,/xst,_extra=exx,xtickname=xtn, xticklen=(-1)*xtl, color=cgColor('Black'),charsize=charsize else $
           axis, xaxis=1, 0, posx2,/xst,_extra=exx, xtickname=xtn, xticklen=xtl, color=cgColor('Black'),charsize=charsize
-  endif else axis, xaxis=1, 0, posx2,/xst,_extra=exx,xtickname=xtn, color=cgColor('Black'), xticklen=0.00001,charsize=0.00001
+  endif else axis, xaxis=1, 0, posx2,/xst,_extra=exx,xtickname=xtn, color=cgColor('Black'), xtickformat='(A1)';, xticklen=0.00001,charsize=0.00001
   
   if noy2axis eq 0 then begin
       if revy2ticks eq 1 then axis,yaxis=1,posy2,/yst,_extra=exx,ytickname=ytn, yticklen=(-1)*ytl, color=cgColor('Black'),charsize=charsize else $
           axis,yaxis=1,posy2,/yst,_extra=exx, ytickname=ytn, yticklen=ytl, color=cgColor('Black'),charsize=charsize
-  endif else axis,yaxis=1,posy2,/yst,_extra=exx,ytickname=ytn, color=cgColor('Black'), yticklen=0.00001,charsize=0.00001
+  endif else axis,yaxis=1,posy2,/yst,_extra=exx,ytickname=ytn, color=cgColor('Black'), ytickformat='(A1)';, yticklen=0.00001,charsize=0.00001
   
   return
 end

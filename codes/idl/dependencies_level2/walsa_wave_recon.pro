@@ -3,7 +3,7 @@
 ; However, it is useful when attempting to examine frequencies that are far away from the 'untrustworthy' low frequencies.
 
 FUNCTION walsa_wave_recon, ts, delt, $
-                           dj=dj, lo_cutoff=lo_cutoff, hi_cutoff=hi_cutoff, upper=upper, display=display
+                           dj=dj, lo_cutoff=lo_cutoff, hi_cutoff=hi_cutoff, upper=upper
 
     dur = (N_ELEMENTS(ts) - 1.) * delt
     
@@ -26,7 +26,7 @@ FUNCTION walsa_wave_recon, ts, delt, $
         bad_per = ( WHERE(period GT hi_cutoff) )(0)
     ENDELSE
     
-	; set the power inside the CoI zero 
+	; set the power inside the CoI equal to zero 
 	; (i.e., exclude points inside the CoI -- subject to edge effect)
 	iampl = fltarr(N_ELEMENTS(ts),N_ELEMENTS(period))
 	for i=0L, N_ELEMENTS(ts)-1 do begin
