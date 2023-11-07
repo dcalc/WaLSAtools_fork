@@ -8,14 +8,14 @@ If you use **WaLSAtools** in your work, please cite it, as instructed below, in 
 
 ## Software Package :material-book-sync:
 
-- Jafarzadeh et al. 2023, WaLSAteam/WaLSAtools: v1.0, DOI: XX.XXXX/zenodo.XXXXXXX (to be created)
+- Jafarzadeh et al. 2024, WaLSAteam/WaLSAtools: v1.0, DOI: XX.XXXX/zenodo.XXXXXXX (to be created)
 
 
 ## Scientific Articles :material-bookshelf:
 
 ### Main articles
 
-- Jafarzadeh et al. 2023, Nature Reviews Methods Primers, in prep.
+- Jafarzadeh et al. 2024, Nature Reviews Methods Primers, in prep.
 
 - **Waves in the lower solar atmosphere: the dawn of next-generation solar telescopes**: [Jess, D. B., Jafarzadeh, S., Keys, P. H., Stangalini, M., Verth G., Grant, S. D. T. 2023, Living Reviews in Solar Physics, 20, 1][5]{target=_blank} ([ADS][6]{target=_blank})
   ```latex
