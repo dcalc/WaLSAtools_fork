@@ -4,7 +4,7 @@ template: main.html
 
 # Acknowledgements
 
-All people who have contributed, in one way or another, to the development of **WaLSAtools**, as well as third‐parties whose codes have been used in the package, are sincerely acknowledged. **WaLSAtools** is a result of scientific discussions with the [**WaLSA team**][1]{target=_blank} which has been supported by the Research Council of Norway (project no. 262622), The Royal Society (award no. Hooke18b/SCTM; [Jess et al. 2021][21]), and the International Space Science Institute (ISSI Team 502).
+All people who have contributed, in one way or another, to the development of **WaLSAtools**, as well as third‐parties whose codes have been used in the package, are sincerely acknowledged. **WaLSAtools** is a result of scientific discussions with the [**WaLSA team**][1]{target=_blank} which has been supported by the Research Council of Norway (project no. 262622), The Royal Society (award no. Hooke18b/SCTM), and the International Space Science Institute (ISSI Team 502).
 
 While we make every effort to ensure that acknowledgements/credits in this document are complete and accurate, errors may occur. If you see an error or omission, please help us improve this document by sending us an [**email**][2]. 
 
@@ -44,7 +44,6 @@ Below is a list of individuals who have contributed to **WaLSAtools** (either di
   [11]: https://sohowww.nascom.nasa.gov/solarsoft/
   [12]: https://gitlab.gwdg.de/andreas.lagg/helix
   [16]: https://pure.qub.ac.uk/en/persons/peter-keys
-  [21]: https://royalsocietypublishing.org/doi/pdf/10.1098/rsta.2020.0169
 
 ## Sample Datasets :material-database:
 
