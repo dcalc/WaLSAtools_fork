@@ -11,9 +11,9 @@ title: Introduction
 
 !!! walsa-code "To switch between IDL and Python documentations, click on name of the current programming language on top of the webpages on this site."
 
-The main goal is to develop suitable techniques for various aspects of wave studies in the lower solar atmosphere (and beyond) &#8212; facilitating reliability and reproducibility of such analyses.
+The main goal is to collect/develop suitable techniques for various aspects of wave studies in the lower solar atmosphere (and beyond) &#8212; facilitating reliability and reproducibility of such analyses.
 
-!!! walsa-contribute "[Contributions][3] are welcome &#8212; to improve codes, methods, and/or documentations."
+!!! walsa-contribute "[Contributions][3] are welcome &#8212; to improve the codes, methods, and/or documentations."
 
 ## Analysis Methods :material-white-balance-sunny:
 
@@ -24,7 +24,7 @@ The analysis tools are currently divided into two categories linked to: (a) wave
 Analyses of single time series also fall into two sections, one related to those dealing with one-dimensional (1D) signals (*in time domain*), and one applied to three-dimensional (3D) cubes (*in both spatial and time domains*). All time series (from, e.g., solar observations) are treated against their finite length as well as their nonlinear and nonstationary nature prior to the analyses (i.e., they are detrended and apodized by default).
 
 !!! walsa-waveform "One Dimensional (1D) Signal"
-    The following analysis methods decompose a signal (i.e., 1D time series) into its frequency components, resulting in the so-called *frequency spectrum*. They employ slightly different approaches, thus making them suitable for specific situations. Therefore, choosing the right technique is an essential step before start applying it to your data.
+    The following analysis methods decompose a signal (i.e., 1D time series) into its frequency components, resulting in the so-called *frequency spectrum*. They employ slightly different approaches, thus making them suitable for specific situations. Therefore, choosing the right technique is an essential step before start applying it to a dataset.
 
     === "Fast Fourier Transform (FFT)"
         Fast Fourier Transform (FFT; *Cooley and Tukey 1965*) is an optimised approach for the implementation of the Fourier analysis (*Fourier 1824*; or strictly speaking, of the Discrete Fourier Transformation) by reducing the number of computations required.
@@ -51,8 +51,8 @@ Analyses of single time series also fall into two sections, one related to those
         Such regions are marked with the so-called Cone of Influence (CoI), identifying unreliable areas of the 2D power spectrum.
         
         **Wavelet transform is particularly suitable for studying transient oscillations, weak signals, or quasi-periodic signatures.** 
-        In addition to the 2D time-frequency spectrum, *traditionally*, a 1D spectrum (so-called *global wavelet*) can also be computed by averaging the power along the entire time domain, which, however, also includes the power subject to the edge effect.
-        Thus, **WaLSAtools** also introduces an **improved** 1D wavelet spectrum (named ***sensible***) which is the time-integral of wavelet power *excluding those affected by the CoI and those below the confidence level* (i.e., power-weighted frequency distribution with significant power unaffected by CoI).
+        In addition to the 2D time-frequency spectrum, *traditionally*, a 1D spectrum (so-called ***global wavelet***) can also be computed by averaging the power along the entire time domain, which, however, also includes the (unreliable) power subject to the edge effect.
+        Thus, **WaLSAtools** also introduces an **improved** 1D wavelet spectrum (named ***sensible wavelet***) which is the time-integral of wavelet power *excluding those affected by the CoI and those below the confidence level* (i.e., the power-weighted frequency distribution with significant power, unaffected by CoI).
         
     === "Hilbert-Huang Transform (HHT)"
         Hilbert-Huang Transform (HHT; *Huang et al. 1996*) first decomposes the time series into the so-called Intrinsic Mode Functions (IMFs) through the application of the Empirical Mode Decomposition (EMD) technique. 
