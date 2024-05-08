@@ -51,8 +51,8 @@ Analyses of single time series also fall into two sections, one related to those
         Such regions are marked with the so-called Cone of Influence (CoI), identifying unreliable areas of the 2D power spectrum.
         
         **Wavelet transform is particularly suitable for studying transient oscillations, weak signals, or quasi-periodic signatures.** 
-        In addition to the 2D time-frequency spectrum, *traditionally*, a 1D spectrum (so-called ***global wavelet***) can also be computed by averaging the power along the entire time domain, which, however, also includes the (unreliable) power subject to the edge effect.
-        Thus, **WaLSAtools** also introduces an **improved** 1D wavelet spectrum (named ***sensible wavelet***) which is the time-integral of wavelet power *excluding those affected by the CoI and those below the confidence level* (i.e., the power-weighted frequency distribution with significant power, unaffected by CoI).
+        In addition to the 2D time-frequency spectrum, *traditionally*, a 1D spectrum (so-called ***global wavelet***; GWS) can also be computed by averaging the power along the entire time domain, which, however, also includes the (unreliable) power subject to the edge effect.
+        Thus, **WaLSAtools** also introduces the Refiend Global Wavelet Spectrum (RGWS) which is the time-integral of wavelet power *excluding those affected by the CoI and those below the confidence level* (i.e., the power-weighted frequency distribution with significant power, unaffected by CoI).
         
     === "Hilbert-Huang Transform (HHT)"
         Hilbert-Huang Transform (HHT; *Huang et al. 1996*) first decomposes the time series into the so-called Intrinsic Mode Functions (IMFs) through the application of the Empirical Mode Decomposition (EMD) technique. 
@@ -144,7 +144,7 @@ Analyses of single time series also fall into two sections, one related to those
 		The phase lag (*&phi;*), in radians, can be simply converted into a time lag (*&tau;*), in seconds, at any particular frequency (*f*), in Hz, as $&tau; = \frac{&phi;}{2 \pi f}$
         
 	!!! walsa-info "Note"
-	    The co-spectrum, coherence, and phase lag have one dimension for the 1D power spectra (i.e., for FFT, Lomb-Scargle, HHT, as well as Wavelet Global and Sensible power spectra), whereas they have two dimensions for the 2D Wavelet spectrum.
+	    The co-spectrum, coherence, and phase lag have one dimension for the 1D power spectra (i.e., for FFT, Lomb-Scargle, HHT, GWS, RGWS, Welch), whereas they have two dimensions for the 2D Wavelet spectrum.
 
 !!! walsa-hint "Info"
     Check out documentation on the **Analysis Tools** to learn how to run **WaLSAtools** and more about all inputs, keywords, and outputs.
