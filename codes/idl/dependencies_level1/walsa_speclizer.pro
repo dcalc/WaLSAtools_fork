@@ -26,7 +26,8 @@
 ;   fft:            if set, Fast Fourier Transform (FFT) power spectrum is computed: for regular (evenly sampled) time series.
 ;   lombscargle:    if set, Lomb-Scargle power spectrum is computed: for irregular (unevenly sampled) time series.
 ;   hht:            if set, a power spectrum associated to EMD + Hilbert Transform is computed: for regular (evenly sampled) time series.
-;   wavelet:        if set, Wavelet power spectrum is computed (for Morlet function with omega=6): for regular (evenly sampled) time series.
+;   wavelet:        if set, Wavelet power spectrum is computed (default: Morlet function with omega=6): for regular (evenly sampled) time series.
+;   welch:          if set, Welch power spectrum is computed
 ; ----padding, detrending, and apodization parameters----
 ;   padding:        oversampling factor: zero padding (increasing timespan) to increase frequency resolution (NOTE: doesn't add information)
 ;   apod:           extent of apodization edges (of a Tukey window); default 0.1
@@ -40,6 +41,7 @@
 ;   recon:          optional keyword that will Fourier reconstruct the input timeseries.
 ;                   note: this does not preserve the amplitudes and is only useful when attempting 
 ;                   to examine frequencies that are far away from the 'untrustworthy' low frequencies.
+;   resample         if recon is set, then by setting resample, amplitudes are scaled to approximate actual values.
 ; ----significance-level parameters----
 ;   siglevel:       significance level (default: 0.05 = 5% significance level = 95% confidence level)
 ;   nperm:          number of random permutations for the significance test -- the larger the better (default: 1000)
@@ -56,7 +58,7 @@
 ;   dj:             spacing between discrete scales. default: 0.025
 ;   global:         only if wavelet is set: returns global wavelet spectrum (averaged over time domain)
 ;   oglobal:        global wavelet spectrum excluding regions influenced by cone-of-influence (CoI; regions subject to edge effect)
-;   sensible:       time-integral of wavelet power excluding regions influenced by cone-of-influence and only for those above the confidence level
+;   rgws:       time-integral of wavelet power excluding regions influenced by cone-of-influence and only for those above the confidence level
 ;                   this returns power-weighted frequency distribution (with significant power & unaffected by CoI)
 ;                   Note: this is likely the most correct spectrum!
 ;   colornoise:     if set, noise background is based on Auchère et al. 2017, ApJ, 838, 166 / 2016, ApJ, 825, 110
@@ -97,7 +99,7 @@ function getpowerHHT,cube,cadence,stdlimit,nfilter=nfilter,significance=signific
                      frequencies=frequencies,nosignificance=nosignificance,emd=emd,imf=imf,instantfreq=instantfreq,averagedpower=averagedpower,$
                      dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,amplitude=amplitude,$
                      originalcube=originalcube,apod=apod,nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,$
-                     meantemporal=meantemporal,recon=recon,silent=silent
+                     meantemporal=meantemporal,recon=recon,resample_original=resample_original,silent=silent
   ; Hilbert-Huang Transform (HHT) power spectra
   
   if padding gt 1 then begin ; zero padding (optional): to increase frequency resolution
@@ -178,11 +180,11 @@ function getpowerHHT,cube,cadence,stdlimit,nfilter=nfilter,significance=signific
                   signalo=reform(originalcube[ix,iy,*]) 
                   y_perm = signalo(permutation)
                   if nodetrendapod eq 0 then $
-                     y_perm=walsa_detrend_apod(y_perm,apod,meandetrend,pxdetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,cadence=cadence,/silent) 
+                     y_perm=walsa_detrend_apod(y_perm,apod,meandetrend,pxdetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,resample_original=resample_original,cadence=cadence,/silent) 
                   IMFcal = walsa_emd_function(y_perm,stdlimit,dt=dt)
                   hhs = walsa_hilbert_spec(IMFcal,dt, marginal=pstmp, nfilter=nfilter)
                   ps_perm[*,ip] = pstmp[1:nff-1]
-                  if silent eq 0 then print,string(13b)+' >>> % Running Monte Carlo (significance): ',(ip*100.)/(nperm-1),format='(a,f4.0,$)'
+                  if silent eq 0 then print,string(13b)+' >>> % Running Monte Carlo (significance test): ',(ip*100.)/(nperm-1),format='(a,f4.0,$)'
               endfor
               signif = walsa_confidencelevel(ps_perm, siglevel=siglevel, nf=nf)
               significance[ix,iy,*] = (signif*padding)/frequencies[0] ; in DN^2/mHz
@@ -213,7 +215,7 @@ function getpowerLS,cube,time,OFAC=OFAC,siglevel=siglevel,frequencies=frequencie
                     nosignificance=nosignificance,averagedpower=averagedpower,amplitude=amplitude,originalcube=originalcube,$
                     dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,$
                     apod=apod,nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,$
-                    meantemporal=meantemporal,recon=recon,silent=silent
+                    meantemporal=meantemporal,recon=recon,resample_original=resample_original,silent=silent
   ; Lomb-scargle power spectra
   ; The periodogram values (from LNP_TEST) are converted to power (comparable to FFT values) by myltiplying
   ; with 2.*variance(signal,/double)/nt (see Numerical Recipes in C: The Art of Scientific Computing; Press at al. 2007)
@@ -263,10 +265,10 @@ function getpowerLS,cube,time,OFAC=OFAC,siglevel=siglevel,frequencies=frequencie
                   signalo=reform(originalcube[ix,iy,*]) 
                   y_perm = signalo(permutation)
                   if nodetrendapod eq 0 then $
-                     y_perm=walsa_detrend_apod(y_perm,apod,meandetrend,pxdetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,cadence=cadence,/silent)
+                     y_perm=walsa_detrend_apod(y_perm,apod,meandetrend,pxdetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,resample_original=resample_original,cadence=cadence,/silent)
                   results = LNP_TEST(time, y_perm, /DOUBLE, WK1=freq, WK2=psp, OFAC=OFAC)
                   ps_perm[*,ip] = psp*(2.*variance(y_perm,/double)/nt)
-                  if silent eq 0 then print,string(13b)+' >>> % Running Monte Carlo (significance): ',(ip*100.)/(nperm-1),format='(a,f4.0,$)'
+                  if silent eq 0 then print,string(13b)+' >>> % Running Monte Carlo (significance test): ',(ip*100.)/(nperm-1),format='(a,f4.0,$)'
               endfor
               signif = walsa_confidencelevel(ps_perm, siglevel=siglevel, nf=nf)
               significance[ix,iy,*] = (signif*OFAC)/frequencies[0] ; in DN^2/mHz
@@ -288,11 +290,127 @@ function getpowerLS,cube,time,OFAC=OFAC,siglevel=siglevel,frequencies=frequencie
   
   return, powermap
 end
+;----------------------------------- Welch ---------------------------------
+function welch_psd,cube,cadence,frequencies=frequencies,window_size=window_size,overlap=overlap,wfft_size=wfft_size, significance=significance,$
+                     nperm=nperm,nosignificance=nosignificance,averagedpower=averagedpower, originalcube=originalcube,siglevel=siglevel, $
+                     dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,apod=apod,silent=silent,$
+                     nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,resample_original=resample_original
+
+    ; Initialize variables
+    sizecube=size(cube)
+    nx=sizecube[1]
+    ny=sizecube[2]
+    nt=sizecube[3]
+
+    ; Assume wfft_size (nfft) is equal to window_size for simplicity and clarity
+    wfft_size = window_size
+
+    step_size = window_size-overlap
+    num_segments = fix((nt-overlap)/step_size)
+    if num_segments le 0 then begin
+		PRINT, ' Number of segments: '+strtrim(num_segments, 2)+' (!)'
+        PRINT, ' Error: Overlap or window size too large.'
+        stop
+	endif
+	
+    ; Create a Hann window (this should be a changable option in future versions)
+    window = (1.0-cos(2 *!pi*findgen(window_size)/(window_size-1)))/2.0
+	
+	frequencies = 1./(cadence*2)*findgen(window_size/2+1)/(window_size/2)
+	nff=n_elements(frequencies)
+	frequencies = frequencies[1:nff-1]
+	frequencies = frequencies*1000. ; in mHz
+	nf=n_elements(frequencies)
+    powermap=fltarr(nx,ny,nf) ; Welch power spectra
+    if nosignificance eq 0 then significance=fltarr(nx,ny,nf) ; significance cube
+    if nodominantfreq eq 0 then begin
+        dominantfreq=fltarr(nx,ny) ; dominant-frequency map
+        dominantpower=fltarr(nx,ny) ; dominant-power map (i.e., powers corresponding to dominant frequencies)
+    endif
+    averagedpower = fltarr(nf)
+
+    for ix=0, nx-1 do begin
+        for iy=0, ny-1 do begin
+            signal = reform(cube[ix,iy,*])
+		    ; Process each segment
+			psd = FLTARR(window_size / 2 + 1)
+		    for segment = 0L, num_segments-1 do begin
+		        start_index = segment * step_size
+		        end_index = start_index + window_size
+		        if end_index gt nt then continue
+		        ; Extract the segment and apply the window
+		        segment_data = signal[start_index:end_index]*window
+		        ; Compute the FFT
+		        segment_fft = FFT(segment_data, wfft_size)
+		        ; Compute power spectral density
+		        segment_psd = (ABS(segment_fft))^2/(window_size*wfft_size)
+		        psd = psd + segment_psd[0:window_size / 2]
+
+			endfor
+		    ; Normalize the averaged PSD
+			psd = psd / num_segments
+		    powermap[ix,iy,*] = psd[1:nff-1] / frequencies[0] ; in DN^2/mHz
+
+  		    if nodominantfreq eq 0 then begin
+                dominantfreq[ix,iy] = walsa_dominant_frequency(reform(powermap[ix,iy,*]),frequencies,rangefreq,dominantpower=dompm)
+                dominantpower[ix,iy] = dompm
+            endif
+          
+            if nosignificance eq 0 then begin
+                Nsig = n_elements(signal)
+                ps_perm = fltarr(nf,nperm)
+                for ip=0L, nperm-1 do begin
+                    permutation = walsa_randperm(Nsig)
+                    signalo=reform(originalcube[ix,iy,*]) 
+                    y_perm = signalo(permutation)
+                    if nodetrendapod eq 0 then $
+                       y_perm=walsa_detrend_apod(y_perm,apod,meandetrend,pxdetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,resample_original=resample_original,cadence=cadence,/silent)
+                    
+				    ; Process each segment
+					psd = FLTARR(window_size / 2 + 1)
+				    for segment = 0L, num_segments-1 do begin
+				        start_index = segment * step_size
+				        end_index = start_index + window_size
+				        if end_index gt nt then continue
+				        ; Extract the segment and apply the window
+				        segment_data = y_perm[start_index:end_index]*window
+				        ; Compute the FFT
+				        segment_fft = FFT(segment_data, wfft_size)
+				        ; Compute power spectral density
+				        segment_psd = (ABS(segment_fft))^2/(window_size*wfft_size)
+				        psd = psd + segment_psd[0:window_size / 2]
+
+					endfor
+				    ; Normalize the averaged PSD
+					psd = psd / num_segments
+                    ps_perm[*,ip] = psd[1:nff-1]
+                    if silent eq 0 then print,string(13b)+' >>> % Running Monte Carlo (significance test): ',(ip*100.)/(nperm-1),format='(a,f4.0,$)'
+                endfor
+                signif = walsa_confidencelevel(ps_perm, siglevel=siglevel, nf=nf)
+                significance[ix,iy,*] = signif/frequencies[0] ; in DN^2/mHz
+            endif
+            averagedpower = averagedpower+reform(powermap[ix,iy,*])
+        endfor
+        if long(nx) gt 1 then $ 
+           writeu,-1,string(format='(%"\r == FFT next row... ",i5,"/",i5)',ix,nx)
+	endfor
+
+    powermap = reform(powermap)
+    frequencies = reform(frequencies)
+    averagedpower = reform(averagedpower/float(nx)/float(ny))
+    if nodominantfreq eq 0 then begin
+        dominantfreq = reform(dominantfreq)
+        dominantpower = reform(dominantpower)
+    endif
+    if nosignificance eq 0 then significance = reform(significance)
+	
+	return, powermap
+end
 ;----------------------------------- FOURIER ----------------------------------
 function getpowerFFT,cube,cadence,siglevel=siglevel,padding=padding,frequencies=frequencies,significance=significance,$
                      nperm=nperm,nosignificance=nosignificance,averagedpower=averagedpower,amplitude=amplitude,originalcube=originalcube,$
                      dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,apod=apod,silent=silent,$
-                     nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon
+                     nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,resample_original=resample_original
   ; Fast Fourier Transform (FFT) power spectra
   
   if padding gt 1 then begin ; zero padding (optional): to increase frequency resolution
@@ -348,13 +466,13 @@ function getpowerFFT,cube,cadence,siglevel=siglevel,padding=padding,frequencies=
               ps_perm = fltarr(nf,nperm)
               for ip=0L, nperm-1 do begin
                   permutation = walsa_randperm(Nsig)
-                  signalo=reform(originalcube[ix,iy,*]) 
+                  signalo=reform(originalcube[ix,iy,*])
                   y_perm = signalo(permutation)
                   if nodetrendapod eq 0 then $
-                     y_perm=walsa_detrend_apod(y_perm,apod,meandetrend,pxdetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,cadence=cadence,/silent)
+                     y_perm=walsa_detrend_apod(y_perm,apod,meandetrend,pxdetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,resample_original=resample_original,cadence=cadence,/silent)
                   pstmp = 2.*(ABS((fft(y_perm,-1,/double))[0:nt/2.])^2) 
                   ps_perm[*,ip] = pstmp[1:nff-1]
-                  if silent eq 0 then print,string(13b)+' >>> % Running Monte Carlo (significance): ',(ip*100.)/(nperm-1),format='(a,f4.0,$)'
+                  if silent eq 0 then print,string(13b)+' >>> % Running Monte Carlo (significance test): ',(ip*100.)/(nperm-1),format='(a,f4.0,$)'
               endfor
               signif = walsa_confidencelevel(ps_perm, siglevel=siglevel, nf=nf)
               significance[ix,iy,*] = (signif*padding)/frequencies[0] ; in DN^2/mHz
@@ -379,10 +497,10 @@ end
 ;------------------------------------ WAVELET ---------------------------------
 function getpowerWAVELET,cube,cadence,dj=dj,mother=mother,siglevel=siglevel,global=global,frequencies=frequencies,$
                          significance=significance,coicube=coicube,oglobal=oglobal,colornoise=colornoise,param=param,$
-                         padding=padding,nosignificance=nosignificance,averagedpower=averagedpower,$
+                         padding=padding,nosignificance=nosignificance,averagedpower=averagedpower,psd=psd,$
                          dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,$
                          originalcube=originalcube,apod=apod,nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,$
-                         polyfit=polyfit,meantemporal=meantemporal,recon=recon, nperm=nperm, sensible=sensible, silent=silent
+                         polyfit=polyfit,meantemporal=meantemporal,recon=recon,resample_original=resample_original, nperm=nperm, rgws=rgws, silent=silent
   ; Wavelet power spectra: either wavelet spectra, or global wavelet spectra (traditional or improved versions)
   
   if padding gt 1 then begin ; zero padding (optional): to increase frequency resolution
@@ -419,9 +537,9 @@ function getpowerWAVELET,cube,cadence,dj=dj,mother=mother,siglevel=siglevel,glob
   
   nf = n_elements(frequencies)
   
-  if (global+oglobal+sensible) gt 1 then begin
+  if (global+oglobal+rgws) gt 1 then begin
 	  print
-	  print, ' --- [!] Only one of the /global, /oglobal, or /sensible can be flagged at a time!'
+	  print, ' --- [!] Only one of the /global, /oglobal, or /rgws can be flagged at a time!'
 	  print
 	  stop
   endif
@@ -435,12 +553,12 @@ function getpowerWAVELET,cube,cadence,dj=dj,mother=mother,siglevel=siglevel,glob
       if silent eq 0 then print, ' ...... oglobal: output Global Wavelet Spectrum excluding CoI regions'
       ftcube = fltarr(nx,ny,nf) ; power
   endif
-  if sensible eq 1 then begin
-      if silent eq 0 then print, ' ...... sensible: output Sensible Wavelet Spectrum '
+  if rgws eq 1 then begin
+      if silent eq 0 then print, ' ...... rgws: output rgws Wavelet Spectrum '
       if silent eq 0 then print, ' ...... (power-weighted significant frequency distribution, unaffected by CoI)'
       ftcube = fltarr(nx,ny,nf) ; power
   endif
-  if global eq 0 and oglobal eq 0 and sensible eq 0 then begin
+  if global eq 0 and oglobal eq 0 and rgws eq 0 then begin
       if silent eq 0 then print, ' ...... output Wavelet Spectra '
       ftcube=fltarr(nx,ny,nt,nf)
   endif
@@ -491,7 +609,7 @@ function getpowerWAVELET,cube,cadence,dj=dj,mother=mother,siglevel=siglevel,glob
             averagedpower = averagedpower+reform(ftcube[ix,iy,*])
         endif
         
-        if global eq 0 and oglobal eq 0 and sensible eq 0 then begin
+        if global eq 0 and oglobal eq 0 and rgws eq 0 then begin
             ftcube[ix,iy,*,*] = (reform(power)*padding); /frequencies[nf-1]
             if nosignificance eq 0 then significance[ix,iy,*] = (reform(SIGNIF)*padding); /frequencies[nf-1] ; in DN^2/mHz
             coicube[ix,iy,*] = reform(coi)
@@ -525,7 +643,7 @@ function getpowerWAVELET,cube,cadence,dj=dj,mother=mother,siglevel=siglevel,glob
                     signalo=reform(originalcube[ix,iy,*]) 
                     y_perm = signalo(permutation)
                     if nodetrendapod eq 0 then $
-                       y_perm=walsa_detrend_apod(y_perm,apod,meandetrend,pxdetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,cadence=cadence,/silent)
+                       y_perm=walsa_detrend_apod(y_perm,apod,meandetrend,pxdetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,resample_original=resample_original,cadence=cadence,/silent)
                     
                     y_perm = (y_perm - TOTAL(y_perm)/nt)
                     wave = walsa_wavelet(y_perm,cadence,PERIOD=period,PAD=1,COI=coi,MOTHER=mother,param=param,/RECON,dj=dj,scale=scale,$
@@ -546,9 +664,9 @@ function getpowerWAVELET,cube,cadence,dj=dj,mother=mother,siglevel=siglevel,glob
             averagedpower = averagedpower+reform(ftcube[ix,iy,*])
         endif
         
-        ; sensible: time-integral of wavelet power only over the areas not affected by CoI and only for those above the significance level.
+        ; rgws: time-integral of wavelet power only over the areas not affected by CoI and only for those above the significance level.
         ; i.e., 'distribution' of significant frequencies (unaffected by CoI) weighted by power.
-        if sensible eq 1 then begin
+        if rgws eq 1 then begin
             isig = REBIN(TRANSPOSE(signif),nt,nf)
             istest = where(power/isig lt 1.0, numtest)
             if numtest gt 0 then power[istest]=!VALUES.F_NAN
@@ -558,7 +676,9 @@ function getpowerWAVELET,cube,cadence,dj=dj,mother=mother,siglevel=siglevel,glob
                 ii = where(reform(period) lt coi[i], pnum)
                 if pnum gt 0 then ipower[i,ii] = pcol[ii]
             endfor
+			; ipower = mean(ipower,dimension=1,/nan)
             ipower = total(ipower,1,/nan)
+			
             ftcube[ix,iy,*] = (ipower*padding); /frequencies[nf-1] ; in DN^2
             
             if nodominantfreq eq 0 then begin
@@ -583,20 +703,37 @@ function getpowerWAVELET,cube,cadence,dj=dj,mother=mother,siglevel=siglevel,glob
   if nosignificance eq 0 then significance = reform(significance)
   coicube = reform(coicube)
   
+  ; if (global+oglobal+rgws) gt 0 AND psd eq 1 then begin
+  ; 	  ; Interpolate the power spectrum to a uniform frequency array (Wavelet's frequency resolution changes with frequency)
+  ; 	  uniform_freqs = findgen(n_elements(frequencies)) * (max(frequencies) - min(frequencies)) / (n_elements(frequencies) - 1) + min(frequencies)
+  ;
+  ; 	  powermap = interpol(powermap, frequencies, uniform_freqs, /SPLINE)
+  ;
+  ; 	  frequencies = uniform_freqs
+  ; 	  delta_freq = ABS(frequencies[1] - frequencies[0])
+  ;
+  ; 	  powermap = powermap / delta_freq
+  ;
+  ; 	  averagedpower = averagedpower / delta_freq
+  ; 	  if nodominantfreq eq 0 then dominantpower = dominantpower / delta_freq
+  ; 	  significance = significance / delta_freq
+  ; endif
+  
   return, powermap
 end
 ;==================================================== MAIN ROUTINE ====================================================
 function walsa_speclizer,data,time,$ ; main inputs
                         frequencies=frequencies, significance=significance, coicube=coicube, imf=imf, instantfreq=instantfreq,$ ; main (additional) outputs
                         averagedpower=averagedpower,amplitude=amplitude, period=period, $
-                        fft=fft, lombscargle=lombscargle, wavelet=wavelet, hht=hht,$ ; type of analysis
+                        fft=fft, lombscargle=lombscargle, wavelet=wavelet, hht=hht, welch=welch,$ ; type of analysis
                         padding=padding, apod=apod, nodetrendapod=nodetrendapod, pxdetrend=pxdetrend, meandetrend=meandetrend,$ ; padding and apodization parameters
-                        polyfit=polyfit,meantemporal=meantemporal,recon=recon,$
+                        polyfit=polyfit,meantemporal=meantemporal,recon=recon,resample_original=resample_original, psd=psd,$
                         siglevel=siglevel, nperm=nperm, nosignificance=nosignificance,$ ; significance-level parameters
-                        mother=mother, param=param, dj=dj, global=global, oglobal=oglobal, sensible=sensible, colornoise=colornoise,$ ; Wavelet parameters/options
+                        mother=mother, param=param, dj=dj, global=global, oglobal=oglobal, rgws=rgws, colornoise=colornoise,$ ; Wavelet parameters/options
                         stdlimit=stdlimit, nfilter=nfilter, emd=emd,$ ; HHT parameters/options
                         mode=mode, silent=silent, $
-                        dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower ; dominant frequency
+                        dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower, $ ; dominant frequency
+						window_size=window_size, overlap=overlap, wfft_size=wfft_size ; Welch parameters
 
 cube = reform(data)
 sizecube = size(cube)
@@ -639,8 +776,10 @@ if n_elements(global) eq 0 then global=0 ; if set, global wavelet will be return
 if n_elements(dj) eq 0 then dj=0.025
 
 if n_elements(fft) eq 0 then fft=0
+if n_elements(psd) eq 0 then psd=0
 if n_elements(lombscargle) eq 0 then lombscargle=0
 if n_elements(hht) eq 0 then hht=0
+if n_elements(welch) eq 0 then welch=0
 if n_elements(wavelet) eq 0 then wavelet=0
 if n_elements(nosignificance) eq 0 then nosignificance=0
 if n_elements(nodominantfreq) eq 0 then nodominantfreq=0
@@ -648,7 +787,7 @@ if n_elements(nodominantfreq) eq 0 then nodominantfreq=0
 if n_elements(siglevel) eq 0 then siglevel=0.05 ; 5% significance level = 95% confidence level
 if n_elements(nperm) eq 0 then nperm=1000
 if n_elements(oglobal) eq 0 then oglobal=0
-if n_elements(sensible) eq 0 then sensible=0
+if n_elements(rgws) eq 0 then rgws=0
 
 if n_elements(padding) eq 0 then padding=1
 if n_elements(stdlimit) eq 0 then stdlimit=0.2
@@ -668,7 +807,7 @@ if n_elements(NFFT) eq 0 then NFFT=256
 
 ; detrend and apodize the cube
 if nodetrendapod eq 0 then begin
-    apocube=walsa_detrend_apod(cube,apod,meandetrend,pxdetrend,polyfit=polyfit,meantemporal=meantemporal,cadence=cadence,silent=silent) 
+    apocube=walsa_detrend_apod(cube,apod,meandetrend,pxdetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,cadence=cadence,resample_original=resample_original,silent=silent) 
 endif else apocube=cube
 
 sizecube = size(apocube)
@@ -689,7 +828,7 @@ if fft then begin
     power=getpowerFFT(apocube,cadence,siglevel=siglevel,padding=padding,frequencies=frequencies,significance=significance,averagedpower=averagedpower,$
         nperm=nperm,nosignificance=nosignificance,dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,$
         amplitude=amplitude,originalcube=cube,apod=apod,nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,$
-        meantemporal=meantemporal,recon=recon,silent=silent)
+        meantemporal=meantemporal,recon=recon,resample_original=resample_original,silent=silent)
 endif
 
 if lombscargle then begin
@@ -700,8 +839,21 @@ if lombscargle then begin
 	endif
     power=getpowerLS(apocube,time,OFAC=padding,siglevel=siglevel,frequencies=frequencies,significance=significance,averagedpower=averagedpower,amplitude=amplitude,$
         nperm=nperm,nosignificance=nosignificance,dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,originalcube=cube,$
-        apod=apod,nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,silent=silent)
+        apod=apod,nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,resample_original=resample_original,silent=silent)
 endif
+
+if welch then begin
+	if silent eq 0 then begin
+	    print, ' '
+	    print, ' -- Perform Welch method .....'
+	    print, ' '
+	endif
+    power=welch_psd(apocube, cadence, frequencies=frequencies, window_size=window_size, overlap=overlap, wfft_size=wfft_size, significance=significance,$
+                     nperm=nperm,nosignificance=nosignificance,averagedpower=averagedpower, originalcube=cube,siglevel=siglevel,$
+                     dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,apod=apod,silent=silent,$
+                     nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,resample_original=resample_original)
+endif
+
 
 if wavelet then begin
 	if silent eq 0 then begin
@@ -709,10 +861,10 @@ if wavelet then begin
 	    print, ' -- Perform Wavelet Transform .....'
 	    print, ' '
 	endif
-    power=getpowerWAVELET(apocube,cadence,dj=dj,mother=mother,siglevel=siglevel,global=global,frequencies=frequencies,averagedpower=averagedpower,sensible=sensible,$
+    power=getpowerWAVELET(apocube,cadence,dj=dj,mother=mother,siglevel=siglevel,global=global,frequencies=frequencies,averagedpower=averagedpower,rgws=rgws,$
         significance=significance,coicube=coicube,oglobal=oglobal,colornoise=colornoise,padding=padding,nosignificance=nosignificance,originalcube=cube,$
-        dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,param=param,nperm=nperm,$
-        apod=apod,nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,silent=silent)
+        dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,param=param,nperm=nperm,psd=psd,$
+        apod=apod,nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,resample_original=resample_original,silent=silent)
 endif
 
 if hht then begin
@@ -724,7 +876,8 @@ if hht then begin
     power=getpowerHHT(apocube,cadence,stdlimit,nfilter=nfilter,significance=significance,siglevel=siglevel,nperm=nperm,originalcube=cube,$
         padding=padding,frequencies=frequencies,nosignificance=nosignificance,emd=emd,imf=imf,instantfreq=instantfreq,amplitude=amplitude,$
         dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,averagedpower=averagedpower,$
-        apod=apod,nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,silent=silent)
+        apod=apod,nodetrendapod=nodetrendapod,pxdetrend=pxdetrend,meandetrend=meandetrend,polyfit=polyfit,meantemporal=meantemporal,recon=recon,$
+        resample_original=resample_original,silent=silent)
 endif
 
 period = 1000./frequencies

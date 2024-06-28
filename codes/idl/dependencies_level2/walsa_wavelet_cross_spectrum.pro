@@ -117,10 +117,10 @@ function walsa_getcorss_spectrum_wavelet, $
     frequency = 1000./period ; in mHz
     nf = n_elements(frequency)
     
-    dt2 = round(walsa_mode(walsa_diff(time2)))
+    dt2 = walsa_mode(walsa_diff(time2))
     wave2 = walsa_wavelet(data2,dt2,scale=scale2,nodetrendapod=nodetrendapod,plot=plot,w=5,log=log,silent=silent,removespace=removespace,koclt=koclt,$
                           clt=clt,mother=mother, param=param, dj=dj, colornoise=colornoise)
-
+	
 ;*** find overlapping times
     time_start = MIN(time1) > MIN(time2)
     time_end = MAX(time1) < MAX(time2)
@@ -213,7 +213,7 @@ function walsa_getcorss_spectrum_wavelet, $
     cross_wavelet = TEMPORARY(cross_wavelet)/scales
     power1 = TEMPORARY(power1)/scales
     power2 = TEMPORARY(power2)/scales
-    
+   
     nweights = FIX(0.6/dj/2 + 0.5)*2 - 1   ; closest (smaller) odd integer
     weights = REPLICATE(1.,nweights)
     weights = weights/TOTAL(weights) ; normalize

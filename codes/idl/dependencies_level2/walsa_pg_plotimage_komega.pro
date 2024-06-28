@@ -97,7 +97,7 @@ PRO walsa_pg_plotimage_komega,im,x,y,isotropic=isotropic,fulledges=fulledges,_ex
                 ,yticklayout=yticklayout,yticklen=yticklen,ytickname=ytickname,yticks=yticks $
                 ,ytickunits=ytickunits,ytickv=ytickv,ytitle=ytitle,noerase=noerase, threemin=threemin, fivemin=fivemin $
                 ,axiscolor=axiscolor, background=background, layout=layout, window=window, addcmd=addcmd, $
-                noy2=noy2, nox2=nox2
+                noy2=noy2, nox2=nox2, x2ndaxistitle=x2ndaxistitle, y2ndaxistitle=y2ndaxistitle
 
 
     Compile_Opt idl2
@@ -365,7 +365,7 @@ PRO walsa_pg_plotimage_komega,im,x,y,isotropic=isotropic,fulledges=fulledges,_ex
   ;most of the stuff is just keyword propagation
   if xlog EQ 1 then begin
       if nox2 eq 0 then cgAxis, XAxis=1, XRange=[2.*!pi/xrange[0],2.*!pi/xrange[1]], xticklen=xticklen, $
-         xstyle=1, /xlog, title='Spatial size (arcsec)!C',xminor=xminor,xthick=xthick, $
+         xstyle=1, /xlog, title=x2ndaxistitle,xminor=xminor,xthick=xthick, $
          xtickformat=xtickformat,xtickinterval=xtickinterval,xticks=(n_elements(LogLevels([2.*!pi/xrange[0],2.*!pi/xrange[1]])))-1, $
          xcharsize=xcharsize, XTICKV=LogLevels([2.*!pi/xrange[0],2.*!pi/xrange[1]]) ; added by SJ
 
@@ -377,14 +377,14 @@ PRO walsa_pg_plotimage_komega,im,x,y,isotropic=isotropic,fulledges=fulledges,_ex
                 ,xtickunits=xtickunits,xtickv=xtickv,xtitle=xtitle, color=axiscolor
 
      if nox2 eq 0 then cgaxis,XAxis=1, XRange=xrange, xticklen=xticklen, $
-         xstyle=1, xlog=0, title='Spatial size (arcsec)!C',xthick=xthick, xcharsize=xcharsize, $
+         xstyle=1, xlog=0, title=x2ndaxistitle,xthick=xthick, xcharsize=xcharsize, $
          XTICKNAME = string(2.*!pi/xtick_get,format='(F0.1)') ; added by SJ
 
   endelse
 
   if ylog EQ 1 then begin
       if noy2 eq 0 then cgAxis, YAxis=1, YRange=[1000./yrange[0],1000./yrange[1]], yticklen=yticklen, $
-         ystyle=1, /ylog, title='Period (s)',yminor=yminor,ythick=ythick, $
+         ystyle=1, /ylog, title=y2ndaxistitle,yminor=yminor,ythick=ythick, $
          ytickformat=ytickformat,ytickinterval=ytickinterval,yticks=(n_elements(LogLevels([1000./yrange[0],1000./yrange[1]])))-1, $
          ycharsize=ycharsize, YTICKV=LogLevels([1000./yrange[0],1000./yrange[1]]) ; added by SJ
 
@@ -396,7 +396,7 @@ PRO walsa_pg_plotimage_komega,im,x,y,isotropic=isotropic,fulledges=fulledges,_ex
                 ,ytickunits=ytickunits,ytickv=ytickv,ytitle=ytitle, color=axiscolor
 
      if noy2 eq 0 then cgaxis, YAxis=1, YRange=yrange, yticklen=yticklen,  $
-         ystyle=1, ylog=0, title='Period (s)',ythick=ythick, ycharsize=ycharsize, $
+         ystyle=1, ylog=0, title=y2ndaxistitle,ythick=ythick, ycharsize=ycharsize, $
          YTICKNAME = string(1000./ytick_get,format='(F0.1)') ; added by SJ
 
   endelse

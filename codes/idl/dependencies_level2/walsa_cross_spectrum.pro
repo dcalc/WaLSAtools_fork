@@ -157,9 +157,9 @@ return, cospectrum
 end
 ;==================================================== MAIN ROUTINE ====================================================
 pro walsa_cross_spectrum, data1=data1, data2=data2, time=time, phase_angle=phase_angle, coherence=coherence, frequencies=frequencies, cospectrum=cospectrum, $
-                             fft=fft, lombscargle=lombscargle, hht=hht,$ ; type of analysis
+                             fft=fft, lombscargle=lombscargle, hht=hht, welch=welch,$ ; type of analysis
                              padding=padding, apod=apod, nodetrendapod=nodetrendapod, pxdetrend=pxdetrend, meandetrend=meandetrend,$ ; padding and apodization parameters
-                             polyfit=polyfit,meantemporal=meantemporal,recon=recon,nperm=nperm,siglevel=siglevel,$
+                             polyfit=polyfit,meantemporal=meantemporal,recon=recon,resample_original=resample_original,nperm=nperm,siglevel=siglevel,$
                              stdlimit=stdlimit, nfilter=nfilter, $ ; HHT parameters/options
                              nosignificance=nosignificance, signif_coh=signif_coh, signif_cross=signif_cross, n_segments=n_segments, d1_power=d1_power, d2_power=d2_power
 

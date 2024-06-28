@@ -2,15 +2,14 @@
 ; This code does nothing to preserve the amplitudes, so it becomes more difficult to construct PSDs with the outputs of this code. 
 ; However, it is useful when attempting to examine frequencies that are far away from the 'untrustworthy' low frequencies.
 
-FUNCTION walsa_wave_recon, ts, delt, $
-                           dj=dj, lo_cutoff=lo_cutoff, hi_cutoff=hi_cutoff, upper=upper
+FUNCTION walsa_wave_recon, ts, delt, dj=dj, lo_cutoff=lo_cutoff, hi_cutoff=hi_cutoff, upper=upper
 
     dur = (N_ELEMENTS(ts) - 1.) * delt
     
     IF NOT KEYWORD_SET(dj) THEN dj = 32. ELSE dj = dj
     IF NOT KEYWORD_SET(lo_cutoff) THEN lo_cutoff = 0. ELSE lo_cutoff = lo_cutoff
     IF NOT KEYWORD_SET(hi_cutoff) THEN hi_cutoff = dur / (3. * sqrt(2.)) ELSE hi_cutoff = hi_cutoff
-    
+	
 	; do wavelet transform
     wave_trans = walsa_wavelet(ts,delt,PERIOD=period,SCALE=scale,$
                             COI=coi,/PAD,SIGNIF=signif,siglvl=0.99,$
@@ -25,6 +24,10 @@ FUNCTION walsa_wave_recon, ts, delt, $
         good_per = ( WHERE(period GT lo_cutoff) )(0)
         bad_per = ( WHERE(period GT hi_cutoff) )(0)
     ENDELSE
+	
+	print
+	print, '----- Filtering out frequencies below '+strtrim(1000./hi_cutoff,2)+' mHz'
+	print
     
 	; set the power inside the CoI equal to zero 
 	; (i.e., exclude points inside the CoI -- subject to edge effect)

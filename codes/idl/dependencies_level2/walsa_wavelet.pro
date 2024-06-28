@@ -1,7 +1,7 @@
 ;+
 ; NAME: WaLSA_wavelet
 ;       part of -- WaLSAtools --
-;       slight modification of WAVELET.pro
+;       modification of WAVELET.pro
 ;
 ; PURPOSE:   
 ;   Compute the WAVELET transform of a 1D time series.
@@ -320,9 +320,8 @@ FUNCTION walsa_wavelet,y1,dt, $   ;*** required inputs
     fft_theor = FLTARR(na)
     
 ;....loop thru each SCALE
-    FOR a1=0,na-1 DO BEGIN  ;scale
-        psi_fft=CALL_FUNCTION(mother, $
-            param,scale(a1),k,period1,coi,dofmin,Cdelta,psi0)
+	FOR a1=0,na-1 DO BEGIN  ;scale
+	        psi_fft = CALL_FUNCTION(mother, param, scale(a1), k, period1, coi, dofmin, Cdelta, psi0)
         IF (do_wave) THEN $
             wave(*,a1) = FFT(yfft*psi_fft,1,/DOUBLE)  ;wavelet transform[Eqn(4)]
         period(a1) = period1   ; save period

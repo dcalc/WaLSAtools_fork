@@ -5,13 +5,13 @@
 ;   Performing various wave analysis techniques on 
 ;           (a) Single time series (1D signal or [x,y,t] cube)
 ;               Methods:
-;               (1) 1D analysis with: FFT (Fast Fourier Transform), Wavelet, 
-;                                     Lomb-Scargle, or HHT (Hilbert-Huang Transform)
+;               (1) 1D analysis with: FFT (Fast Fourier Transform), Wavelet, Lomb-Scargle, 
+;                                     HHT (Hilbert-Huang Transform), or Welch
 ;               (2) 3D analysis: k-ω (with optional Fourier filtering) or B-ω diagrams
 ;           
 ;           (b) Two time series (cross correlations between two signals)
 ;               With: FFT (Fast Fourier Transform), ,
-;                     Lomb-Scargle, or HHT (Hilbert-Huang Transform
+;                     Lomb-Scargle, HHT (Hilbert-Huang Transform, or Welch
 ;
 ; CALLING SEQUENCE:
 ;   IDL> WaLSAtools 
@@ -27,12 +27,13 @@ pro walsatools,$
 ; (1) 1D analysis with: FFT, Wavelet, Long-Scargle, EMD, or HHT: 
 signal=signal,time=time,$ ; main inputs
 power=power, frequencies=frequencies, significance=significance, coi=coi, averagedpower=averagedpower,$ ; main (additional) outputs
-fft=fft, lombscargle=lombscargle, wavelet=wavelet, hht=hht,$ ; type of analysis
+fft=fft, lombscargle=lombscargle, welch=welch, wavelet=wavelet, hht=hht,$ ; type of analysis
 padding=padding, apod=apod, nodetrendapod=nodetrendapod, pxdetrend=pxdetrend, meandetrend=meandetrend,$ ; padding and apodization parameters
-polyfit=polyfit,meantemporal=meantemporal,recon=recon,$
+polyfit=polyfit,meantemporal=meantemporal,recon=recon,resample_original=resample_original, psd=psd,$
 siglevel=siglevel, nperm=nperm, nosignificance=nosignificance,$ ; significance-level parameters
-mother=mother, param=param, dj=dj, global=global, oglobal=oglobal, sensible=sensible, colornoise=colornoise,$ ; Wavelet parameters/options
+mother=mother, param=param, dj=dj, global=global, oglobal=oglobal, rgws=rgws, colornoise=colornoise,$ ; Wavelet parameters/options
 stdlimit=stdlimit, nfilter=nfilter, emd=emd, imf=imf, instantfreq=instantfreq,$ ; HHT parameters/options
+window_size=window_size, overlap=overlap, wfft_size=wfft_size,$ ; Welch parameters
 mode=mode,$ ; power calibration
 dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,$ ; dominant frequency
 ; + keywords/options for 
@@ -70,13 +71,13 @@ n_segments=n_segments, d1_power=d1_power, d2_power=d2_power, period=period
 
 if keyword_set(cadence) or keyword_set(time) then temporalinfo = 1 else temporalinfo = 0
 if keyword_set(signal) and temporalinfo then begin
-    if keyword_set(fft) or keyword_set(wavelet) or keyword_set(lombscargle) or $
+    if keyword_set(fft) or keyword_set(wavelet) or keyword_set(lombscargle) or keyword_set(welch) or $
        keyword_set(hht) or keyword_set(komega) or keyword_set(bomega) $
     then help = 0 else help = 1
 endif else help = 1
 if keyword_set(signal) eq 0 then begin
     if keyword_set(data1) and keyword_set(data2) and temporalinfo then begin
-        if keyword_set(fft) or keyword_set(wavelet) or keyword_set(lombscargle) $
+        if keyword_set(fft) or keyword_set(wavelet) or keyword_set(lombscargle) or keyword_set(welch) $
            or keyword_set(hht) then help = 0 else help = 1
     endif else help = 1
 endif
@@ -85,13 +86,13 @@ if help then begin
     PRINT,'  Performing various wave analysis techniques on '
     PRINT,'  (a) Single time series (1D signal or [x,y,t] cube)'
     PRINT,'      Methods: '
-    PRINT,'      (1) 1D analysis with: FFT (Fast Fourier Transform), Wavelet,'
-    PRINT,'                            Lomb-Scargle, or HHT (Hilbert-Huang Transform)'
+    PRINT,'      (1) 1D analysis with: FFT (Fast Fourier Transform), Wavelet, Lomb-Scargle,'
+    PRINT,'                            HHT (Hilbert-Huang Transform), or Welch'
     PRINT,'      (2) 3D analysis: k-ω (with optional Fourier filtering) or B-ω diagrams'
     PRINT
     PRINT,'  (b) Two time series (cross correlations between two signals)'
     PRINT,'      With: FFT (Fast Fourier Transform), Wavelet,'
-    PRINT,'            Lomb-Scargle, or HHT (Hilbert-Huang Transform)'
+    PRINT,'            Lomb-Scargle, HHT (Hilbert-Huang Transform) or Welch'
     PRINT,' ----------------------------------------------------------------------------'
     if keyword_set(version) then begin
         PRINT
@@ -118,9 +119,9 @@ if help then begin
         endwhile
         PRINT
         if type eq 1 then begin
-            PRINT,' ----------------------------------------------------------------------'
-            PRINT,' --- 1D analysis with: (1) FFT, (2) Wavelet, (3) Lomb-Scargle, (4) HHT'
-            PRINT,' ----------------------------------------------------------------------'
+            PRINT,' ---------------------------------------------------------------------------------'
+            PRINT,' --- 1D analysis with: (1) FFT, (2) Wavelet, (3) Lomb-Scargle, (4) HHT, (5) Welch'
+            PRINT,' ---------------------------------------------------------------------------------'
             m1type = ' '
             READ, m1type, PROMPT=' --- Type of analysis (enter the option 1-4): '
             while m1type lt 1 or m1type gt 4 do begin
@@ -156,6 +157,13 @@ if help then begin
                 PRINT,' + CALLING SEQUENCE:'
                 PRINT,'   walsatools, /hht, signal=signal, time=time, power=p, frequencies=f, significance=signif'
             endif
+            if m1type eq 5 then begin
+                PRINT,' ----------------------------'
+                PRINT,' ---- 1D analysis with Welch:'
+                PRINT,' ----------------------------'
+                PRINT,' + CALLING SEQUENCE:'
+                PRINT,'   walsatools, /welch, signal=signal, time=time, power=p, frequencies=f, significance=signif'
+            endif
                 PRINT       
                 PRINT,' + INPUTS:'
                 PRINT,'   signal:          1D time series, or [x,y,t] datacube'
@@ -176,6 +184,7 @@ if help then begin
                 PRINT,'   recon:           optional keyword that will Fourier reconstruct the input timeseries'
                 PRINT,'                    note: this does not preserve the amplitudes and is only useful when attempting'
                 PRINT,'                    to examine frequencies that are far away from the -untrustworthy- low frequencies'
+				PRINT,'   resample         if recon is set, then by setting resample, amplitudes are scaled to approximate actual values.'
                 ; ----significance-level parameters----
                 PRINT,'   siglevel:        significance level (default: 0.05 = 5% significance = 95% confidence)'
                 PRINT,'   nperm:           number of random permutations for the significance test (default: 1000)'
@@ -190,7 +199,7 @@ if help then begin
                 PRINT,'   dj:              spacing between discrete scales. default: 0.025'
                 PRINT,'   global:          returns global wavelet spectrum (time-averaged wavelet power)'
                 PRINT,'   oglobal:         global wavelet spectrum excluding regions affected by CoI'
-                PRINT,'   sensible:        time-integral of wavelet power excluding regions influenced by cone-of-influence'
+                PRINT,'   rgws:        time-integral of wavelet power excluding regions influenced by cone-of-influence'
                 PRINT,'                    and only for those above the significance level'
                 PRINT,'                    i.e., power-weighted frequency distribution (with significant power & unaffected by CoI)'
                 PRINT,'                    Note: this is likely the most correct spectrum!'
@@ -203,6 +212,12 @@ if help then begin
                 PRINT,'   emd:             if set, intrinsic mode functions (IMFs) and their associated frequencies'
                 PRINT,'                    (i.e., instantaneous frequencies) can be outputted'
             endif
+			if m1type eq 5 then begin
+	            ; ----Welch parameters/options----
+	            PRINT,'   window_size:     size of Hann window. This code currently uses a Hann window (e.g., 256)'
+	            PRINT,'   overlap:         commonly, the overlap is set to half the window size.'
+				PRINT,'   wfft_size:        generally, a window_size*2 is used for the FFT size to optimize the FFT performance.'
+	        endif
                 ; ----dominant frequency----
                 PRINT,'   nodominantfreq:  if set, dominant frequency and dominant power are not calculated'
                 PRINT,'                    (to, e.g., save computational time for large datasets)'
@@ -219,7 +234,7 @@ if help then begin
                 PRINT,'   instantfreq:     instantaneous frequencies of each component time series, if emd is set'
             endif
             if m1type eq 2 then begin
-                PRINT,'   coi:             cone-of-influence cube (when global, oglobal, or sensible are not set)'
+                PRINT,'   coi:             cone-of-influence cube (when global, oglobal, or rgws are not set)'
             endif
                 PRINT,'   dominantfreq:    dominant frequency, i.e., frequency corresponding to the maximum power (in mHz)'
                 PRINT,'                    same spatial size as input data (i.e., 1D or 2D)'
@@ -230,16 +245,17 @@ if help then begin
                 PRINT,'   averagedpower:   spatially averaged power spectrum (of multiple 1D power spectra)'
                 PRINT,'   amplitude:       1D array of oscillation amplitude (or a 3D array if the input is a 3D cube)'
             if m1type eq 2 then begin
-                PRINT,'                    note: only for global (traditional, oglobal, or sensible) wavelet'
+                PRINT,'                    note: only for global (traditional, oglobal, or rgws) wavelet'
             endif
             PRINT,' -----------------------------------------------------------------------------------------'
             if m1type eq 1 then m1typecite='WaLSAtools: 1D analysis with FFT'
             if m1type eq 2 then m1typecite='WaLSAtools: 1D analysis with Wavelet'
             if m1type eq 3 then m1typecite='WaLSAtools: 1D analysis with Lomb-Scargle'
             if m1type eq 4 then m1typecite='WaLSAtools: 1D analysis with HHT'
+			if m1type eq 5 then m1typecite='WaLSAtools: 1D analysis with Welch'
             PRINT,' * CITATION:'
             PRINT,'   Please cite the following article if you use '+m1typecite
-            PRINT,'   -- Jess et al. 2021, LRSP, in preparation' 
+            PRINT,'   -- Jess et al. 2023, Living Reviews in Solar Physics, 20, 1' 
             PRINT,'      (see www.WaLSA.tools/citation)'
             PRINT,' -----------------------------------------------------------------------------------------'
             PRINT
@@ -354,7 +370,7 @@ if help then begin
             if m2type eq 2 then m2typecite='WaLSAtools: B-ω analysis'
             PRINT,' * CITATION:'
             PRINT,'   Please cite the following articles if you use '+m2typecite
-            PRINT,'   -- Jess et al. 2021, LRSP, in preparation' 
+            PRINT,'   -- Jess et al. 2023, Living Reviews in Solar Physics, 20, 1' 
             if m2type eq 1 then $
             PRINT,'   -- Jess et al. 2017, ApJ, 842, 59'
             if m2type eq 2 then $
@@ -365,9 +381,9 @@ if help then begin
         endif
     endif
     if category eq 'b' then begin
-        PRINT,' -----------------------------------------------------------------------------------'
-        PRINT,' --- Two time-series analysis with: (1) FFT, (2) Wavelet, (3) Lomb-Scargle, (4) HHT'
-        PRINT,' -----------------------------------------------------------------------------------'
+        PRINT,' ----------------------------------------------------------------------------------------------'
+        PRINT,' --- Two time-series analysis with: (1) FFT, (2) Wavelet, (3) Lomb-Scargle, (4) HHT, (5) Welch'
+        PRINT,' ----------------------------------------------------------------------------------------------'
         c1type = ' '
         READ, c1type, PROMPT=' --- Type of analysis (enter the option 1-4): '
         while c1type lt 1 or c1type gt 4 do begin
@@ -401,10 +417,18 @@ if help then begin
         endif
         if c1type eq 4 then begin
             PRINT,' -------------------------------------'
-            PRINT,' ---- cross-powerD analysis with HHT:'
+            PRINT,' ---- cross-power analysis with HHT:'
             PRINT,' -------------------------------------'
             PRINT,' + CALLING SEQUENCE:'
             PRINT,'   walsatools, /hht, data1=data1, data2=data2, time=time, $'
+            PRINT,'               cospectrum=cospec, phase_angle=ph, coherence=coh, frequencies=f'
+        endif
+        if c1type eq 5 then begin
+            PRINT,' ---------------------------------------------'
+            PRINT,' ---- cross-power analysis with Welch:'
+            PRINT,' ---------------------------------------------'
+            PRINT,' + CALLING SEQUENCE:'
+            PRINT,'   walsatools, /welch, data1=data1, data2=data2, time=time, $'
             PRINT,'               cospectrum=cospec, phase_angle=ph, coherence=coh, frequencies=f'
         endif
             PRINT       
@@ -429,6 +453,7 @@ if help then begin
             PRINT,'   recon:           optional keyword that will Fourier reconstruct the input timeseries'
             PRINT,'                    note: this does not preserve the amplitudes and is only useful when attempting'
             PRINT,'                    to examine frequencies that are far away from the -untrustworthy- low frequencies'
+			PRINT,'   resample         if recon is set, then by setting resample, amplitudes are scaled to approximate actual values.'
             PRINT,'   n_segments:      number of euqal segments (to which both datasets are broken prior to the analyses; default: 1)'
             PRINT,'                    Each of these segments is considered an independent realisation of the underlying process.'
             PRINT,'                    The cross spectrum for each segement are averaged together to provide phase and coherence '
@@ -440,6 +465,12 @@ if help then begin
             PRINT,'                    (recommended value between 0.2 and 0.3; perhaps even smaller); default: 0.2'
             PRINT,'   nfilter:         Hanning window width for two dimensional smoothing of the Hilbert spectrum. default: 3 '
             PRINT,'                    (an odd integer, preferably equal to or larger than 3; equal to 0 to avoid the windowing)'
+        endif
+		if c1type eq 5 then begin
+            ; ----Welch parameters/options----
+            PRINT,'   window_size:     size of Hann window. This code currently uses a Hann window (e.g., 256)'
+            PRINT,'   overlap:         commonly, the overlap is set to half the window size.'
+			PRINT,'   wfft_size:        generally, a window_size*2 is used for the FFT size to optimize the FFT performance.'
         endif
             ; ----significance-level parameters----
             PRINT,'   siglevel:        significance level (default: 0.05 = 5% significance = 95% confidence)'
@@ -478,7 +509,7 @@ if help then begin
             PRINT,' + OUTPUTS:'
         if c1type eq 2 then begin
             PRINT,'   cospectrum:      absolute values of the cross power'
-            PRINT,'                    (2D array for wavelet spectrum; 1D for global, oglobal, or sensible spectrum)'
+            PRINT,'                    (2D array for wavelet spectrum; 1D for global, oglobal, or rgws spectrum)'
             PRINT,'   coherence:       wavelet coherence (same size as cospectrum)'
             PRINT,'   phase_angle:     phase angles in degrees (same size as cospectrum)'
             PRINT,'   frequency:       1D array of frequencies (in mHz)'
@@ -508,9 +539,10 @@ if help then begin
         if c1type eq 2 then c1typecite='WaLSAtools: cross-correlation analysis with Wavelet'
         if c1type eq 3 then c1typecite='WaLSAtools: cross-correlation analysis with Lomb-Scargle'
         if c1type eq 4 then c1typecite='WaLSAtools: cross-correlation analysis with HHT'
+		if c1type eq 5 then c1typecite='WaLSAtools: cross-correlation analysis with Welch'
         PRINT,' * CITATION:'
         PRINT,'   Please cite the following article if you use '+c1typecite
-        PRINT,'   -- Jess et al. 2021, LRSP, in preparation' 
+        PRINT,'   -- Jess et al. 2023, Living Reviews in Solar Physics, 20, 1' 
         PRINT,'      (see www.WaLSA.tools/citation)'
         PRINT,' -----------------------------------------------------------------------------------------'
         PRINT
@@ -527,15 +559,16 @@ if keyword_set(signal) then begin
         return
     endif
 ; -----------------------------------------------------------------------
-if keyword_set(fft) or keyword_set(wavelet) or keyword_set(lombscargle) or keyword_set(hht) then $
+if keyword_set(fft) or keyword_set(wavelet) or keyword_set(lombscargle) or keyword_set(hht) or keyword_set(welch) then $
 power = walsa_speclizer(signal,time,$ ; main inputs
                         frequencies=frequencies, significance=significance, imf=imf, instantfreq=instantfreq,averagedpower=averagedpower,period=period,$ ; main (additional) outputs
-                        fft=fft, lombscargle=lombscargle, wavelet=wavelet, hht=hht,$ ; type of analysis
+                        fft=fft, lombscargle=lombscargle, wavelet=wavelet, hht=hht, welch=welch,$ ; type of analysis
                         padding=padding, apod=apod, nodetrendapod=nodetrendapod, pxdetrend=pxdetrend, meandetrend=meandetrend,$ ; padding and apodization parameters
-                        polyfit=polyfit,meantemporal=meantemporal,recon=recon,$
+                        polyfit=polyfit,meantemporal=meantemporal,recon=recon,resample_original=resample_original, psd=psd,$
                         siglevel=siglevel, nperm=nperm, nosignificance=nosignificance,$ ; significance-level parameters
-                        mother=mother, param=param, dj=dj, global=global, coi=coi, oglobal=oglobal, sensible=sensible, colornoise=colornoise,$ ; Wavelet parameters/options
+                        mother=mother, param=param, dj=dj, global=global, coi=coi, oglobal=oglobal, rgws=rgws, colornoise=colornoise,$ ; Wavelet parameters/options
                         stdlimit=stdlimit, nfilter=nfilter, emd=emd,$ ; HHT parameters/options
+						window_size=window_size, overlap=overlap, wfft_size=wfft_size,$ ; Welch parameters
                         mode=mode,silent=silent,$ ; power calibration
                         dominantfreq=dominantfreq,rangefreq=rangefreq,nodominantfreq=nodominantfreq,dominantpower=dominantpower,amplitude=amplitude) ; dominant frequency
 ;-----------------------------------------------------------------------
@@ -557,11 +590,11 @@ endif
 if keyword_set(data1) and keyword_set(data2) then begin
     ii = where(~finite(data1),/null,cnull) & if cnull gt 0 then data1(ii) = median(data1)
     ii = where(~finite(data2),/null,cnull) & if cnull gt 0 then data2(ii) = median(data2)
-    if keyword_set(fft) or keyword_set(lombscargle) or keyword_set(hht) then $
+    if keyword_set(fft) or keyword_set(lombscargle) or keyword_set(hht) or keyword_set(welch) then $
     walsa_cross_spectrum, data1=data1, data2=data2, time=time, phase_angle=phase_angle, coherence=coherence, frequencies=frequencies, cospectrum=cospectrum, $
-                        fft=fft, lombscargle=lombscargle, hht=hht,$ ; type of analysis
+                        fft=fft, lombscargle=lombscargle, hht=hht, welch=welch,$ ; type of analysis
                         padding=padding, apod=apod, nodetrendapod=nodetrendapod, pxdetrend=pxdetrend, meandetrend=meandetrend,$ ; padding and apodization parameters
-                        polyfit=polyfit,meantemporal=meantemporal,recon=recon,$
+                        polyfit=polyfit,meantemporal=meantemporal,recon=recon,resample_original=resample_original,$
                         stdlimit=stdlimit, nfilter=nfilter, $ ; HHT parameters/options
                         nosignificance=nosignificance, signif_coh=signif_coh, signif_cross=signif_cross, n_segments=n_segments, d1_power=d1_power, d2_power=d2_power
     if keyword_set(wavelet) then $

@@ -73,8 +73,13 @@ pro walsa_qub_queeff, datacube, arcsecpx, cadence=cadence, time=time, $ ; main i
                       filtering=filtering, f1=f1, f2=f2, k1=k1, k2=k2, spatial_torus=spatial_torus, temporal_torus=temporal_torus, $ ; filtering options
                       no_spatial_filt=no_spatial_filt, no_temporal_filt=no_temporal_filt, $
                       clt=clt, koclt=koclt, threemin=threemin, fivemin=fivemin, xlog=xlog, ylog=ylog, xrange=xrange, yrange=yrange, $ ; plotting keywords
+					  xtitle=xtitle, ytitle=ytitle, x2ndaxistitle=x2ndaxistitle, y2ndaxistitle=y2ndaxistitle, $
                       epsfilename=epsfilename, noy2=noy2, nox2=nox2, smooth=smooth, silent=silent, mode=mode
 
+if n_elements(xtitle) eq 0 then xtitle='Wavenumber (arcsec!U-1!N)'
+if n_elements(ytitle) eq 0 then ytitle='Frequency (mHz)'
+if n_elements(x2ndaxistitle) eq 0 then x2ndaxistitle='Spatial size (arcsec)!C'
+if n_elements(y2ndaxistitle) eq 0 then y2ndaxistitle='Period (s)'
 if n_elements(cadence) eq 0 then cadence=walsa_mode(walsa_diff(time))
 ; DEFINE THE SCREEN RESOLUTION TO ENSURE THE PLOTS DO NOT SPILL OVER THE EDGES OF THE SCREEN
 dimensions = GET_SCREEN_SIZE(RESOLUTION=resolution)
