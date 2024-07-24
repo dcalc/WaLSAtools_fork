@@ -26,7 +26,7 @@ Below is a list of individuals who have contributed to **WaLSAtools** (either di
   - [Solarsoft][11]{target=_blank}
   - [Coyote][4]{target=_blank} (Prof David Fanning)
   - [Daithi][5]{target=_blank} (Dr Dáithí A. Stone)
-  - [HeLIx+][12]{target=_blank} (Dr Andreas Lagg)
+  - [HeLIx+][12]{target=_blank} (Dr Andreas Korpi-Lagg)
 
 *[WaLSA]: Waves in the Lower Solar Atmosphere
 *[IDL]: Interactive Data Language
