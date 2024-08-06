@@ -1,7 +1,8 @@
 pro walsa_plot_wavelet_spectrum, power, period, time, coi, significance, clt=clt, w=w, log=log, removespace=removespace, $
-								 koclt=koclt, normal=normal, epsfilename=epsfilename, maxperiod=maxperiod
+								 koclt=koclt, normal=normal, epsfilename=epsfilename, maxperiod=maxperiod, mHz=mHz
 
 if n_elements(log) eq 0 then log=1
+if n_elements(mHz) eq 0 then mHz=1
 if n_elements(removespace) eq 0 then removespace=0
 if n_elements(normal) eq 0 then normal=0
 if n_elements(epsfilename) eq 0 then eps = 0 else eps = 1 
@@ -110,7 +111,8 @@ walsa_image_plot, power, xrange=xrg, yrange=yrg, $
           barthick=barthick, position=[0.14,0.14,0.87,0.87]
 
 cgAxis, YAxis=0, YRange=yrg, ystyle=1, /ylog, title='Period (s)', charsize=charsize
-cgAxis, YAxis=1, YRange=[1000./yrg[0],1000./yrg[1]], ystyle=1, /ylog, title='Frequency (mHz)', charsize=charsize
+if mHz then cgAxis, YAxis=1, YRange=[1000./yrg[0],1000./yrg[1]], ystyle=1, /ylog, title='Frequency (mHz)', charsize=charsize $ else
+	cgAxis, YAxis=1, YRange=[1./yrg[0],1./yrg[1]], ystyle=1, /ylog, title='Frequency (Hz)', charsize=charsize
 
 ; plot the Cone-of-Influence
 plots, time, coi, noclip=0, linestyle=0, thick=coithick, color=cgColor('Black')
