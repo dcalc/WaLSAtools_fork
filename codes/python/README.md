@@ -41,9 +41,10 @@ WaLSAtools
 ```
 
 This will launch an interactive menu with options for:
-	•	Selecting a category of analysis.
-	•	Choosing the data type (e.g., 1D time series or 3D data cube).
-	•	Picking an analysis method (e.g., FFT, wavelet, k-omega).
+
+- Selecting a category of analysis.
+- Choosing the data type (e.g., 1D time series or 3D data cube).
+- Picking an analysis method (e.g., FFT, wavelet, k-omega).
 
 The interface provides instructions and hints on calling sequences and parameter details for your chosen analysis.
 
