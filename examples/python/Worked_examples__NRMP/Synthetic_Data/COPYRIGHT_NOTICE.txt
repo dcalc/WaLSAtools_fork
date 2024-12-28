@@ -1,0 +1,11 @@
+Copyright Notice for Synthetic Data
+
+The synthetic data in this folder were analyzed and published in:
+
+Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
+
+These datasets are provided under the Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0). You may use, modify, and distribute these datasets under the terms of the license.
+
+If you use these datasets in your research, please cite:
+
+Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
