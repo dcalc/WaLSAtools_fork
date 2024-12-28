@@ -8,9 +8,9 @@
     <a href="https://github.com/WaLSAteam/WaLSAtools/actions/workflows/ci.yml"><img src="https://github.com/WaLSAteam/WaLSAtools/workflows/docs/badge.svg"></a>
 </p>
 
-**WaLSAtools** is an open-source library designed for advanced wave analysis in time series and imaging data. It is applicable across a wide range of disciplines, including astrophysics, physics, engineering, environmental science, and biomedical research, to name but a few. The library provides a diverse suite of tools for analyzing oscillatory signals in both one-dimensional and multi-dimensional datasets.
+**WaLSAtools** is an open-source library designed for advanced wave analysis in time series and imaging data. It is applicable across a wide range of disciplines, including astrophysics, physics, engineering, environmental science, and biomedical research, to name but a few. The library provides a diverse suite of tools for analysing oscillatory signals in both one-dimensional and multi-dimensional datasets.
 
-Originally initiated by the [WaLSA Team](https://WaLSA.team) — an international consortium of experts in wave analysis in the lower solar atmosphere — WaLSAtools was inspired by the complex (magnetohydrodynamic) wave phenomena, driven by diverse restoring forces, interacting within dynamic systems. However, its applications extend far beyond astrophysics, making it a versatile toolkit for researchers across various domains.
+Originally initiated by the [WaLSA Team](https://WaLSA.team) — an international consortium of experts in wave analysis in the lower solar atmosphere — WaLSAtools was inspired by the complex (magnetohydrodynamic) wave phenomena, excited by diverse restoring forces and interacting within one the most complex and dynamic systems known to date -- the solar atmosphere. However, its applications extend far beyond astrophysics, making it a versatile toolkit for researchers across various domains.
 
 Currently available in both Python and IDL, WaLSAtools is built to promote reliability, reproducibility, and transparency in wave analysis. Its robust methods enable researchers to extract meaningful insights from complex datasets, ensuring consistency and trustworthiness in results.
 
