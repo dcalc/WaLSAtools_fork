@@ -23,9 +23,3 @@ See the documentation at **[https://WaLSA.tools](https://WaLSA.tools)** for **ge
 :exclamation: The online documentation is currently password protected:<br/>
 **Username:** `WaLSA`<br/>
 **Password:** `WaLSAtools@2023`
-
----
-
-<h3><a href="https://github.com/WaLSAteam/WaLSAtools_working_repository">Working Repository</a></h3>
-
-WaLSA Team Members: Please add your codes to the **WaLSAtools** [**Working Repository**](https://github.com/WaLSAteam/WaLSAtools_working_repository) — a temporary repository during the intial development phase. 
