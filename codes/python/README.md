@@ -26,7 +26,7 @@ To set up WaLSAtools for Python, follow these steps:
 git clone https://github.com/WaLSAteam/WaLSAtools.git
 ```
    
-2. Navigate to this directory and run:
+2. Navigate to the *python* directory and run:
 ```bash
 python setup.py install
 ```
