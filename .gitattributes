@@ -3,7 +3,7 @@
 # Set Python files to their correct language
 *.py linguist-language=Python
 # Handle Jupyter notebooks
-*.ipynb filter=lfs diff=lfs merge=lfs -text
+*.ipynb linguist-language=Python
 # Handle text files to ensure consistent line endings
 * text=auto
 # Exclude generated/binary files from linguist statistics
@@ -12,7 +12,7 @@
 *.gif binary
 *.mp4 binary
 *.mov binary
-*.pdf filter=lfs diff=lfs merge=lfs -text
+*.pdf binary
 *.o binary
 *.so binary
 *.dll binary
@@ -26,5 +26,3 @@
 /setup.pro eol=lf
 *.sh eol=lf
 *.bat eol=crlf
-*.fits filter=lfs diff=lfs merge=lfs -text
-*.npz filter=lfs diff=lfs merge=lfs -text
