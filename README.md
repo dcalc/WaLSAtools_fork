@@ -90,8 +90,18 @@ WaLSAtools/
 Refer to the `README.md` files in the respective `python` and `idl` directories for installation instructions specific to each language. Further details are provided in the [Online Documentation](https://WaLSA.tools).
 
 For a quick start:
-- **Python**: Install using `setup.py` or `pip`.
+- Clone or Download WaLSAtools Repository
+  ```bash
+  git clone https://github.com/WaLSAteam/WaLSAtools.git
+  ```
+- **Python**: Install using `setup.py` or `pip`, withing the `codes/pyhton` directory.
+  ```bash
+  pip install WaLSAtools
+  ```
 - **IDL**: Configure using the provided `setup.pro` script.
+  ```bash
+  .run setup.pro
+  ```
 
 ---
 
