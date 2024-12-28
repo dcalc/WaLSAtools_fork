@@ -107,7 +107,7 @@ WaLSAtools includes an interactive interface to simplify its usage:
   ```
 
 Both interfaces guide you through:
-    1.	Selecting a category of analysis.
+	1.	Selecting a category of analysis.
 	2.	Choosing the data type (e.g., 1D signal, 3D datacube).
 	3.	Picking a specific analysis method.
 
