@@ -81,6 +81,7 @@ WaLSAtools/
 │   ├── idl/                # IDL-specific examples
 │   │   └── Worked_examples__NRMP/
 ├── LICENSE                 # License information
+├── NOTICE                  # Copyright Notice
 └── README.md               # Main repository README
 ```
 ---
