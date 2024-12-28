@@ -41,6 +41,7 @@ This repository is referenced in an article in [**Nature Reviews Methods Primers
   - Encourages reproducibility and transparency in data analysis.
 
 ---
+<a href="https://WaLSA.tools" target="_blank"><img align="right" src="docs/images/misc/WaLSAtool_documentation_screenshot.jpg" alt="WaLSAtools Documentation Screenshot" width="485" height="auto" /></a>
 
 ## **Documentation**
 
@@ -53,13 +54,13 @@ The documentation includes:
 - Descriptions of implemented methods.
 - Examples applied to synthetic datasets.
 
-<a href="https://WaLSA.tools" target="_blank"><img align="right" src="docs/images/misc/WaLSAtool_documentation_screenshot.jpg" alt="WaLSAtools Documentation Screenshot" width="485" height="auto" /></a>
-
 ---
 
 ## **Repository Structure**
 
 The repository is organized into the following key components:
+```bash
+.
 WaLSAtools/
 ├── codes/
 │   ├── python/             # Python implementation of WaLSAtools
@@ -78,7 +79,7 @@ WaLSAtools/
 │   │   └── Worked_examples__NRMP/
 ├── LICENSE                 # License information
 └── README.md               # Main repository README
-
+```
 ---
 
 ## **Installation**
