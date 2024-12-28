@@ -100,12 +100,12 @@ For a quick start:
 WaLSAtools includes an interactive interface to simplify its usage:
 - **Python**: Launch the interactive interface by typing `WaLSAtools` in a terminal or Jupyter notebook as
   ```python
-    from WaLSAtools import WaLSAtools
-    WaLSAtools
+  from WaLSAtools import WaLSAtools
+  WaLSAtools
   ```
 - **IDL**: Start the interface by running the command:
   ```idl
-    WaLSAtools
+  WaLSAtools
   ```
 
 Both interfaces guide you through:
