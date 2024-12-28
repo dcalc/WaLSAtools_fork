@@ -94,11 +94,11 @@ For a quick start:
   ```bash
   git clone https://github.com/WaLSAteam/WaLSAtools.git
   ```
-- **Python**: Install using `setup.py` or `pip`, withing the `codes/pyhton` directory.
+- **Python**: Install using `setup.py` or `pip`, withing the `codes/pyhton/` directory.
   ```bash
   pip install WaLSAtools
   ```
-- **IDL**: Configure using the provided `setup.pro` script, withing the `codes/idl` directory in IDL.
+- **IDL**: Configure using the provided `setup.pro` script, withing the `codes/idl/` directory in IDL.
   ```idl
   .run setup.pro
   ```
