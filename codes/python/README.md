@@ -23,10 +23,11 @@ To install WaLSAtools, navigate to this directory and run:
 
 ```bash
 python setup.py install
-
-or
+```
 
 Alternatively, you can install via pip:
 
 ```bash
 pip install WaLSAtools
+```
+
