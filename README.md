@@ -107,18 +107,18 @@ WaLSAtools includes an interactive interface to simplify its usage:
   ```
 
 Both interfaces guide you through:
-	1.	Selecting a category of analysis.
-	2.	Choosing the data type (e.g., 1D signal, 3D datacube).
-	3.	Picking a specific analysis method.
+1.	Selecting a category of analysis.
+2.	Choosing the data type (e.g., 1D signal, 3D datacube).
+3.	Picking a specific analysis method.
 
 The interface provides hints on calling sequences and parameter definitions for the selected method.
 
 ## **Citing WaLSAtools**
 
 If you use WaLSAtools in your research, please consider citing:
-
+```
 **Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.**
-
+```
 ## **License**
 
 WaLSAtools is licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
