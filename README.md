@@ -10,7 +10,7 @@
 
 **WaLSAtools** is an open-source library designed for advanced wave analysis in time series and imaging data. It is applicable across a wide range of disciplines, including astrophysics, physics, engineering, environmental science, and biomedical research, to name but a few. The library provides a diverse suite of tools for analysing oscillatory signals in both one-dimensional and multi-dimensional datasets.
 
-Originally initiated by the [WaLSA Team](https://WaLSA.team) — an international consortium of experts in wave analysis in the lower solar atmosphere — WaLSAtools was inspired by the complex (magnetohydrodynamic) wave phenomena driven by diverse restoring forces and interacting within one of the most intricate and dynamic systems known: the solar atmosphere. Despite these origins, WaLSAtools has broad applications, making it a versatile toolkit for researchers across a variety of fields.
+Originally initiated by the [WaLSA Team](https://WaLSA.team) — n international consortium dedicated to analysing wave activity in the lower solar atmosphere — WaLSAtools was inspired by the complex (magnetohydrodynamic) wave phenomena driven by diverse restoring forces and interacting within one of the most intricate and dynamic systems known: the solar atmosphere. Despite these origins, WaLSAtools has broad applications, making it a versatile toolkit for researchers across a variety of fields.
 
 Currently available in both Python and IDL, WaLSAtools is built to promote reliability, reproducibility, and transparency in wave analysis. Its robust methods enable researchers to extract meaningful insights from complex datasets, ensuring consistency and trustworthiness in results.
 
@@ -132,7 +132,7 @@ The interface provides hints on calling sequences and parameter definitions for 
 
 If you use WaLSAtools in your research, please consider citing:
 
-> Jafrzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
+> Jafrzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press
 
 ---
 
