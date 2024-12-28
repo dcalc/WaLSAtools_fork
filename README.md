@@ -14,7 +14,7 @@ Originally initiated by the [WaLSA Team](https://WaLSA.team) — an internationa
 
 Currently available in both Python and IDL, WaLSAtools is built to promote reliability, reproducibility, and transparency in wave analysis. Its robust methods enable researchers to extract meaningful insights from complex datasets, ensuring consistency and trustworthiness in results.
 
-This repository is referenced in a primer article titled *"Wave analysis tools"* in [**Nature Reviews Methods Primers**](https://www.nature.com/nrmp/) (NRMP; in press), where its capabilities are showcased using synthetic datasets. The `Worked_examples__NRMP` directory under `examples` (for both Python and IDL) contains reproducible codes for generating the figures featured in the NRMP article and serves as a practical guide for applying WaLSAtools to real-world analyses.
+This repository is referenced in a primer article titled *"Wave analysis tools"* in [**Nature Reviews Methods Primers**](https://www.nature.com/nrmp/) (NRMP; in press), where its capabilities are showcased using synthetic datasets. The `Worked_examples__NRMP` directories under `examples` (for both Python and IDL) contains reproducible codes for generating the figures featured in the NRMP article and serves as a practical guide for applying WaLSAtools to real-world analyses.
 
 ---
 
