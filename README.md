@@ -8,11 +8,13 @@
     <a href="https://github.com/WaLSAteam/WaLSAtools/actions/workflows/ci.yml"><img src="https://github.com/WaLSAteam/WaLSAtools/workflows/docs/badge.svg"></a>
 </p>
 
-**WaLSAtools** is an open-source library for advanced wave analysis in time series and imaging data, applicable to a wide range of disciplines, including, but not limited to, astrophysics, physics, engineering, environmental science, and biomedical research. It provides a diverse set of tools for analyzing oscillatory signals in one-dimensional and multi-dimensional datasets.
+**WaLSAtools** is an open-source library designed for advanced wave analysis in time series and imaging data. It is applicable across a wide range of disciplines, including astrophysics, physics, engineering, environmental science, and biomedical research, to name but a few. The library provides a diverse suite of tools for analyzing oscillatory signals in both one-dimensional and multi-dimensional datasets.
 
-The package, currently available in both Python and IDL, is designed to ensure reliability, reproducibility, and transparency in wave analysis, offering researchers robust methods for extracting meaningful insights from complex datasets.
+Originally initiated by the [WaLSA Team](https://WaLSA.team) — an international consortium of experts in wave analysis in the lower solar atmosphere — WaLSAtools was inspired by the complex (magnetohydrodynamic) wave phenomena, driven by diverse restoring forces, interacting within dynamic systems. However, its applications extend far beyond astrophysics, making it a versatile toolkit for researchers across various domains.
 
-This repository is referenced in an article in [**Nature Reviews Methods Primers**](https://www.nature.com/nrmp/) (in press), where it is described and applied to synthetic datasets as a foundational toolkit for wave analysis.
+Currently available in both Python and IDL, WaLSAtools is built to promote reliability, reproducibility, and transparency in wave analysis. Its robust methods enable researchers to extract meaningful insights from complex datasets, ensuring consistency and trustworthiness in results.
+
+This repository is referenced in an article published in [**Nature Reviews Methods Primers**](https://www.nature.com/nrmp/) (NRMP; in press), where its capabilities are showcased using synthetic datasets. The `Worked_examples__NRMP` directory under `examples` (for both Python and IDL) contains reproducible codes for generating the figures featured in the NRMP article and serves as a practical guide for applying WaLSAtools to real-world analyses.
 
 ---
 
