@@ -19,12 +19,17 @@ WaLSAtools provides an interactive interface in both **terminal** and **Jupyter 
 
 ### **Installation**
 
-To install WaLSAtools, navigate to this directory and run:
+To set up WaLSAtools for Python, follow these steps:
 
-```bash
-python setup.py install
-```
-
+1. Clone or Download WaLSAtools Repository
+   ```bash
+   git clone https://github.com/WaLSAteam/WaLSAtools.git
+   ```
+   
+2. Navigate to this directory and run:
+  ```bash
+  python setup.py install
+  ```
 Alternatively, you can install via pip:
 
 ```bash
