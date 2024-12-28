@@ -99,7 +99,7 @@ For a quick start:
   ```bash
   pip install WaLSAtools
   ```
-- **IDL**: Configure using the provided `setup.pro` script, withing the `codes/idl/` directory in IDL.
+- **IDL**: Configure using the provided `setup.pro` script, within the `codes/idl/` directory in IDL.
   ```idl
   .run setup.pro
   ```
