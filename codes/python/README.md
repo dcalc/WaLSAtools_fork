@@ -31,3 +31,26 @@ Alternatively, you can install via pip:
 pip install WaLSAtools
 ```
 
+### **Interactive Usage**
+
+WaLSAtools includes an interactive interface to simplify usage. After installation, in a terminal (within Python) or in a Jupyter notebook, run:
+
+```bash
+from WaLSAtools import WaLSAtools
+WaLSAtools
+```
+
+This will launch an interactive menu with options for:
+	•	Selecting a category of analysis.
+	•	Choosing the data type (e.g., 1D time series or 3D data cube).
+	•	Picking an analysis method (e.g., FFT, wavelet, k-omega).
+
+The interface provides instructions and hints on calling sequences and parameter details for your chosen analysis.
+
+## **License**
+
+WaLSAtools is licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
+If you use WaLSAtools in your research, please cite:
+
+**Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.**
