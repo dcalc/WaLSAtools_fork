@@ -41,9 +41,10 @@ This repository is referenced in an article in [**Nature Reviews Methods Primers
   - Encourages reproducibility and transparency in data analysis.
 
 ---
-<a href="https://WaLSA.tools" target="_blank"><img align="right" src="docs/images/misc/WaLSAtool_documentation_screenshot.jpg" alt="WaLSAtools Documentation Screenshot" width="485" height="auto" /></a>
 
 ## **Documentation**
+
+<a href="https://WaLSA.tools" target="_blank"><img align="right" src="docs/images/misc/WaLSAtool_documentation_screenshot.jpg" alt="WaLSAtools Documentation Screenshot" width="485" height="auto" /></a>
 
 The complete documentation for WaLSAtools, including installation guides, method descriptions, and usage examples, is available online:
 
