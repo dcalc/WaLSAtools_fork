@@ -1,34 +1,30 @@
 # Specify linguist language mapping for IDL
 *.pro linguist-language=IDL
-
 # Set Python files to their correct language
 *.py linguist-language=Python
-
 # Handle Jupyter notebooks
-*.ipynb linguist-vendored
-
+*.ipynb filter=lfs diff=lfs merge=lfs -text
 # Handle text files to ensure consistent line endings
 * text=auto
-
 # Exclude generated/binary files from linguist statistics
 *.jpg binary
 *.png binary
 *.gif binary
 *.mp4 binary
 *.mov binary
-*.pdf binary
+*.pdf filter=lfs diff=lfs merge=lfs -text
 *.o binary
 *.so binary
 *.dll binary
-
 # Exclude directories or files that should not be included in source package exports
 /venv export-ignore
 /node_modules export-ignore
 /build export-ignore
 /dist export-ignore
 *.egg-info/ export-ignore
-
 # Handle platform-specific line endings (optional, depending on team setup)
 /setup.pro eol=lf
 *.sh eol=lf
 *.bat eol=crlf
+*.fits filter=lfs diff=lfs merge=lfs -text
+*.npz filter=lfs diff=lfs merge=lfs -text
