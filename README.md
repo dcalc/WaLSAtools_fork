@@ -115,12 +115,17 @@ Both interfaces guide you through:
 
 The interface provides hints on calling sequences and parameter definitions for the selected method.
 
+---
+
 ## **Citing WaLSAtools**
 
 If you use WaLSAtools in your research, please consider citing:
 ```
 Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
 ```
+
+---
+
 ## **License**
 
 WaLSAtools is licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
