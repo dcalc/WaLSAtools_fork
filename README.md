@@ -131,8 +131,7 @@ The interface provides hints on calling sequences and parameter definitions for 
 
 If you use WaLSAtools in your research, please consider citing:
 
-    > Jafrzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
-
+> Jafrzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
 
 ---
 
