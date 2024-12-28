@@ -40,7 +40,7 @@ pip install WaLSAtools
 
 WaLSAtools includes an interactive interface to simplify usage. After installation, in a terminal (within Python) or in a Jupyter notebook, run:
 
-```bash
+```python
 from WaLSAtools import WaLSAtools
 WaLSAtools
 ```
