@@ -1,0 +1,27 @@
+Cygwin Release: 3.08-1
+Cygwin package maintainer: James R. Phillips
+email: antiskid56_cygwin@yahoo.com
+
+To create the binary and source distributions from packaged source:
+====
+tar -xjf epstool-3.08-1-src.tar.bz2
+cd epstool-3.08-1
+make cygwin
+====
+Source archive, binary archive and setup.hint will now appear in ./dist
+
+To create the binary and source distributions from upstream source:
+====
+tar -xzf epstool-3.08.tar.gz
+cd epstool-3.08
+make cygwin
+====
+Source archive, binary archive and setup.hint will now appear in ./dist
+
+To recreate the upstream source distribution from packaged source:
+=====
+tar -xjf epstool-3.08-1-src.tar.bz2
+cd epstool-3.08-1
+make epstar
+======
+
