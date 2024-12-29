@@ -3,7 +3,7 @@ template: main.html
 title: Installation
 ---
 
-# Python Installation
+# Installation
 
 ## Prerequisites
 
@@ -70,3 +70,5 @@ This will display the WaLSAtools logo and credits information and launch the int
 If you encounter any issues during the installation process, please refer to the [Troubleshooting][15] section for common problems and solutions.
 
 [15]: https://walsa.tools/python/troubleshooting/
+ 
+ 

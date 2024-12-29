@@ -51,5 +51,7 @@ If you have encountered and resolved an issue not listed here, please consider c
 * **Error logs:** Always check error messages carefully, as they often point to the exact issue.
 * **Documentation:** Refer to the WaLSAtools Documentation for detailed guidance on installation, usage, and analysis techniques.
 
-[16] https://walsa.tools/contribution/#bug-report 
-[17] https://walsa.tools/contribution/#pull-requests
+[16]: https://walsa.tools/contribution/#bug-report 
+[17]: https://walsa.tools/contribution/#pull-requests
+ 
+  

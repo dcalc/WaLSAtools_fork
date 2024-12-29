@@ -322,7 +322,7 @@ WaLSAtools is constantly evolving with new features and improvements. Here are s
 *   **Enhancing Existing Methods:** We are improving the Dominant Frequency method to handle cases with multiple strong power peaks and provide uncertainty estimations.
 *   **Adding New Methods:** We are adding new analysis techniques, such as the Adaptive Local Iterative Filtering (ALIF) method.
 
-We welcome contributions from the community to help us expand and improve **WaLSAtools**. If you are interested in contributing, please see the [Contribution Guidelines](contributing.md).
+We welcome contributions from the community to help us expand and improve **WaLSAtools**. If you are interested in contributing, please see the [Contribution Guidelines][3].
 
 <br>
 
