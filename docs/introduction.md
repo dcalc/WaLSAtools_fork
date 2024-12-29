@@ -7,13 +7,36 @@ title: Introduction
 
 ## Overview :material-telescope:
 
-**WaLSAtools** is a collection of analysis routines (in both [IDL][1]{target=_blank} and [Python][9]{target=_blank} programming languages), collected and/or developed by the [**WaLSA team**][2]{target=_blank}, for studying waves and oscillations, with a particular emphasis on such phenomena occurring in the lower atmosphere of the Sun.
+**WaLSAtools** is an open-source library designed for analysing a wide variety of wave phenomena in time series data, including images and multi-dimensional datasets. It provides tools to extract meaningful insights from complex datasets and is applicable across diverse fields, including astrophysics, physics, engineering, environmental science, and biomedical research, among others. The library is continuously expanding with new features and functionalities, ensuring it remains a valuable resource for the wave analysis community.
 
-!!! walsa-code "To switch between IDL and Python documentations, click on name of the current programming language on top of the webpages on this site."
+The core of **WaLSAtools** is built upon [Python][9]{target=_blank}, one of the most widely-used programming languages in science and engineering. This ensures accessibility and ease of use for a broad audience. We are actively developing versions in other popular languages to further enhance accessibility, enabling researchers from various backgrounds to leverage the power of **WaLSAtools** for their wave analysis needs. Currently, **WaLSAtools** is also available in [IDL][1]{target=_blank}, with plans to expand to other languages in the future.
 
-The main goal is to collect/develop suitable techniques for various aspects of wave studies in the lower solar atmosphere (and beyond) &#8212; facilitating reliability and reproducibility of such analyses.
+Developed by the [WaLSA Team](https://WaLSA.team), **WaLSAtools** was initially inspired by the intricate wave dynamics observed in the solar atmosphere. However, its applications extend far beyond solar physics, offering a versatile toolkit for anyone working with oscillatory signals.
+
+**WaLSAtools** promotes reproducibility and transparency in wave analysis. Its robust implementations of both fundamental and advanced techniques ensure consistent and trustworthy results, empowering researchers to delve deeper into the complexities of their data. Through its interactive interface (see `Analysis Tools`), **WaLSAtools** guides users through the analysis process, providing the necessary information and tools to perform various types of wave analysis with ease.
+
+This repository is associated with a primer article titled **"Wave analysis tools"** in [**Nature Reviews Methods Primers**](https://www.nature.com/nrmp/) (NRMP; in press), showcasing its capabilities through detailed analyses of synthetic datasets. The `Analysis Tools/Examples/Worked examples: NRMP` contain reproducible codes for generating all figures presented in the NRMP article, serving as a practical guide for applying **WaLSAtools** to real-world analyses.
+
+!!! walsa-code "To switch between Python and IDL documentations, click on name of the current programming language on top of the webpages on this site."
+
+## Key Features
+
+* **Wide Range of Wave Analysis Techniques:** From foundational methods like FFT and wavelet analysis to advanced techniques such as EMD, k-ω, and POD analysis.
+* **Cross-Disciplinary Applicability:** Suitable for signal processing, oscillation studies, and multi-dimensional analysis in various fields.
+* **Interactive Interfaces:** Simplified workflows through interactive menus for both Python and IDL.
+* **Open Science Principles:** Promotes reproducibility and transparency in data analysis.
 
 !!! walsa-contribute "[Contributions][3] are welcome &#8212; to improve the codes, methods, and/or documentations."
+
+## Analysis Methods :material-white-balance-sunny:
+
+**WaLSAtools** offers a variety of spectral analysis techniques, each tailored to specific types of data and research questions. These methods are broadly categorized into:
+
+* **Single Time Series Analysis:** Includes methods for analysing individual time series, such as:
+    * **1D Signals:** FFT, Lomb-Scargle, Wavelet Transform, Hilbert-Huang Transform (HHT), and Empirical Mode Decomposition (EMD)
+    * **3D Cubes:** k-ω Analysis, B-ω Analysis, Mean Power, Dominant Frequency, Proper Orthogonal Decomposition (POD)
+* **Cross-Correlation Analysis:** Includes methods for analysing correlations between two time series, such as cross-spectrum, coherence, and phase relationships, using various techniques.
+
 
 ## Analysis Methods :material-white-balance-sunny:
 
@@ -166,7 +189,7 @@ Further analysis and visualising methods are being added to **WaLSAtools** over 
 *[WaLSA]: Waves in the Lower Solar Atmosphere
 *[IDL]: Interactive Data Language
 
-  [1]: https://www.l3harrisgeospatial.com/Software-Technology/IDL
+  [1]: https://www.nv5geospatialsoftware.com/Products/IDL
   [2]: https://WaLSA.team
   [3]: https://walsa.tools/contribution/
   [6]: https://walsa.tools/pdf/QUEEFF_manual.pdf
