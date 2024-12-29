@@ -21,6 +21,9 @@
 
 from setuptools import setup, find_packages
 
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
+    
 setup(
     name='WaLSAtools',
     version='1.0',
@@ -31,18 +34,7 @@ setup(
     long_description_content_type='text/markdown',
     url='https://github.com/WaLSAteam/WaLSAtools',
     packages=find_packages(),
-    install_requires=[
-        'numpy', 
-        'astropy', 
-        'ipywidgets', 
-        'matplotlib', 
-        'scipy', 
-        'tqdm', 
-        'numba', 
-        'pandas', 
-        'pyfftw', 
-        'shutilwhich'
-    ],
+    install_requires=requirements,
     entry_points={
         'console_scripts': [
             'WaLSAtools=WaLSAtools:WaLSAtools', 

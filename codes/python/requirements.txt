@@ -1,0 +1,11 @@
+astropy==7.0.0
+ipython==8.12.3
+ipywidgets==8.1.5
+matplotlib==3.10.0
+numba==0.60.0
+numpy==2.2.1
+pyFFTW==0.15.0
+scipy==1.14.1
+setuptools==75.6.0
+skimage==0.0
+tqdm==4.67.1
