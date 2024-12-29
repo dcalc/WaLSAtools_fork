@@ -8,125 +8,81 @@
     <a href="https://github.com/WaLSAteam/WaLSAtools/actions/workflows/ci.yml"><img src="https://github.com/WaLSAteam/WaLSAtools/workflows/docs/badge.svg"></a>
 </p>
 
-**WaLSAtools** is an open-source library designed for advanced wave analysis in time series and imaging data. It is applicable across a wide range of disciplines, including astrophysics, physics, engineering, environmental science, and biomedical research, to name but a few. The library provides a diverse suite of tools for analysing oscillatory signals in both one-dimensional and multi-dimensional datasets.
+**WaLSAtools** is an open-source library for analysing a wide variety of wave phenomena in time series data, including images and multi-dimensional datasets. It provides tools to extract meaningful insights from complex datasets and is applicable across diverse fields, including astrophysics, physics, engineering, environmental science, and biomedical research, among others.
 
-Originally initiated by the [WaLSA Team](https://WaLSA.team) — an international consortium dedicated to analysing wave activity in the lower solar atmosphere — WaLSAtools was inspired by the complex (magnetohydrodynamic) wave phenomena driven by diverse restoring forces and interacting within one of the most intricate and dynamic systems known: the solar atmosphere. Despite these origins, WaLSAtools has broad applications, making it a versatile toolkit for researchers across a variety of fields.
+The core of WaLSAtools is built upon Python, one of the most widely-used programming languages in science and engineering. This ensures accessibility and ease of use for a broad audience. We are actively developing versions in other popular languages to further enhance accessibility, enabling researchers from various backgrounds to leverage the power of WaLSAtools for their wave analysis needs. Currently, WaLSAtools is also available in IDL, with plans to expand to other languages in the future.
 
-Currently available in both Python and IDL, WaLSAtools is built to promote reliability, reproducibility, and transparency in wave analysis. Its robust methods enable researchers to extract meaningful insights from complex datasets, ensuring consistency and trustworthiness in results.
+Developed by the [WaLSA Team](https://WaLSA.team), WaLSAtools was initially inspired by the intricate wave dynamics observed in the solar atmosphere. However, its applications extend far beyond solar physics, offering a versatile toolkit for anyone working with oscillatory signals.
 
-This repository is introduced and described in a primer article titled *"Wave analysis tools"* in [**Nature Reviews Methods Primers**](https://www.nature.com/nrmp/) (NRMP; in press), where its capabilities are showcased using synthetic datasets. The `Worked_examples__NRMP` directories under `examples` (for both Python and IDL) contains reproducible codes for generating the figures featured in the NRMP article and serves as a practical guide for applying WaLSAtools to real-world analyses.
+WaLSAtools promotes reproducibility and transparency in wave analysis. Its robust implementations of both fundamental and advanced techniques ensure consistent and trustworthy results, empowering researchers to delve deeper into the complexities of their data. Through its interactive interface, WaLSAtools guides users through the analysis process, providing the necessary information and tools to perform various types of wave analysis with ease.
 
----
+This repository is associated with a primer article titled *"Wave analysis tools"* in [**Nature Reviews Methods Primers**](https://www.nature.com/nrmp/) (NRMP; in press), showcasing its capabilities through detailed analyses of synthetic datasets. The `examples/Worked_examples__NRMP` directories (for both Python and IDL) contain reproducible codes for generating all figures presented in the NRMP article, serving as a practical guide for applying WaLSAtools to real-world analyses.
+
 
 ## **Key Features**
 
-- **Fundamental and Advanced Analysis Techniques**:
-  - Fast Fourier Transform (FFT)
-  - Wavelet Analysis
-  - Lomb-Scargle Periodogram
-  - Welch Power Spectral Density
-  - Empirical Mode Decomposition (EMD)
-  - k-omega Analysis
-  - Proper Orthogonal Decomposition (POD)
-  - Cross-Spectra Analysis
+* **Wide Range of Wave Analysis Techniques:**  From foundational methods like FFT and wavelet analysis to advanced techniques such as EMD, k-ω, and POD analysis.
+* **Cross-Disciplinary Applicability:**  Suitable for signal processing, oscillation studies, and multi-dimensional analysis in various fields.
+* **Interactive Interfaces:** Simplified workflows through interactive menus for both Python and IDL.
+* **Open Science Principles:** Promotes reproducibility and transparency in data analysis.
 
-- **Cross-Disciplinary Applicability**:
-  - Signal processing in engineering and physics.
-  - Oscillation studies in environmental and biomedical datasets.
-  - Multi-dimensional analysis of complex data structures.
-  - and more
-
-- **Interactive Interfaces**:
-  - Simplified workflows through interactive menus for both Python and IDL implementations.
-
-- **Open Science Principles**:
-  - Encourages reproducibility and transparency in data analysis.
-
----
 
 ## **Documentation**
 
 <a href="https://WaLSA.tools" target="_blank"><img align="right" src="docs/images/misc/WaLSAtool_documentation_screenshot.jpg" alt="WaLSAtools Documentation Screenshot" width="485" height="auto" /></a>
 
-The complete documentation for WaLSAtools, including installation guides, method descriptions, and usage examples, is available online:
+The complete documentation, including installation guides, method descriptions, and usage examples, is available online:
 
-📖 **[WaLSAtools Documentation](https://WaLSA.tools)**
+**[WaLSAtools Documentation](https://WaLSA.tools)**
 
 The documentation includes:
 - Step-by-step installation instructions.
 - Descriptions of implemented methods.
 - Examples applied to synthetic datasets.
 
----
 
 ## **Repository Structure**
 
-The repository is organized into the following key components:
-```bash
-.
+<pre>
 WaLSAtools/
 ├── codes/
-│   ├── python/             # Python implementation of WaLSAtools
-│   │   ├── WaLSAtools/     # Core library
-│   │   ├── setup.py        # Setup script for Python
-│   │   └── README.md       # Python-specific README
-│   ├── idl/                # IDL implementation of WaLSAtools
-│   │   ├── WaLSAtools/     # Core library
-│   │   ├── setup.pro       # Setup script for IDL
-│   │   └── README.md       # IDL-specific README
-├── docs/                   # Documentation for WaLSAtools
-├── examples/               # Worked examples directory
-│   ├── python/             # Python-specific examples
+│   ├── python/                # Python implementation of WaLSAtools
+│   │   ├── WaLSAtools/        # Core library
+│   │   ├── setup.py           # Setup script for Python
+│   │   └── README.md          # Python-specific README
+│   ├── idl/                   # IDL implementation of WaLSAtools
+│   │   ├── WaLSAtools/        # Core library
+│   │   ├── setup.pro          # Setup script for IDL
+│   │   └── README.md          # IDL-specific README
+├── docs/                      # Documentation for WaLSAtools
+├── examples/                  # Worked examples directory
+│   ├── python/                # Python-specific examples
 │   │   └── Worked_examples__NRMP/
-│   ├── idl/                # IDL-specific examples
+│   ├── idl/                   # IDL-specific examples
 │   │   └── Worked_examples__NRMP/
-├── LICENSE                 # License information
-├── NOTICE                  # Copyright Notice
-└── README.md               # Main repository README
-```
----
+├── LICENSE                    # License information
+├── NOTICE                     # Copyright Notice
+└── README.md                  # Main repository README
+</pre>
 
 ## **Installation**
 
-Refer to the `README.md` files in the respective `python` and `idl` directories for installation instructions specific to each language. Further details are provided in the [Online Documentation](https://WaLSA.tools).
+Refer to the `README.md` files in the `codes/python` and `codes/idl` directories for language-specific installation instructions. Further details are in the [online documentation](https://WaLSA.tools).
 
-For a quick start:
-- Clone or Download WaLSAtools Repository
-  ```bash
-  git clone https://github.com/WaLSAteam/WaLSAtools.git
-  ```
-- **Python**: Install using `setup.py` or `pip`, withing the `codes/pyhton/` directory.
-  ```bash
-  pip install WaLSAtools
-  ```
-- **IDL**: Configure using the provided `setup.pro` script, within the `codes/idl/` directory in IDL.
-  ```idl
-  .run setup.pro
-  ```
+**Quick Start:**
 
----
+1. Clone the repository: `git clone https://github.com/WaLSAteam/WaLSAtools`
+2. **Python:** `pip install WaLSAtools` (within `codes/python/`)
+3. **IDL:**  `.run setup.pro` (within `codes/idl/` in IDL)
+
 
 ## **Interactive Usage**
 
-WaLSAtools includes an interactive interface to simplify its usage:
-- **Python**: Launch the interactive interface by typing `WaLSAtools` in a terminal (within Python) or Jupyter notebook as
-  ```python
-  from WaLSAtools import WaLSAtools
-  WaLSAtools
-  ```
-- **IDL**: Start the interface by running the command (in IDL):
-  ```idl
-  WaLSAtools
-  ```
+* **Python:** Type `from WaLSAtools import WaLSAtools; WaLSAtools` in a terminal (in Python) or in a Jupyter notebook.
+* **IDL:** Run the command `WaLSAtools` (in IDl).
 
-Both interfaces guide you through:
-1.	Selecting a category of analysis.
-2.	Choosing the data type (e.g., 1D signal, 3D datacube).
-3.	Picking a specific analysis method.
+The interface guides you through selecting an analysis category, data type, and method, providing hints on calling sequences and parameters.
 
-The interface provides hints on calling sequences and parameter definitions for the selected method.
-
----
 
 ## **Citing WaLSAtools**
 
@@ -134,9 +90,8 @@ If you use WaLSAtools in your research, please consider citing:
 
 > Jafrzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press
 
----
 
 ## **License**
 
 WaLSAtools is licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
-Please see the LICENSE file for detailed terms and conditions.
+See the LICENSE file for details.
