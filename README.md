@@ -1,4 +1,4 @@
-# WaLSAtools: Wave Analysis Tools
+# WaLSAtools &ndash; Wave Analysis Tools
 
 <p align="left">
     <a href="#"><img src="https://img.shields.io/badge/WaLSAtools-v1.0-0066cc"></a> 
