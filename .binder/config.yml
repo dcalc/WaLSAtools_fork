@@ -1,7 +1,5 @@
 image:
   name: shahinjafarzadeh/walsatools
   tag: v1.0
-
 env:
   GITHUB_TOKEN: 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
-  
