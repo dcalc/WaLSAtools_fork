@@ -7,7 +7,7 @@ title: Introduction
 
 ## Overview :material-telescope:
 
-**WaLSAtools** is an open-source library designed for analysing a wide variety of wave phenomena in time series data, including images and multi-dimensional datasets. It provides tools to extract meaningful insights from complex datasets and is applicable across diverse fields, including astrophysics, engineering, physical and environmental science, and biomedical studies, among others. The library is continuously expanding with new features and functionalities, ensuring it remains a valuable resource for the wave analysis research.
+**WaLSAtools** is an open-source library for analysing a wide variety of wave phenomena in time series data, including images and multi-dimensional datasets. It provides tools to extract meaningful insights from complex datasets and is applicable across diverse fields, including astrophysics, engineering, physical and environmental science, and biomedical studies, among others. The library is continuously expanding with new features and functionalities, ensuring it remains a valuable resource for the wave analysis research.
 
 The core of **WaLSAtools** is built upon [Python][9]{target=_blank}, one of the most widely-used programming languages in science and engineering. This ensures accessibility and ease of use for a broad audience. We are actively developing versions in other popular languages to further enhance accessibility, enabling researchers from various backgrounds to leverage the power of **WaLSAtools** for their wave analysis needs. Currently, **WaLSAtools** is also available in [IDL][1]{target=_blank}, with plans to expand to other languages in the future.
 
@@ -43,7 +43,7 @@ All time series are pre-processed to mitigate unwanted effects, such as long-ter
 
  The choice of the most appropriate wave analysis technique depends not only on the nature of the data but also on the specific research goals and the desired insights. **WaLSAtools** offers a variety of methods, each with its own strengths and limitations, allowing researchers to tailor their analysis to their specific needs. This section provides detailed descriptions of the individual methods available in **WaLSAtools**, empowering users to make informed decisions about the most suitable techniques for their research.
 
-#### 1D Signal Analysis
+#### Single time series analysis: 1D signal
 
 !!! walsa-waveform "One Dimensional (1D) Signal"
     **WaLSAtools** provides a variety of methods for analysing 1D signals (time series). Each method uses a different approach to decompose the signal into its constituent frequencies, making them suitable for various scenarios. Selecting the appropriate technique depends on the specific characteristics of the data and the research goals.
@@ -54,11 +54,13 @@ All time series are pre-processed to mitigate unwanted effects, such as long-ter
         The FFT is widely used in many fields due to its computational efficiency. This makes it significantly faster than directly computing the DFT, especially for large datasets. The FFT algorithm estimates the frequency spectrum by decomposing the signal into a set of sinusoidal oscillations at distinct frequencies, each with its own amplitude and phase.
 
         **Advantages:**
+
         * Computationally efficient, especially for large datasets.
         * Provides a clear and easily interpretable frequency spectrum.
         * Well-suited for analysing stationary signals with evenly spaced samples.
 
         **Limitations:**
+        
         * Assumes the signal is stationary (frequency content does not change over time).
         * Requires evenly spaced data points.
         * Can be sensitive to edge effects in finite signals.
@@ -69,10 +71,12 @@ All time series are pre-processed to mitigate unwanted effects, such as long-ter
         The Lomb–Scargle periodogram is a method of estimating a frequency spectrum, based on a least-squares fit of sinusoids to data samples, irrespective of whether the sampling is regularly or irregularly spaced in time. 
 
         **Advantages:**
+
         * Can handle irregularly sampled data without the need for interpolation.
         * Provides accurate frequency estimates even with missing data points.
 
         **Limitations:**
+
         * Can be computationally expensive for very large datasets.
         * May not be as efficient as FFT for evenly spaced data.
 
@@ -169,93 +173,156 @@ All time series are pre-processed to mitigate unwanted effects, such as long-ter
     *  **Power Spectral Density (PSD):** The analysis methods compute wave amplitudes at different frequencies, resulting in a frequency spectrum. The Power Spectral Density (PSD) can further be calculated, which represents the power (amplitude squared) per unit frequency. This  normalisation allows for meaningful comparisons between different signals, regardless of their frequency resolution. Additionally, WaLSAtools outputs single-sided PSDs, where the power at negative frequencies is folded into the positive frequencies, divided by two since the folding effectively doubles the PSD values.
     *  **Confidence Levels:** WaLSAtools can estimate the statistical significance of the computed power using a randomisation test. This helps distinguish between genuine signals and those arising from noise or spurious effects. For example, a 95% confidence level indicates that the detected power is significant with a 5% probability of being due to random fluctuations.
 
+#### Single time series analysis: 3D Datacube
 
-!!! walsa-wavecube "Three Dimensional (3D) Cube"
-    Distribution of oscillations power over a spatial extent is often crucial to identify wave modes. 
-    One way is to average the temporal power over similar spatial scales, thus localisation of power at particular frequencies and spatial scales can be realised.
-    Another approach is to average the power over pixels with similar underlying magnetic fields (within a field of view of interest) rather than similar spatial scales. 
-    In addition, a science case may require the spatially-averaged power spectrum over a large field of view (irrespective of spatial scales and/or underlying magnetic fields), or the spatial distribution of dominant frequencies (i.e., frequencies corresponding to maximum power at each pixel).
-    These are introduced in the following analysis tools.
+!!! walsa-wavecube "Three Dimensional (3D) Datacube"
+    Analysing the distribution of oscillation power over a spatial extent is often crucial to identify wave modes and understand their behaviour. **WaLSAtools** offers several methods for analysing 3D datacubes (time series of 2D images), each providing unique insights into the spatio-temporal characteristics of waves.
 
-    === "k-&omega; Analysis and Fourier Filtering"
-        k-&omega; diagram represents the azimuthally averaged (FFT) power spectra of a 3D datacube (time series of 2D images) in the wavenumber-frequency space (i.e., in both spatial and temporal frequencies, respectively). 
-        The relationship between the two domains can reveal dispersion relations of various waves / wave modes. 
-        Furthermore, power in spatial or temporal domains, or a combination of both, can be filtered (either interactively, or by providing the ranges) within the k-&omega; analysis.
-        The process can then be reversed (by utilising an inverse FFT) to reconstruct a new time series of images which contain only the wavenumbers and frequencies of interest.
+    === "k-&omega;"
+        k-&omega; analysis is a powerful technique for investigating wave phenomena in spatio-temporal datasets. It involves calculating the power spectrum of the data in both spatial (wavenumber, k) and temporal (frequency, &omega;) domains. The resulting k-&omega; diagram reveals the relationship between spatial and temporal scales of oscillations, providing insights into wave dispersion relations and identifying different wave modes.
 
-        **Fourier filtering helps identify wave signatures with, e.g., relatively small amplitudes, against macroscopic flows and/or dominant MHD wave modes (with often considerably larger power).** 
-        For further description on the Fourier filtering, check out the [step-by-step guide][6]{target=_blank} of the original (QUEEFF) code integrated into **WaLSAtools**.
-        The code was first used in [this publication][7]{target=_blank}.
-        For running the code through **WaLSAtools**, see the example **k-&omega; Diagram and Filtering**.
-    
-    === "B-&omega; Analysis"
-        B-&omega; diagram is a novel approach which combines averaged (FFT) power spectra in various magnetic-field bins (within the field of view of observations) in one plot. 
-        Thus, each vertical column in the diagram represents the average power spectrum at a certain magnetic-field strength (with a range defining the bin size) on the horizontal axis. 
-        Therefore, this analysis method requires a magnetic-field map associated to the field of view of observations (for the 3D datacube). 
-        Here, individual pixels are analysed separately (i.e., only in the temporal domain) but the power spectra with field strengths lying in each bin are averaged.
-        
-        **B-&omega; diagram prevents mixing wave signatures from structures with different magnetic-field strength, thus facilitates identification of MHD wave modes.**
-        The analysis method was first introduced in [this publication][8]{target=_blank}.
+        **WaLSAtools** provides a comprehensive k-&omega; analysis tool that allows for:
+
+        *   Generating k-&omega; diagrams from 3D datacubes.
+        *   Filtering of the data in k-space and/or &omega;-space.
+        *   Reconstructing filtered datacubes to isolate specific wave modes or features.
+
+        **Fourier filtering** is a key component of k-&omega; analysis, enabling the isolation of wave signatures with specific wavenumber and frequency characteristics. This is particularly useful for identifying weak wave modes that might be masked by stronger signals or background trends.
+
+        **Advantages:**
+
+        *   Reveals wave dispersion relations.
+        *   Enables isolation of specific wave modes through filtering.
+        *   Provides insights into the spatio-temporal characteristics of waves.
+
+        **Limitations:**
+
+        *   Assumes the wave field is statistically homogeneous and stationary.
+        *   Can be sensitive to edge effects and noise.
+
+        For a detailed description of the Fourier filtering technique, refer to the [step-by-step guide](https://walsa.tools/pdf/QUEEFF_manual.pdf){target=_blank} of the original (QUEEFF) code integrated into **WaLSAtools**.
 
     === "Mean Power"
-        Spatially-averaged power spectrum is obtained by averaging all power spectra determined at individual pixels over an entire field of view of interest. 
-        Note that the average is performed in the frequency space not in the spatial domain (i.e., we first calculate power spectra at all individual pixels, then average the power spectra).
-        The mean power can be determined for 1D power spectra calculated from any of the analysis methods described above (i.e., FFT, Lomb-Scargle, Wavelet, and HHT).
+        The mean power spectrum provides a global view of the oscillatory behaviour within a region of interest. It is calculated by averaging the power spectra of individual pixels across the spatial domain.
 
-        **The mean power represents the average (most pronounced) behaviour of a region of interest**, irrespective of individual oscillations at particular pixels/regions within the same area.
+        WaLSAtools allows for calculating the mean power spectrum using various 1D analysis methods (FFT, Lomb-Scargle, Wavelet, HHT, Welch, etc.).
+
+        **Advantages:**
+
+        *   Highlights the dominant (mean) oscillatory modes in a region.
+        *   Provides a baseline for filtering out global contributions.
+        *   Can be used to compare oscillatory behaviour across different regions or datasets.
+
+        **Limitations:**
+
+        *   May not capture localised or subtle variations in oscillatory behaviour.
 
     === "Dominant Frequency"
-        It is often important to find the dominant frequency at a particular pixel, or at all pixels over a region of interest. 
-        The latter can illustrate the spatial distribution of dominant frequency of the region.
-        However, this is worth noting that such dominant frequencies should be interpreted with great caution because multiple high-power peaks (with equal or comparable powers) may occur in a power spectrum.
-        If there exist more than one peak with the exact same power, then the peak corresponding to the lowest frequency is returned.
-        The dominant frequency can be determined for 1D power spectra calculated from any of the analysis methods described above (i.e., FFT, Lomb-Scargle, Wavelet, and HHT).
+        The dominant frequency is the frequency with the highest power in a spectrum. **WaLSAtools** can calculate the dominant frequency for each pixel in a 3D datacube, generating a map that visualises the spatial distribution of dominant frequencies.
 
-        **The dominant-frequency map shows the statistical distribution of oscillations frequency over the region of interest**, though it may be biased to some extent.
+        **Advantages:**
 
-!!! walsa-wavecross "Cross Correlations between two datasets"
-    Correlations between any two (aligned) time series (e.g., two different parameters, or one parameter at, e.g., two different heights/locations in the solar atmosphere) can be explored by calculating the so-called **cross-spectrum** (also known as co-spectrum or cross-power), **coherence** levels, and **phase relationships**. These parameters can be determined for all the different analysis methods described above (i.e., FFT, Lomb-Scargle, Wavelet, and HHT).
+        *   Provides a visual representation of the dominant oscillatory modes in a region.
+        *   Can reveal spatial patterns and correlations with other physical properties.
 
-    === "Cross Spectrum"
-        Cross spectrum identifies common oscillations power between two time series (i.e., high power in the same spectral frequency, or time-frequency, regions of the two power spectra).
-        The cross spectrum is computed by multiplying power spectrum of a signal by the complex conjugate of the other, which hence, is a complex-valued function. 
+        **Limitations:**
 
-        **The co-spectrum (i.e., absolute value of the complex cross spectrum) is a measure of the relationship between the two time series as a function of frequency.**
-    
+        *   Can be biased in signals with multiple strong spectral peaks.
+        *   May not capture the full complexity of oscillatory behaviour.
+
+    === "POD"
+        Proper Orthogonal Decomposition (POD) is a powerful data-driven technique for analysing multi-dimensional data. It identifies dominant spatial patterns, or modes, that capture the most significant variations in the data. POD is particularly useful for reducing the dimensionality of complex datasets and extracting coherent structures.
+
+        **WaLSAtools** provides a POD analysis tool that:
+
+        *   Calculates the POD modes and their corresponding eigenvalues.
+        *   Reconstructs the original data using a reduced number of modes.
+        *   Visualises the spatial patterns and temporal evolution of the dominant modes.
+
+        **Advantages:**
+
+        *   Effectively reduces the dimensionality of complex datasets.
+        *   Identifies coherent spatial patterns and their temporal behaviour.
+        *   Can be used for feature extraction and pattern recognition.
+
+        **Limitations:**
+
+        *   Assumes the data is statistically stationary.
+        *   May not capture highly localised or transient phenomena.
+
+
+#### Cross-correlation Analysis
+
+!!! walsa-wavecross "Cross-Correlation Analysis"
+
+    Investigating the relationships between two time series is essential for understanding the interplay of different phenomena across various scientific disciplines. **WaLSAtools** provides a comprehensive suite of tools for cross-correlation analysis, enabling researchers to:
+
+    *   Uncover shared frequencies and correlated power between two signals.
+    *   Quantify the strength of the relationship between two time series at different frequencies.
+    *   Determine the relative timing (phase or time lag) between oscillations.
+
+    These tools are valuable for uncovering hidden connections, tracking wave propagation, and exploring the underlying drivers of oscillatory behaviour in diverse fields.
+
+    === "Cross-Spectrum"
+        The cross-spectrum, also known as the cross-power spectrum, is a complex-valued function that describes the correlation between two time series in the frequency domain. It is calculated by multiplying the frequency representation of one signal by the complex conjugate of the frequency representation of the other one.
+
+        The magnitude of the cross-spectrum, often called the co-spectrum, represents the shared power between the two signals at each frequency. High values in the co-spectrum indicate strong correlations between the oscillations at those frequencies.
+
+        **Applications:**
+
+        *   Identifying common frequencies and shared power between two signals.
+        *   Detecting potential connections or shared influences affecting the signals.
+
+        **Limitations:**
+
+        *   May not reveal correlations if the individual power spectra lack prominent peaks.
+        *   Can be sensitive to noise and potential biases in the data.
+
     === "Coherence"
-        When both or one of the power spectra (of two time series) do not show strong peaks (e.g., indistinguishable from red noise), then the &lsquo;cross spectrum&rsquo; may not be able to reveal any correlation, if should exist.
-		If so, such (hidden) coherent modes at particular frequencies can be identified in the coherency spectrum.
-		The coherence is the squared of the absolute value of the complex cross spectrum, normalised by the individual power spectra of the two time series. 
-		Thus, the coherence level varies between &lsquo;0&rsquo; and &lsquo;1&rsquo;, where one shows a perfect coherency and zero means no coherency between the two oscillations.
-		
-		**The coherence spectrum identifies regions where the two time series co-move, but not necessarily pose high power.** 
-		This approach is particularly important for finding correlations between waves observed at, e.g., various atmospheric heights, or different physical parameters.
-		
-	=== "Phase Difference"
-		Phase difference is a measure of correlation between two time series.
-		It provides information on phase and time lags between the two oscillations. The phase lag is the phase of the complex cross spectrum (i.e. calculated from the complex and real arguments of the cross spectrum).
-		
-		Two oscillations are well correlated if they have zero phase difference (i.e., in-phase relationship), otherwise, one fluctuation may lag behind (or lead) the other one by a certain amount of degrees (ranging -180 to 180 degrees; &plusmn;180 degrees indicates anti-phase relationship).
-		
-		The phase lag (*&phi;*), in radians, can be simply converted into a time lag (*&tau;*), in seconds, at any particular frequency (*f*), in Hz, as $&tau; = \frac{&phi;}{2 \pi f}$
+        Coherence is a normalised measure of the linear correlation between two time series at each frequency. It ranges from 0 (no correlation) to 1 (perfect correlation). High coherence values indicate that the oscillations in the two time series are strongly related at that frequency, even if their individual power spectra do not exhibit strong peaks.
+
+        **Applications:**
+
+        *   Uncovering hidden relationships between signals.
+        *   Tracing wave propagation across different locations or systems.
+        *   Investigating connections between oscillations in different physical parameters or measurements.
+
+        **Limitations:**
+
+        *   Only measures linear relationships between signals.
+        *   Can be sensitive to noise and potential biases in the data.
+
+    === "Phase Difference"
+        Phase difference, or phase lag, measures the relative timing of oscillations in two time series. It is calculated from the phase angle of the complex cross-spectrum and indicates whether the oscillations are in phase, or if one signal leads or lags the other.
+
+        **Applications:**
+
+        *   Determining the direction and speed of wave propagation.
+        *   Exploring potential cause-and-effect connections between phenomena.
+        *   Investigating the degree of synchronization between oscillating systems.
+
+        **Limitations:**
+
+        *   Can be challenging to interpret in complex systems with multiple interacting oscillations.
+        *   Sensitive to noise and potential biases in the data.
+
         
 	!!! walsa-info "Note"
-	    The co-spectrum, coherence, and phase lag have one dimension for the 1D power spectra (i.e., for FFT, Lomb-Scargle, HHT, GWS, RGWS, Welch), whereas they have two dimensions for the 2D Wavelet spectrum.
+        The co-spectrum, coherence, and phase lag are one-dimensional for 1D power spectra (FFT, Lomb-Scargle, HHT, GWS, RGWS, Welch) and two-dimensional for the 2D Wavelet spectrum.
 
 !!! walsa-hint "Info"
-    Check out documentation on the **Analysis Tools** to learn how to run **WaLSAtools** and more about all inputs, keywords, and outputs.
+    Check out the documentation on the **Analysis Tools** to learn how to run **WaLSAtools** and more about all inputs, parameters, and outputs.
 
-## Under Development :material-text-box-plus:
 
-Further analysis and visualising methods are being added to **WaLSAtools** over time. In particular, the following tools are currently under development:
+## Under Development
 
-- Collecting and developing the Python codes, and make the two languages equivalent.
+WaLSAtools is constantly evolving with new features and improvements. Here are some of the ongoing developments:
 
-- Improving the **Dominant Frequency** method for cases with multiple strong power peaks (also, by adding uncertainty approximation), in IDL.
+*   **Expanding Language Support:** We are actively developing WaLSAtools in Matlab, aiming to provide equivalent functionality across all three supported languages (Python, IDL, and Matlab).
+*   **Enhancing Existing Methods:** We are improving the Dominant Frequency method to handle cases with multiple strong power peaks and provide uncertainty estimations.
+*   **Adding New Methods:** We are adding new analysis techniques, such as the Adaptive Local Iterative Filtering (ALIF) method.
 
-- Adding other analysis methods, such as **Welch** and **ALIF**, in IDL.
-
-- Implementing other techniques in to the **k-&omega;** and **B-&omega;** analyses (currently FFT is the only spectral analysis method in those tools), in IDL.
+We welcome contributions from the community to help us expand and improve **WaLSAtools**. If you are interested in contributing, please see the [Contribution Guidelines](contributing.md).
 
 <br>
 
