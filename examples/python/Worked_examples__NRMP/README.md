@@ -1,6 +1,6 @@
 # Worked Examples: NRMP Synthetic Datasets and Figures
 
-This directory contains example codes and synthetic datasets used to reproduce the figures featured in the *Nature Reviews Methods Primers* (NRMP) article on **Wave analysis tools**. These examples showcase the application of WaLSAtools to controlled synthetic data, providing a practical guide for analysing oscillatory signals.
+This directory contains example codes and synthetic datasets used to generate the figures featured in the *Nature Reviews Methods Primers* (NRMP) article on **Wave analysis tools**. These examples showcase the application of WaLSAtools to controlled synthetic data, providing a practical guide for analysing oscillatory signals.
 
 ## Synthetic Datasets
 
