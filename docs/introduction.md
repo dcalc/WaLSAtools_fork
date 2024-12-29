@@ -7,94 +7,167 @@ title: Introduction
 
 ## Overview :material-telescope:
 
-**WaLSAtools** is an open-source library designed for analysing a wide variety of wave phenomena in time series data, including images and multi-dimensional datasets. It provides tools to extract meaningful insights from complex datasets and is applicable across diverse fields, including astrophysics, physics, engineering, environmental science, and biomedical research, among others. The library is continuously expanding with new features and functionalities, ensuring it remains a valuable resource for the wave analysis community.
+**WaLSAtools** is an open-source library designed for analysing a wide variety of wave phenomena in time series data, including images and multi-dimensional datasets. It provides tools to extract meaningful insights from complex datasets and is applicable across diverse fields, including astrophysics, engineering, physical and environmental science, and biomedical studies, among others. The library is continuously expanding with new features and functionalities, ensuring it remains a valuable resource for the wave analysis research.
 
 The core of **WaLSAtools** is built upon [Python][9]{target=_blank}, one of the most widely-used programming languages in science and engineering. This ensures accessibility and ease of use for a broad audience. We are actively developing versions in other popular languages to further enhance accessibility, enabling researchers from various backgrounds to leverage the power of **WaLSAtools** for their wave analysis needs. Currently, **WaLSAtools** is also available in [IDL][1]{target=_blank}, with plans to expand to other languages in the future.
 
-Developed by the [WaLSA Team](https://WaLSA.team), **WaLSAtools** was initially inspired by the intricate wave dynamics observed in the solar atmosphere. However, its applications extend far beyond solar physics, offering a versatile toolkit for anyone working with oscillatory signals.
+Developed by the [WaLSA Team](https://WaLSA.team), **WaLSAtools** was initially inspired by the intricate wave dynamics observed in the Sun's atmosphere. However, its applications extend far beyond solar physics, offering a versatile toolkit for anyone working with oscillatory signals.
 
 **WaLSAtools** promotes reproducibility and transparency in wave analysis. Its robust implementations of both fundamental and advanced techniques ensure consistent and trustworthy results, empowering researchers to delve deeper into the complexities of their data. Through its interactive interface (see `Analysis Tools`), **WaLSAtools** guides users through the analysis process, providing the necessary information and tools to perform various types of wave analysis with ease.
 
-This repository is associated with a primer article titled **"Wave analysis tools"** in [**Nature Reviews Methods Primers**](https://www.nature.com/nrmp/) (NRMP; in press), showcasing its capabilities through detailed analyses of synthetic datasets. The `Analysis Tools/Examples/Worked examples: NRMP` contain reproducible codes for generating all figures presented in the NRMP article, serving as a practical guide for applying **WaLSAtools** to real-world analyses.
+This repository is associated with a primer article titled **Wave analysis tools** in [**Nature Reviews Methods Primers**](https://www.nature.com/nrmp/) (NRMP; in press), showcasing its capabilities through detailed analyses of synthetic datasets. The `Analysis Tools/Examples/Worked examples - NRMP` contain reproducible codes for generating all figures presented in the NRMP article, serving as a practical guide for applying **WaLSAtools** to real-world analyses.
 
-!!! walsa-code "To switch between Python and IDL documentations, click on name of the current programming language on top of the webpages on this site."
+!!! walsa-code "To switch between Python and IDL documentation, click the current programming language name at the top of the page."
 
-## Key Features
+## Key Features :material-white-balance-sunny:
 
 * **Wide Range of Wave Analysis Techniques:** From foundational methods like FFT and wavelet analysis to advanced techniques such as EMD, k-ω, and POD analysis.
 * **Cross-Disciplinary Applicability:** Suitable for signal processing, oscillation studies, and multi-dimensional analysis in various fields.
 * **Interactive Interfaces:** Simplified workflows through interactive menus for both Python and IDL.
 * **Open Science Principles:** Promotes reproducibility and transparency in data analysis.
 
-!!! walsa-contribute "[Contributions][3] are welcome &#8212; to improve the codes, methods, and/or documentations."
+!!! walsa-contribute "[Contributions][3] are welcome to improve the codes, methods, or documentation."
 
-## Analysis Methods :material-white-balance-sunny:
+## Analysis Methods 
 
-**WaLSAtools** offers a variety of spectral analysis techniques, each tailored to specific types of data and research questions. These methods are broadly categorized into:
+**WaLSAtools** offers a variety of spectral analysis techniques, each tailored to specific types of data and research questions. These methods are broadly categorised into:
 
 * **Single Time Series Analysis:** Includes methods for analysing individual time series, such as:
-    * **1D Signals:** FFT, Lomb-Scargle, Wavelet Transform, Hilbert-Huang Transform (HHT), and Empirical Mode Decomposition (EMD)
-    * **3D Cubes:** k-ω Analysis, B-ω Analysis, Mean Power, Dominant Frequency, Proper Orthogonal Decomposition (POD)
-* **Cross-Correlation Analysis:** Includes methods for analysing correlations between two time series, such as cross-spectrum, coherence, and phase relationships, using various techniques.
+    * **1D Signals:** Fast Fourier Transform (FFT), Lomb-Scargle, Wavelet Transform, Welch, Hilbert-Huang Transform (HHT) and Empirical Mode Decomposition (EMD)
+    * **3D Cubes:** k-ω Analysis, Dominant Frequency, Mean Power Spectrum, and Proper Orthogonal Decomposition (POD)
+* **Cross-Correlation Analysis:** Includes methods for analysing correlations between two time series, resulting in cross-spectrum, coherence, and phase relationships.
 
+All time series are pre-processed to mitigate unwanted effects, such as long-term trends and edge effects, prior to spectral analysis. This includes detrending and apodization.
 
-## Analysis Methods :material-white-balance-sunny:
+### Detailed Descriptions of Analysis Methods
 
-The various spectral analysis techniques, performed by **WaLSAtools**, are briefly introduced below. For detailed descriptions see **this review article**. 
+ The choice of the most appropriate wave analysis technique depends not only on the nature of the data but also on the specific research goals and the desired insights. **WaLSAtools** offers a variety of methods, each with its own strengths and limitations, allowing researchers to tailor their analysis to their specific needs. This section provides detailed descriptions of the individual methods available in **WaLSAtools**, empowering users to make informed decisions about the most suitable techniques for their research.
 
-
-The analysis tools are currently divided into two categories linked to: (a) wave characteristics of single time series, and (b) correlations between oscillations of two time series.
-Analyses of single time series also fall into two sections, one related to those dealing with one-dimensional (1D) signals (*in time domain*), and one applied to three-dimensional (3D) cubes (*in both spatial and time domains*). All time series (from, e.g., solar observations) are treated against their finite length as well as their nonlinear and nonstationary nature prior to the analyses (i.e., they are detrended and apodized by default).
+#### 1D Signal Analysis
 
 !!! walsa-waveform "One Dimensional (1D) Signal"
-    The following analysis methods decompose a signal (i.e., 1D time series) into its frequency components, resulting in the so-called *frequency spectrum*. They employ slightly different approaches, thus making them suitable for specific situations. Therefore, choosing the right technique is an essential step before start applying it to a dataset.
+    **WaLSAtools** provides a variety of methods for analysing 1D signals (time series). Each method uses a different approach to decompose the signal into its constituent frequencies, making them suitable for various scenarios. Selecting the appropriate technique depends on the specific characteristics of the data and the research goals.
 
-    === "Fast Fourier Transform (FFT)"
-        Fast Fourier Transform (FFT; *Cooley and Tukey 1965*) is an optimised approach for the implementation of the Fourier analysis (*Fourier 1824*; or strictly speaking, of the Discrete Fourier Transformation) by reducing the number of computations required.
-        The algorithm estimates the frequency spectrum by decomposing the signal into a set of sinusoidal/cosinusoidal oscillations at distinct frequencies with their own amplitudes and phases.
+    === "FFT"
+        The Fast Fourier Transform (FFT; *Cooley and Tukey 1965*) is an efficient algorithm that computes the discrete Fourier transform (DFT; *Fourier 1824*) of a sequence, or its inverse. Fourier analysis converts a signal from its original domain (often time or space) to a representation in the frequency domain and vice versa. The DFT is obtained by decomposing a sequence of values into components of different frequencies. 
+
+        The FFT is widely used in many fields due to its computational efficiency. This makes it significantly faster than directly computing the DFT, especially for large datasets. The FFT algorithm estimates the frequency spectrum by decomposing the signal into a set of sinusoidal oscillations at distinct frequencies, each with its own amplitude and phase.
+
+        **Advantages:**
+        * Computationally efficient, especially for large datasets.
+        * Provides a clear and easily interpretable frequency spectrum.
+        * Well-suited for analysing stationary signals with evenly spaced samples.
+
+        **Limitations:**
+        * Assumes the signal is stationary (frequency content does not change over time).
+        * Requires evenly spaced data points.
+        * Can be sensitive to edge effects in finite signals.
 
         **FFT is often the prime choice of method for spectral analysis, unless the science case and/or data properties require the use of other techniques.**
-    
+
     === "Lomb-Scargle"
-        Lomb–Scargle transform is a statistical approach for detecting oscillation frequencies in irregularly sampled signals. 
-        Note that all other analysis methods, such as FFT, require the time series to be regularly and evenly sampled.
-        Lomb–Scargle calculates the frequency spectrum based on least-squares analysis techniques.
-        
-        **Lomb–Scargle should be the method of choice when the data points are unequally spaced in time** (e.g., when there are gaps or missing data points). 
-        When duration of gaps are relatively short, one may decide to fill in them using interpolation and perform, e.g., FFT, instead. 
-        However, the right choice of interpolation (e.g., linear, cubic, etc.) is always challenging and may lead to spurious results if not chosen correctly.
-        
+        The Lomb–Scargle periodogram is a method of estimating a frequency spectrum, based on a least-squares fit of sinusoids to data samples, irrespective of whether the sampling is regularly or irregularly spaced in time. 
+
+        **Advantages:**
+        * Can handle irregularly sampled data without the need for interpolation.
+        * Provides accurate frequency estimates even with missing data points.
+
+        **Limitations:**
+        * Can be computationally expensive for very large datasets.
+        * May not be as efficient as FFT for evenly spaced data.
+
+        **Lomb–Scargle should be the method of choice when the data points are unequally spaced in time** (e.g., when there are gaps or missing data points). 
+
+        **Note:** While interpolation can sometimes be used to fill gaps in data and enable the use of other methods like FFT, selecting an appropriate interpolation method and mitigating potential artifacts can be challenging.
+
     === "Wavelet"
-        Wavelet analysis (*Daubechies 1990; Torrence & Compo 1998*) localises the spectral power in both time and frequency domains simultaneously. 
-        In principle, it reveals the frequency components just like FFT, but it also identifies when certain frequencies occur in temporal domain. 
-        To this end, the time series is convolved with a wavelet (called *mother function*) whose variable width and amplitude result in capturing both low/high frequencies and long/short durations simultaneously. 
-        Note that the choice of wavelet function is very important (i.e., various functions may result in different resolution in time and/or frequency). 
-        The Morlet mother function is often found a good choice in analysing waves and oscillations in the solar atmosphere, as it satisfies a good balance between frequency and time localisations.
-        Wavelet analysis also identifies areas in the time-frequency space that are subject to edge effect (that is introduced due to the convolution of the wavelet function close to the edges of the finite time series). 
-        Such regions are marked with the so-called Cone of Influence (CoI), identifying unreliable areas of the 2D power spectrum.
-        
-        **Wavelet transform is particularly suitable for studying transient oscillations, weak signals, or quasi-periodic signatures.** 
-        In addition to the 2D time-frequency spectrum, *traditionally*, a 1D spectrum (so-called ***global wavelet***; GWS) can also be computed by averaging the power along the entire time domain, which, however, also includes the (unreliable) power subject to the edge effect.
-        Thus, **WaLSAtools** also introduces the Refiend Global Wavelet Spectrum (RGWS) which is the time-integral of wavelet power *excluding those affected by the CoI and those below the confidence level* (i.e., the power-weighted frequency distribution with significant power, unaffected by CoI).
-        
-    === "Hilbert-Huang Transform (HHT)"
-        Hilbert-Huang Transform (HHT; *Huang et al. 1996*) first decomposes the time series into the so-called Intrinsic Mode Functions (IMFs) through the application of the Empirical Mode Decomposition (EMD) technique. 
-        Instantaneous frequencies of the decomposed signal are then computed by means of the Hilbert spectral analysis. Finally, the *marginal* power spectrum is computed by integrating over time.
-        Therefore, HHT is more like an empirical approach rather than a theoretical tool like FFT.
-        
-        **HHT is by nature suitable for nonlinear and nonstationary signals.** Although such signals are treated, to some extent, by detrending and apodising steps, such corrections are never perfect, hence, make the HHT's application important. 
-        ***However, the right choice of parameters for EMD (hence correct decomposition) requires great care (i.e., the default parameters may not necessarily work for all datasets).*** 
-        The instantaneous frequencies can reveal dominant frequencies of the oscillations, but be aware that their uncertainties can be large at particular times.
-        The marginal HHT spectrum may particularly be useful for low-amplitude fast frequency oscillations.
+        A wavelet transform is a time-frequency representation of a signal. It allows a signal to be decomposed into its constituent wavelets, which are localised in both time and frequency. The Wavelet Transform is a powerful tool for analysing time series data that exhibit non-stationary behaviors, meaning their frequency content changes over time. Unlike the Fourier Transform, which provides a global frequency spectrum, the Wavelet Transform allows for localised analysis in both time and frequency, revealing how different frequencies contribute to the signal at different times.
+
+        **Key Concepts:**
+
+        * **Mother Wavelet:** The Wavelet Transform uses a function called a "mother wavelet" to analyse the signal. Different mother wavelets have different shapes and properties, making them suitable for different types of signals and analysis goals. The choice of mother wavelet is crucial for optimal results.
+        * **Scales:** The Wavelet Transform analyses the signal at different scales, which correspond to different frequency ranges. This multi-resolution analysis allows for the detection of both short-lived, high-frequency features and long-lasting, low-frequency trends.
+        * **Cone of Influence (COI):** The COI is a region in the time-frequency plane where edge effects can influence the results of the Wavelet Transform. It is important to be aware of the COI when interpreting the results.
+
+        **WaLSAtools** provides a versatile implementation of the Wavelet Transform, allowing users to choose from various mother wavelets and customize the analysis parameters. In addition to the standard 2D time-frequency spectrum, it offers two types of 1D spectra:
+
+        * **Global Wavelet Spectrum (GWS):**  Obtained by averaging the wavelet power over time.
+        * **Refined Global Wavelet Spectrum (RGWS):**  A novel approach that excludes the COI and regions below a given confidence level from the time-integral of wavelet power, providing a more robust representation of the significant frequency components.
+
+        **Advantages:**
+
+        * Suitable for analysing non-stationary signals.
+        * Provides both time and frequency localisation.
+        * Offers a multi-resolution view of the signal.
+
+        **Limitations:**
+
+        * The choice of mother wavelet can influence the results.
+        * Frequency resolution is limited, especially at higher frequencies.
+        * Edge effects can influence the analysis near the boundaries of the time series.
+
+        **Wavelet transform is particularly suitable for studying transient oscillations, weak signals, or quasi-periodic signatures.**
+
+    === "EMD/HHT"
+
+        Empirical Mode Decomposition (EMD) is a data-driven technique for analysing nonlinear and non-stationary signals. It decomposes a signal into a set of Intrinsic Mode Functions (IMFs), each representing a distinct oscillatory mode with its own time-varying amplitude and frequency.
+
+        The Hilbert-Huang Transform (HHT) combines EMD with the Hilbert Transform to calculate the instantaneous frequency and amplitude of each IMF. This provides a detailed view of how the signal's frequency content evolves over time.
+
+        **WaLSAtools Implementation:**
+
+        WaLSAtools provides implementations of both EMD and HHT, allowing users to:
+
+        *   Decompose signals into IMFs using EMD.
+        *   Calculate instantaneous frequencies and amplitudes using HHT.
+        *   Visualise the results with time-frequency plots and marginal spectra.
+
+        **Advantages:**
+
+        *   Suitable for analysing nonlinear and non-stationary signals.
+        *   Adaptively extracts IMFs based on the signal's local characteristics.
+        *   Provides time-varying frequency and amplitude information.
+
+        **Limitations:**
+
+        *   Can be sensitive to noise and parameter choices.
+        *   Mode mixing can occur, where a single IMF contains components from different oscillatory modes.
+        *   Requires careful selection of stopping criteria and spline fitting parameters.
+
+        **Key Considerations:**
+
+        *   **Ensemble EMD (EEMD):**  WaLSAtools also includes EEMD, an ensemble-based approach that reduces the impact of noise and improves mode separation.
+        *   **Significance Testing:**  It is essential to assess the statistical significance of the extracted IMFs to distinguish genuine oscillations from noise-induced artifacts.
+        *   **Parameter Selection:**  Carefully choose the EMD and HHT parameters based on the specific characteristics of the data and the research goals.
+
+        **EMD and HHT are valuable tools for analysing complex signals that exhibit non-stationary and nonlinear behaviors, providing insights into the time-varying dynamics of oscillatory phenomena.**
+
+    === "Welch"
+        Welch's method is a technique for estimating the power spectral density (PSD) of a signal. It is particularly useful when dealing with noisy data or signals that have time-varying frequency content.
+
+        **How it works:**
+
+        1.  The signal is divided into overlapping segments.
+        2.  Each segment is windowed (e.g., using a Hann or Hamming window) to reduce spectral leakage.
+        3.  The periodogram (a basic estimate of the PSD) is computed for each segment.
+        4.  The periodograms are averaged to obtain a smoother and more robust estimate of the PSD.
+
+        **Advantages:**
+
+        * Reduces noise in the PSD estimate.
+        * Can handle signals with time-varying frequency content.
+        * Provides a more robust estimate of the PSD compared to a single periodogram.
+
+        **Limitations:**
+
+        * Reduces frequency resolution due to the use of shorter segments.
+        * The choice of window function and segment length can affect the results.
+
+        **Welch's method is a valuable tool for analysing signals where noise reduction is a priority or when the frequency content of the signal changes over time.**
 
 !!! walsa-info "Info"
-    - **Power Spectral Density (PSD):** The analysis methods described here initially compute wave amplitudes at different frequencies &#8212; the frequency spectrum. 
-      **WaLSAtools** will then return Power Spectral Density (PSD; *Stull 1988*) which is the square of wave amplitude (i.e., power spectrum) normalised by frequency resolution. 
-      This helps ensure that different signals can be compared independently of their frequency resolution (which is determined by length of the time series). 
-      In addition, single-sided power is outputted (i.e., the *identical* power at negative frequencies are wrapped into positive frequencies), thus the PSD values are doubled.
-      Throughout this documentation, the terms *power*, *power spectrum*, and *PSD* may be used interchangeably, but they convey the same meaning (i.e., PSD).
-    - **Confidence levels:** To pinpoint significant power (i.e., to disentangle power produced by real signals from that by noise and spurious signals) **WaLSAtools** can perform a   statistical randomisation test (optional) to estimate significance/confidence levels.
-      Note that, e.g., a 95% confidence level means that the power is significant to the 5% level.
+    *  **Power Spectral Density (PSD):** The analysis methods compute wave amplitudes at different frequencies, resulting in a frequency spectrum. The Power Spectral Density (PSD) can further be calculated, which represents the power (amplitude squared) per unit frequency. This  normalisation allows for meaningful comparisons between different signals, regardless of their frequency resolution. Additionally, WaLSAtools outputs single-sided PSDs, where the power at negative frequencies is folded into the positive frequencies, divided by two since the folding effectively doubles the PSD values.
+    *  **Confidence Levels:** WaLSAtools can estimate the statistical significance of the computed power using a randomisation test. This helps distinguish between genuine signals and those arising from noise or spurious effects. For example, a 95% confidence level indicates that the detected power is significant with a 5% probability of being due to random fluctuations.
 
 
 !!! walsa-wavecube "Three Dimensional (3D) Cube"
