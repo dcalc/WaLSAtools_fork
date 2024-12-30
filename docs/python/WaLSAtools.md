@@ -8,7 +8,7 @@ template: main.html
 
 
 <div class="logo">
-    <img src="codes/python/WaLSAtools/assets/WaLSA_logo.png" alt="WaLSA Logo" style="width: 300px;">
+    <img src="https://walsa.tools/images/WaLSA_logo.png" alt="WaLSA Logo" style="width: 300px;">
 </div>
 
 <!-- Dropdown Menus -->
@@ -98,6 +98,14 @@ template: main.html
     const callingSequence = document.getElementById('callingSequence');
     const parameterTableBody = document.getElementById('parameterTableBody');
 
+    function clearOutput() {
+        callingSequence.textContent = "Select options to generate the calling sequence.";
+        parameterTableBody.innerHTML = `
+            <tr>
+                <td colspan="3" style="text-align: center;">No parameters available yet.</td>
+            </tr>`;
+    }
+
     // Update Data Type options based on Category
     categoryDropdown.addEventListener('change', () => {
         const category = categoryDropdown.value;
@@ -106,6 +114,10 @@ template: main.html
         subMethodDropdown.style.display = 'none';
         subMethodLabel.style.display = 'none';
         methodDropdown.disabled = !category;
+
+        if (!category) {
+            clearOutput();
+        }
 
         if (category === 'a') {
             methodDropdown.innerHTML += '<option value="1">1D Signal</option>';
@@ -120,6 +132,10 @@ template: main.html
         const method = methodDropdown.value;
         analysisTypeDropdown.innerHTML = '<option value="">Select Method</option>';
         analysisTypeDropdown.disabled = !method;
+
+        if (!method) {
+            clearOutput();
+        }
 
         if (categoryDropdown.value === 'a' && method === '1') {
             analysisTypeDropdown.innerHTML += `
@@ -143,6 +159,10 @@ template: main.html
     analysisTypeDropdown.addEventListener('change', () => {
         const analysisType = analysisTypeDropdown.value;
 
+        if (!analysisType) {
+            clearOutput();
+        }
+
         if (categoryDropdown.value === 'a' && methodDropdown.value === '2' && analysisType === 'dominant_freq') {
             subMethodDropdown.style.display = 'inline-block';
             subMethodLabel.style.display = 'inline-block';
@@ -165,7 +185,7 @@ template: main.html
         const subMethod = subMethodDropdown.value;
 
         if (!category || !method || !analysisType || (subMethodDropdown.style.display === 'inline-block' && !subMethod)) {
-            callingSequence.textContent = "Select options to generate the calling sequence.";
+            clearOutput();
             return;
         }
 
