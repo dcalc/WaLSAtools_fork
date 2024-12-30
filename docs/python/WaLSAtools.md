@@ -38,9 +38,9 @@ template: main.html
     <option value="welch">Welch</option>
 </select>
 
-<div class="output-container">
+<div class="output-container" id="outputContainer">
     <h3>Calling Sequence</h3>
-    <pre id="callingSequence">Select options to generate the calling sequence.</pre>
+    <pre id="callingSequence"></pre>
 
     <h3>Parameter Table</h3>
     <table class="parameters-table">
@@ -52,9 +52,6 @@ template: main.html
             </tr>
         </thead>
         <tbody id="parameterTableBody">
-            <tr>
-                <td colspan="3" style="text-align: center;">No parameters available yet.</td>
-            </tr>
         </tbody>
     </table>
 </div>
@@ -68,13 +65,6 @@ template: main.html
                     signal: { type: "array", description: "The input signal (1D)." },
                     time: { type: "array", description: "The time array corresponding to the signal." },
                     siglevel: { type: "float", description: "Significance level for confidence intervals. Default: 0.95." }
-                }
-            },
-            wavelet: {
-                returnValues: "power, period, significance, coi, gws_power",
-                parameters: {
-                    signal: { type: "array", description: "The input signal (1D)." },
-                    time: { type: "array", description: "The time array corresponding to the signal." }
                 }
             }
         },
@@ -95,130 +85,124 @@ template: main.html
     const analysisTypeDropdown = document.getElementById('analysisType');
     const subMethodDropdown = document.getElementById('subMethod');
     const subMethodLabel = document.getElementById('subMethodLabel');
+    const outputContainer = document.getElementById('outputContainer');
     const callingSequence = document.getElementById('callingSequence');
     const parameterTableBody = document.getElementById('parameterTableBody');
 
-    function clearOutput() {
-        callingSequence.textContent = "Select options to generate the calling sequence.";
-        parameterTableBody.innerHTML = `
-            <tr>
-                <td colspan="3" style="text-align: center;">No parameters available yet.</td>
-            </tr>`;
+    function resetDropdown(dropdown) {
+        dropdown.innerHTML = '<option value="">Select ...</option>';
+        dropdown.disabled = true;
     }
 
-    // Update Data Type options based on Category
+    function hideOutput() {
+        outputContainer.style.display = 'none';
+    }
+
+    function clearOutput() {
+        callingSequence.textContent = '';
+        parameterTableBody.innerHTML = '';
+        hideOutput();
+    }
+
+    // Event Listener for Category Dropdown
     categoryDropdown.addEventListener('change', () => {
         const category = categoryDropdown.value;
-        methodDropdown.innerHTML = '<option value="">Select Data Type</option>';
-        analysisTypeDropdown.innerHTML = '<option value="">Select Method</option>';
+        resetDropdown(methodDropdown);
+        resetDropdown(analysisTypeDropdown);
         subMethodDropdown.style.display = 'none';
         subMethodLabel.style.display = 'none';
-        methodDropdown.disabled = !category;
+        clearOutput();
 
-        if (!category) {
-            clearOutput();
-        }
-
-        if (category === 'a') {
-            methodDropdown.innerHTML += '<option value="1">1D Signal</option>';
-            methodDropdown.innerHTML += '<option value="2">3D Datacube</option>';
-        } else if (category === 'b') {
-            methodDropdown.innerHTML += '<option value="1">1D Signal</option>';
+        if (category) {
+            methodDropdown.disabled = false;
+            if (category === 'a') {
+                methodDropdown.innerHTML += `
+                    <option value="1">1D Signal</option>
+                    <option value="2">3D Datacube</option>`;
+            } else if (category === 'b') {
+                methodDropdown.innerHTML += `<option value="1">1D Signal</option>`;
+            }
         }
     });
 
-    // Update Method options based on Data Type
+    // Event Listener for Method Dropdown
     methodDropdown.addEventListener('change', () => {
         const method = methodDropdown.value;
-        analysisTypeDropdown.innerHTML = '<option value="">Select Method</option>';
-        analysisTypeDropdown.disabled = !method;
+        resetDropdown(analysisTypeDropdown);
+        subMethodDropdown.style.display = 'none';
+        subMethodLabel.style.display = 'none';
+        clearOutput();
 
-        if (!method) {
-            clearOutput();
-        }
-
-        if (categoryDropdown.value === 'a' && method === '1') {
-            analysisTypeDropdown.innerHTML += `
-                <option value="fft">FFT</option>
-                <option value="wavelet">Wavelet</option>
-                <option value="lombscargle">Lomb-Scargle</option>
-                <option value="welch">Welch</option>`;
-        } else if (categoryDropdown.value === 'a' && method === '2') {
-            analysisTypeDropdown.innerHTML += `
-                <option value="k-omega">k-omega</option>
-                <option value="pod">POD</option>
-                <option value="dominant_freq">Dominant Freq / Mean Power Spectrum</option>`;
-        } else if (categoryDropdown.value === 'b' && method === '1') {
-            analysisTypeDropdown.innerHTML += `
-                <option value="wavelet">Wavelet</option>
-                <option value="welch">Welch</option>`;
+        if (method) {
+            analysisTypeDropdown.disabled = false;
+            if (categoryDropdown.value === 'a' && method === '1') {
+                analysisTypeDropdown.innerHTML += `
+                    <option value="fft">FFT</option>
+                    <option value="wavelet">Wavelet</option>`;
+            } else if (categoryDropdown.value === 'a' && method === '2') {
+                analysisTypeDropdown.innerHTML += `
+                    <option value="k-omega">k-omega</option>
+                    <option value="pod">POD</option>`;
+            } else if (categoryDropdown.value === 'b') {
+                analysisTypeDropdown.innerHTML += `
+                    <option value="wavelet">Wavelet</option>`;
+            }
         }
     });
 
-    // Show or hide Sub-method dropdown
+    // Event Listener for Analysis Type Dropdown
     analysisTypeDropdown.addEventListener('change', () => {
         const analysisType = analysisTypeDropdown.value;
+        subMethodDropdown.style.display = 'none';
+        subMethodLabel.style.display = 'none';
+        clearOutput();
 
-        if (!analysisType) {
-            clearOutput();
-        }
-
-        if (categoryDropdown.value === 'a' && methodDropdown.value === '2' && analysisType === 'dominant_freq') {
+        if (analysisType === 'dominant_freq' && categoryDropdown.value === 'a' && methodDropdown.value === '2') {
             subMethodDropdown.style.display = 'inline-block';
             subMethodLabel.style.display = 'inline-block';
-        } else {
-            subMethodDropdown.style.display = 'none';
-            subMethodLabel.style.display = 'none';
         }
 
-        updateCallingSequence();
+        updateOutput();
     });
 
-    // Update the Calling Sequence
-    subMethodDropdown.addEventListener('change', updateCallingSequence);
-    analysisTypeDropdown.addEventListener('change', updateCallingSequence);
+    // Event Listener for Sub-method Dropdown
+    subMethodDropdown.addEventListener('change', updateOutput);
 
-    function updateCallingSequence() {
+    // Update Output Container
+    function updateOutput() {
         const category = categoryDropdown.value;
         const method = methodDropdown.value;
         const analysisType = analysisTypeDropdown.value;
         const subMethod = subMethodDropdown.value;
 
         if (!category || !method || !analysisType || (subMethodDropdown.style.display === 'inline-block' && !subMethod)) {
-            clearOutput();
+            hideOutput();
             return;
         }
 
-        let command = "";
-
+        let command = '';
         if (category === 'a' && method === '1') {
-            const methodMap = { fft: 'FFT', wavelet: 'Wavelet', lombscargle: 'Lomb-Scargle', welch: 'Welch' };
-            command = `>>> power, frequency, significance = WaLSAtools(signal=INPUT_DATA, time=TIME_ARRAY, method='${analysisType}', **kwargs)`;
-        } else if (category === 'a' && method === '2') {
-            if (analysisType === 'dominant_freq') {
-                command = `>>> dominant_frequency, mean_power = WaLSAtools(data=INPUT_DATA, method='${subMethod}', **kwargs)`;
-            } else {
-                command = `>>> results = WaLSAtools(data=INPUT_DATA, method='${analysisType}', **kwargs)`;
-            }
+            command = `>>> power, frequency = WaLSAtools(signal=INPUT_DATA, method='${analysisType}')`;
         } else if (category === 'b') {
-            command = `>>> cross_power, coherence = WaLSAtools(data1=INPUT_DATA1, data2=INPUT_DATA2, method='${analysisType}', **kwargs)`;
+            command = `>>> cross_power = WaLSAtools(data1=INPUT_DATA1, method='${analysisType}')`;
         }
 
         callingSequence.textContent = command;
-
-        // Update parameter table dynamically
-        updateParameterTable(analysisType, subMethod || analysisType);
+        updateParameterTable(analysisType);
+        outputContainer.style.display = 'block';
     }
 
-    function updateParameterTable(analysisType, method) {
-        parameterTableBody.innerHTML = "";
-
+    function updateParameterTable(method) {
+        parameterTableBody.innerHTML = '';
         const paramData =
             parameters.single_series[method]?.parameters ||
             parameters.cross_correlation[method]?.parameters;
 
         if (!paramData) {
-            parameterTableBody.innerHTML = `<tr><td colspan="3" style="text-align: center;">No parameters available.</td></tr>`;
+            parameterTableBody.innerHTML = `
+                <tr>
+                    <td colspan="3" style="text-align: center;">No parameters available.</td>
+                </tr>`;
             return;
         }
 
