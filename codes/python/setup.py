@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------------------------------------------
 # WaLSAtools: Wave analysis tools
-# Copyright (C) 2025 WaLSA Team - Shahin Jafarzadeh
+# Copyright (C) 2025 WaLSA Team - Shahin Jafarzadeh et al.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@
 # Note: If you use WaLSAtools for research, please consider citing:
 # Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
 # -----------------------------------------------------------------------------------------------------
-
 
 from setuptools import setup, find_packages
 
