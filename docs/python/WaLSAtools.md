@@ -8,27 +8,35 @@ template: main.html
 
 
 <div class="logo">
-    <img src="assets/WaLSA_logo.png" alt="WaLSA Logo" style="width: 300px;">
+    <img src="codes/python/WaLSAtools/assets/WaLSA_logo.png" alt="WaLSA Logo" style="width: 300px;">
 </div>
 
-<div class="dropdown-container">
-    <label for="category">Category:</label>
-    <select id="category">
-        <option value="">Select a category</option>
-        <option value="single_series">Single Time Series Analysis</option>
-        <option value="cross_correlation">Cross-Correlation Between Two Time Series</option>
-    </select>
+<!-- Dropdown Menus -->
+<label for="category">Category:</label>
+<select id="category">
+    <option value="">Select Category</option>
+    <option value="a">Single Time Series Analysis</option>
+    <option value="b">Cross-Correlation Between Two Time Series</option>
+</select>
 
-    <label for="data_type">Data Type:</label>
-    <select id="data_type" disabled>
-        <option value="">Select a data type</option>
-    </select>
+<label for="method">Data Type:</label>
+<select id="method" disabled>
+    <option value="">Select Data Type</option>
+</select>
 
-    <label for="method">Method:</label>
-    <select id="method" disabled>
-        <option value="">Select a method</option>
-    </select>
-</div>
+<label for="analysisType">Method:</label>
+<select id="analysisType" disabled>
+    <option value="">Select Method</option>
+</select>
+
+<label for="subMethod" id="subMethodLabel" style="display:none;">Sub-method:</label>
+<select id="subMethod" style="display:none;">
+    <option value="">Select Sub-method</option>
+    <option value="fft">FFT</option>
+    <option value="wavelet">Wavelet</option>
+    <option value="lombscargle">Lomb-Scargle</option>
+    <option value="welch">Welch</option>
+</select>
 
 <div class="output-container">
     <h3>Calling Sequence</h3>
@@ -82,64 +90,125 @@ template: main.html
         }
     };
 
-    const categoryDropdown = document.getElementById("category");
-    const dataTypeDropdown = document.getElementById("data_type");
-    const methodDropdown = document.getElementById("method");
-    const callingSequence = document.getElementById("callingSequence");
-    const parameterTableBody = document.getElementById("parameterTableBody");
+    const categoryDropdown = document.getElementById('category');
+    const methodDropdown = document.getElementById('method');
+    const analysisTypeDropdown = document.getElementById('analysisType');
+    const subMethodDropdown = document.getElementById('subMethod');
+    const subMethodLabel = document.getElementById('subMethodLabel');
+    const callingSequence = document.getElementById('callingSequence');
+    const parameterTableBody = document.getElementById('parameterTableBody');
 
-    categoryDropdown.addEventListener("change", () => {
+    // Update Data Type options based on Category
+    categoryDropdown.addEventListener('change', () => {
         const category = categoryDropdown.value;
-        dataTypeDropdown.innerHTML = '<option value="">Select a data type</option>';
-        methodDropdown.innerHTML = '<option value="">Select a method</option>';
-        dataTypeDropdown.disabled = !category;
-        methodDropdown.disabled = true;
+        methodDropdown.innerHTML = '<option value="">Select Data Type</option>';
+        analysisTypeDropdown.innerHTML = '<option value="">Select Method</option>';
+        subMethodDropdown.style.display = 'none';
+        subMethodLabel.style.display = 'none';
+        methodDropdown.disabled = !category;
 
-        if (category === "single_series") {
-            dataTypeDropdown.innerHTML += '<option value="1D">1D Signal</option>';
-        } else if (category === "cross_correlation") {
-            dataTypeDropdown.innerHTML += '<option value="1D">1D Signal</option>';
+        if (category === 'a') {
+            methodDropdown.innerHTML += '<option value="1">1D Signal</option>';
+            methodDropdown.innerHTML += '<option value="2">3D Datacube</option>';
+        } else if (category === 'b') {
+            methodDropdown.innerHTML += '<option value="1">1D Signal</option>';
         }
     });
 
-    dataTypeDropdown.addEventListener("change", () => {
-        const dataType = dataTypeDropdown.value;
-        methodDropdown.innerHTML = '<option value="">Select a method</option>';
-        methodDropdown.disabled = !dataType;
-
-        if (dataType === "1D") {
-            const category = categoryDropdown.value;
-            if (category === "single_series") {
-                Object.keys(parameters.single_series).forEach((method) => {
-                    methodDropdown.innerHTML += `<option value="${method}">${method.toUpperCase()}</option>`;
-                });
-            } else if (category === "cross_correlation") {
-                Object.keys(parameters.cross_correlation).forEach((method) => {
-                    methodDropdown.innerHTML += `<option value="${method}">${method.toUpperCase()}</option>`;
-                });
-            }
-        }
-    });
-
-    methodDropdown.addEventListener("change", () => {
+    // Update Method options based on Data Type
+    methodDropdown.addEventListener('change', () => {
         const method = methodDropdown.value;
-        const category = categoryDropdown.value;
+        analysisTypeDropdown.innerHTML = '<option value="">Select Method</option>';
+        analysisTypeDropdown.disabled = !method;
 
-        let selectedParams = parameters[category]?.[method];
-
-        if (selectedParams) {
-            const { returnValues, parameters: params } = selectedParams;
-
-            // Update calling sequence
-            callingSequence.textContent = `>>> ${returnValues} = WaLSAtools(data, method="${method}", **kwargs)`;
-
-            // Update parameter table
-            parameterTableBody.innerHTML = Object.entries(params)
-                .map(
-                    ([param, { type, description }]) =>
-                        `<tr><td>${param}</td><td>${type}</td><td>${description}</td></tr>`
-                )
-                .join("");
+        if (categoryDropdown.value === 'a' && method === '1') {
+            analysisTypeDropdown.innerHTML += `
+                <option value="fft">FFT</option>
+                <option value="wavelet">Wavelet</option>
+                <option value="lombscargle">Lomb-Scargle</option>
+                <option value="welch">Welch</option>`;
+        } else if (categoryDropdown.value === 'a' && method === '2') {
+            analysisTypeDropdown.innerHTML += `
+                <option value="k-omega">k-omega</option>
+                <option value="pod">POD</option>
+                <option value="dominant_freq">Dominant Freq / Mean Power Spectrum</option>`;
+        } else if (categoryDropdown.value === 'b' && method === '1') {
+            analysisTypeDropdown.innerHTML += `
+                <option value="wavelet">Wavelet</option>
+                <option value="welch">Welch</option>`;
         }
     });
+
+    // Show or hide Sub-method dropdown
+    analysisTypeDropdown.addEventListener('change', () => {
+        const analysisType = analysisTypeDropdown.value;
+
+        if (categoryDropdown.value === 'a' && methodDropdown.value === '2' && analysisType === 'dominant_freq') {
+            subMethodDropdown.style.display = 'inline-block';
+            subMethodLabel.style.display = 'inline-block';
+        } else {
+            subMethodDropdown.style.display = 'none';
+            subMethodLabel.style.display = 'none';
+        }
+
+        updateCallingSequence();
+    });
+
+    // Update the Calling Sequence
+    subMethodDropdown.addEventListener('change', updateCallingSequence);
+    analysisTypeDropdown.addEventListener('change', updateCallingSequence);
+
+    function updateCallingSequence() {
+        const category = categoryDropdown.value;
+        const method = methodDropdown.value;
+        const analysisType = analysisTypeDropdown.value;
+        const subMethod = subMethodDropdown.value;
+
+        if (!category || !method || !analysisType || (subMethodDropdown.style.display === 'inline-block' && !subMethod)) {
+            callingSequence.textContent = "Select options to generate the calling sequence.";
+            return;
+        }
+
+        let command = "";
+
+        if (category === 'a' && method === '1') {
+            const methodMap = { fft: 'FFT', wavelet: 'Wavelet', lombscargle: 'Lomb-Scargle', welch: 'Welch' };
+            command = `>>> power, frequency, significance = WaLSAtools(signal=INPUT_DATA, time=TIME_ARRAY, method='${analysisType}', **kwargs)`;
+        } else if (category === 'a' && method === '2') {
+            if (analysisType === 'dominant_freq') {
+                command = `>>> dominant_frequency, mean_power = WaLSAtools(data=INPUT_DATA, method='${subMethod}', **kwargs)`;
+            } else {
+                command = `>>> results = WaLSAtools(data=INPUT_DATA, method='${analysisType}', **kwargs)`;
+            }
+        } else if (category === 'b') {
+            command = `>>> cross_power, coherence = WaLSAtools(data1=INPUT_DATA1, data2=INPUT_DATA2, method='${analysisType}', **kwargs)`;
+        }
+
+        callingSequence.textContent = command;
+
+        // Update parameter table dynamically
+        updateParameterTable(analysisType, subMethod || analysisType);
+    }
+
+    function updateParameterTable(analysisType, method) {
+        parameterTableBody.innerHTML = "";
+
+        const paramData =
+            parameters.single_series[method]?.parameters ||
+            parameters.cross_correlation[method]?.parameters;
+
+        if (!paramData) {
+            parameterTableBody.innerHTML = `<tr><td colspan="3" style="text-align: center;">No parameters available.</td></tr>`;
+            return;
+        }
+
+        Object.entries(paramData).forEach(([key, value]) => {
+            parameterTableBody.innerHTML += `
+                <tr>
+                    <td>${key}</td>
+                    <td>${value.type}</td>
+                    <td>${value.description}</td>
+                </tr>`;
+        });
+    }
 </script>
