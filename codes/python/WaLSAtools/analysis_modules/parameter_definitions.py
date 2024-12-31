@@ -235,16 +235,22 @@ def display_parameters_html(method_name, category):
     if not parameters:
         display(HTML(f"<p><strong>No parameters available for method: {method_name}</strong></p>"))
         return
-    
-    table = '<table style="border-collapse: collapse; border: 1px solid #222; width: 100%;">'
-    table += '<tr style="background-color: #fff;"><th colspan="2" style="text-align: left; color: #000; font-size: 110%;">Parameters (**kwargs)</th></tr>'
-    table += '<tr style="background-color: #222;"><th style="color: #fff; border-right: 1px solid #ccc;"><strong>Parameter</strong></th><th style="color: #fff; border-right: 1px solid #ccc;"><strong>Type</strong></th><th style="color: #fff;"><strong>Description</strong></th></tr>'
+			
+    table = '<table style="border-collapse: collapse; border: 1px solid #222; width: calc(100% - 30px); box-sizing: border-box; margin-left: 30px; table-layout: auto;">'
+    table += '<tr style="background-color: #fff;"><th colspan="3" style="text-align: left; color: #000; font-size: 110%;">Parameters (**kwargs)</th></tr>'
+    table += '<tr style="background-color: #222;">'
+    table += '<th style="color: #fff; border-right: 1px solid #ccc; text-align: left; white-space: nowrap;"><strong>Parameter</strong></th>'
+    table += '<th style="color: #fff; border-right: 1px solid #ccc; text-align: left; white-space: nowrap;"><strong>Type</strong></th>'
+    table += '<th style="color: #fff; text-align: left; width: 100%;"><strong>Description</strong></th>'
+    table += '</tr>'
     for param, info in parameters.items():
         param_type = info['type']
         description = info['description']
-        table += f'<tr><td style="border: 1px solid #222; padding: 8px;">{param}</td>'
-        table += f'<td style="border: 1px solid #222; padding: 8px;">{param_type}</td>'
-        table += f'<td style="border: 1px solid #222; padding: 8px;">{description}</td></tr>'
+        table += f'<tr>'
+        table += f'<td style="border: 1px solid #222; padding: 8px; text-align: left; white-space: nowrap;">{param}</td>'
+        table += f'<td style="border: 1px solid #222; padding: 8px; text-align: left; white-space: nowrap;">{param_type}</td>'
+        table += f'<td style="border: 1px solid #222; padding: 8px; text-align: left;">{description}</td>'
+        table += '</tr>'
     table += '</table>'
     display(HTML(table))
 

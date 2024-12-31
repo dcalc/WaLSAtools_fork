@@ -20,7 +20,7 @@
 
 
 import ipywidgets as widgets  # For interactive UI in Jupyter
-from IPython.display import display, clear_output, HTML
+from IPython.display import display, clear_output, HTML, Image
 import os
 
 # Function to detect if it's running in a notebook or terminal
@@ -62,26 +62,46 @@ def print_logo_and_credits():
         Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025,
         Nature Reviews Methods Primers, in press
         -----------------------------------------------------------------------
+        Choose a category, data type, and analysis method from the list below,
+        to get hints on the calling sequence and parameters:
         """
 
     credits_notebook = """
         <div style="margin-left: 30px; margin-top: 20px; font-size: 1.1em; line-height: 0.8;">
             <p>© WaLSA Team (<a href="https://www.WaLSA.team" target="_blank">www.WaLSA.team</a>)</p>
-            <hr style="width: 70%; margin: 0; border: 0.98px solid #888;">
+            <hr style="width: 70%; margin: 0; border: 0.98px solid #888; margin-bottom: 10px;">
             <p><strong>WaLSAtools</strong> v1.0 - Wave analysis tools</p>
             <p>Documentation: <a href="https://www.WaLSA.tools" target="_blank">www.WaLSA.tools</a></p>
             <p>GitHub repository: <a href="https://www.github.com/WaLSAteam/WaLSAtools" target="_blank">www.github.com/WaLSAteam/WaLSAtools</a></p>
-            <hr style="width: 70%; margin: 0; border: 0.98px solid #888;">
+            <hr style="width: 70%; margin: 0; border: 0.98px solid #888; margin-bottom: 10px;">
             <p>If you use <strong>WaLSAtools</strong> in your research, please cite:</p>
             <p>Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, <em>Nature Reviews Methods Primers</em>, in press</p>
-            <hr style="width: 70%; margin: 0; border: 0.98px solid #888;">
+            <hr style="width: 70%; margin: 0; border: 0.98px solid #888; margin-bottom: 15px;">
+            <p>Choose a category, data type, and analysis method from the list below,</p>
+            <p>to get hints on the calling sequence and parameters:</p>
         </div>
     """
 
     if is_notebook():
-        current_dir = os.path.dirname(os.path.abspath(__file__))
+        try:
+            # For scripts
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+        except NameError:
+            # For Jupyter notebooks
+            current_dir = os.getcwd()
         img_path = os.path.join(current_dir, '..', 'assets', 'WaLSA_logo.png')
-        display(HTML(f'<img src="{img_path}" style="margin-left: 40px; margin-top: 20px; width:300px; height: auto;">'))
+        # display(HTML(f'<img src="{img_path}" style="margin-left: 40px; margin-top: 20px; width:300px; height: auto;">')) # not shwon in Jupyter notebook, only in MS Code
+        import base64
+        # Convert the image to Base64
+        with open(img_path, "rb") as img_file:
+            encoded_img = base64.b64encode(img_file.read()).decode('utf-8')
+        # Embed the Base64 image in the HTML
+        html_code_logo = f"""
+        <div style="margin-left: 30px; margin-top: 20px;">
+            <img src="data:image/png;base64,{encoded_img}" style="width: 300px; height: auto;">
+        </div>
+        """
+        display(HTML(html_code_logo))
         display(HTML(credits_notebook))
     else:
         print(logo_terminal)
@@ -93,8 +113,6 @@ from .parameter_definitions import display_parameters_text, single_series_parame
 def walsatools_terminal():
     """Main interactive function for terminal version of WaLSAtools."""
     print_logo_and_credits()
-    print("    Choose a category, data type, and analysis method from the list below,")
-    print("    to get hints on the calling sequence and parameters:\n")
 
     # Step 1: Select Category
     while True:
@@ -279,12 +297,9 @@ def walsatools_jupyter():
 
     print_logo_and_credits()
 
-    print("    Choose a category, data type, and analysis method from the list below,")
-    print("    to get hints on the calling sequence and parameters:")
-
     # Recreate widgets to reset state
     category = widgets.Dropdown(
-        options=['Select Category', 'a: Single time series analysis', 'b: Cross-correlation between two time series'],
+        options=['Select Category', 'Single time series analysis', 'Cross-correlation between two time series'],
         value='Select Category',
         description='Category:'
     )
@@ -299,7 +314,7 @@ def walsatools_jupyter():
         description='Method:'
     )
     sub_method = widgets.Dropdown(
-        options=['Select Sub-method', '1: FFT', '2: Wavelet', '3: Lomb-Scargle', '4: Welch'],
+        options=['Select Sub-method', 'FFT', 'Wavelet', 'Lomb-Scargle', 'Welch'],
         value='Select Sub-method',
         description='Sub-method:',
         layout=widgets.Layout(display='none')  # Initially hidden
@@ -316,13 +331,14 @@ def walsatools_jupyter():
                 or method.value == 'Select Data Type'
                 or analysis_type.value == 'Select Method'
                 or (
-                    analysis_type.value == '3: Dominant Freq / Mean Power Spectrum'
+                    analysis_type.value == 'Dominant Freq / Mean Power Spectrum'
                     and sub_method.layout.display == 'block'
                     and sub_method.value == 'Select Sub-method'
                 )
             ):
                 clear_output(wait=True)
-                print("Please select appropriate options from all dropdown menus.")
+                warn = '<div style="font-size: 1.1em; margin-left: 30px; margin-top:15px; margin-bottom: 15px;">Please select appropriate options from all dropdown menus.</div>'
+                display(HTML(warn))
 
     def update_method_options(change=None):
         """Update available Method and Sub-method options."""
@@ -331,18 +347,18 @@ def walsatools_jupyter():
         sub_method.value = 'Select Sub-method'
         sub_method.options = ['Select Sub-method']
 
-        if category.value == 'a: Single time series analysis':
-            method.options = ['Select Data Type', '1: 1D signal', '2: 3D datacube']
-            if method.value == '1: 1D signal':
-                analysis_type.options = ['Select Method', '1: FFT', '2: Wavelet', '3: Lomb-Scargle', '4: Welch', '5: EMD']
-            elif method.value == '2: 3D datacube':
-                analysis_type.options = ['Select Method', '1: k-omega', '2: POD', '3: Dominant Freq / Mean Power Spectrum']
+        if category.value == 'Single time series analysis':
+            method.options = ['Select Data Type', '1D signal', '3D datacube']
+            if method.value == '1D signal':
+                analysis_type.options = ['Select Method', 'FFT', 'Wavelet', 'Lomb-Scargle', 'Welch', 'EMD']
+            elif method.value == '3D datacube':
+                analysis_type.options = ['Select Method', 'k-omega', 'POD', 'Dominant Freq / Mean Power Spectrum']
             else:
                 analysis_type.options = ['Select Method']
-        elif category.value == 'b: Cross-correlation between two time series':
-            method.options = ['Select Data Type', '1: 1D signal']
-            if method.value == '1: 1D signal':
-                analysis_type.options = ['Select Method', '1: Wavelet', '2: Welch']
+        elif category.value == 'Cross-correlation between two time series':
+            method.options = ['Select Data Type', '1D signal']
+            if method.value == '1D signal':
+                analysis_type.options = ['Select Method', 'Wavelet', 'Welch']
             else:
                 analysis_type.options = ['Select Method']
         else:
@@ -353,11 +369,11 @@ def walsatools_jupyter():
         """Show or hide the Sub-method dropdown based on conditions."""
         clear_output_if_unselected()  # Ensure the output clears if any dropdown is unselected.
         if (
-            category.value == 'a: Single time series analysis'
-            and method.value == '2: 3D datacube'
-            and analysis_type.value == '3: Dominant Freq / Mean Power Spectrum'
+            category.value == 'Single time series analysis'
+            and method.value == '3D datacube'
+            and analysis_type.value == 'Dominant Freq / Mean Power Spectrum'
         ):
-            sub_method.options = ['Select Sub-method', '1: FFT', '2: Wavelet', '3: Lomb-Scargle', '4: Welch']
+            sub_method.options = ['Select Sub-method', 'FFT', 'Wavelet', 'Lomb-Scargle', 'Welch']
             sub_method.layout.display = 'block'
         else:
             sub_method.options = ['Select Sub-method']
@@ -372,7 +388,7 @@ def walsatools_jupyter():
             or method.value == 'Select Data Type'
             or analysis_type.value == 'Select Method'
             or (
-                analysis_type.value == '3: Dominant Freq / Mean Power Spectrum'
+                analysis_type.value == 'Dominant Freq / Mean Power Spectrum'
                 and sub_method.layout.display == 'block'
                 and sub_method.value == 'Select Sub-method'
             )
@@ -384,43 +400,43 @@ def walsatools_jupyter():
 
             # Handle Dominant Frequency / Mean Power Spectrum with Sub-method
             if (
-                category.value == 'a: Single time series analysis'
-                and method.value == '2: 3D datacube'
-                and analysis_type.value == '3: Dominant Freq / Mean Power Spectrum'
+                category.value == 'Single time series analysis'
+                and method.value == '3D datacube'
+                and analysis_type.value == 'Dominant Freq / Mean Power Spectrum'
             ):
                 if sub_method.value == 'Select Sub-method':
                     print("Please select a Sub-method.")
                     return
 
-                sub_method_map = {'1': 'fft', '2': 'wavelet', '3': 'lombscargle', '4': 'welch'}
-                selected_method = sub_method_map.get(sub_method.value[0], 'unknown')
+                sub_method_map = {'FFT': 'fft', 'Wavelet': 'wavelet', 'Lomb-Scargle': 'lombscargle', 'Welch': 'welch'}
+                selected_method = sub_method_map.get(sub_method.value, 'unknown')
                 return_values = 'dominant_frequency, mean_power, frequency, power_map'
-                command = f"{return_values} = WaLSAtools(data1=INPUT_DATA, time=TIME_ARRAY, averagedpower=True, dominantfreq=True, method='{selected_method}', **kwargs)"
+                command = f"{return_values} = WaLSAtools(signal=INPUT_DATA, time=TIME_ARRAY, averagedpower=True, dominantfreq=True, method='{selected_method}', **kwargs)"
 
             # Handle k-omega and POD
             elif (
-                category.value == 'a: Single time series analysis'
-                and method.value == '2: 3D datacube'
-                and analysis_type.value in ['1: k-omega', '2: POD']
+                category.value == 'Single time series analysis'
+                and method.value == '3D datacube'
+                and analysis_type.value in ['k-omega', 'POD']
             ):
-                method_map = {'1': 'k-omega', '2': 'pod'}
-                selected_method = method_map.get(analysis_type.value[0], 'unknown')
+                method_map = {'k-omega': 'k-omega', 'POD': 'pod'}
+                selected_method = method_map.get(analysis_type.value, 'unknown')
                 parameter_definitions = single_series_parameters
                 return_values = parameter_definitions.get(selected_method, {}).get('return_values', '')
-                command = f"{return_values} = WaLSAtools(data1=INPUT_DATA, time=TIME_ARRAY, method='{selected_method}', **kwargs)"
+                command = f"{return_values} = WaLSAtools(signal=INPUT_DATA, time=TIME_ARRAY, method='{selected_method}', **kwargs)"
 
             # Handle Cross-correlation
-            elif category.value == 'b: Cross-correlation between two time series':
-                cross_correlation_map = {'1': 'wavelet', '2': 'welch'}
-                selected_method = cross_correlation_map.get(analysis_type.value[0], 'unknown')
+            elif category.value == 'Cross-correlation between two time series':
+                cross_correlation_map = {'Wavelet': 'wavelet', 'Welch': 'welch'}
+                selected_method = cross_correlation_map.get(analysis_type.value, 'unknown')
                 parameter_definitions = cross_correlation_parameters
                 return_values = parameter_definitions.get(selected_method, {}).get('return_values', '')
                 command = f"{return_values} = WaLSAtools(data1=INPUT_DATA1, data2=INPUT_DATA2, time=TIME_ARRAY, method='{selected_method}', **kwargs)"
 
             # Handle Single 1D signal analysis
-            elif category.value == 'a: Single time series analysis' and method.value == '1: 1D signal':
-                method_map = {'1': 'fft', '2': 'wavelet', '3': 'lombscargle', '4': 'welch', '5': 'emd'}
-                selected_method = method_map.get(analysis_type.value[0], 'unknown')
+            elif category.value == 'Single time series analysis' and method.value == '1D signal':
+                method_map = {'FFT': 'fft', 'Wavelet': 'wavelet', 'Lomb-Scargle': 'lombscargle', 'Welch': 'welch', 'EMD': 'emd'}
+                selected_method = method_map.get(analysis_type.value, 'unknown')
                 parameter_definitions = single_series_parameters
                 return_values = parameter_definitions.get(selected_method, {}).get('return_values', '')
                 command = f"{return_values} = WaLSAtools(signal=INPUT_DATA, time=TIME_ARRAY, method='{selected_method}', **kwargs)"
@@ -431,7 +447,8 @@ def walsatools_jupyter():
 
             # Generate and display the command in HTML
             html_code = f"""
-            <div style="display: flex; margin-bottom: 3ch;">
+            <div style="font-size: 1.2em; margin-left: 30px; margin-top:15px; margin-bottom: 15px;">Calling sequence:</div>
+            <div style="display: flex; margin-left: 30px; margin-bottom: 3ch;">
                 <span style="color: #222; min-width: 4ch;">>>> </span>
                 <pre style="
                     white-space: pre-wrap; 
@@ -441,7 +458,6 @@ def walsatools_jupyter():
                 ">{command}</pre>
             </div>
             """
-            print("Calling sequence:")
             display(HTML(html_code))
             display_parameters_html(selected_method, category=category.value)
 
