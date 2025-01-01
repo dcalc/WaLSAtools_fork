@@ -1,8 +1,8 @@
-name: docs 
+name: docs
 on:
   push:
     branches:
-      - master 
+      - master
       - main
 permissions:
   contents: write
@@ -14,13 +14,8 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
-      - uses: actions/cache@v3
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
+      - run: pip install --upgrade pip setuptools
       - run: pip install --no-cache-dir mkdocs-material mkdocs-jupyter
       - run: pip freeze | grep mkdocs  # Debug: List installed mkdocs plugins
+      - run: python -c "import mkdocs.plugins; mkdocs.plugins.get_plugin_class('jupyter')"  # Debug: Ensure plugin discovery
       - run: mkdocs gh-deploy --force
