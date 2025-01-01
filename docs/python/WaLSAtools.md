@@ -7,10 +7,6 @@ template: main.html
 !!! walsa-wheel "The Python package and its documentation are currently under development ....."
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-    }
     /* General container styling */
     .dropdown-container {
         margin-left: 30px;
@@ -160,20 +156,8 @@ template: main.html
         font-size: 12px;
         color: #888;
     }
-    a:link, a:visited {
-        color: #4169E1; /* Define your blue color (e.g., DodgerBlue) */
-        text-decoration: none; /* No underline or other styles */
-    }
-
-    a:hover {
-        color: #104E8B; /* Optional: Darker blue on hover (customize as needed) */
-    }
-
-    a:active {
-        color: #4169E1; /* Ensure no color change when active */
-    }
 </style>
-<div>
+<div style="font-family: Arial, sans-serif; margin: 20px;">
 <div class="code-container">
     <!-- Line numbers -->
     <div class="line-numbers">
@@ -204,11 +188,11 @@ template: main.html
 
 <!-- Credits -->
 <div style="margin-left: 30px; margin-top: 20px; font-size: 1.em;">
-    <p>© WaLSA Team (<a href="https://www.WaLSA.team" target="_blank">www.WaLSA.team</a>)</p>
+    <p>© WaLSA Team (<a href="https://www.WaLSA.team" target="_blank" style="color: #4169E1; text-decoration: none;">www.WaLSA.team</a>)</p>
     <hr style="width: 70%; margin: 0; border: 0.98px solid #888; margin-bottom: 10px;">
     <p><strong>WaLSAtools</strong> v1.0 - Wave analysis tools</p>
-    <p>Documentation: <a href="https://www.WaLSA.tools" target="_blank">www.WaLSA.tools</a></p>
-    <p>GitHub repository: <a href="https://www.github.com/WaLSAteam/WaLSAtools" target="_blank">www.github.com/WaLSAteam/WaLSAtools</a></p>
+    <p>Documentation: <a href="https://www.WaLSA.tools" target="_blank" style="color: #4169E1; text-decoration: none;">www.WaLSA.tools</a></p>
+    <p>GitHub repository: <a href="https://www.github.com/WaLSAteam/WaLSAtools" target="_blank" style="color: #4169E1; text-decoration: none;">www.github.com/WaLSAteam/WaLSAtools</a></p>
     <hr style="width: 70%; margin: 0; border: 0.98px solid #888; margin-bottom: 10px;">
     <p>If you use <strong>WaLSAtools</strong> in your research, please cite:</p>
     <p>Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, <em>Nature Reviews Methods Primers</em>, in press</p>
