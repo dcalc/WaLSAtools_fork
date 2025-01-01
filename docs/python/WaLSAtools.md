@@ -582,7 +582,12 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
                 retValues = 'dominant_frequency, mean_power, frequency, power_map'
                 command1 = `${retValues} = WaLSAtools(signal=INPUT_DATA, time=TIME_ARRAY, averagedpower=True, dominantfreq=True, method='${subMethod}', **kwargs)`;
             } else {
-                command1 = `${returnValues} = WaLSAtools(signal=INPUT_DATA, time=TIME_ARRAY, method='${analysisMethod}', **kwargs)`;
+                if (analysisMethod === 'komega') {
+                    analysisMethodout = 'k-omega';
+                } else {
+                    analysisMethodout = analysisMethod;
+                }
+                command1 = `${returnValues} = WaLSAtools(signal=INPUT_DATA, time=TIME_ARRAY, method='${analysisMethodout}', **kwargs)`;
             }
         }
         const command = `

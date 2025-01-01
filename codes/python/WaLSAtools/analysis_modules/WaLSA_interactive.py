@@ -273,13 +273,6 @@ from .parameter_definitions import display_parameters_html, single_series_parame
 # Global flag to prevent multiple observers
 is_observer_attached = False
 
-import ipywidgets as widgets  # For interactive UI in Jupyter
-from IPython.display import display, clear_output, HTML
-from .parameter_definitions import display_parameters_html, single_series_parameters, cross_correlation_parameters
-
-# Global flag to prevent multiple observers
-is_observer_attached = False
-
 def walsatools_jupyter():
     """Main interactive function for Jupyter Notebook version of WaLSAtools."""
     global is_observer_attached, category, method, analysis_type, sub_method  # Declare global variables for reuse
