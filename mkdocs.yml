@@ -72,13 +72,13 @@ theme:
       accent: red
       toggle:
         icon: material/weather-sunny
-        name: Python
+        name: IDL
     - scheme: default 
       primary: deep-orange
       accent: red
       toggle:
         icon: material/weather-night
-        name: IDL
+        name: Python
 
   font:
     text: Roboto
@@ -122,6 +122,8 @@ nav:
     - python/WaLSAtools.md
     - Examples:
       - Worked examples - NRMP:
+        expanded: true
+        children:
           - Power Spectra: python/power-spectra-example.md
           - Dominant Frequency: python/dominant-frequency-example.md
           - k-&#969; and POD: python/k-omega-pod-example.md
