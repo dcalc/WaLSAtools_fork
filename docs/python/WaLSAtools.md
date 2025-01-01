@@ -470,85 +470,99 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         parameterTableBody.innerHTML = '';
         hideOutput();
     }
-    // Event Listener for Category Dropdown
-    categoryDropdown.addEventListener('change', () => {
-        const category = categoryDropdown.value;
-        resetDropdown(datatypeDropdown, "Select Data Type");
-        resetDropdown(analysisMethodDropdown, "Select Method");
-        resetDropdown(subMethodDropdown, "Select Sub-method"); // Explicit reset
-        subMethodDropdown.style.display = 'none';
-        subMethodLabel.style.display = 'none';
-        clearOutput();
-        if (category) {
-            datatypeDropdown.disabled = false;
-            if (category === 'a') {
-                datatypeDropdown.innerHTML += `
-                    <option value="1">1D Signal</option>
-                    <option value="2">3D Datacube</option>`;
-            } else if (category === 'b') {
-                datatypeDropdown.innerHTML += `<option value="1">1D Signal</option>`;
+    function removeListeners() {
+        categoryDropdown.replaceWith(categoryDropdown.cloneNode(true));
+        datatypeDropdown.replaceWith(datatypeDropdown.cloneNode(true));
+        analysisMethodDropdown.replaceWith(analysisMethodDropdown.cloneNode(true));
+        subMethodDropdown.replaceWith(subMethodDropdown.cloneNode(true));
+        // Re-select elements
+        categoryDropdown = document.getElementById('category');
+        datatypeDropdown = document.getElementById('datatype');
+        analysisMethodDropdown = document.getElementById('analysisMethod');
+        subMethodDropdown = document.getElementById('subMethod');
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        removeListeners(); // Clear existing listeners
+        // Attach event listeners
+        categoryDropdown.addEventListener('change', () => {
+            const category = categoryDropdown.value;
+            resetDropdown(datatypeDropdown, "Select Data Type");
+            resetDropdown(analysisMethodDropdown, "Select Method");
+            resetDropdown(subMethodDropdown, "Select Sub-method");
+            subMethodDropdown.style.display = 'none';
+            subMethodLabel.style.display = 'none';
+            clearOutput();
+            if (category) {
+                datatypeDropdown.disabled = false;
+                if (category === 'a') {
+                    datatypeDropdown.innerHTML += `
+                        <option value="1">1D Signal</option>
+                        <option value="2">3D Datacube</option>`;
+                } else if (category === 'b') {
+                    datatypeDropdown.innerHTML += `<option value="1">1D Signal</option>`;
+                }
             }
-        }
-        updateOutput(); // Added to ensure the message updates
-    });
-    datatypeDropdown.addEventListener('change', () => {
-        const category = categoryDropdown.value;
-        const datatype = datatypeDropdown.value;
-        resetDropdown(analysisMethodDropdown, "Select Method");
-        resetDropdown(subMethodDropdown, "Select Sub-method"); // Explicit reset
-        subMethodDropdown.style.display = 'none';
-        subMethodLabel.style.display = 'none';
-        clearOutput();
-        if (datatype) {
-            analysisMethodDropdown.disabled = false;
-            if (category === 'a' && datatype === '1') {
-                analysisMethodDropdown.innerHTML += `
+            updateOutput();
+        });
+        datatypeDropdown.addEventListener('change', () => {
+            const category = categoryDropdown.value;
+            const datatype = datatypeDropdown.value;
+            resetDropdown(analysisMethodDropdown, "Select Method");
+            resetDropdown(subMethodDropdown, "Select Sub-method");
+            subMethodDropdown.style.display = 'none';
+            subMethodLabel.style.display = 'none';
+            clearOutput();
+            if (datatype) {
+                analysisMethodDropdown.disabled = false;
+                if (category === 'a' && datatype === '1') {
+                    analysisMethodDropdown.innerHTML += `
+                        <option value="fft">FFT</option>
+                        <option value="wavelet">Wavelet</option>
+                        <option value="lombscargle">Lomb-Scargle</option>
+                        <option value="welch">Welch</option>
+                        <option value="emd">EMD</option>`;
+                } else if (category === 'a' && datatype === '2') {
+                    analysisMethodDropdown.innerHTML += `
+                        <option value="komega">k-omega</option>
+                        <option value="pod">POD</option>
+                        <option value="dominantfreq">Dominant Freq / Mean Power Spectrum</option>`;
+                } else if (category === 'b') {
+                    analysisMethodDropdown.innerHTML += `
+                        <option value="wavelet">Wavelet</option>
+                        <option value="welch">Welch</option>`;
+                }
+            }
+            updateOutput();
+        });
+        analysisMethodDropdown.addEventListener('change', () => {
+            const category = categoryDropdown.value;
+            const datatype = datatypeDropdown.value;
+            const analysisMethod = analysisMethodDropdown.value;
+            resetDropdown(subMethodDropdown, "Select Sub-method");
+            subMethodDropdown.style.display = 'none';
+            subMethodLabel.style.display = 'none';
+            subMethodDropdown.disabled = true;
+            clearOutput();
+            if (
+                category === 'a' &&
+                datatype === '2' &&
+                analysisMethod === 'dominantfreq'
+            ) {
+                subMethodDropdown.style.display = 'inline-block';
+                subMethodLabel.style.display = 'inline-block';
+                subMethodDropdown.disabled = false;
+                subMethodDropdown.innerHTML = `
+                    <option value="">Select Sub-method</option>
                     <option value="fft">FFT</option>
                     <option value="wavelet">Wavelet</option>
                     <option value="lombscargle">Lomb-Scargle</option>
-                    <option value="welch">Welch</option>
-                    <option value="emd">EMD</option>`;
-            } else if (category === 'a' && datatype === '2') {
-                analysisMethodDropdown.innerHTML += `
-                    <option value="komega">k-omega</option>
-                    <option value="pod">POD</option>
-                    <option value="dominantfreq">Dominant Freq / Mean Power Spectrum</option>`;
-            } else if (category === 'b') {
-                analysisMethodDropdown.innerHTML += `
-                    <option value="wavelet">Wavelet</option>
                     <option value="welch">Welch</option>`;
             }
-        }
-        updateOutput(); // Added to ensure the message updates
+            updateOutput();
+        });
+        subMethodDropdown.addEventListener('change', updateOutput);
+        updateOutput();
     });
-    analysisMethodDropdown.addEventListener('change', () => {
-        const category = categoryDropdown.value;
-        const datatype = datatypeDropdown.value;
-        const analysisMethod = analysisMethodDropdown.value;
-        resetDropdown(subMethodDropdown, "Select Sub-method"); // Explicit reset
-        subMethodDropdown.style.display = 'none';
-        subMethodLabel.style.display = 'none';
-        subMethodDropdown.disabled = true; // Disable it initially
-        clearOutput();
-        if (
-            category === 'a' &&
-            datatype === '2' &&
-            analysisMethod === 'dominantfreq'
-        ) {
-            subMethodDropdown.style.display = 'inline-block';
-            subMethodLabel.style.display = 'inline-block';
-            subMethodDropdown.disabled = false; // Enable it when shown
-            subMethodDropdown.innerHTML = `
-                <option value="">Select Sub-method</option>
-                <option value="fft">FFT</option>
-                <option value="wavelet">Wavelet</option>
-                <option value="lombscargle">Lomb-Scargle</option>
-                <option value="welch">Welch</option>`;
-        }
-        updateOutput(); // Added to ensure the message updates
-    });
-    // Event Listener for Sub-method Dropdown
-    subMethodDropdown.addEventListener('change', updateOutput);
     // Update Output Container
     function updateOutput() {
         const category = categoryDropdown.value;
