@@ -65,7 +65,7 @@ theme:
     - navigation.indexes
     # - navigation.tracking
     - content.code.annotate
-    # - navigation.expand
+    - navigation.expand
   palette: 
     - scheme: default
       primary: deep-orange
@@ -122,8 +122,6 @@ nav:
     - python/WaLSAtools.md
     - Examples:
       - Worked examples - NRMP:
-        expanded: true
-        children:
           - Power Spectra: python/power-spectra-example.md
           - Dominant Frequency: python/dominant-frequency-example.md
           - k-&#969; and POD: python/k-omega-pod-example.md
