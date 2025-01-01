@@ -150,8 +150,6 @@ nav:
 plugins:
   - search
   - include-markdown
-      preserve_includer_indent: true
-      rewrite_relative_urls: true
   # - mkdocs-jupyter:
   #     include: ["*.ipynb"]
   #     ignore: ["*.py"]
