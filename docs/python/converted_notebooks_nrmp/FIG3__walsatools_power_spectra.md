@@ -22,7 +22,7 @@ Figures that are newly created, modified, or unrelated to the published article 
 This notebook and its code are provided "as is", without warranty of any kind, express or implied. Refer to the license for more details.
 
 
-```python linenums="1"
+```python linenums="1" hl_lines="40 41 46 47 52 53 54 57 58 59 62 63 64 67 68 73 74 75 80 81 82"
 import numpy as np
 from astropy.io import fits
 from WaLSAtools import WaLSAtools, walsa_detrend_apod
