@@ -179,7 +179,7 @@ Before diving into the interactive demonstration, we recommend familiarizing you
     <img src="https://walsa.team/images/WaLSA_logo.png" style="width: 300px; height: auto;">
 </div>
 <!-- Credits -->
-<div style="margin-left: 30px; margin-top: 20px; font-size: 1.em;">
+<div style="margin-left: 30px; margin-top: 20px; font-size: 0.9em;">
     <p>© WaLSA Team (<a href="https://www.WaLSA.team" target="_blank" style="color: #4169E1; text-decoration: none;">www.WaLSA.team</a>)</p>
     <hr style="width: 70%; margin: 0; border: 0.98px solid #888; margin-bottom: 10px;">
     <p><strong>WaLSAtools</strong> v1.0 - Wave analysis tools</p>
@@ -225,13 +225,12 @@ Before diving into the interactive demonstration, we recommend familiarizing you
         </select>
     </div>	
 </div>
-<div id="dropdownMessage" style="margin-left: 30px; margin-top: 15px; font-size: 1.0em; display: none;">
+<div id="dropdownMessage" style="margin-left: 30px; margin-top: 15px; font-size: 0.9em; display: none;">
     Please select appropriate options from all dropdown menus.
 </div>
 <div class="output-container" id="outputContainer">
-    <p style="font-size: 1.1em;">Calling Sequence:</p>
-    <span id="callingSequence" style="font-size: 1.16em !important; margin: 0 !important; padding: 0 !important;"></span>
-
+    <p style="font-size: 1.0em;">Calling Sequence:</p>
+    <span id="callingSequence" style="font-size: 1.0em !important; margin: 0 !important; padding: 0 !important;"></span>
     <table class="parameters-table">
         <thead>
             <tr style="background-color: #fff;"><th colspan="3" style="text-align: left; color: #000; font-size: 110%;">Parameters (**kwargs)</th></tr>
