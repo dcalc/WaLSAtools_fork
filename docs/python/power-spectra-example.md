@@ -53,3 +53,5 @@ By analyzing this synthetic signal with different methods, we can evaluate their
         ``` python
         --8<-- "examples/python/Worked_examples__NRMP/FIG3__walsatools_power_spectra.ipynb"
         ```
+
+--8<-- "examples/python/Worked_examples__NRMP/FIG3__walsatools_power_spectra.ipynb"
