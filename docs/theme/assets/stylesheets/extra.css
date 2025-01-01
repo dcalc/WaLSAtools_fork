@@ -1016,3 +1016,9 @@ a.text-white:hover, a.text-white:focus {
           position: fixed;
       }
   }
+
+.exclude-from-nav h2,
+.exclude-from-nav h3,
+.exclude-from-nav h4 {
+    display: none;
+}
