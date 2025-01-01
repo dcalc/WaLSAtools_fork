@@ -109,23 +109,21 @@ HHT_power_spectrum_EEMD_normalized = 100 * HHT_power_spectrum_EEMD / np.max(HHT_
 HHT_significance_level_EEMD_normalized = 100 * HHT_significance_level_EEMD / np.max(HHT_power_spectrum_EEMD)
 ```
 
-```plaintext
-    Detrending and apodization complete.
-    FFT processed.
-    Detrending and apodization complete.
-    Lomb-Scargle processed.
-    Detrending and apodization complete.
-    Wavelet (morlet) processed.
-    Detrending and apodization complete.
-    Wavelet (dog) processed.
-    Detrending and apodization complete.
-    Wavelet (paul) processed.
-    Welch processed.
-    Detrending and apodization complete.
-    EMD processed.
-    Detrending and apodization complete.
-    EEMD processed.
-```
+Detrending and apodization complete.
+FFT processed.
+Detrending and apodization complete.
+Lomb-Scargle processed.
+Detrending and apodization complete.
+Wavelet (morlet) processed.
+Detrending and apodization complete.
+Wavelet (dog) processed.
+Detrending and apodization complete.
+Wavelet (paul) processed.
+Welch processed.
+Detrending and apodization complete.
+EMD processed.
+Detrending and apodization complete.
+EEMD processed.
 
 ```python
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes

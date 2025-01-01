@@ -27,5 +27,12 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Other unnecessary files
+# Exclude all .jpg files by default
 *.jpg
+
+# Allow .jpg files globally
+!*.jpg
+
+# Exclude .jpg files in specific folders
+examples/python/Worked_examples__NRMP/Video_Snapshots/POD_spectral_images__video_S2/*.jpg
+examples/python/Worked_examples__NRMP/Video_Snapshots/SPOD_images__video_S4/*.jpg
