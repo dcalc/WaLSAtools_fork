@@ -149,6 +149,7 @@ nav:
 # Plugins
 plugins:
   - search
+  - include-markdown
   # - mkdocs-jupyter:
   #     include: ["*.ipynb"]
   #     ignore: ["*.py"]
