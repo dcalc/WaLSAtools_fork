@@ -126,7 +126,7 @@ nav:
           - Dominant Frequency: python/dominant-frequency-example.md
           - k-&#969; and POD: python/k-omega-pod-example.md
           - Cross Correlations: python/cross-correlation-example.md
-          - EMD: python/emd-example.md
+          - EMD: FIG3__walsatools_power_spectra.ipynb
           - EEMD: python/eemd-example.md
           - k-&#969; analysis: python/k-omega-example.md
           - POD analysis: python/pod-example.md
