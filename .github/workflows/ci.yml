@@ -17,5 +17,5 @@ jobs:
       - run: pip install --upgrade pip setuptools
       - run: pip install --no-cache-dir mkdocs-material mkdocs-jupyter
       - run: pip freeze | grep mkdocs  # Debug: List installed mkdocs plugins
-      - run: python -c "import mkdocs.plugins; mkdocs.plugins.get_plugin_class('jupyter')"  # Debug: Ensure plugin discovery
+      - run: python -c "from mkdocs.plugins import get_plugins; print(get_plugins())"
       - run: mkdocs gh-deploy --force
