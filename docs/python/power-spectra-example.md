@@ -41,9 +41,8 @@ By analyzing this synthetic signal with different methods, we can evaluate their
 
     These particular analyses generate the figure below (Figure 3 in *Nature Reviews Methods Primers*; copyrighted). For a full description of the datasets and the analyses performed, see the associated article.
 
-    <object data="examples/python/Worked_examples__NRMP/Figures/Fig3_power_spectra_1D_signal.pdf" type="application/pdf" width="100%" height="600px">
-        <a href="examples/python/Worked_examples__NRMP/Figures/Fig3_power_spectra_1D_signal.pdf">View Figure 3</a>
-    </object>
+    ![figure3]
+      [figure3]: converted_notebooks_nrmp/Figures_jpg/Fig3_power_spectra_1D_signal.jpg
 
     **Figure Caption:** Performance of diverse analysis methods on a synthetic 1D time series. The signal comprises dominant oscillations at 5, 12, 15, 18, and 25 Hz, a transient oscillation at 2 Hz, a weak signal at 33 Hz, a quasi-periodic signature at 10 Hz, noise, and other complexities. **a**, The detrended and apodized signal. **b**, The unevenly sampled signal. **c**, The FFT power spectrum. **d**, The Lomb-Scargle periodogram. **e**, The global wavelet spectrum (GWS) for the Morlet, Mexican Hat, and Paul wavelets. **f**, The refined global wavelet spectrum (RGWS) for the Morlet, Mexican Hat, and Paul wavelets. **g**, The HHT spectrum using EMD. **h**, The FFT power spectra of the individual IMFs extracted by EMD. **i**, The HHT spectrum using EEMD. **j**, The FFT power spectra of the individual IMFs extracted by EEMD. **k**, The Welch power spectrum. **l-n**, The wavelet power spectra for the Morlet, Mexican Hat, and Paul wavelets, respectively. All powers are normalized to their maximum value and shown in percentages, with panels **c**, **d**, **h**, and **j** zoomed in on a smaller power range for better visibility of smaller peaks. The 95% confidence levels are indicated by dot-dashed curves for 1D power spectra and solid black contours for wavelet spectra. Vertical lines above each 1D spectrum mark the frequency resolution. Green vertical (or horizontal) lines on the frequency axes indicate the predefined frequencies used to construct the synthetic signal.
 
@@ -51,7 +50,5 @@ By analyzing this synthetic signal with different methods, we can evaluate their
 
     ??? source-code "Source code"
         ``` python
-        --8<-- "examples/python/Worked_examples__NRMP/FIG3__walsatools_power_spectra.ipynb"
+        --8<-- "converted_notebooks_nrmp/FIG3__walsatools_power_spectra.md"
         ```
-
---8<-- "examples/python/Worked_examples__NRMP/FIG3__walsatools_power_spectra.ipynb"

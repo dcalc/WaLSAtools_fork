@@ -126,7 +126,7 @@ nav:
           - Dominant Frequency: python/dominant-frequency-example.md
           - k-&#969; and POD: python/k-omega-pod-example.md
           - Cross Correlations: python/cross-correlation-example.md
-          - EMD: FIG3__walsatools_power_spectra.ipynb
+          - EMD: python/emd-example.md
           - EEMD: python/eemd-example.md
           - k-&#969; analysis: python/k-omega-example.md
           - POD analysis: python/pod-example.md
@@ -149,12 +149,12 @@ nav:
 # Plugins
 plugins:
   - search
-  - mkdocs-jupyter:
-      include: ["*.ipynb"]
-      ignore: ["*.py"]
-      allow_errors: false
-      include_source: True
-#   - tags
+  # - mkdocs-jupyter:
+  #     include: ["*.ipynb"]
+  #     ignore: ["*.py"]
+  #     allow_errors: false
+  #     include_source: True
+  #   - tags
 
 # Extensions
 markdown_extensions:
