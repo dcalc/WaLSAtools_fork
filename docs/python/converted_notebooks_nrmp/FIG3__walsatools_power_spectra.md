@@ -1,7 +1,3 @@
----
-template: main.html
----
-
 # Copyright Notice
 
 © 2025 WaLSA Team - Shahin Jafarzadeh et al.
@@ -797,7 +793,6 @@ plt.show()
     Page 1
     PDF saved in CMYK format as 'Figures/Fig3_power_spectra_1D_signal.pdf'
 
-    
 ![png](/python/converted_notebooks_nrmp/FIG3__walsatools_power_spectra_files/FIG3__walsatools_power_spectra_2_1.png)
     
 
