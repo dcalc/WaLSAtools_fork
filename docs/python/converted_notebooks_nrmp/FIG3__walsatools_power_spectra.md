@@ -1,3 +1,7 @@
+---
+template: main.html
+---
+
 # Copyright Notice
 
 © 2025 WaLSA Team - Shahin Jafarzadeh et al.
