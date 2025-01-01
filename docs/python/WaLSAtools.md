@@ -4,9 +4,23 @@ template: main.html
 
 # WaLSAtools
 
-!!! walsa-wheel "The Python package and its documentation are currently under development ....."
+WaLSAtools is designed for ease of use and accessibility. Its interactive interface guides you through the analysis process, providing clear instructions and helpful information at each step. This section demonstrates how to use WaLSAtools and highlights its key features.
 
-!!! walsa-gear "How to use WaLSAtools"
+Before diving into the interactive demonstration, we recommend familiarizing yourself with the various analysis methods available in WaLSAtools. You can find detailed descriptions of these methods in the [Introduction](introduction.md) section. Additionally, the [Examples](examples.md) section provides worked examples of different analysis techniques applied to synthetic datasets.
+
+!!! walsa-gear "Interactive Demonstration"
+
+    WaLSAtools provides an interactive interface that simplifies wave analysis. To launch the interface, simply import the `WaLSAtools` package and run the `WaLSAtools` command in a Python terminal or Jupyter notebook.
+
+    The interface will guide you through the following steps:
+
+    1.  **Select a category of analysis:** Choose from single time series analysis or cross-correlation analysis.
+    2.  **Choose the data type:** Specify the type of data you are working with (e.g., 1D signal, 3D datacube).
+    3.  **Pick a specific analysis method:** Select the method most suitable for your data and research question.
+
+    The interface will then provide information on the selected method, including its calling sequence, input parameters, and expected outputs.
+
+    **Here's an example of how to use WaLSAtools in a Jupyter notebook:**
 
 <style>
     .dropdown-container {
@@ -131,7 +145,20 @@ template: main.html
         font-size: 12px;
         color: #888;
     }
+    .walsa-gear {
+    border: 1px solid #ccc;
+    border-left: 5px solid #4caf50;
+    background: #f9f9f9;
+    padding: 1em;
+    margin: 1em 0;
+    }
+    .walsa-gear h3 {
+        margin-top: 0;
+        color: #4caf50;
+    }
 </style>
+<div class="walsa-gear">
+<h3>How to use WaLSAtools</h3>
 <div style="font-family: Arial, sans-serif; margin: 20px;">
 <div class="code-container">
     <!-- Line numbers -->
@@ -221,6 +248,7 @@ template: main.html
         <tbody id="parameterTableBody">
         </tbody>
     </table>
+</div>
 </div>
 </div>
 <script>
@@ -606,3 +634,7 @@ template: main.html
     });
 </script>
 
+??? source-code "Source code"
+    ``` python linenums="1" hl_lines="17"
+    --8<-- "codes/python/WaLSAtools/WaLSAtools.py"
+    ```
