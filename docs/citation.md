@@ -83,9 +83,9 @@ In addition, if you use any of the particular analysis techniques listed below, 
   }
   ``` 
 
-  [1]: pdf/Jess+2017_ApJ_842_59.pdf
+  [1]: https://iopscience.iop.org/article/10.3847/1538-4357/aa73d6/pdf
   [2]: http://adsabs.harvard.edu/abs/2017ApJ...842...59J
-  [3]: pdf/Stangalini+2021_A&A_649_A169.pdf
+  [3]: https://www.aanda.org/articles/aa/pdf/2021/05/aa40429-21.pdf
   [4]: https://ui.adsabs.harvard.edu/abs/2021A%26A...649A.169S/abstract
   [5]: https://WaLSA.team/LRSP
   [6]: https://ui.adsabs.harvard.edu/abs/2023LRSP...20....1J/abstract
