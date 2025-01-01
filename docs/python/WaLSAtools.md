@@ -149,12 +149,13 @@ Before diving into the interactive demonstration, we recommend familiarizing you
         border-left: 4px solid rgb(189, 26, 31); 
         background-color: rgba(255, 255, 255, 0.1);
         padding: 16px; 
-        border-radius: 5px; 
+        border-radius: 1px; 
         margin-bottom: 16px; 
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
 </style>
 <div class="walsa-gear-code">
-<div style="font-family: Arial, sans-serif; margin: 20px;">
+<div style="font-family: Arial, sans-serif; margin: 20px; font-size: 0.9em; line-height: 0.9em;">
 <div class="code-container">
     <!-- Line numbers -->
     <div class="line-numbers">
