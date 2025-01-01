@@ -108,7 +108,7 @@ HHT_power_spectrum_EEMD, HHT_significance_level_EEMD, HHT_freq_bins_EEMD, psd_sp
 HHT_power_spectrum_EEMD_normalized = 100 * HHT_power_spectrum_EEMD / np.max(HHT_power_spectrum_EEMD)
 HHT_significance_level_EEMD_normalized = 100 * HHT_significance_level_EEMD / np.max(HHT_power_spectrum_EEMD)
 
-```
+```plaintext
 
     Detrending and apodization complete.
     FFT processed.
