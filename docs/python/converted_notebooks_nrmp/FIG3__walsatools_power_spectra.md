@@ -21,7 +21,7 @@ Figures that are newly created, modified, or unrelated to the published article 
 This notebook and its code are provided "as is", without warranty of any kind, express or implied. Refer to the license for more details.
 
 
-```python
+```python linenums="1"
 import numpy as np
 from astropy.io import fits
 from WaLSAtools import WaLSAtools, walsa_detrend_apod
@@ -109,25 +109,23 @@ HHT_power_spectrum_EEMD_normalized = 100 * HHT_power_spectrum_EEMD / np.max(HHT_
 HHT_significance_level_EEMD_normalized = 100 * HHT_significance_level_EEMD / np.max(HHT_power_spectrum_EEMD)
 ```
 
+Detrending and apodization complete.
+FFT processed.
+Detrending and apodization complete.
+Lomb-Scargle processed.
+Detrending and apodization complete.
+Wavelet (morlet) processed.
+Detrending and apodization complete.
+Wavelet (dog) processed.
+Detrending and apodization complete.
+Wavelet (paul) processed.
+Welch processed.
+Detrending and apodization complete.
+EMD processed.
+Detrending and apodization complete.
+EEMD processed.
 
-    Detrending and apodization complete.
-    FFT processed.
-    Detrending and apodization complete.
-    Lomb-Scargle processed.
-    Detrending and apodization complete.
-    Wavelet (morlet) processed.
-    Detrending and apodization complete.
-    Wavelet (dog) processed.
-    Detrending and apodization complete.
-    Wavelet (paul) processed.
-    Welch processed.
-    Detrending and apodization complete.
-    EMD processed.
-    Detrending and apodization complete.
-    EEMD processed.
-
-
-```python
+```python linenums="1"
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
@@ -785,13 +783,13 @@ WaLSA_save_pdf(fig, pdf_path, color_mode='CMYK')
 plt.show()
 ```
 
-    GPL Ghostscript 10.04.0 (2024-09-18)
-    Copyright (C) 2024 Artifex Software, Inc.  All rights reserved.
-    This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:
-    see the file COPYING for details.
-    Processing pages 1 through 1.
-    Page 1
-    PDF saved in CMYK format as 'Figures/Fig3_power_spectra_1D_signal.pdf'
+GPL Ghostscript 10.04.0 (2024-09-18)
+Copyright (C) 2024 Artifex Software, Inc.  All rights reserved.
+This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:
+see the file COPYING for details.
+Processing pages 1 through 1.
+Page 1
+PDF saved in CMYK format as 'Figures/Fig3_power_spectra_1D_signal.pdf'
 
 ![png](/python/converted_notebooks_nrmp/FIG3__walsatools_power_spectra_files/FIG3__walsatools_power_spectra_2_1.png)
     
