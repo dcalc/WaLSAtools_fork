@@ -592,13 +592,13 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         }
         const command = `
             <div style="display: flex; align-items: baseline;">
-                <span style="color: #222; min-width: 4ch; margin: 0 !important; line-height: 1;">>>> </span>
+                <span style="color: #222; min-width: 4ch; margin: 0 !important; line-height: 1.5;">>>> </span>
                 <pre style="
                     white-space: pre-wrap; 
                     word-wrap: break-word;  
                     color: #01016D; 
                     margin: 0 !important;
-                    line-height: 1;
+                    line-height: 1.5;
                 ">${command1}</pre>
             </div>
         `;
