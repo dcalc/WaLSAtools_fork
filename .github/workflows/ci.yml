@@ -21,6 +21,6 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-jupyter
-      - run: pip install mkdocs-material
+      - run: pip install --no-cache-dir mkdocs-material mkdocs-jupyter
+      - run: pip freeze | grep mkdocs  # Debug: List installed mkdocs plugins
       - run: mkdocs gh-deploy --force

@@ -148,8 +148,8 @@ nav:
 
 # Plugins
 plugins:
-  - search
   - jupyter
+  - search
 #   - tags
 
 # Extensions
