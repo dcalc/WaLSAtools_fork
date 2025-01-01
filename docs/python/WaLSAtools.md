@@ -6,7 +6,7 @@ template: main.html
 
 WaLSAtools is designed for ease of use and accessibility. Its interactive interface guides you through the analysis process, providing clear instructions and helpful information at each step. This section demonstrates how to use WaLSAtools and highlights its key features.
 
-Before diving into the interactive demonstration, we recommend familiarizing yourself with the various analysis methods available in WaLSAtools. You can find detailed descriptions of these methods in the [Introduction](introduction.md) section. Additionally, the [Examples](examples.md) section provides worked examples of different analysis techniques applied to synthetic datasets.
+Before diving into the interactive demonstration, we recommend familiarizing yourself with the various analysis methods available in WaLSAtools. You can find detailed descriptions of these methods in the [Introduction](introduction.md) section. Additionally, the **Examples** section provides worked examples of different analysis techniques applied to synthetic datasets.
 
 !!! walsa-gear "Interactive Demonstration"
 
@@ -145,20 +145,15 @@ Before diving into the interactive demonstration, we recommend familiarizing you
         font-size: 12px;
         color: #888;
     }
-    .walsa-gear {
-    border: 1px solid #ccc;
-    border-left: 5px solid #4caf50;
-    background: #f9f9f9;
-    padding: 1em;
-    margin: 1em 0;
-    }
-    .walsa-gear h3 {
-        margin-top: 0;
-        color: #4caf50;
+    .walsa-gear-code {
+        border-left: 4px solid rgb(189, 26, 31); 
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 16px; 
+        border-radius: 5px; 
+        margin-bottom: 16px; 
     }
 </style>
-<div class="walsa-gear">
-<h3>How to use WaLSAtools</h3>
+<div class="walsa-gear-code">
 <div style="font-family: Arial, sans-serif; margin: 20px;">
 <div class="code-container">
     <!-- Line numbers -->
@@ -635,6 +630,6 @@ Before diving into the interactive demonstration, we recommend familiarizing you
 </script>
 
 ??? source-code "Source code"
-    ``` python linenums="1" hl_lines="17"
+    ``` python linenums="1"
     --8<-- "codes/python/WaLSAtools/WaLSAtools.py"
     ```
