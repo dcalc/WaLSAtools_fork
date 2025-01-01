@@ -8,87 +8,220 @@ template: main.html
 
 !!! walsa-gear "How to use WaLSAtools"
 
+    <style>
+        .dropdown-container {
+            margin-left: 30px;
+            margin-top: 20px;
+            font-size: 0.9em;
+            line-height: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .dropdown-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }   
+        select {
+            width: 270px;
+            height: 33px;
+            padding: 5px 10px;
+            font-size: 1em;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            background-color: #f9f9f9;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"%3E%3Cpath d="M1,4 L6,9 L11,4" fill="none" stroke="%23000" stroke-width="2.0" /%3E%3C/svg%3E');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px 12px;
+            cursor: pointer;
+        }
+        select:focus {
+            outline: none;
+            border-color: #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.6);
+        }
+        select:disabled {
+            background-color: #eaeaea;
+            cursor: not-allowed;
+        }   
+        .output-container {
+            margin-left: 30px;
+            margin-top: 5px;
+            padding: 0;
+            display: none; /* Hidden by default */
+        }
+        .parameters-table {
+            border-collapse: collapse;
+            border: 1px solid #222;
+            width: calc(100% - 30px);
+            box-sizing: border-box;
+            table-layout: auto;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        .parameters-table td {
+            border: 1px solid #222;
+            padding: 8px;
+            text-align: left;
+        }
+        .parameters-table th {
+            padding: 8px;
+            text-align: left;
+        }   
+        .code-container {
+            font-family: monospace;
+            position: relative;
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            margin-left: 30px; /* Align box to the right of the Execute button */
+            padding: 10px;
+            padding-left: 40px; /* For line numbers */
+            font-size: 14px;
+            line-height: 1.6;
+            display: inline-block;
+            width: calc(100% - 30px);
+            box-sizing: border-box;
+        }
+        .line-numbers {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #888;
+            text-align: right;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .execute-btn {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            left: -30px; /* Place the button outside the box */
+            top: 2px;
+        }
+        .execute-btn:hover {
+            background-color: #45a049;
+        }
+        .index-number {
+            position: absolute;
+            bottom: 0px;
+            left: -30px;
+            color: #888;
+            font-size: 12px;
+        }
+        .python-label {
+            position: absolute;
+            bottom: 2px;
+            right: 6px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
     <div style="font-family: Arial, sans-serif; margin: 20px;">
-        <div style="position: relative; background-color: #f7f7f7; border: 1px solid #ddd; margin-left: 30px; padding: 10px; padding-left: 40px; font-size: 14px; line-height: 1.6; display: inline-block; width: calc(100% - 30px); box-sizing: border-box; font-family: monospace;">
-            <div style="position: absolute; top: 10px; left: 10px; color: #888; text-align: right; line-height: 1.6; font-size: 14px;">
-                1<br>
-                2
-            </div>
-            <div>
-                <span style="color:DodgerBlue">from</span> WaLSAtools <span style="color:DodgerBlue">import</span> WaLSAtools<br>
-                WaLSAtools
-            </div>
-            <div style="position: absolute; bottom: 0px; left: -30px; color: #888; font-size: 12px;">[1]</div>
-            <div style="position: absolute; bottom: 2px; right: 6px; font-size: 12px; color: #888;">Python</div>
+    <div class="code-container">
+        <!-- Line numbers -->
+        <div class="line-numbers">
+            1<br>
+            2
         </div>
-        <div style="margin-left: 30px; margin-top: 20px;">
-            <img src="https://walsa.team/images/WaLSA_logo.png" style="width: 300px; height: auto;">
+        <!-- Code area -->
+        <div>
+            <span style="color:DodgerBlue">from</span> WaLSAtools <span style="color:DodgerBlue">import</span> WaLSAtools<br>
+            WaLSAtools
         </div>
-        <div style="margin-left: 30px; margin-top: 20px; font-size: 1em;">
-            <p>© WaLSA Team (<a href="https://www.WaLSA.team" target="_blank" style="color: #4169E1; text-decoration: none;">www.WaLSA.team</a>)</p>
-            <hr style="width: 70%; margin: 0; border: 0.98px solid #888; margin-bottom: 10px;">
-            <p><strong>WaLSAtools</strong> v1.0 - Wave analysis tools</p>
-            <p>Documentation: <a href="https://www.WaLSA.tools" target="_blank" style="color: #4169E1; text-decoration: none;">www.WaLSA.tools</a></p>
-            <p>GitHub repository: <a href="https://www.github.com/WaLSAteam/WaLSAtools" target="_blank" style="color: #4169E1; text-decoration: none;">www.github.com/WaLSAteam/WaLSAtools</a></p>
-            <hr style="width: 70%; margin: 0; border: 0.98px solid #888; margin-bottom: 10px;">
-            <p>If you use <strong>WaLSAtools</strong> in your research, please cite:</p>
-            <p>Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, <em>Nature Reviews Methods Primers</em>, in press</p>
-            <hr style="width: 70%; margin: 0; border: 0.98px solid #888; margin-bottom: 15px;">
-            <p>Choose a category, data type, and analysis method from the list below,</p>
-            <p>to get hints on the calling sequence and parameters:</p>
+        <!-- Execute button -->
+        <!-- <button class="execute-btn">▶</button> -->
+        <!-- Index number -->
+        <div class="index-number">[1]</div>  
+        <!-- Python label -->
+        <div class="python-label">Python</div>
+    </div>
+    <!-- Logo -->
+    <div style="margin-left: 30px; margin-top: 20px;">
+        <img src="https://walsa.team/images/WaLSA_logo.png" style="width: 300px; height: auto;">
+    </div>
+    <!-- Credits -->
+    <div style="margin-left: 30px; margin-top: 20px; font-size: 1.em;">
+        <p>© WaLSA Team (<a href="https://www.WaLSA.team" target="_blank" style="color: #4169E1; text-decoration: none;">www.WaLSA.team</a>)</p>
+        <hr style="width: 70%; margin: 0; border: 0.98px solid #888; margin-bottom: 10px;">
+        <p><strong>WaLSAtools</strong> v1.0 - Wave analysis tools</p>
+        <p>Documentation: <a href="https://www.WaLSA.tools" target="_blank" style="color: #4169E1; text-decoration: none;">www.WaLSA.tools</a></p>
+        <p>GitHub repository: <a href="https://www.github.com/WaLSAteam/WaLSAtools" target="_blank" style="color: #4169E1; text-decoration: none;">www.github.com/WaLSAteam/WaLSAtools</a></p>
+        <hr style="width: 70%; margin: 0; border: 0.98px solid #888; margin-bottom: 10px;">
+        <p>If you use <strong>WaLSAtools</strong> in your research, please cite:</p>
+        <p>Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, <em>Nature Reviews Methods Primers</em>, in press</p>
+        <hr style="width: 70%; margin: 0; border: 0.98px solid #888; margin-bottom: 15px;">
+        <p>Choose a category, data type, and analysis method from the list below,</p>
+        <p>to get hints on the calling sequence and parameters:</p>
+    </div>
+    <!-- Dropdown Menus -->
+    <div class="dropdown-container">
+        <div class="dropdown-row">
+            <label for="category" style="width: 90px !important; text-align: right !important;">Category:</label>
+            <select id="category">
+                <option value="">Select Category</option>
+                <option value="a">Single Time Series Analysis</option>
+                <option value="b">Cross-Correlation Between Two Time Series</option>
+            </select>
         </div>
-        <div style="margin-left: 30px; margin-top: 20px; font-size: 0.9em; line-height: 2; display: flex; flex-direction: column; gap: 10px;">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <label for="category" style="width: 90px; text-align: right;">Category:</label>
-                <select id="category" style="width: 270px; height: 33px; padding: 5px 10px; font-size: 1em; color: #333; border: 1px solid #ccc; border-radius: 2px; background-color: #f9f9f9; appearance: none; background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"%3E%3Cpath d="M1,4 L6,9 L11,4" fill="none" stroke="%23000" stroke-width="2.0" /%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 10px center; background-size: 12px 12px; cursor: pointer;">
-                    <option value="">Select Category</option>
-                    <option value="a">Single Time Series Analysis</option>
-                    <option value="b">Cross-Correlation Between Two Time Series</option>
-                </select>
-            </div>
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <label for="datatype" style="width: 90px; text-align: right;">Data Type:</label>
-                <select id="datatype" disabled style="width: 270px; height: 33px; padding: 5px 10px; font-size: 1em; color: #333; border: 1px solid #ccc; border-radius: 2px; background-color: #eaeaea; cursor: not-allowed;">
-                    <option value="">Select Data Type</option>
-                </select>
-            </div>
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <label for="analysisMethod" style="width: 90px; text-align: right;">Method:</label>
-                <select id="analysisMethod" disabled style="width: 270px; height: 33px; padding: 5px 10px; font-size: 1em; color: #333; border: 1px solid #ccc; border-radius: 2px; background-color: #eaeaea; cursor: not-allowed;">
-                    <option value="">Select Method</option>
-                </select>
-            </div>
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <label for="subMethod" id="subMethodLabel" style="display:none; width: 90px; text-align: right;">Sub-method:</label>
-                <select id="subMethod" style="display:none; width: 270px; height: 33px; padding: 5px 10px; font-size: 1em; color: #333; border: 1px solid #ccc; border-radius: 2px; background-color: #f9f9f9; appearance: none; background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"%3E%3Cpath d="M1,4 L6,9 L11,4" fill="none" stroke="%23000" stroke-width="2.0" /%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 10px center; background-size: 12px 12px; cursor: pointer;">
-                    <option value="">Select Sub-method</option>
-                    <option value="fft">FFT</option>
-                    <option value="wavelet">Wavelet</option>
-                    <option value="lombscargle">Lomb-Scargle</option>
-                    <option value="welch">Welch</option>
-                </select>
-            </div>
+        <div class="dropdown-row">
+            <label for="datatype" style="width: 90px !important; text-align: right !important;">Data Type:</label>
+            <select id="datatype" disabled>
+                <option value="">Select Data Type</option>
+            </select>
         </div>
-        <div id="dropdownMessage" style="margin-left: 30px; margin-top: 15px; font-size: 1.0em; display: none;">
-            Please select appropriate options from all dropdown menus.
-        </div>
-        <div style="margin-left: 30px; margin-top: 5px; padding: 0; display: none;" id="outputContainer">
-            <p style="font-size: 1.1em;">Calling Sequence:</p>
-            <span style="font-size: 1.16em !important; margin: 0 !important; padding: 0 !important;" id="callingSequence"></span>
-            <table style="border-collapse: collapse; border: 1px solid #222; width: calc(100% - 30px); box-sizing: border-box; table-layout: auto; margin-top: 20px; font-size: 0.9em;" class="parameters-table">
-                <thead>
-                    <tr style="background-color: #fff;">
-                        <th colspan="3" style="text-align: left; color: #000; font-size: 110%;">Parameters (**kwargs)</th>
-                    </tr>
-                    <tr style="background-color: #222;">
-                        <th style="color: #fff; border-right: 1px solid #ccc; text-align: left; white-space: nowrap;">Parameter</th>
-                        <th style="color: #fff; border-right: 1px solid #ccc; text-align: left; white-space: nowrap;">Type</th>
-                        <th style="color: #fff; text-align: left; width: 100%;">Description</th>
-                    </tr>
-                </thead>
-                <tbody id="parameterTableBody"></tbody>
-            </table>
-        </div>
+        <div class="dropdown-row">
+            <label for="analysisMethod" style="width: 90px !important; text-align: right !important;">Method:</label>
+            <select id="analysisMethod" disabled>
+                <option value="">Select Method</option>
+            </select>
+        </div>	
+        <div class="dropdown-row">
+            <label for="subMethod" id="subMethodLabel" style="width: 90px !important; text-align: right !important; display:none;">Sub-method:</label>
+            <select id="subMethod" style="display:none;">
+                <option value="">Select Sub-method</option>
+                <option value="fft">FFT</option>
+                <option value="wavelet">Wavelet</option>
+                <option value="lombscargle">Lomb-Scargle</option>
+                <option value="welch">Welch</option>
+            </select>
+        </div>	
+    </div>
+    <div id="dropdownMessage" style="margin-left: 30px; margin-top: 15px; font-size: 1.0em; display: none;">
+        Please select appropriate options from all dropdown menus.
+    </div>
+    <div class="output-container" id="outputContainer">
+        <p style="font-size: 1.1em;">Calling Sequence:</p>
+        <span id="callingSequence" style="font-size: 1.16em !important; margin: 0 !important; padding: 0 !important;"></span>
+
+        <table class="parameters-table">
+            <thead>
+                <tr style="background-color: #fff;"><th colspan="3" style="text-align: left; color: #000; font-size: 110%;">Parameters (**kwargs)</th></tr>
+                <tr style="background-color: #222;">
+                    <th style="color: #fff; border-right: 1px solid #ccc; text-align: left; white-space: nowrap;">Parameter</th>
+                    <th style="color: #fff; border-right: 1px solid #ccc; text-align: left; white-space: nowrap;">Type</th>
+                    <th style="color: #fff; text-align: left; width: 100%;">Description</th>
+                </tr>
+            </thead>
+            <tbody id="parameterTableBody">
+            </tbody>
+        </table>
+    </div>
     </div>
     <script>
         const parameters = {
@@ -397,13 +530,13 @@ template: main.html
             const datatype = datatypeDropdown.value;
             const analysisMethod = analysisMethodDropdown.value;
             const subMethod = subMethodDropdown.value;
-            const message = document.getElementById('dropdownMessage');       
+            const message = document.getElementById('dropdownMessage');      
             // Hide output and show a message if selections are incomplete
             if (!category || !datatype || !analysisMethod || (subMethodDropdown.style.display === 'inline-block' && !subMethod)) {
                 message.style.display = 'block';
                 hideOutput();
                 return;
-            }        
+            }      
             // Hide the message when all selections are made
             message.style.display = 'none';
             // Retrieve returnValues based on category and analysisMethod
@@ -467,7 +600,7 @@ template: main.html
                         <td>${value.description}</td>
                     </tr>`;
             });
-        }   
+        }    
         document.addEventListener('DOMContentLoaded', () => {
             updateOutput();
         });
