@@ -2,7 +2,7 @@
 template: main.html
 ---
 
-## Worked Example - NRMP: Power Spectra
+# Worked Example - NRMP: Power Spectra
 
 This example demonstrates the application of various spectral analysis techniques to a synthetic 1D signal constructed with predefined frequencies and amplitudes. The signal includes a range of oscillatory components with different characteristics, including:
 
