@@ -107,9 +107,9 @@ HHT_power_spectrum_EEMD, HHT_significance_level_EEMD, HHT_freq_bins_EEMD, psd_sp
 # Normalize power spectra to their maximum values
 HHT_power_spectrum_EEMD_normalized = 100 * HHT_power_spectrum_EEMD / np.max(HHT_power_spectrum_EEMD)
 HHT_significance_level_EEMD_normalized = 100 * HHT_significance_level_EEMD / np.max(HHT_power_spectrum_EEMD)
+```
 
 ```plaintext
-
     Detrending and apodization complete.
     FFT processed.
     Detrending and apodization complete.
@@ -125,8 +125,7 @@ HHT_significance_level_EEMD_normalized = 100 * HHT_significance_level_EEMD / np.
     EMD processed.
     Detrending and apodization complete.
     EEMD processed.
-
-
+```
 
 ```python
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
