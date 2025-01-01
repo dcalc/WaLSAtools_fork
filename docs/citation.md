@@ -6,16 +6,12 @@ template: main.html
 
 If you use **WaLSAtools** in your work, please cite it, as instructed below, in your publications/presentations.
 
-## Software Package :material-book-sync:
+## Main Article and Software Package :material-book-sync:
 
-- Jafarzadeh et al. 2024, WaLSAteam/WaLSAtools: v1.0, DOI: XX.XXXX/zenodo.XXXXXXX (to be created)
+- Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press
+- Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, WaLSAteam/WaLSAtools: v1.0, DOI: XX.XXXX/zenodo.XXXXXXX (to be created)
 
-
-## Scientific Articles :material-bookshelf:
-
-### Main articles
-
-- Jafarzadeh et al. 2024, Nature Reviews Methods Primers, in prep.
+## Other Relevant Scientific Articles :material-bookshelf:
 
 - **Waves in the lower solar atmosphere: the dawn of next-generation solar telescopes**: [Jess, D. B., Jafarzadeh, S., Keys, P. H., Stangalini, M., Verth G., Grant, S. D. T. 2023, Living Reviews in Solar Physics, 20, 1][5]{target=_blank} ([ADS][6]{target=_blank})
   ```latex

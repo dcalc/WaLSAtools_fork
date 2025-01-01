@@ -1,6 +1,6 @@
 # Project information
 site_name: WaLSA Analysis Tools
-site_description: Analysis tools for Waves in the Lower Solar Atmosphere (WaLSA)
+site_description: WaLSAtools – Wave Analysis Tools - is an open-source library for analysing a wide variety of wave phenomena in time series data, including images and multi-dimensional datasets.
 site_author: WaLSA Team (https://WaLSA.team)
 site_url: https://WaLSA.tools
 
@@ -10,7 +10,7 @@ repo_url: https://github.com/WaLSAteam/WaLSAtools
 edit_uri: tree/main/docs/
 
 # Copyright
-copyright: Copyright &copy; 2024 <a href="https://WaLSA.team" target="_blank">WaLSA Team</a>
+copyright: Copyright &copy; 2025 <a href="https://WaLSA.team" target="_blank">WaLSA Team</a>
 
 ## Social Media
 extra:
@@ -72,13 +72,13 @@ theme:
       accent: red
       toggle:
         icon: material/weather-sunny
-        name: IDL
+        name: Python
     - scheme: default 
       primary: deep-orange
       accent: red
       toggle:
         icon: material/weather-night
-        name: Python
+        name: IDL
 
   font:
     text: Roboto
@@ -121,11 +121,18 @@ nav:
   - Analysis Tools: 
     - python/WaLSAtools.md
     - Examples:
+    - Worked examples - NRMP:
         - Power Spectra: python/power-spectra-example.md
-        - k-&#969; Diagram and Filtering: python/k-omega-example.md
-        - B-&#969; Diagram: python/B-omega-example.md
         - Dominant Frequency: python/dominant-frequency-example.md
+        - k-&#969; and POD: python/k-omega-pod-example.md
         - Cross Correlations: python/cross-correlation-example.md
+        - EMD: python/emd-example.md
+        - EEMD: python/eemd-example.md
+        - k-&#969; analysis: python/k-omega-example.md
+        - POD analysis: python/pod-example.md
+        - POD eigenvalues: python/pod-eigenvalues-example.md
+        - POD filtering: python/pod-filtering-example.md
+        - SPOD analysis: python/spod-example.md
     - Under the Hood:
         - Main Routines: python/routines.md
         
