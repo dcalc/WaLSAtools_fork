@@ -4,9 +4,11 @@ template: main.html
 
 # WaLSAtools
 
-WaLSAtools is designed for ease of use and accessibility. Its interactive interface guides you through the analysis process, providing clear instructions and helpful information at each step. This section demonstrates how to use WaLSAtools and highlights its key features.
+**WaLSAtools** is designed for ease of use and accessibility. Its interactive interface guides you through the analysis process, providing clear instructions and helpful information at each step. This section demonstrates how to use WaLSAtools and highlights its key features.
 
-Before diving into the interactive demonstration, we recommend familiarizing yourself with the various analysis methods available in WaLSAtools. You can find detailed descriptions of these methods in the [Introduction](introduction.md) section. Additionally, the **Examples** section provides worked examples of different analysis techniques applied to synthetic datasets.
+Before diving into the interactive demonstration, we recommend familiarizing yourself with the various analysis methods available in WaLSAtools. You can find detailed descriptions of these methods in the [Introduction](introduction.md) section. Additionally, this page provides several **Worked Examples** of different analysis techniques applied to synthetic datasets (see the left menu). To learn more about its capabilities and how to apply it to your research, we encourage you to explore the WaLSAtools documentation, the associated *Nature Reviews Methods Primers* article, and the provided examples. If you use WaLSAtools in your work, please remember to cite it appropriately (see [Citation](citation.md)).
+
+The ["Under the Hood"](routines.md) section provides details on the individual routines used for wave analysis within the **WaLSAtools** package, for those interested in exploring the underlying code. However, we strongly encourage all users to perform their analyses by running WaLSAtools directly, as this ensures the correct execution of the analysis workflow and provides a more user-friendly experience.
 
 !!! walsa-gear "Interactive Demonstration"
 
@@ -230,7 +232,7 @@ Before diving into the interactive demonstration, we recommend familiarizing you
 </div>
 <div class="output-container" id="outputContainer">
     <p style="font-size: 1.0em;">Calling Sequence:</p>
-    <span id="callingSequence" style="font-size: 1.0em !important; margin: 0 !important; padding: 0 !important;"></span>
+    <span id="callingSequence" style="font-size: 0.95em !important; margin: 0 !important; padding: 0 !important;"></span>
     <table class="parameters-table">
         <thead>
             <tr style="background-color: #fff;"><th colspan="3" style="text-align: left; color: #000; font-size: 110%;">Parameters (**kwargs)</th></tr>
