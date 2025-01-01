@@ -48,8 +48,8 @@ By analyzing this synthetic signal with different methods, we can evaluate their
     See the source code below (or [here](https://github.com/WaLSAteam/WaLSAtools/blob/main/examples/python/Worked_examples__NRMP/FIG3__walsatools_power_spectra.ipynb) on Github) for a complete analyses and the plotting routines used to generate this figure.
 
     ??? source-code "Source code"
-        ``` python
-        --8<-- "docs/python/converted_notebooks_nrmp/FIG3__walsatools_power_spectra.md"
+        ``` markdown
+        {!docs/python/converted_notebooks_nrmp/FIG3__walsatools_power_spectra.md!}
         ```
 
 <br>
