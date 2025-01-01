@@ -121,18 +121,18 @@ nav:
   - Analysis Tools: 
     - python/WaLSAtools.md
     - Examples:
-    - Worked examples - NRMP:
-        - Power Spectra: python/power-spectra-example.md
-        - Dominant Frequency: python/dominant-frequency-example.md
-        - k-&#969; and POD: python/k-omega-pod-example.md
-        - Cross Correlations: python/cross-correlation-example.md
-        - EMD: python/emd-example.md
-        - EEMD: python/eemd-example.md
-        - k-&#969; analysis: python/k-omega-example.md
-        - POD analysis: python/pod-example.md
-        - POD eigenvalues: python/pod-eigenvalues-example.md
-        - POD filtering: python/pod-filtering-example.md
-        - SPOD analysis: python/spod-example.md
+      - Worked examples - NRMP:
+          - Power Spectra: python/power-spectra-example.md
+          - Dominant Frequency: python/dominant-frequency-example.md
+          - k-&#969; and POD: python/k-omega-pod-example.md
+          - Cross Correlations: python/cross-correlation-example.md
+          - EMD: python/emd-example.md
+          - EEMD: python/eemd-example.md
+          - k-&#969; analysis: python/k-omega-example.md
+          - POD analysis: python/pod-example.md
+          - POD eigenvalues: python/pod-eigenvalues-example.md
+          - POD filtering: python/pod-filtering-example.md
+          - SPOD analysis: python/spod-example.md
     - Under the Hood:
         - Main Routines: python/routines.md
         
