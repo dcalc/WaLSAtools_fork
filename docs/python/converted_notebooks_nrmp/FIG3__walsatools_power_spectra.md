@@ -1,6 +1,4 @@
 
-## Copyright Notice
-
 © 2025 WaLSA Team - Shahin Jafarzadeh et al.
 
 This notebook is part of the [WaLSAtools](https://github.com/WaLSAteam/WaLSAtools) package (v1.0), provided under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
@@ -9,8 +7,7 @@ You may use, modify, and distribute this notebook and its contents under the ter
 
 ---
 
-### **Important Note on Figures**
-Figures generated using this notebook that are **identical to or derivative of those published in**:  
+**Important Note on Figures**: Figures generated using this notebook that are **identical to or derivative of those published in**:  
 **Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press**,  
 are copyrighted by ***Nature Reviews Methods Primers***. Any reuse of such figures requires explicit permission from the journal.
 
@@ -18,8 +15,7 @@ Figures that are newly created, modified, or unrelated to the published article 
 
 ---
 
-### **Disclaimer**
-This notebook and its code are provided "as is", without warranty of any kind, express or implied. Refer to the license for more details.
+**Disclaimer**: This notebook and its code are provided "as is", without warranty of any kind, express or implied. Refer to the license for more details.
 
 
 ```python linenums="1" hl_lines="40 41 46 47 52 53 54 57 58 59 62 63 64 67 68 73 74 75 80 81 82"
