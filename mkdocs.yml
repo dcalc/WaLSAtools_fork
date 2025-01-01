@@ -150,6 +150,8 @@ nav:
 plugins:
   - search
   - mkdocs-jupyter
+      include: ["examples/python/Worked_examples__NRMP/*.ipynb"]
+      ignore: ["*.py"]
       execute: true
       allow_errors: false
 #   - tags
