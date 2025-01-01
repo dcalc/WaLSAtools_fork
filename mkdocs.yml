@@ -150,6 +150,8 @@ nav:
 plugins:
   - search
   - mkdocs-jupyter
+      execute: true
+      allow_errors: false
 #   - tags
 
 # Extensions
