@@ -797,6 +797,6 @@ plt.show()
 
 
     
-![png](FIG3__walsatools_power_spectra_files/FIG3__walsatools_power_spectra_2_1.png)
+![png](/python/converted_notebooks_nrmp/FIG3__walsatools_power_spectra_files/FIG3__walsatools_power_spectra_2_1.png)
     
 
