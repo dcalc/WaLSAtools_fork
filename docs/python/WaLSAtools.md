@@ -22,7 +22,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
 
     The interface will then provide information on the selected method, including its calling sequence, input parameters, and expected outputs.
 
-    **Here's an example of how to use WaLSAtools in a Jupyter notebook:**
+    **Here's an example of the execution of WaLSAtools in a Jupyter notebook:**
 
 <style>
     .dropdown-container {
@@ -215,7 +215,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         <select id="analysisMethod" disabled>
             <option value="">Select Method</option>
         </select>
-    </div>	
+    </div>
     <div class="dropdown-row">
         <label for="subMethod" id="subMethodLabel" style="width: 90px !important; text-align: right !important; display:none;">Sub-method:</label>
         <select id="subMethod" style="display:none;">
@@ -225,7 +225,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
             <option value="lombscargle">Lomb-Scargle</option>
             <option value="welch">Welch</option>
         </select>
-    </div>	
+    </div>
 </div>
 <div id="dropdownMessage" style="margin-left: 30px; margin-top: 15px; font-size: 0.9em; display: none;">
     Please select appropriate options from all dropdown menus.
@@ -586,13 +586,14 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
             }
         }
         const command = `
-            <div style="display: flex;">
-                <span style="color: #222; min-width: 4ch; margin: 0 !important;">>>> </span>
+            <div style="display: flex; align-items: baseline;">
+                <span style="color: #222; min-width: 4ch; margin: 0 !important; line-height: 1;">>>> </span>
                 <pre style="
                     white-space: pre-wrap; 
                     word-wrap: break-word;  
                     color: #01016D; 
                     margin: 0 !important;
+                    line-height: 1;
                 ">${command1}</pre>
             </div>
         `;
