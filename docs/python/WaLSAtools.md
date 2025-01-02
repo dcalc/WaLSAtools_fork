@@ -531,7 +531,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
             resetDropdown(subMethodDropdown, "Select Sub-method");
             subMethodDropdown.style.display = 'none';
             subMethodLabel.style.display = 'none';
-            subMethodDropdown.disabled = true;
+            subMethodDropdown.disabled = false;
             clearOutput();          
             if (
                 category === 'a' &&
