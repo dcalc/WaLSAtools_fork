@@ -249,12 +249,13 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
 </div>
 </div>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        if (!sessionStorage.getItem('visited')) {
-            sessionStorage.setItem('visited', 'true');
-            location.reload();
+    // Ensure proper initialization after page load
+    setTimeout(() => {
+        const category = document.getElementById('category');
+        if (category) {
+            category.dispatchEvent(new Event('change'));
         }
-    });
+    }, 50); // Delay of 50ms to allow DOM and scripts to fully load
     const parameters = {
         single_series: {
             fft: {
