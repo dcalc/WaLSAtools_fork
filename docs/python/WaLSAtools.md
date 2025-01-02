@@ -249,6 +249,12 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
 </div>
 </div>
 <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (!sessionStorage.getItem('visited')) {
+            sessionStorage.setItem('visited', 'true');
+            location.reload();
+        }
+    });
     const parameters = {
         single_series: {
             fft: {
