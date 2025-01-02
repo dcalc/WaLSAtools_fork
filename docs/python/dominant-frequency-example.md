@@ -25,6 +25,6 @@ This example demonstrates the application of dominant frequency analysis to a sy
     **Figure Caption:** Dominant frequency maps and mean power spectra. Top row: Dominant frequency maps derived using FFT (left), Morlet-based RGWS (middle), and Paul-based RGWS (right). Bottom panel: Normalized mean power spectra for FFT (blue), Morlet-based RGWS (red), and Paul-based RGWS (black).
 
     ??? source-code "Source code"
-        {% include-markdown "python/converted_notebooks_nrmp/FIG4__dominant_frequency__mean_spectra_files.md" %}
+        {% include-markdown "python/converted_notebooks_nrmp/FIG4__dominant_frequency__mean_spectra.md" %}
 
 <br>
