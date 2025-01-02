@@ -470,19 +470,8 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         parameterTableBody.innerHTML = '';
         hideOutput();
     }
-    function removeListeners() {
-        categoryDropdown.replaceWith(categoryDropdown.cloneNode(true));
-        datatypeDropdown.replaceWith(datatypeDropdown.cloneNode(true));
-        analysisMethodDropdown.replaceWith(analysisMethodDropdown.cloneNode(true));
-        subMethodDropdown.replaceWith(subMethodDropdown.cloneNode(true));
-        // Re-select elements
-        categoryDropdown = document.getElementById('category');
-        datatypeDropdown = document.getElementById('datatype');
-        analysisMethodDropdown = document.getElementById('analysisMethod');
-        subMethodDropdown = document.getElementById('subMethod');
-    }
     document.addEventListener('DOMContentLoaded', () => {
-        removeListeners(); // Clear existing listeners
+        updateOutput(); // Ensure initial output is updated
         // Attach event listeners
         categoryDropdown.addEventListener('change', () => {
             const category = categoryDropdown.value;
@@ -493,7 +482,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
             subMethodLabel.style.display = 'none';
             clearOutput();
             if (category) {
-                datatypeDropdown.disabled = false;
+                datatypeDropdown.disabled = false; // Enable the next dropdown
                 if (category === 'a') {
                     datatypeDropdown.innerHTML += `
                         <option value="1">1D Signal</option>
