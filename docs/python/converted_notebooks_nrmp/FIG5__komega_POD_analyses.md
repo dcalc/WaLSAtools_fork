@@ -18,7 +18,7 @@ Figures that are newly created, modified, or unrelated to the published article 
 **Disclaimer**: This notebook and its code are provided "as is", without warranty of any kind, express or implied. Refer to the license for more details.
 
 
-```python
+```python linenums="1"
 import numpy as np
 from astropy.io import fits
 
@@ -49,7 +49,7 @@ frequency_filtered_modes = fits.getdata('Saved_Parameters/POD_first_6_frequency_
 ```
 
 
-```python
+```python linenums="1"
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import AutoMinorLocator
@@ -267,17 +267,15 @@ WaLSA_save_pdf(fig, pdf_path, color_mode='CMYK', dpi=300, bbox_inches='tight', p
 plt.show()
 ```
 
-    GPL Ghostscript 10.04.0 (2024-09-18)
-    Copyright (C) 2024 Artifex Software, Inc.  All rights reserved.
-    This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:
-    see the file COPYING for details.
-    Processing pages 1 through 1.
-    Page 1
-    PDF saved in CMYK format as 'Figures/Fig5_k-omega_and_pod_analyses.pdf'
-
-
+GPL Ghostscript 10.04.0 (2024-09-18)<br>
+Copyright (C) 2024 Artifex Software, Inc.  All rights reserved.<br>
+This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:<br>
+see the file COPYING for details.<br>
+Processing pages 1 through 1.<br>
+Page 1<br>
+PDF saved in CMYK format as 'Figures/Fig5_k-omega_and_pod_analyses.pdf'
 
     
-![png](FIG5__komega_POD_analyses_files/FIG5__komega_POD_analyses_2_1.png)
+![png](/python/converted_notebooks_nrmp/FIG5__komega_POD_analyses_files/FIG5__komega_POD_analyses_2_1.png)
     
 

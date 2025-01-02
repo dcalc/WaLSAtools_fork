@@ -258,6 +258,6 @@ Page 1<br>
 PDF saved in CMYK format as 'Figures/Fig4_dominant_frequency_mean_power_spectra.pdf'
 
     
-![png](FIG4__dominant_frequency__mean_spectra_files/FIG4__dominant_frequency__mean_spectra_2_1.png)
+![png](/python/converted_notebooks_nrmp/FIG4__dominant_frequency__mean_spectra_files/FIG4__dominant_frequency__mean_spectra_2_1.png)
     
 

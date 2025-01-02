@@ -18,7 +18,7 @@ Figures that are newly created, modified, or unrelated to the published article 
 **Disclaimer**: This notebook and its code are provided "as is", without warranty of any kind, express or implied. Refer to the license for more details.
 
 
-```python
+```python linenums="1"
 import numpy as np
 from astropy.io import fits
 from WaLSAtools import WaLSAtools, walsa_detrend_apod
@@ -73,22 +73,21 @@ signal_1d_data1 = walsa_detrend_apod(signal_1d_data1, apod=0.1, pxdetrend=2, sil
 signal_1d_data2 = walsa_detrend_apod(signal_1d_data2, apod=0.1, pxdetrend=2, silent=True)
 ```
 
-    Welch processed.
-    Welch processed.
-    Detrending and apodization complete.
-    Wavelet (morlet) processed.
-    Detrending and apodization complete.
-    Wavelet (morlet) processed.
-    Wavelet cross-power spectrum calculated.
-    
-    Calculating wavelet cross-power significance:
-    Progress: 100.00%Wavelet coherence calculated.
-    
-    Calculating wavelet coherence significance:
-    Progress: 100.00%
+Welch processed.<br>
+Welch processed.<br>
+Detrending and apodization complete.<br>
+Wavelet (morlet) processed.<br>
+Detrending and apodization complete.<br>
+Wavelet (morlet) processed.<br>
+Wavelet cross-power spectrum calculated.<br>
+<br>
+Calculating wavelet cross-power significance:<br>
+Progress: 100.00%Wavelet coherence calculated.<br>
+<br>
+Calculating wavelet coherence significance:<br>
+Progress: 100.00%
 
-
-```python
+```python linenums="1"
 import matplotlib.pyplot as plt
 from matplotlib.ticker import AutoMinorLocator
 from matplotlib.colors import ListedColormap
@@ -908,23 +907,19 @@ WaLSA_save_pdf(fig, pdf_path, color_mode='CMYK')
 plt.show()
 ```
 
-    GPL Ghostscript 10.04.0 (2024-09-18)
-    Copyright (C) 2024 Artifex Software, Inc.  All rights reserved.
-    This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:
-    see the file COPYING for details.
-    Processing pages 1 through 1.
-    Page 1
-    PDF saved in CMYK format as 'Figures/Fig6_cross-correlations_FFT_Wavelet.pdf'
-
-
+GPL Ghostscript 10.04.0 (2024-09-18)<br>
+Copyright (C) 2024 Artifex Software, Inc.  All rights reserved.<br>
+This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:<br>
+see the file COPYING for details.<br>
+Processing pages 1 through 1.<br>
+Page 1<br>
+PDF saved in CMYK format as 'Figures/Fig6_cross-correlations_FFT_Wavelet.pdf'
 
     
-![png](FIG6__cross_correlation_files/FIG6__cross_correlation_2_1.png)
-    
+![png](/python/converted_notebooks_nrmp/FIG6__cross_correlation_files/FIG6__cross_correlation_2_1.png)
 
 
-
-```python
+```python linenums="1"
 # Test how the arrows reprenest phase angles:
 # We should note that the phase angle (u, v) might not match exactly the same points where the arrows are being plotted. 
 # This happens because the wavelet power spectrum and phase angle arrays have a much finer grid resolution than the arrow grid.
@@ -992,14 +987,10 @@ plt.quiver(
 plt.show()
 ```
 
-
-    
-![png](FIG6__cross_correlation_files/FIG6__cross_correlation_3_0.png)
-    
+![png](/python/converted_notebooks_nrmp/FIG6__cross_correlation_files/FIG6__cross_correlation_3_0.png)
 
 
-
-```python
+```python linenums="1"
 # Plot Wavelet coherence spectrum 
 # Test: plot denser arrows within significance areas
 
@@ -1129,11 +1120,6 @@ ax_inset_j.quiver(t[::25], periods[::5], u_sig[::5, ::25], v_sig[::5, ::25], uni
 
 plt.show()
 ```
-
-
     
-![png](FIG6__cross_correlation_files/FIG6__cross_correlation_4_0.png)
-    
-
-
+![png](/python/converted_notebooks_nrmp/FIG6__cross_correlation_files/FIG6__cross_correlation_4_0.png)
 
