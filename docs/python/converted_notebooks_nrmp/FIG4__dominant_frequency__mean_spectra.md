@@ -1,4 +1,3 @@
-# Copyright Notice
 
 © 2025 WaLSA Team - Shahin Jafarzadeh et al.
 
@@ -8,20 +7,18 @@ You may use, modify, and distribute this notebook and its contents under the ter
 
 ---
 
-### **Important Note on Figures**
-Figures generated using this notebook that are **identical to or derivative of those published in**:  
-**Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, ***Nature Reviews Methods Primers***, in press**,  
+**Important Note on Figures**: Figures generated using this notebook that are **identical to or derivative of those published in**:  
+**Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press**,  
 are copyrighted by ***Nature Reviews Methods Primers***. Any reuse of such figures requires explicit permission from the journal.
 
 Figures that are newly created, modified, or unrelated to the published article may be used under the terms of the Apache License.
 
 ---
 
-### **Disclaimer**
-This notebook and its code are provided "as is", without warranty of any kind, express or implied. Refer to the license for more details.
+**Disclaimer**: This notebook and its code are provided "as is", without warranty of any kind, express or implied. Refer to the license for more details.
 
 
-```python
+```python linenums="1"
 import numpy as np
 from astropy.io import fits
 from WaLSAtools import WaLSAtools, WaLSA_save_pdf, WaLSA_histo_opt
@@ -79,25 +76,22 @@ Paul_dominant_frequency, Paul_averaged_power, Paul_frequencies, Paul_pm = WaLSAt
 )
 # Normalize RGWS-Paul averaged power to its maximum value
 Paul_averaged_power_normalized = 100 * Paul_averaged_power / np.max(Paul_averaged_power)
-
 ```
 
-    Processing FFT for a 3D cube with format 'txy' and shape (200, 130, 130).
-    Calculating Dominant frequencies and/or averaged power spectrum (FFT) ....
-    Progress: 100.00%
-    Analysis completed.
-    Processing Wavelet for a 3D cube with format 'txy' and shape (200, 130, 130).
-    Calculating Dominant frequencies and/or averaged power spectrum (Wavelet) ....
-    Progress: 100.00%
-    Analysis completed.
-    Processing Wavelet for a 3D cube with format 'txy' and shape (200, 130, 130).
-    Calculating Dominant frequencies and/or averaged power spectrum (Wavelet) ....
-    Progress: 100.00%
-    Analysis completed.
+Processing FFT for a 3D cube with format 'txy' and shape (200, 130, 130).<br>
+Calculating Dominant frequencies and/or averaged power spectrum (FFT) ....<br>
+Progress: 100.00%<br>
+Analysis completed.<br>
+Processing Wavelet for a 3D cube with format 'txy' and shape (200, 130, 130).<br>
+Calculating Dominant frequencies and/or averaged power spectrum (Wavelet) ....<br>
+Progress: 100.00%<br>
+Analysis completed.<br>
+Processing Wavelet for a 3D cube with format 'txy' and shape (200, 130, 130).<br>
+Calculating Dominant frequencies and/or averaged power spectrum (Wavelet) ....<br>
+Progress: 100.00%<br>
+Analysis completed.
 
-
-
-```python
+```python linenums="1"
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.ticker import AutoMinorLocator
@@ -253,18 +247,15 @@ pdf_path = 'Figures/Fig4_dominant_frequency_mean_power_spectra.pdf'
 WaLSA_save_pdf(fig, pdf_path, color_mode='CMYK')
 
 plt.show()
-
 ```
 
-    GPL Ghostscript 10.04.0 (2024-09-18)
-    Copyright (C) 2024 Artifex Software, Inc.  All rights reserved.
-    This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:
-    see the file COPYING for details.
-    Processing pages 1 through 1.
-    Page 1
-    PDF saved in CMYK format as 'Figures/Fig4_dominant_frequency_mean_power_spectra.pdf'
-
-
+GPL Ghostscript 10.04.0 (2024-09-18)<br>
+Copyright (C) 2024 Artifex Software, Inc.  All rights reserved.<br>
+This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:<br>
+see the file COPYING for details.<br>
+Processing pages 1 through 1.<br>
+Page 1<br>
+PDF saved in CMYK format as 'Figures/Fig4_dominant_frequency_mean_power_spectra.pdf'
 
     
 ![png](FIG4__dominant_frequency__mean_spectra_files/FIG4__dominant_frequency__mean_spectra_2_1.png)

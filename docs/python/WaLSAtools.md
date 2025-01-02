@@ -523,6 +523,8 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
             }
             updateOutput();
         });
+        // Trigger the `change` event for the first dropdown
+        categoryDropdown.dispatchEvent(new Event('change'));
         analysisMethodDropdown.addEventListener('change', () => {
             const category = categoryDropdown.value;
             const datatype = datatypeDropdown.value;
@@ -637,15 +639,6 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
     }    
     document.addEventListener('DOMContentLoaded', () => {
         updateOutput();
-    });
-    document.addEventListener('turbolinks:load', () => {
-        // Reset dropdowns and clear outputs when revisiting the page
-        resetDropdown(datatypeDropdown, "Select Data Type");
-        resetDropdown(analysisMethodDropdown, "Select Method");
-        resetDropdown(subMethodDropdown, "Select Sub-method");
-        subMethodDropdown.style.display = 'none';
-        subMethodLabel.style.display = 'none';
-        clearOutput();
     });
 </script>
 
