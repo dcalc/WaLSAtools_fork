@@ -471,8 +471,9 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         hideOutput();
     }
     document.addEventListener('DOMContentLoaded', () => {
-        // Function to initialize dropdowns
-        function initializeDropdowns() {
+        updateOutput();
+        // Attach event listeners
+        categoryDropdown.addEventListener('change', () => {
             const category = categoryDropdown.value;
             resetDropdown(datatypeDropdown, "Select Data Type");
             resetDropdown(analysisMethodDropdown, "Select Method");
@@ -481,7 +482,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
             subMethodLabel.style.display = 'none';
             clearOutput();
             if (category) {
-                datatypeDropdown.disabled = false; // Enable the next dropdown
+                datatypeDropdown.disabled = false;
                 if (category === 'a') {
                     datatypeDropdown.innerHTML += `
                         <option value="1">1D Signal</option>
@@ -491,9 +492,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
                 }
             }
             updateOutput();
-        }
-        // Attach event listeners
-        categoryDropdown.addEventListener('change', initializeDropdowns);
+        });
         datatypeDropdown.addEventListener('change', () => {
             const category = categoryDropdown.value;
             const datatype = datatypeDropdown.value;
@@ -501,7 +500,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
             resetDropdown(subMethodDropdown, "Select Sub-method");
             subMethodDropdown.style.display = 'none';
             subMethodLabel.style.display = 'none';
-            clearOutput();         
+            clearOutput();
             if (datatype) {
                 analysisMethodDropdown.disabled = false;
                 if (category === 'a' && datatype === '1') {
@@ -531,8 +530,8 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
             resetDropdown(subMethodDropdown, "Select Sub-method");
             subMethodDropdown.style.display = 'none';
             subMethodLabel.style.display = 'none';
-            subMethodDropdown.disabled = false;
-            clearOutput();          
+            subMethodDropdown.disabled = true;
+            clearOutput();
             if (
                 category === 'a' &&
                 datatype === '2' &&
@@ -551,8 +550,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
             updateOutput();
         });
         subMethodDropdown.addEventListener('change', updateOutput);
-        // Initialize dropdowns on page load
-        initializeDropdowns();
+        updateOutput();
     });
     // Update Output Container
     function updateOutput() {
