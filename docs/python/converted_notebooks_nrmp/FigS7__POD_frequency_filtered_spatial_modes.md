@@ -18,7 +18,7 @@ Figures that are newly created, modified, or unrelated to the published article 
 **Disclaimer**: This notebook and its code are provided "as is", without warranty of any kind, express or implied. Refer to the license for more details.
 
 
-```python
+```python linenums="1"
 from astropy.io import fits
 from WaLSAtools import WaLSAtools, WaLSA_save_pdf
 
@@ -43,45 +43,42 @@ pod_results = WaLSAtools(
 )
 ```
 
-    Starting POD analysis ....
-    Processing a 3D cube with shape (200, 130, 130).
-    POD analysis completed.
-    Top 10 frequencies and normalized power values:
-    [[0.1, 1.0], [0.15, 0.7], [0.25, 0.61], [0.2, 0.54], [0.3, 0.47], [0.5, 0.39], [0.35, 0.32], [0.4, 0.25], [0.45, 0.24], [0.55, 0.18]]
-    Total variance contribution of the first 10 modes: 96.01%
-    
-    ---- POD/SPOD Results Summary ----
-    
-    input_data (ndarray, Shape: (200, 130, 130)): Original input data, mean subtracted (Shape: (Nt, Ny, Nx))
-    spatial_mode (ndarray, Shape: (200, 130, 130)): Reshaped spatial modes matching the dimensions of the input data (Shape: (Nmodes, Ny, Nx))
-    temporal_coefficient (ndarray, Shape: (200, 200)): Temporal coefficients associated with each spatial mode (Shape: (Nmodes, Nt))
-    eigenvalue (ndarray, Shape: (200,)): Eigenvalues corresponding to singular values squared (Shape: (Nmodes))
-    eigenvalue_contribution (ndarray, Shape: (200,)): Eigenvalue contribution of each mode (Shape: (Nmodes))
-    cumulative_eigenvalues (list, Shape: (50,)): Cumulative percentage of eigenvalues for the first "num_cumulative_modes" modes (Shape: (num_cumulative_modes))
-    combined_welch_psd (ndarray, Shape: (8193,)): Combined Welch power spectral density for the temporal coefficients of the firts "num_modes" modes (Shape: (Nf))
-    frequencies (ndarray, Shape: (8193,)): Frequencies identified in the Welch spectrum (Shape: (Nf))
-    combined_welch_significance (ndarray, Shape: (8193,)): Significance threshold of the combined Welch spectrum (Shape: (Nf,))
-    reconstructed (ndarray, Shape: (130, 130)): Reconstructed frame at the specified timestep using the top "num_modes" modes (Shape: (Ny, Nx))
-    sorted_frequencies (ndarray, Shape: (21,)): Frequencies identified in the Welch combined power spectrum (Shape: (Nfrequencies))
-    frequency_filtered_modes (ndarray, Shape: (200, 130, 130, 10)): Frequency-filtered spatial POD modes for the first "num_top_frequencies" frequencies (Shape: (Nt, Ny, Nx, num_top_frequencies))
-    frequency_filtered_modes_frequencies (list, Shape: (10,)): Frequencies corresponding to the frequency-filtered modes (Shape: (num_top_frequencies))
-    SPOD_spatial_modes (NoneType, Shape: None): SPOD spatial modes if SPOD is used (Shape: (Nspod_modes, Ny, Nx))
-    SPOD_temporal_coefficients (NoneType, Shape: None): SPOD temporal coefficients if SPOD is used (Shape: (Nspod_modes, Nt))
-    p (ndarray, Shape: (16900, 200)): Left singular vectors (spatial modes) from SVD (Shape: (Nx, Nmodes))
-    s (ndarray, Shape: (200,)): Singular values from SVD (Shape: (Nmodes))
-    a (ndarray, Shape: (200, 200)): Right singular vectors (temporal coefficients) from SVD (Shape: (Nmodes, Nt))
-    
-    ----------------------------------
+Starting POD analysis ....<br>
+Processing a 3D cube with shape (200, 130, 130).<br>
+POD analysis completed.<br>
+Top 10 frequencies and normalized power values:<br>
+[[0.1, 1.0], [0.15, 0.7], [0.25, 0.61], [0.2, 0.54], [0.3, 0.47], [0.5, 0.39], [0.35, 0.32], [0.4, 0.25], [0.45, 0.24], [0.55, 0.18]]<br>
+Total variance contribution of the first 10 modes: 96.01%<br>
+<br>
+---- POD/SPOD Results Summary ----<br>
+<br>
+input_data (ndarray, Shape: (200, 130, 130)): Original input data, mean subtracted (Shape: (Nt, Ny, Nx))<br>
+spatial_mode (ndarray, Shape: (200, 130, 130)): Reshaped spatial modes matching the dimensions of the input data (Shape: (Nmodes, Ny, Nx))<br>
+temporal_coefficient (ndarray, Shape: (200, 200)): Temporal coefficients associated with each spatial mode (Shape: (Nmodes, Nt))<br>
+eigenvalue (ndarray, Shape: (200,)): Eigenvalues corresponding to singular values squared (Shape: (Nmodes))<br>
+eigenvalue_contribution (ndarray, Shape: (200,)): Eigenvalue contribution of each mode (Shape: (Nmodes))<br>
+cumulative_eigenvalues (list, Shape: (50,)): Cumulative percentage of eigenvalues for the first "num_cumulative_modes" modes (Shape: (num_cumulative_modes))<br>
+combined_welch_psd (ndarray, Shape: (8193,)): Combined Welch power spectral density for the temporal coefficients of the firts "num_modes" modes (Shape: (Nf))<br>
+frequencies (ndarray, Shape: (8193,)): Frequencies identified in the Welch spectrum (Shape: (Nf))<br>
+combined_welch_significance (ndarray, Shape: (8193,)): Significance threshold of the combined Welch spectrum (Shape: (Nf,))<br>
+reconstructed (ndarray, Shape: (130, 130)): Reconstructed frame at the specified timestep using the top "num_modes" modes (Shape: (Ny, Nx))<br>
+sorted_frequencies (ndarray, Shape: (21,)): Frequencies identified in the Welch combined power spectrum (Shape: (Nfrequencies))<br>
+frequency_filtered_modes (ndarray, Shape: (200, 130, 130, 10)): Frequency-filtered spatial POD modes for the first "num_top_frequencies" frequencies (Shape: (Nt, Ny, Nx, num_top_frequencies))<br>
+frequency_filtered_modes_frequencies (list, Shape: (10,)): Frequencies corresponding to the frequency-filtered modes (Shape: (num_top_frequencies))<br>
+SPOD_spatial_modes (NoneType, Shape: None): SPOD spatial modes if SPOD is used (Shape: (Nspod_modes, Ny, Nx))<br>
+SPOD_temporal_coefficients (NoneType, Shape: None): SPOD temporal coefficients if SPOD is used (Shape: (Nspod_modes, Nt))<br>
+p (ndarray, Shape: (16900, 200)): Left singular vectors (spatial modes) from SVD (Shape: (Nx, Nmodes))<br>
+s (ndarray, Shape: (200,)): Singular values from SVD (Shape: (Nmodes))<br>
+a (ndarray, Shape: (200, 200)): Right singular vectors (temporal coefficients) from SVD (Shape: (Nmodes, Nt))<br>
+<br>
+----------------------------------
 
-
-
-```python
+```python linenums="1"
 frequency_filtered_modes = pod_results['frequency_filtered_modes']
 frequency_filtered_modes_frequencies = pod_results['frequency_filtered_modes_frequencies']
 ```
 
-
-```python
+```python linenums="1"
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec 
@@ -192,26 +189,21 @@ pdf_path = 'Figures/FigS7_POD_frequency_filtered_spatial_modes.pdf'
 WaLSA_save_pdf(figure, pdf_path, color_mode='CMYK', dpi=300, bbox_inches='tight', pad_inches=0)
 
 plt.show()
-
 ```
 
-    GPL Ghostscript 10.04.0 (2024-09-18)
-    Copyright (C) 2024 Artifex Software, Inc.  All rights reserved.
-    This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:
-    see the file COPYING for details.
-    Processing pages 1 through 1.
-    Page 1
-    PDF saved in CMYK format as 'Figures/FigS7_POD_frequency_filtered_spatial_modes.pdf'
+GPL Ghostscript 10.04.0 (2024-09-18)<br>
+Copyright (C) 2024 Artifex Software, Inc.  All rights reserved.<br>
+This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:<br>
+see the file COPYING for details.<br>
+Processing pages 1 through 1.<br>
+Page 1<br>
+PDF saved in CMYK format as 'Figures/FigS7_POD_frequency_filtered_spatial_modes.pdf'
 
 
-
-    
-![png](FigS7__POD_frequency_filtered_spatial_modes_files/FigS7__POD_frequency_filtered_spatial_modes_3_1.png)
-    
+![png](/python/converted_notebooks_nrmp/FigS7__POD_frequency_filtered_spatial_modes_files/FigS7__POD_frequency_filtered_spatial_modes_3_1.png)
 
 
-
-```python
+```python linenums="1"
 # Save the first six frames of the frequency-filtered POD reconstruction at 0.5 Hz (500 mHz), as a FITS file.
 # To be used in Figure 5 of the Nature Reviews Methods Primers paper
 
@@ -224,8 +216,7 @@ hdu_var = fits.PrimaryHDU(data_cube)
 hdu_var.writeto('Saved_Parameters/POD_first_6_frequency_filtered_spatial_modes_at_500mHz.fits', overwrite=True)
 ```
 
-
-```python
+```python linenums="1"
 # Create a set of images for the frequency-filtered POD reconstruction at all time steps
 # To be used in the Supplementary Video 2
 
@@ -278,5 +269,4 @@ for frame_index in range(0, 200):
 print("Images saved successfully.")
 ```
 
-    Images saved successfully.
-
+Images saved successfully.

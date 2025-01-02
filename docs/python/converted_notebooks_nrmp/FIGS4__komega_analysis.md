@@ -18,7 +18,7 @@ Figures that are newly created, modified, or unrelated to the published article 
 **Disclaimer**: This notebook and its code are provided "as is", without warranty of any kind, express or implied. Refer to the license for more details.
 
 
-```python
+```python linenums="1"
 import numpy as np
 from astropy.io import fits
 from WaLSAtools import WaLSAtools
@@ -53,35 +53,33 @@ power, wavenumber, frequencies, filtered_cube, spatial_fft_map, torus_map, spati
 )
 ```
 
-    Processing k-ω analysis for a 3D cube with format 'txy' and shape (200, 130, 130).
-    
-    Input datacube size (t,x,y): (200, 130, 130)
-    
-    Spatially, the important values are:
-        2-pixel size = 2.00 (pixel)
-        Nyquist wavenumber = 3.14 (pixel⁻¹)
-    
-    Temporally, the important values are:
-        2-element duration (Nyquist period) = 1.00 (s)
-        Time series duration = 65.00 (s)
-        Nyquist frequency = 1.00 (Hz)
-    
-    Constructing a k-ω diagram of the input datacube..........
-    
-    Start filtering (in k-ω space) ......
-    
-    The preserved wavenumbers are [0.047, 0.250] (pixel⁻¹)
-    The preserved spatial sizes are [25.133, 133.685] (pixel)
-    
-    The preserved frequencies are [0.470, 0.530] (Hz)
-    The preserved periods are [1, 2] (s)
-    
-    Making a 3D Fourier transform of the input datacube ..........
-    Filtered datacube generated.
+Processing k-ω analysis for a 3D cube with format 'txy' and shape (200, 130, 130).<br>
+<br>
+Input datacube size (t,x,y): (200, 130, 130)<br>
+<br>
+Spatially, the important values are:<br>
+    2-pixel size = 2.00 (pixel)<br>
+    Nyquist wavenumber = 3.14 (pixel⁻¹)<br>
+<br>
+Temporally, the important values are:<br>
+    2-element duration (Nyquist period) = 1.00 (s)<br>
+    Time series duration = 65.00 (s)<br>
+    Nyquist frequency = 1.00 (Hz)<br>
+<br>
+Constructing a k-ω diagram of the input datacube..........<br>
+<br>
+Start filtering (in k-ω space) ......<br>
+<br>
+The preserved wavenumbers are [0.047, 0.250] (pixel⁻¹)<br>
+The preserved spatial sizes are [25.133, 133.685] (pixel)<br>
+<br>
+The preserved frequencies are [0.470, 0.530] (Hz)<br>
+The preserved periods are [1, 2] (s)<br>
+<br>
+Making a 3D Fourier transform of the input datacube ..........<br>
+Filtered datacube generated.
 
-
-
-```python
+```python linenums="1"
 # Save the results
 # To be used in Figure 5 of the Nature Reviews Methods Primers paper.
 
@@ -97,7 +95,7 @@ np.savez('Saved_Parameters/k_omega_analysis.npz',
 ```
 
 
-```python
+```python linenums="1"
 from matplotlib.colors import Normalize
 import matplotlib.pyplot as plt
 from matplotlib.ticker import LogLocator
@@ -396,17 +394,14 @@ WaLSA_save_pdf(fig, pdf_path, color_mode='CMYK', dpi=300, bbox_inches='tight', p
 plt.show()
 ```
 
-    GPL Ghostscript 10.04.0 (2024-09-18)
-    Copyright (C) 2024 Artifex Software, Inc.  All rights reserved.
-    This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:
-    see the file COPYING for details.
-    Processing pages 1 through 1.
-    Page 1
-    PDF saved in CMYK format as 'Figures/FigS4_k-omega_analysis.pdf'
-
-
+GPL Ghostscript 10.04.0 (2024-09-18)<br>
+Copyright (C) 2024 Artifex Software, Inc.  All rights reserved.<br>
+This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:<br>
+see the file COPYING for details.<br>
+Processing pages 1 through 1.<br>
+Page 1<br>
+PDF saved in CMYK format as 'Figures/FigS4_k-omega_analysis.pdf'
 
     
-![png](FIGS4__komega_analysis_files/FIGS4__komega_analysis_3_1.png)
+![png](/python/converted_notebooks_nrmp/FIGS4__komega_analysis_files/FIGS4__komega_analysis_3_1.png)
     
-

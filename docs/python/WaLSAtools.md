@@ -479,7 +479,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
             resetDropdown(subMethodDropdown, "Select Sub-method");
             subMethodDropdown.style.display = 'none';
             subMethodLabel.style.display = 'none';
-            clearOutput();         
+            clearOutput();
             if (category) {
                 datatypeDropdown.disabled = false; // Enable the next dropdown
                 if (category === 'a') {
@@ -532,7 +532,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
             subMethodDropdown.style.display = 'none';
             subMethodLabel.style.display = 'none';
             subMethodDropdown.disabled = true;
-            clearOutput();
+            clearOutput();          
             if (
                 category === 'a' &&
                 datatype === '2' &&

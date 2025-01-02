@@ -788,6 +788,6 @@ Processing pages 1 through 1.<br>
 Page 1<br>
 PDF saved in CMYK format as 'Figures/Fig3_power_spectra_1D_signal.pdf'
 
+
 ![png](/python/converted_notebooks_nrmp/FIG3__walsatools_power_spectra_files/FIG3__walsatools_power_spectra_2_1.png)
-    
 
