@@ -638,6 +638,15 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
     document.addEventListener('DOMContentLoaded', () => {
         updateOutput();
     });
+    document.addEventListener('turbolinks:load', () => {
+        // Reset dropdowns and clear outputs when revisiting the page
+        resetDropdown(datatypeDropdown, "Select Data Type");
+        resetDropdown(analysisMethodDropdown, "Select Method");
+        resetDropdown(subMethodDropdown, "Select Sub-method");
+        subMethodDropdown.style.display = 'none';
+        subMethodLabel.style.display = 'none';
+        clearOutput();
+    });
 </script>
 
 ??? source-code "Source code"
