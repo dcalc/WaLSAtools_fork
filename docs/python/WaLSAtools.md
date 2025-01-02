@@ -523,8 +523,6 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
             }
             updateOutput();
         });
-        // Trigger the `change` event for the first dropdown
-        categoryDropdown.dispatchEvent(new Event('change'));
         analysisMethodDropdown.addEventListener('change', () => {
             const category = categoryDropdown.value;
             const datatype = datatypeDropdown.value;
@@ -552,6 +550,10 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
             updateOutput();
         });
         subMethodDropdown.addEventListener('change', updateOutput);
+        // Explicitly enable and update the second dropdown on page load
+        if (categoryDropdown.value) {
+            categoryDropdown.dispatchEvent(new Event('change'));
+        }
         updateOutput();
     });
     // Update Output Container
