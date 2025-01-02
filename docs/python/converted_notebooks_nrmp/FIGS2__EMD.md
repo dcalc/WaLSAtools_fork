@@ -18,7 +18,7 @@ Figures that are newly created, modified, or unrelated to the published article 
 **Disclaimer**: This notebook and its code are provided "as is", without warranty of any kind, express or implied. Refer to the license for more details.
 
 
-```python
+```python linenums="1"
 from astropy.io import fits # type: ignore
 from WaLSAtools import WaLSAtools, WaLSA_save_pdf # type: ignore
 
@@ -41,12 +41,10 @@ HHT_power_spectrum, HHT_significance_level, HHT_freq_bins, psd_spectra_fft, conf
 )
 ```
 
-    Detrending and apodization complete.
-    EMD processed.
+Detrending and apodization complete.<br>
+EMD processed.
 
-
-
-```python
+```python linenums="1"
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import AutoMinorLocator
@@ -177,26 +175,21 @@ pdf_path = 'Figures/FigS2_EMD_analysis.pdf'
 WaLSA_save_pdf(fig, pdf_path, color_mode='CMYK', dpi=300, bbox_inches='tight', pad_inches=0)
 
 plt.show()
-
 ```
 
-    GPL Ghostscript 10.04.0 (2024-09-18)
-    Copyright (C) 2024 Artifex Software, Inc.  All rights reserved.
-    This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:
-    see the file COPYING for details.
-    Processing pages 1 through 1.
-    Page 1
-    PDF saved in CMYK format as 'Figures/FigS2_EMD_analysis.pdf'
-
-
+GPL Ghostscript 10.04.0 (2024-09-18)<br>
+Copyright (C) 2024 Artifex Software, Inc.  All rights reserved.<br>
+This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:<br>
+see the file COPYING for details.<br>
+Processing pages 1 through 1.<br>
+Page 1<br>
+PDF saved in CMYK format as 'Figures/FigS2_EMD_analysis.pdf'
 
     
-![png](FIGS2__EMD_files/FIGS2__EMD_2_1.png)
-    
+![png](/python/converted_notebooks_nrmp/FIGS2__EMD_files/FIGS2__EMD_2_1.png)
 
 
-
-```python
+```python linenums="1"
 # Further tests
 # Plot frequency distributions for each IMF
 plt.figure(figsize=(12, 8))
@@ -216,13 +209,10 @@ plt.xlim(0, 36)
 plt.tight_layout()
 plt.show()
 ```
-
-
-    
-![png](FIGS2__EMD_files/FIGS2__EMD_3_0.png)
     
 
-
+![png](/python/converted_notebooks_nrmp/FIGS2__EMD_files/FIGS2__EMD_3_0.png)
+    
 
 ```python
 # Further tests 
@@ -254,12 +244,9 @@ plt.legend()
 plt.show()
 ```
 
-    Detrending and apodization complete.
-    EMD processed.
-
-
+Detrending and apodization complete.<br>
+EMD processed.
 
     
-![png](FIGS2__EMD_files/FIGS2__EMD_4_1.png)
+![png](/python/converted_notebooks_nrmp/FIGS2__EMD_files/FIGS2__EMD_4_1.png)
     
-

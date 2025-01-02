@@ -471,16 +471,15 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         hideOutput();
     }
     document.addEventListener('DOMContentLoaded', () => {
-        updateOutput(); // Ensure initial output is updated
-        // Attach event listeners
-        categoryDropdown.addEventListener('change', () => {
+        // Function to initialize dropdowns
+        function initializeDropdowns() {
             const category = categoryDropdown.value;
             resetDropdown(datatypeDropdown, "Select Data Type");
             resetDropdown(analysisMethodDropdown, "Select Method");
             resetDropdown(subMethodDropdown, "Select Sub-method");
             subMethodDropdown.style.display = 'none';
             subMethodLabel.style.display = 'none';
-            clearOutput();
+            clearOutput();         
             if (category) {
                 datatypeDropdown.disabled = false; // Enable the next dropdown
                 if (category === 'a') {
@@ -492,7 +491,9 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
                 }
             }
             updateOutput();
-        });
+        }
+        // Attach event listeners
+        categoryDropdown.addEventListener('change', initializeDropdowns);
         datatypeDropdown.addEventListener('change', () => {
             const category = categoryDropdown.value;
             const datatype = datatypeDropdown.value;
@@ -500,7 +501,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
             resetDropdown(subMethodDropdown, "Select Sub-method");
             subMethodDropdown.style.display = 'none';
             subMethodLabel.style.display = 'none';
-            clearOutput();
+            clearOutput();         
             if (datatype) {
                 analysisMethodDropdown.disabled = false;
                 if (category === 'a' && datatype === '1') {
@@ -550,11 +551,8 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
             updateOutput();
         });
         subMethodDropdown.addEventListener('change', updateOutput);
-        // Explicitly enable and update the second dropdown on page load
-        if (categoryDropdown.value) {
-            categoryDropdown.dispatchEvent(new Event('change'));
-        }
-        updateOutput();
+        // Initialize dropdowns on page load
+        initializeDropdowns();
     });
     // Update Output Container
     function updateOutput() {

@@ -18,7 +18,7 @@ Figures that are newly created, modified, or unrelated to the published article 
 **Disclaimer**: This notebook and its code are provided "as is", without warranty of any kind, express or implied. Refer to the license for more details.
 
 
-```python
+```python linenums="1"
 from astropy.io import fits # type: ignore
 from WaLSAtools import WaLSAtools, WaLSA_save_pdf # type: ignore
 
@@ -39,12 +39,10 @@ HHT_power_spectrum, HHT_significance_level, HHT_freq_bins, psd_spectra_fft, conf
 )
 ```
 
-    Detrending and apodization complete.
-    EEMD processed.
+Detrending and apodization complete.<br>
+EEMD processed.
 
-
-
-```python
+```python linenums="1"
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import AutoMinorLocator
@@ -178,23 +176,20 @@ plt.show()
 
 ```
 
-    GPL Ghostscript 10.04.0 (2024-09-18)
-    Copyright (C) 2024 Artifex Software, Inc.  All rights reserved.
-    This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:
-    see the file COPYING for details.
-    Processing pages 1 through 1.
-    Page 1
-    PDF saved in CMYK format as 'Figures/FigS3_EEMD_analysis.pdf'
-
+GPL Ghostscript 10.04.0 (2024-09-18)<br>
+Copyright (C) 2024 Artifex Software, Inc.  All rights reserved.<br>
+This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:<br>
+see the file COPYING for details.<br>
+Processing pages 1 through 1.<br>
+Page 1<br>
+PDF saved in CMYK format as 'Figures/FigS3_EEMD_analysis.pdf'
 
 
     
 ![png](FIGS3__EEMD_files/FIGS3__EEMD_2_1.png)
     
 
-
-
-```python
+```python linenums="1"
 # Further tests
 # Plot frequency distributions for each IMF
 plt.figure(figsize=(12, 8))
@@ -216,13 +211,10 @@ plt.show()
 ```
 
 
-    
 ![png](FIGS3__EEMD_files/FIGS3__EEMD_3_0.png)
     
 
-
-
-```python
+```python linenums="1"
 # Further tests 
 # EMD & HHT Calculations using WaLSAtools - Welch PSD Spectra
 _, _, _, psd_spectra_welch, confidence_levels_welch, _, _, _ = WaLSAtools(
@@ -253,12 +245,9 @@ plt.legend()
 plt.show()
 ```
 
-    Detrending and apodization complete.
-    EEMD processed.
-
-
+Detrending and apodization complete.<br>
+EEMD processed.
 
     
 ![png](FIGS3__EEMD_files/FIGS3__EEMD_4_1.png)
     
-
