@@ -218,7 +218,8 @@ extra_css:
 extra_javascript:
   - https://code.jquery.com/jquery-3.5.0.js
   - https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js
-  - theme/javascripts/config.js
+  - javascripts/walsatools-interactive_docs.js
+  - javascripts/config.js
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
