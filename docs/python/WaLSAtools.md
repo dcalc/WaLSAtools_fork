@@ -460,7 +460,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
     const parameterTableBody = document.getElementById('parameterTableBody');
     function resetDropdown(dropdown, placeholder = "Select ...") {
         dropdown.innerHTML = `<option value="">${placeholder}</option>`;
-        dropdown.disabled = true;
+        dropdown.disabled = false;
     }
     function hideOutput() {
         outputContainer.style.display = 'none';
