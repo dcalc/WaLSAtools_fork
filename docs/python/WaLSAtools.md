@@ -458,31 +458,24 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
     const outputContainer = document.getElementById('outputContainer');
     const callingSequence = document.getElementById('callingSequence');
     const parameterTableBody = document.getElementById('parameterTableBody');
-    function resetDropdown(dropdown, placeholder = "Select ...") {
-        dropdown.innerHTML = `<option value="">${placeholder}</option>`;
-        dropdown.disabled = true;
-    }
-    function hideOutput() {
-        outputContainer.style.display = 'none';
-    }
-    function clearOutput() {
-        callingSequence.innerHTML = '';
-        parameterTableBody.innerHTML = '';
-        hideOutput();
-    }
-
-
 
     document.addEventListener('DOMContentLoaded', () => {
-        // Reset all dropdowns on page load
+        // Clear any residual state and reinitialize dropdowns
+        initializeDropdowns();
+    });
+
+    // Force initialization of dropdowns and reattach all necessary listeners
+    function initializeDropdowns() {
+        // Reset dropdowns to their initial states
         resetAllDropdowns();
 
-        // Reattach event listeners
+        // Remove existing event listeners (if any) and reattach them
+        detachEventListeners();
         attachEventListeners();
 
-        // Initialize the output update
+        // Trigger an initial output update to reset the UI
         updateOutput();
-    });
+    }
 
     // Reset all dropdown menus to their initial states
     function resetAllDropdowns() {
@@ -510,7 +503,26 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         subMethodDropdown.addEventListener('change', updateOutput);
     }
 
-    // Event handler for category dropdown
+    // Remove all event listeners (if any)
+    function detachEventListeners() {
+        categoryDropdown.removeEventListener('change', handleCategoryChange);
+        datatypeDropdown.removeEventListener('change', handleDatatypeChange);
+        analysisMethodDropdown.removeEventListener('change', handleAnalysisMethodChange);
+        subMethodDropdown.removeEventListener('change', updateOutput);
+    }
+
+    // Reset a dropdown menu to its placeholder state
+    function resetDropdown(dropdown, placeholder = "Select ...") {
+        dropdown.innerHTML = `<option value="">${placeholder}</option>`;
+        dropdown.disabled = true;
+    }
+
+    // Hide the output container
+    function hideOutput() {
+        outputContainer.style.display = 'none';
+    }
+
+    // Handle category dropdown changes
     function handleCategoryChange() {
         const category = categoryDropdown.value;
         resetDropdown(datatypeDropdown, "Select Data Type");
@@ -533,7 +545,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         updateOutput();
     }
 
-    // Event handler for datatype dropdown
+    // Handle datatype dropdown changes
     function handleDatatypeChange() {
         const category = categoryDropdown.value;
         const datatype = datatypeDropdown.value;
@@ -566,7 +578,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         updateOutput();
     }
 
-    // Event handler for analysis method dropdown
+    // Handle analysis method dropdown changes
     function handleAnalysisMethodChange() {
         const category = categoryDropdown.value;
         const datatype = datatypeDropdown.value;
@@ -589,23 +601,6 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         }
         updateOutput();
     }
-
-    // Hide the output container
-    function hideOutput() {
-        outputContainer.style.display = 'none';
-    }
-
-    // Reset a dropdown menu to its placeholder state
-    function resetDropdown(dropdown, placeholder = "Select ...") {
-        dropdown.innerHTML = `<option value="">${placeholder}</option>`;
-        dropdown.disabled = true;
-    }
-
-
-
-
-
-
 
     // Update Output Container
     function updateOutput() {
@@ -690,9 +685,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
                 </tr>`;
         });
     }    
-    document.addEventListener('DOMContentLoaded', () => {
-        updateOutput();
-    });
+
 </script>
 
 ??? source-code "Source code"
