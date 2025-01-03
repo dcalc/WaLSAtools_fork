@@ -1022,3 +1022,7 @@ a.text-white:hover, a.text-white:focus {
 .exclude-from-nav h4 {
     display: none;
 }
+
+.highlight .linenodiv pre span:first-child {
+  display: none;
+}
