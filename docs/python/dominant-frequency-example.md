@@ -18,9 +18,9 @@ This example demonstrates the application of dominant frequency analysis to a sy
 
     **WaLSAtools version:** 1.0
 
-    These particular analyses generate the figure below (Figure 3 in *Nature Reviews Methods Primers*; copyrighted). For a full description of the datasets and the analyses performed, see the associated article. See the source code at the bottom of this page (or <a href="https://github.com/WaLSAteam/WaLSAtools/blob/main/examples/python/Worked_examples__NRMP/FIG4__dominant_frequency__mean_spectra.ipynb" target="_blank">here</a> on Github) for a complete analyses and the plotting routines used to generate this figure.
+    These particular analyses generate the figure below (Figure 4 in *Nature Reviews Methods Primers*; copyrighted). For a full description of the datasets and the analyses performed, see the associated article. See the source code at the bottom of this page (or <a href="https://github.com/WaLSAteam/WaLSAtools/blob/main/examples/python/Worked_examples__NRMP/FIG4__dominant_frequency__mean_spectra.ipynb" target="_blank">here</a> on Github) for a complete analyses and the plotting routines used to generate this figure.
 
-    [![Figure 4](examples/python/Worked_examples__NRMP/Figures/Fig4_dominant_frequency_maps.pdf)](examples/python/Worked_examples__NRMP/Figures/Fig4_dominant_frequency_maps.pdf)
+    ![jpg](/python/converted_notebooks_nrmp/Figures_jpg/Fig4_dominant_frequency_mean_power_spectra.jpg)
 
     **Figure Caption:** Dominant frequency maps and mean power spectra. Top row: Dominant frequency maps derived using FFT (left), Morlet-based RGWS (middle), and Paul-based RGWS (right). Bottom panel: Normalized mean power spectra for FFT (blue), Morlet-based RGWS (red), and Paul-based RGWS (black).
 

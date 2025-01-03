@@ -24,10 +24,6 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
 
     **Here's an example of the execution of WaLSAtools in a Jupyter notebook:**
 
-
-<link rel="preload" href="walsatools_interactive.js" as="script">
-<script src="walsatools_interactive.js" defer></script>
-
 <style>
     .dropdown-container {
         margin-left: 30px;
@@ -252,6 +248,9 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
 </div>
 </div>
 </div>
+
+<link rel="preload" href="walsatools_interactive.js" as="script">
+<script src="walsatools_interactive.js" defer></script>
 
 ??? source-code "Source code"
     ``` python linenums="1"
