@@ -24,6 +24,12 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
 
     **Here's an example of the execution of WaLSAtools in a Jupyter notebook:**
 
+<script>
+    if (performance.navigation.type === performance.navigation.TYPE_BACK_FORWARD) {
+        window.location.reload();
+    }
+</script>
+
 <style>
     .dropdown-container {
         margin-left: 30px;
@@ -450,52 +456,6 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
             }
         }
     };
-    // Poll for dropdown elements to be ready
-    function initializeDropdownsWhenReady() {
-        const interval = setInterval(() => {
-            const categoryDropdown = document.getElementById('category');
-            const datatypeDropdown = document.getElementById('datatype');
-            const analysisMethodDropdown = document.getElementById('analysisMethod');
-            const subMethodDropdown = document.getElementById('subMethod');
-
-            // Check if all dropdowns are available
-            if (categoryDropdown && datatypeDropdown && analysisMethodDropdown && subMethodDropdown) {
-                clearInterval(interval); // Stop polling once elements are found
-                initializeDropdowns(); // Initialize dropdown logic
-            }
-        }, 100); // Check every 100ms
-    }
-
-    // Initialization logic for dropdowns
-    function initializeDropdowns() {
-        resetAllDropdowns();
-        attachEventListeners();
-        updateOutput();
-    }
-
-    // Reset dropdowns to their initial state
-    function resetAllDropdowns() {
-        categoryDropdown.value = "";
-        resetDropdown(datatypeDropdown, "Select Data Type");
-        resetDropdown(analysisMethodDropdown, "Select Method");
-        resetDropdown(subMethodDropdown, "Select Sub-method");
-
-        datatypeDropdown.disabled = true;
-        analysisMethodDropdown.disabled = true;
-        subMethodDropdown.style.display = 'none';
-        subMethodLabel.style.display = 'none';
-        subMethodDropdown.disabled = true;
-
-        hideOutput();
-    }
-
-    // Attach event listeners to dropdowns
-    function attachEventListeners() {
-        categoryDropdown.addEventListener('change', handleCategoryChange);
-        datatypeDropdown.addEventListener('change', handleDatatypeChange);
-        analysisMethodDropdown.addEventListener('change', handleAnalysisMethodChange);
-        subMethodDropdown.addEventListener('change', updateOutput);
-    }
     const categoryDropdown = document.getElementById('category');
     const datatypeDropdown = document.getElementById('datatype');
     const analysisMethodDropdown = document.getElementById('analysisMethod');
@@ -684,7 +644,6 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
     document.addEventListener('DOMContentLoaded', () => {
         updateOutput();
     });
-    initializeDropdownsWhenReady();
 </script>
 
 ??? source-code "Source code"
