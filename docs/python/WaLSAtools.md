@@ -249,9 +249,6 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
 </div>
 </div>
 
-<link rel="preload" href="walsatools_interactive.js" as="script">
-<script src="walsatools_interactive.js" defer></script>
-
 ??? source-code "Source code"
     ``` python linenums="1"
     --8<-- "codes/python/WaLSAtools/WaLSAtools.py"

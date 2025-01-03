@@ -29,10 +29,9 @@ In this example, we apply POD to the synthetic spatio-temporal dataset to identi
 
     **WaLSAtools version:** 1.0
 
+    These particular analyses generate the figure below (Figure 5 in *Nature Reviews Methods Primers*; copyrighted). For a full description of the datasets and the analyses performed, see the associated article. See the source code at the bottom of this page (or <a href="https://github.com/WaLSAteam/WaLSAtools/blob/main/examples/python/Worked_examples__NRMP/FIG5__komega_POD_analyses.ipynb" target="_blank">here</a> on Github) for a complete analyses and the plotting routines used to generate this figure.
 
-    These particular analyses generate the figure below (Figure 3 in *Nature Reviews Methods Primers*; copyrighted). For a full description of the datasets and the analyses performed, see the associated article. See the source code at the bottom of this page (or <a href="https://github.com/WaLSAteam/WaLSAtools/blob/main/examples/python/Worked_examples__NRMP/FIG5__komega_POD_analyses.ipynb" target="_blank">here</a> on Github) for a complete analyses and the plotting routines used to generate this figure.
-
-    [![Figure 5](examples/python/Worked_examples__NRMP/Figures/Fig5_k_omega_pod_comparison.pdf)](examples/python/Worked_examples__NRMP/Figures/Fig5_k_omega_pod_comparison.pdf)
+    ![jpg](/python/converted_notebooks_nrmp/Figures_jpg/Fig5_k-omega_and_pod_analyses.jpg)
 
     **Figure Caption:** Comparison of k-ω filtering and POD analysis. **(a)** k-ω power diagram of the synthetic spatio-temporal dataset with a targeted filtering region (dashed lines). **(b)** First six spatial modes from POD analysis (each 130×130 pixels<sup>2</sup>). **(c)** First six frames of the k-ω filtered datacube centered at 500 mHz (±30 mHz) and wavenumbers 0.05−0.25 pixel<sup>-1</sup>. **(d)** First six frames of the frequency-filtered POD reconstruction at 500 mHz using the first 22 POD modes (99% of total variance). All images and spatial modes are plotted with their own minimum and maximum values to highlight detailed structures within them.
 
