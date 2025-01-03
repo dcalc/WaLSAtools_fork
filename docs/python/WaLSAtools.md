@@ -24,12 +24,6 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
 
     **Here's an example of the execution of WaLSAtools in a Jupyter notebook:**
 
-<script>
-    if (performance.navigation.type === performance.navigation.TYPE_BACK_FORWARD) {
-        window.location.reload();
-    }
-</script>
-
 <style>
     .dropdown-container {
         margin-left: 30px;
