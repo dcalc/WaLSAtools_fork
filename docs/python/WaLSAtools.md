@@ -470,37 +470,44 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         parameterTableBody.innerHTML = '';
         hideOutput();
     }
+
+
+
     document.addEventListener('DOMContentLoaded', () => {
-        // Reset all dropdowns
+        // Reset all dropdowns on page load
         resetAllDropdowns();
 
-        // Attach event listeners
-        categoryDropdown.addEventListener('change', handleCategoryChange);
-        datatypeDropdown.addEventListener('change', handleDatatypeChange);
-        analysisMethodDropdown.addEventListener('change', handleAnalysisMethodChange);
-        subMethodDropdown.addEventListener('change', updateOutput);
+        // Reattach event listeners
+        attachEventListeners();
 
         // Initialize the output update
         updateOutput();
     });
 
-    // Function to reset all dropdowns to their initial state
+    // Reset all dropdown menus to their initial states
     function resetAllDropdowns() {
-        // Reset category dropdown to its initial state
         categoryDropdown.value = "";
         resetDropdown(datatypeDropdown, "Select Data Type");
         resetDropdown(analysisMethodDropdown, "Select Method");
         resetDropdown(subMethodDropdown, "Select Sub-method");
 
-        // Hide and disable dependent dropdowns and output initially
+        // Disable dependent dropdowns initially
         datatypeDropdown.disabled = true;
         analysisMethodDropdown.disabled = true;
         subMethodDropdown.style.display = 'none';
         subMethodLabel.style.display = 'none';
         subMethodDropdown.disabled = true;
 
-        // Clear output
-        clearOutput();
+        // Hide output container
+        hideOutput();
+    }
+
+    // Attach event listeners to dropdown menus
+    function attachEventListeners() {
+        categoryDropdown.addEventListener('change', handleCategoryChange);
+        datatypeDropdown.addEventListener('change', handleDatatypeChange);
+        analysisMethodDropdown.addEventListener('change', handleAnalysisMethodChange);
+        subMethodDropdown.addEventListener('change', updateOutput);
     }
 
     // Event handler for category dropdown
@@ -511,7 +518,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         resetDropdown(subMethodDropdown, "Select Sub-method");
         subMethodDropdown.style.display = 'none';
         subMethodLabel.style.display = 'none';
-        clearOutput();
+        hideOutput();
 
         if (category) {
             datatypeDropdown.disabled = false;
@@ -534,7 +541,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         resetDropdown(subMethodDropdown, "Select Sub-method");
         subMethodDropdown.style.display = 'none';
         subMethodLabel.style.display = 'none';
-        clearOutput();
+        hideOutput();
 
         if (datatype) {
             analysisMethodDropdown.disabled = false;
@@ -567,8 +574,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         resetDropdown(subMethodDropdown, "Select Sub-method");
         subMethodDropdown.style.display = 'none';
         subMethodLabel.style.display = 'none';
-        subMethodDropdown.disabled = true;
-        clearOutput();
+        hideOutput();
 
         if (category === 'a' && datatype === '2' && analysisMethod === 'dominantfreq') {
             subMethodDropdown.style.display = 'inline-block';
@@ -583,6 +589,24 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         }
         updateOutput();
     }
+
+    // Hide the output container
+    function hideOutput() {
+        outputContainer.style.display = 'none';
+    }
+
+    // Reset a dropdown menu to its placeholder state
+    function resetDropdown(dropdown, placeholder = "Select ...") {
+        dropdown.innerHTML = `<option value="">${placeholder}</option>`;
+        dropdown.disabled = true;
+    }
+
+
+
+
+
+
+
     // Update Output Container
     function updateOutput() {
         const category = categoryDropdown.value;
