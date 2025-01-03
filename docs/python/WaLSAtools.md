@@ -206,13 +206,13 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
     </div>
     <div class="dropdown-row">
         <label for="datatype" style="width: 90px !important; text-align: right !important;">Data Type:</label>
-        <select id="datatype">
+        <select id="datatype" disabled>
             <option value="">Select Data Type</option>
         </select>
     </div>
     <div class="dropdown-row">
         <label for="analysisMethod" style="width: 90px !important; text-align: right !important;">Method:</label>
-        <select id="analysisMethod">
+        <select id="analysisMethod" disabled>
             <option value="">Select Method</option>
         </select>
     </div>
