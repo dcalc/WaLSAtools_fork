@@ -5,7 +5,7 @@ title: Under the Hood
 
 # Under the Hood
 
-We strongly recommend everyone to follow the procedure as instructed [here](walsa_tools.md) when using **WaLSAtools** — a user-friendly tool — which gives you all information you need to do your analysis. 
+We strongly recommend everyone to follow the procedure as instructed [here](WaLSAtools.md) when using **WaLSAtools** — a user-friendly tool — which gives you all information you need to do your analysis. 
 However, for experts who want to make themselves familiar with the techniques and codes under the hood, inspect them and modify/develop/improve them, some of the main codes are also provided below. Please note that all codes and their dependencies are available in the [GitHub repository](https://github.com/WaLSAteam/WaLSAtools){target=_blank}.
 
 ## Analysis Modules
@@ -14,31 +14,22 @@ WaLSAtools is built upon a collection of analysis modules, each designed for a s
 
 Here's a brief overview of the core analysis modules:
 
-!!! walsa-code2 "WaLSA_cross_spectra.py"
+!!! walsa-code1 "WaLSA_speclizer.py"
 
-    This module implements cross-correlation analysis techniques, including cross-spectrum, coherence, and phase relationships, for investigating correlations between two time series.
+    This module provides a collection of spectral analysis techniques, including FFT, Lomb-Scargle, Wavelet, Welch, and EMD/HHT.
 
-    ??? source-code "WaLSA_cross_spectra.py"
+    ??? source-code "WaLSA_speclizer.py"
         ``` python
-        --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_cross_spectra.py"
+        --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_speclizer.py"
         ```
 
-!!! walsa-code1 "WaLSA_detrend_apod.py"
+!!! walsa-code2 "walsa_wavelet.py"
 
-    This module provides functions for detrending and apodizing time series data to mitigate edge effects and trends.
+    This module implements the Wavelet Transform and related functionalities.
 
-    ??? source-code "WaLSA_detrend_apod.py"
+    ??? source-code "walsa_wavelet.py"
         ``` python
-        --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_detrend_apod.py"
-        ```
-
-!!! walsa-code2 "WaLSA_interactive.py"
-
-    This module implements the interactive interface of WaLSAtools, guiding users through the analysis process.
-
-    ??? source-code "WaLSA_interactive.py"
-        ``` python
-        --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_interactive.py"
+        --8<-- "codes/python/WaLSAtools/analysis_modules/walsa_wavelet.py"
         ```
 
 !!! walsa-code1 "WaLSA_k_omega.py"
@@ -52,47 +43,65 @@ Here's a brief overview of the core analysis modules:
 
 !!! walsa-code2 "WaLSA_pod.py"
 
-    This module implements Proper Orthogonal Decomposition (POD) for analyzing multi-dimensional data and extracting dominant spatial patterns.
+    This module implements Proper Orthogonal Decomposition (POD), as well as Spectral POD (SPOD), for analyzing multi-dimensional data and extracting dominant spatial patterns.
 
     ??? source-code "WaLSA_pod.py"
         ``` python
         --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_pod.py"
         ```
 
-!!! walsa-code1 "WaLSA_speclizer.py"
+!!! walsa-code1 "WaLSA_cross_spectra.py"
 
-    This module provides a collection of spectral analysis techniques, including FFT, Lomb-Scargle Periodogram, Wavelet Transform, and HHT.
+    This module implements cross-correlation analysis techniques, resulting in cross-spectrum, coherence, and phase relationships, for investigating correlations between two time series.
 
-    ??? source-code "WaLSA_speclizer.py"
+    ??? source-code "WaLSA_cross_spectra.py"
         ``` python
-        --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_speclizer.py"
+        --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_cross_spectra.py"
         ```
 
-!!! walsa-code2 "parameter_definitions.py"
+!!! walsa-code2 "WaLSA_detrend_apod.py"
 
-    This module defines the input parameters and their default values for the various analysis methods.
+    This module provides functions for detrending and apodizing time series data to mitigate trends and edge effects.
 
-    ??? source-code "parameter_definitions.py"
+    ??? source-code "WaLSA_detrend_apod.py"
         ``` python
-        --8<-- "codes/python/WaLSAtools/analysis_modules/parameter_definitions.py"
+        --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_detrend_apod.py"
         ```
 
-!!! walsa-code1 "walsa_confidence.py"
+!!! walsa-code2 "walsa_confidence.py"
 
-    This module implements statistical significance testing for the spectral analysis results.
+    This module implements statistical significance testing for the spectral analysis results using various methods.
 
     ??? source-code "walsa_confidence.py"
         ``` python
         --8<-- "codes/python/WaLSAtools/analysis_modules/walsa_confidence.py"
         ```
 
+!!! walsa-code1 "walsa_wavelet_confidence.py"
+
+    This module implements statistical significance testing for the wavelet analysis results.
+
+    ??? source-code "walsa_wavelet_confidence.py"
+        ``` python
+        --8<-- "codes/python/WaLSAtools/analysis_modules/walsa_wavelet_confidence.py"
+        ```
+
 !!! walsa-code2 "walsa_io.py"
 
-    This module provides functions for input/output operations, such as loading and saving data.
+    This module provides functions for input/output operations, such as saving images as PDF (in both RGB and CMYK formats) and image contrast enhancements.
 
     ??? source-code "walsa_io.py"
         ``` python
         --8<-- "codes/python/WaLSAtools/analysis_modules/walsa_io.py"
+        ```
+
+!!! walsa-code1 "WaLSA_interactive.py"
+
+    This module implements the interactive interface of WaLSAtools, guiding users through the analysis process.
+
+    ??? source-code "WaLSA_interactive.py"
+        ``` python
+        --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_interactive.py"
         ```
 
 !!! walsa-code1 "walsa_plot_k_omega.py"
@@ -113,20 +122,4 @@ Here's a brief overview of the core analysis modules:
         --8<-- "codes/python/WaLSAtools/analysis_modules/walsa_plot_wavelet_spectrum.py"
         ```
 
-!!! walsa-code1 "walsa_wavelet.py"
-
-    This module implements the Wavelet Transform and related functionalities.
-
-    ??? source-code "walsa_wavelet.py"
-        ``` python
-        --8<-- "codes/python/WaLSAtools/analysis_modules/walsa_wavelet.py"
-        ```
-
-!!! walsa-code2 "walsa_wavelet_confidence.py"
-
-    This module implements statistical significance testing for the wavelet analysis results.
-
-    ??? source-code "walsa_wavelet_confidence.py"
-        ``` python
-        --8<-- "codes/python/WaLSAtools/analysis_modules/walsa_wavelet_confidence.py"
-        ```
+<br>
