@@ -14,15 +14,6 @@ WaLSAtools is built upon a collection of analysis modules, each designed for a s
 
 Here's a brief overview of the core analysis modules:
 
-!!! walsa-code1 "PyEMD"
-
-    This module provides an implementation of Empirical Mode Decomposition (EMD) for analyzing nonlinear and non-stationary signals.
-
-    ??? source-code "PyEMD"
-        ``` python
-        --8<-- "codes/python/WaLSAtools/analysis_modules/PyEMD"
-        ```
-
 !!! walsa-code2 "WaLSA_cross_spectra.py"
 
     This module implements cross-correlation analysis techniques, including cross-spectrum, coherence, and phase relationships, for investigating correlations between two time series.
