@@ -206,13 +206,13 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
     </div>
     <div class="dropdown-row">
         <label for="datatype" style="width: 90px !important; text-align: right !important;">Data Type:</label>
-        <select id="datatype" disabled>
+        <select id="datatype">
             <option value="">Select Data Type</option>
         </select>
     </div>
     <div class="dropdown-row">
         <label for="analysisMethod" style="width: 90px !important; text-align: right !important;">Method:</label>
-        <select id="analysisMethod" disabled>
+        <select id="analysisMethod">
             <option value="">Select Method</option>
         </select>
     </div>
@@ -249,13 +249,6 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
 </div>
 </div>
 <script>
-    // Ensure proper initialization after page load
-    setTimeout(() => {
-        const category = document.getElementById('category');
-        if (category) {
-            category.dispatchEvent(new Event('change'));
-        }
-    }, 50); // Delay of 50ms to allow DOM and scripts to fully load
     const parameters = {
         single_series: {
             fft: {
