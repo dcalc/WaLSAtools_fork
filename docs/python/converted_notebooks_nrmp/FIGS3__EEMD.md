@@ -186,7 +186,7 @@ PDF saved in CMYK format as 'Figures/FigS3_EEMD_analysis.pdf'
 
 
     
-![png](FIGS3__EEMD_files/FIGS3__EEMD_2_1.png)
+![png](/python/converted_notebooks_nrmp/FIGS3__EEMD_files/FIGS3__EEMD_2_1.png)
     
 
 ```python linenums="1"
@@ -211,7 +211,7 @@ plt.show()
 ```
 
 
-![png](FIGS3__EEMD_files/FIGS3__EEMD_3_0.png)
+![png](/python/converted_notebooks_nrmp/FIGS3__EEMD_files/FIGS3__EEMD_3_0.png)
     
 
 ```python linenums="1"
@@ -249,5 +249,5 @@ Detrending and apodization complete.<br>
 EEMD processed.
 
     
-![png](FIGS3__EEMD_files/FIGS3__EEMD_4_1.png)
+![png](/python/converted_notebooks_nrmp/FIGS3__EEMD_files/FIGS3__EEMD_4_1.png)
     

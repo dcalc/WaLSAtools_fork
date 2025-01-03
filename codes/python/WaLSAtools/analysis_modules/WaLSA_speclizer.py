@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------------------------------
-# WaLSAtools: Wave analysis tools
+# WaLSAtools - Wave analysis tools
 # Copyright (C) 2025 WaLSA Team - Shahin Jafarzadeh et al.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
