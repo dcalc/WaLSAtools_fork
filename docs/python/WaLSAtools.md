@@ -206,13 +206,13 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
     </div>
     <div class="dropdown-row">
         <label for="datatype" style="width: 90px !important; text-align: right !important;">Data Type:</label>
-        <select id="datatype">
+        <select id="datatype" disabled>
             <option value="">Select Data Type</option>
         </select>
     </div>
     <div class="dropdown-row">
         <label for="analysisMethod" style="width: 90px !important; text-align: right !important;">Method:</label>
-        <select id="analysisMethod">
+        <select id="analysisMethod" disabled>
             <option value="">Select Method</option>
         </select>
     </div>
@@ -460,7 +460,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
     const parameterTableBody = document.getElementById('parameterTableBody');
     function resetDropdown(dropdown, placeholder = "Select ...") {
         dropdown.innerHTML = `<option value="">${placeholder}</option>`;
-        dropdown.disabled = false;
+        dropdown.disabled = true;
     }
     function hideOutput() {
         outputContainer.style.display = 'none';
@@ -471,87 +471,118 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         hideOutput();
     }
     document.addEventListener('DOMContentLoaded', () => {
-        updateOutput();
+        // Reset all dropdowns
+        resetAllDropdowns();
+
         // Attach event listeners
-        categoryDropdown.addEventListener('change', () => {
-            const category = categoryDropdown.value;
-            resetDropdown(datatypeDropdown, "Select Data Type");
-            resetDropdown(analysisMethodDropdown, "Select Method");
-            resetDropdown(subMethodDropdown, "Select Sub-method");
-            subMethodDropdown.style.display = 'none';
-            subMethodLabel.style.display = 'none';
-            clearOutput();
-            if (category) {
-                datatypeDropdown.disabled = false;
-                if (category === 'a') {
-                    datatypeDropdown.innerHTML += `
-                        <option value="1">1D Signal</option>
-                        <option value="2">3D Datacube</option>`;
-                } else if (category === 'b') {
-                    datatypeDropdown.innerHTML += `<option value="1">1D Signal</option>`;
-                }
+        categoryDropdown.addEventListener('change', handleCategoryChange);
+        datatypeDropdown.addEventListener('change', handleDatatypeChange);
+        analysisMethodDropdown.addEventListener('change', handleAnalysisMethodChange);
+        subMethodDropdown.addEventListener('change', updateOutput);
+
+        // Initialize the output update
+        updateOutput();
+    });
+
+    // Function to reset all dropdowns to their initial state
+    function resetAllDropdowns() {
+        // Reset category dropdown to its initial state
+        categoryDropdown.value = "";
+        resetDropdown(datatypeDropdown, "Select Data Type");
+        resetDropdown(analysisMethodDropdown, "Select Method");
+        resetDropdown(subMethodDropdown, "Select Sub-method");
+
+        // Hide and disable dependent dropdowns and output initially
+        datatypeDropdown.disabled = true;
+        analysisMethodDropdown.disabled = true;
+        subMethodDropdown.style.display = 'none';
+        subMethodLabel.style.display = 'none';
+        subMethodDropdown.disabled = true;
+
+        // Clear output
+        clearOutput();
+    }
+
+    // Event handler for category dropdown
+    function handleCategoryChange() {
+        const category = categoryDropdown.value;
+        resetDropdown(datatypeDropdown, "Select Data Type");
+        resetDropdown(analysisMethodDropdown, "Select Method");
+        resetDropdown(subMethodDropdown, "Select Sub-method");
+        subMethodDropdown.style.display = 'none';
+        subMethodLabel.style.display = 'none';
+        clearOutput();
+
+        if (category) {
+            datatypeDropdown.disabled = false;
+            if (category === 'a') {
+                datatypeDropdown.innerHTML += `
+                    <option value="1">1D Signal</option>
+                    <option value="2">3D Datacube</option>`;
+            } else if (category === 'b') {
+                datatypeDropdown.innerHTML += `<option value="1">1D Signal</option>`;
             }
-            updateOutput();
-        });
-        datatypeDropdown.addEventListener('change', () => {
-            const category = categoryDropdown.value;
-            const datatype = datatypeDropdown.value;
-            resetDropdown(analysisMethodDropdown, "Select Method");
-            resetDropdown(subMethodDropdown, "Select Sub-method");
-            subMethodDropdown.style.display = 'none';
-            subMethodLabel.style.display = 'none';
-            clearOutput();
-            if (datatype) {
-                analysisMethodDropdown.disabled = false;
-                if (category === 'a' && datatype === '1') {
-                    analysisMethodDropdown.innerHTML += `
-                        <option value="fft">FFT</option>
-                        <option value="wavelet">Wavelet</option>
-                        <option value="lombscargle">Lomb-Scargle</option>
-                        <option value="welch">Welch</option>
-                        <option value="emd">EMD</option>`;
-                } else if (category === 'a' && datatype === '2') {
-                    analysisMethodDropdown.innerHTML += `
-                        <option value="komega">k-omega</option>
-                        <option value="pod">POD</option>
-                        <option value="dominantfreq">Dominant Freq / Mean Power Spectrum</option>`;
-                } else if (category === 'b') {
-                    analysisMethodDropdown.innerHTML += `
-                        <option value="wavelet">Wavelet</option>
-                        <option value="welch">Welch</option>`;
-                }
-            }
-            updateOutput();
-        });
-        analysisMethodDropdown.addEventListener('change', () => {
-            const category = categoryDropdown.value;
-            const datatype = datatypeDropdown.value;
-            const analysisMethod = analysisMethodDropdown.value;
-            resetDropdown(subMethodDropdown, "Select Sub-method");
-            subMethodDropdown.style.display = 'none';
-            subMethodLabel.style.display = 'none';
-            subMethodDropdown.disabled = true;
-            clearOutput();
-            if (
-                category === 'a' &&
-                datatype === '2' &&
-                analysisMethod === 'dominantfreq'
-            ) {
-                subMethodDropdown.style.display = 'inline-block';
-                subMethodLabel.style.display = 'inline-block';
-                subMethodDropdown.disabled = false;
-                subMethodDropdown.innerHTML = `
-                    <option value="">Select Sub-method</option>
+        }
+        updateOutput();
+    }
+
+    // Event handler for datatype dropdown
+    function handleDatatypeChange() {
+        const category = categoryDropdown.value;
+        const datatype = datatypeDropdown.value;
+        resetDropdown(analysisMethodDropdown, "Select Method");
+        resetDropdown(subMethodDropdown, "Select Sub-method");
+        subMethodDropdown.style.display = 'none';
+        subMethodLabel.style.display = 'none';
+        clearOutput();
+
+        if (datatype) {
+            analysisMethodDropdown.disabled = false;
+            if (category === 'a' && datatype === '1') {
+                analysisMethodDropdown.innerHTML += `
                     <option value="fft">FFT</option>
                     <option value="wavelet">Wavelet</option>
                     <option value="lombscargle">Lomb-Scargle</option>
+                    <option value="welch">Welch</option>
+                    <option value="emd">EMD</option>`;
+            } else if (category === 'a' && datatype === '2') {
+                analysisMethodDropdown.innerHTML += `
+                    <option value="komega">k-omega</option>
+                    <option value="pod">POD</option>
+                    <option value="dominantfreq">Dominant Freq / Mean Power Spectrum</option>`;
+            } else if (category === 'b') {
+                analysisMethodDropdown.innerHTML += `
+                    <option value="wavelet">Wavelet</option>
                     <option value="welch">Welch</option>`;
             }
-            updateOutput();
-        });
-        subMethodDropdown.addEventListener('change', updateOutput);
+        }
         updateOutput();
-    });
+    }
+
+    // Event handler for analysis method dropdown
+    function handleAnalysisMethodChange() {
+        const category = categoryDropdown.value;
+        const datatype = datatypeDropdown.value;
+        const analysisMethod = analysisMethodDropdown.value;
+        resetDropdown(subMethodDropdown, "Select Sub-method");
+        subMethodDropdown.style.display = 'none';
+        subMethodLabel.style.display = 'none';
+        subMethodDropdown.disabled = true;
+        clearOutput();
+
+        if (category === 'a' && datatype === '2' && analysisMethod === 'dominantfreq') {
+            subMethodDropdown.style.display = 'inline-block';
+            subMethodLabel.style.display = 'inline-block';
+            subMethodDropdown.disabled = false;
+            subMethodDropdown.innerHTML = `
+                <option value="">Select Sub-method</option>
+                <option value="fft">FFT</option>
+                <option value="wavelet">Wavelet</option>
+                <option value="lombscargle">Lomb-Scargle</option>
+                <option value="welch">Welch</option>`;
+        }
+        updateOutput();
+    }
     // Update Output Container
     function updateOutput() {
         const category = categoryDropdown.value;
