@@ -4,53 +4,50 @@ template: main.html
 
 # Contribution
 
-The [**WaLSA team**][8]{target=_blank} is committed to facilitating openness, transparency, and reproducibility of its research. We freely share our codes through this open-access repository (on GitHub). The codes are collaboratively developed and advanced over time. Sharing codes not only make them available to other researchers, but can also give us ideas for improvements. 
+The [**WaLSA team**][8]{target=_blank} is dedicated to promoting openness, transparency, and reproducibility in research. To this end, we freely share our code via this open-access repository on [GitHub][11]{target=_blank}. The codebase evolves collaboratively, with contributions from diverse communities helping to refine and extend the functionality over time. Sharing the codes not only makes it accessible to other researchers but also invites valuable feedback and suggestions for improvement.
 
-The initial **WaLSAtools** package we have provided here is just a starting point and our hope is that the community will help us in the journey improving and extending the methods and codes. We also appreciate that Python is becoming a more popular programming language, particularly among younger generations, thus we are grateful for helps with translation of the IDL codes into Python.
+The **WaLSAtools** package provided here marks the beginning of an exciting journey. We envision that the broader community will contribute to advancing these tools and methodologies. The core of WaLSAtools is built upon Python, a widely-used programming language in science and engineering, ensuring accessibility and ease of use for a broad audience. To further enhance accessibility, we are actively developing counterparts in other popular languages. Currently, WaLSAtools is also available in IDL, with plans to expand to additional languages, such as MATLAB, in the future.
 
-Contributions are very welcome and appreciated!
+Contributions of all kinds are welcome and highly appreciated!
 
 ## GitHub :material-github:
 
-**WaLSAtools** utilises [git][10]{target=_blank} as a distributed version control system and is hosted on [GitHub][11]{target=_blank}. For contribution, you would need an account on GitHub to [fork][14]{target=_blank} **WaLSAtools** and submit your changes via a [pull request][15]{target=_blank}, or to, e.g., submit [issues][16]{target=_blank} or questions on our GitHub repository (see below). If you are unfamiliar with GitHub, some useful information/guides can be found [here][12]{target=_blank}.
+**WaLSAtools** is managed using [Git][10]{target=_blank} as a distributed version control system and is hosted on [GitHub][11]{target=_blank}. To contribute, you will need a [GitHub account][18]{target=_blank}. Contributions can take various forms, such as [forking][14]{target=_blank} the repository to submit changes via a [pull request][15]{target=_blank], reporting [issues][16]{target=_blank}, or engaging in discussions directly on GitHub. If you are new to GitHub, we recommend exploring these [guides and resources][12]{target=_blank}.
 
-## Bug Report :material-bug:
+## Bug Reports :material-bug:
 
-Bugs are tracked in our GitHub's [issue tracker][4]{target=_blank}. Before submitting a [new bug][5]{target=_blank}, please first read the **Introduction** and check out the **troubleshooting** (both under ***Getting started***), and [search][4]{target=_blank} through the issues' database to try and find the answer to your question **before** posting an issue.
+Bugs are tracked through the GitHub [issue tracker][4]{target=_blank}. Before submitting a [new bug report][5]{target=_blank}, please consult the **Introduction** and **Troubleshooting** sections under ***Getting Started***. Additionally, search the existing issues database to see if your question or concern has already been addressed.
 
-When creating an [issue][5]{target=_blank}, please provide as much information as possible:
+When reporting a bug, please include the following details:
 
-  - **WaLSAtools** version
-  - Version of IDL or Python
-  - Operating System and version number
-  - Error(s) in terminal
-  - Detailed description of the issue
-  - Examples for reproducing the error. You may post pictures, but if specific text or code is required to reproduce the issue, please provide it in a plain text format for easy copy/paste.
+- **WaLSAtools** version  
+- Version of Pythonor IDL  
+- Operating System and version  
+- Any error messages or terminal/Jupyter-notebook output  
+- A clear and detailed description of the issue  
+- Examples for reproducing the error (including plain text code or steps).
 
-The more information provided, the greater the chance someone will take the time to answer, implement, or fix the issue. If you are unsure whether or not something is a bug, please ask your question in our [GitHub discussions][3]{target=_blank} instead.
+Providing detailed and accurate information increases the likelihood of a prompt and effective resolution. If you are unsure whether something is a bug, consider posting your question in our [GitHub discussions][3]{target=_blank} first.
 
-## Feature Request :material-star-shooting:
+## Feature Requests :material-star-shooting:
 
-You can submit your suggestions for additional features, analysis methods, or keywords, under the *wish list* section in our [GitHub discussions][6]{target=_blank}. Please first check whether or not they are already [under development][17].
+We encourage users to suggest new features, analysis methods, or additional functionality. You can share your ideas in the ***Wish List*** section of our [GitHub discussions][6]{target=_blank}. Before submitting a feature request, please verify that it is not already [Under Development][17].
 
 ## Reviewing Codes and Methods :material-glasses:
 
-Quality and reliability of the codes and methods in **WaLSAtools** are our main concern. Take part in reviewing the codes, [pull requests][9]{target=_blank} and direct commits to make suggestions for their improvements and/or discuss solutions to overcome weakness in the methods. General comments and questions should be submitted in [GitHub discussions][3]{target=_blank}.
+The quality and reliability of the **WaLSAtools** codes and methods are our top priorities. We invite you to participate in code reviews, examine [pull requests][9]{target=_blank}, and provide suggestions for improvement. Discussions about solutions or potential enhancements to the methods are also welcome. For general questions or comments, please use the [GitHub discussions][3]{target=_blank}.
 
-## Answer Questions :material-comment-question:
+## Answering Questions :material-comment-question:
 
-Take time and answer questions and offer suggestions to people who have created issues in the [issue tracker][4]{target=_blank} and/or in our [GitHub discussions][3]{target=_blank}. Often people
-will have questions that you might have an answer for.  Or maybe you know how to help them accomplish a specific task
-they are asking about. Feel free to share your experience to help others out.
+We encourage researchers across diverse fields to actively support one another by responding to questions posted in the [issue tracker][4]{target=_blank} or [GitHub discussions][3]{target=_blank}. Sharing your expertise and experiences can be invaluable to others facing similar challenges or looking for advice on specific tasks.
 
 ## Pull Requests :octicons-git-pull-request-24:
 
-[Pull requests][9]{target=_blank} are welcome, and a great way to help fix bugs and add new features. If you, as an expert, are interested in directly
-contributing to the codes, please check out [Development][7] for more information on the environment and process.
+[Pull requests][9]{target=_blank} are a key way to contribute to **WaLSAtools**. Whether fixing bugs or adding new features, we value your input. For details on setting up a development environment and understanding the contribution process, please refer to the [Development][7] page.
 
 ## Documentation Improvements :material-pencil:
 
-We strive to provide not only reliable and user-friendly analysis tools, but also helpful documentations and examples. If you feel the documentation can still be improved, your contribution is much appreciated. Check out [Development][7] for more information on the *package layout* and *editing documents*.
+We strive to provide not only reliable and user-friendly tools but also comprehensive documentation and examples. If you identify areas where the documentation can be enhanced, your contributions are highly appreciated. Guidance on editing documentation is available on the [Development][7] page.
 
   [3]: https://github.com/WaLSAteam/WaLSAtools/discussions
   [4]: https://github.com/WaLSAteam/WaLSAtools/issues
@@ -66,4 +63,5 @@ We strive to provide not only reliable and user-friendly analysis tools, but als
   [15]: https://guides.github.com/activities/forking/#making-a-pull-request
   [16]: https://guides.github.com/features/issues/
   [17]: introduction.md#under-development
+  [18]: https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home
 <br>

@@ -39,5 +39,3 @@ By analyzing this synthetic signal with different methods, we can evaluate their
 
     ??? source-code "Source code"
         {% include-markdown "python/converted_notebooks_nrmp/FIG3__walsatools_power_spectra.md" %}
-
-<br>

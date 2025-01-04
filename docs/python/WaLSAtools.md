@@ -40,8 +40,8 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         gap: 10px;
     }   
     select {
-        width: 270px;
-        height: 33px;
+        width: 270px !important;
+        height: 33px !important;
         padding: 5px 10px;
         font-size: 1em;
         color: #333;
@@ -95,7 +95,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         position: relative;
         background-color: #f7f7f7;
         border: 1px solid #ddd;
-        margin-left: 30px; /* Align box to the right of the Execute button */
+        margin-left: 30px; 
         padding: 10px;
         padding-left: 40px; /* For line numbers */
         font-size: 14px;

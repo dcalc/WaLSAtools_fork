@@ -25,5 +25,3 @@ This example demonstrates the application of Spectral Proper Orthogonal Decompos
 
     ??? source-code "Source code"
         {% include-markdown "python/converted_notebooks_nrmp/FIGS8__SPOD.md" %}
-
-<br>

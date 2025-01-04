@@ -71,4 +71,5 @@ If you encounter any issues during the installation process, please refer to the
 
 [15]: https://walsa.tools/python/troubleshooting/
  
+ <br>
  

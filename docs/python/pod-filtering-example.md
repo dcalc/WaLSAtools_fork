@@ -26,4 +26,3 @@ This example demonstrates the application of frequency filtering to the temporal
     ??? source-code "Source code"
         {% include-markdown "python/converted_notebooks_nrmp/FigS7__POD_frequency_filtered_spatial_modes.md" %}
 
-<br>

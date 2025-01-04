@@ -26,5 +26,3 @@ This example demonstrates the application of dominant frequency analysis to a sy
 
     ??? source-code "Source code"
         {% include-markdown "python/converted_notebooks_nrmp/FIG4__dominant_frequency__mean_spectra.md" %}
-
-<br>

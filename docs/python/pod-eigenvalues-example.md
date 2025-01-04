@@ -26,5 +26,3 @@ This example delves deeper into the analysis of Proper Orthogonal Decomposition 
 
     ??? source-code "Source code"
         {% include-markdown "python/converted_notebooks_nrmp/FigS6__POD_eigenvalues_powerspectrum.md" %}
-
-<br>

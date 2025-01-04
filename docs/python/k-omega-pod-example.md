@@ -39,4 +39,3 @@ In this example, we apply POD to the synthetic spatio-temporal dataset to identi
     ??? source-code "Source code"
         {% include-markdown "python/converted_notebooks_nrmp/FIG5__komega_POD_analyses.md" %}
 
-<br>

@@ -25,5 +25,3 @@ This example demonstrates the application of k-ω analysis and filtering to a sy
 
     ??? source-code "Source code"
         {% include-markdown "python/converted_notebooks_nrmp/FIGS4__komega_analysis.md" %}
-
-<br>

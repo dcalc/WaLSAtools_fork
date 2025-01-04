@@ -25,5 +25,3 @@ This example demonstrates the application of Proper Orthogonal Decomposition (PO
 
     ??? source-code "Source code"
         {% include-markdown "python/converted_notebooks_nrmp/FigS5__POD_analysis.md" %}
-
-<br>

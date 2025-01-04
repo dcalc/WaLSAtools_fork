@@ -28,4 +28,3 @@ By analyzing the cross-correlation between these signals, we can identify common
     ??? source-code "Source code"
         {% include-markdown "python/converted_notebooks_nrmp/FIG6__cross_correlation.md" %}
 
-<br>
