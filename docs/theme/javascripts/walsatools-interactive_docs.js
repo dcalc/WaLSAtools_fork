@@ -7,4 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
         });
     });
+    // Handle browser back/forward navigation
+    window.addEventListener('popstate', () => {
+        // Reload the page when navigating using the Back or Forward buttons
+        window.location.reload();
+    });
 });
