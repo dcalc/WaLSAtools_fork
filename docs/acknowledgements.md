@@ -4,10 +4,6 @@ template: main.html
 
 # Acknowledgements
 
-All people who have contributed, in one way or another, to the development of **WaLSAtools**, as well as third‐parties whose codes have been used in the package, are sincerely acknowledged. **WaLSAtools** is a result of scientific discussions with the [**WaLSA team**][1]{target=_blank} which has been supported by the Research Council of Norway (project no. 262622), The Royal Society (award no. Hooke18b/SCTM), and the International Space Science Institute (ISSI Team 502).
-
-While we make every effort to ensure that acknowledgements/credits in this document are complete and accurate, errors may occur. If you see an error or omission, please help us improve this document by sending us an [**email**][2]. 
-
 We sincerely acknowledge all individuals who have contributed to the development of **WaLSAtools**, as well as third parties whose codes have been utilized within the package. **WaLSAtools** is the outcome of collaborative scientific discussions within the [**WaLSA team**][1]{target=_blank}, supported by the Research Council of Norway (project no. 262622), The Royal Society (award no. Hooke18b/SCTM), and the International Space Science Institute (ISSI Team 502).
 
 While every effort has been made to ensure the accuracy and completeness of the acknowledgements, errors may occur. If you notice any omissions or inaccuracies, please help us improve this document by sending an [**email**][2].

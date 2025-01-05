@@ -11,23 +11,23 @@ The package contains files for building, testing, and continuous integration at 
 <pre>
 WaLSAtools/
 ├── codes/
-│   ├── python/                # Python implementation of WaLSAtools
-│   │   ├── WaLSAtools/        # Core library
-│   │   ├── setup.py           # Setup script for Python
-│   │   └── README.md          # Python-specific README
-│   ├── idl/                   # IDL implementation of WaLSAtools
-│   │   ├── WaLSAtools/        # Core library
-│   │   ├── setup.pro          # Setup script for IDL
-│   │   └── README.md          # IDL-specific README
-├── docs/                      # Documentation for WaLSAtools
-├── examples/                  # Worked examples directory
-│   ├── python/                # Python-specific examples
+│   ├── python/                     # Python implementation of WaLSAtools
+│   │   ├── WaLSAtools/             # Core library
+│   │   ├── setup.py                # Setup script for Python
+│   │   └── README.md               # Python-specific README
+│   ├── idl/                        # IDL implementation of WaLSAtools
+│   │   ├── WaLSAtools/             # Core library
+│   │   ├── setup.pro               # Setup script for IDL
+│   │   └── README.md               # IDL-specific README
+├── docs/                           # Documentation for WaLSAtools
+├── examples/                       # Worked examples directory
+│   ├── python/                     # Python-specific examples
 │   │   └── Worked_examples__NRMP/
-│   ├── idl/                   # IDL-specific examples
+│   ├── idl/                        # IDL-specific examples
 │   │   └── Worked_examples__NRMP/
-├── LICENSE                    # License information
-├── NOTICE                     # Copyright Notice
-└── README.md                  # Main repository README
+├── LICENSE                         # License information
+├── NOTICE                          # Copyright Notice
+└── README.md                       # Main repository README
 </pre>
 
 **Directory Structure**
