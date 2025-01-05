@@ -5,93 +5,112 @@ title: IDL PATH
 
 # Setting IDL PATH
 
-After you have [installed][1] **WaLSAtools**, you should make sure its path is added to your `IDL_PATH`. The `IDL_PATH` determines directories from which IDL searches for `.pro` files (i.e., IDL procedures and functions). 
+After you have [installed](installation.md) **WaLSAtools**, you need to add its path to your `IDL_PATH`. The `IDL_PATH` tells IDL where to find `.pro` files (IDL procedures and functions).
 
-The IDL search path is set differently in various operating systems (as well as in different shell environments in :fontawesome-brands-apple: and :fontawesome-brands-linux:). Hints for the most common environments are given below. Detailed instructions can be found at [IDL's support pages][2]{target=_blank}. 
+The easiest way to add WaLSAtools to your IDL path is by navigating to the WaLSAtools' `idl` directory in your terminal (under `codes`), starting IDL, and running the following command:
 
-## Using Terminal  :fontawesome-solid-terminal:
+```idl
+.run setup.pro
+```
 
-You can define and add custom search paths to your `IDL_PATH` system environment variable in terminal.
+This will automatically configure your IDL path to include the WaLSAtools library.
+
+If for any reason the above method doesn't work, you can manually add the WaLSAtools path to your IDL_PATH. The process for setting the IDL search path varies depending on your operating system and shell environment. Below are instructions for some common environments. For detailed information, please refer to [IDL's support pages][2]{target=_blank}. 
+
+## Using the Terminal :fontawesome-solid-terminal:
+
+You can define and add custom search paths to your `IDL_PATH` system environment variable in the terminal.
 
 === "Mac OS X and Linux"
-    On Unix type systems, like Mac OS X and Linux, first determine what shell you are using. Type the following command in a terminal and press ++enter++ 
+    On Unix-like systems, such as Mac OS X and Linux, first determine your shell environment. Type the following command in your terminal:
+
 	```sh
 	echo $0
 	```
-	You may also use other commands for this, but note that some other commands, like the the one given below, returns the shell for the current user but not necessarily the shell that is running at the moment.
-	```sh
-	echo $SHELL
-	```
-	The most common shells are `bash` (Bourne Again shell) and `csh` (C shell)/`tcsh` (TC shell), for which, customisation of the `IDL_PATH` are shown below.
+	
+	Common shells include `bash` (Bourne Again shell) and `csh` (C shell)/`tcsh` (TC shell). Instructions for customizing `IDL_PATH` in these shells are provided below.
 	
     === "bash"
-	    Add the the following lines to your `.bashrc` (located in your home directory; `~/`) or wherever you set the `IDL_PATH` variable (open the setup script with a text editor and add the lines somewhere in the file).
+		Add the following lines to your `.bashrc` file (located in your home directory) or to the script where you set your `IDL_PATH` variable:
+
         ```
 		export IDL_DIR=PATH-TO-IDL-DIRECTORY
 		export IDL_PATH=+${IDL_DIR}/lib:+PATH-TO-THE-DIRECTORY/WaLSAtools
         ```
-		where `PATH-TO-IDL-DIRECTORY` and `PATH-TO-THE-DIRECTORY` are the locations of IDL software and `WaLSAtools` directories (in your computer), respectively. You may add as many packages/libraries as you want to the end of the `IDL_PATH` separating them with `:+`
-		
-		Finally, after adding the lines and saving the setup script, type the following command in terminal and press ++enter++
-        ```
-		source ~/.bashrc
-        ```
+
+		Replace `PATH-TO-IDL-DIRECTORY` and `PATH-TO-THE-DIRECTORY` with the actual paths to your IDL installation and the `WaLSAtools` directory, respectively. You can add multiple paths to `IDL_PATH` by separating them with `:+`.
+
+		After saving the changes, run the following command in your terminal to apply them:
+
+    	```bash
+    	source ~/.bashrc
+    	```
+	
     === "csh / tcsh"
-	    Add the the following lines to your `.cshrc` or `.tcshrc` (located in your home directory; `~/`) or wherever you set the `IDL_PATH` variable (open the setup script with a text editor and add the lines somewhere in the file).
+	    Add the following lines to your `.cshrc` or `.tcshrc` file:
+
         ```
 		setenv IDL_DIR PATH-TO-IDL-DIRECTORY
         setenv IDL_PATH +$IDL_DIR/lib:+PATH-TO-THE-DIRECTORY/WaLSAtools
         ```
-		where `PATH-TO-IDL-DIRECTORY` and `PATH-TO-THE-DIRECTORY` are the locations of IDL software and `WaLSAtools` directories (in your computer), respectively. You may add as many packages/libraries as you want to the end of the `IDL_PATH` separating them with `:+`
-		
-		Finally, after adding the lines and saving the setup script, type one of the following commands (depending on your shell environment) in terminal and press ++enter++
-        ```
-		source ~/.cshrc
-        ```
-		or 
-        ```
-		source ~/.tcshrc
-        ```
+
+		Replace `PATH-TO-IDL-DIRECTORY` and `PATH-TO-THE-DIRECTORY` with the actual paths. You can add multiple paths by separating them with `:+`.
+
+    	After saving the changes, run the following command in your terminal:
+
+    	```csh
+    	source ~/.cshrc  # or source ~/.tcshrc
+    	```
 
 === "Microsoft Windows"
-	Start the Environment Variables dialog:
-    ```sh
-	Start > Control Panel > System and Security > System > Advanced system settings > Advanced > Environment Variables
-	```
-    (on Windows 7 select)
-	
-	Then, set an `IDL_PATH`. If this environment variable does not already exist, create a New... System or User variable named: `IDL_PATH`.
+	1.  Open the Environment Variables dialog:
 
-	Finally, define the IDL packages/libraries in your path. 
-    ```
-    +C:\Program Files\PATH-TO-IDL-DIRECTORY\lib;C:PATH-TO-THE-DIRECTORY/WaLSAtools
-    ```
-	where `PATH-TO-IDL-DIRECTORY` and `PATH-TO-THE-DIRECTORY` are the locations of IDL and `WaLSAtools` directories (in your computer), respectively. You may add as many packages/libraries as you want to the end of the `IDL_PATH` separating them with `;` character, with no space added anywhere.
+    `Start > Control Panel > System and Security > System > Advanced system settings > Advanced > Environment Variables` (On Windows 7, select `Start > Control Panel > System and Security > System > Advanced system settings > Environment Variables`)
+
+	2.  Set the `IDL_PATH` variable. If it doesn't exist, create a new system or user variable named `IDL_PATH`.
+
+	3.  Define the IDL packages/libraries in your path:
+	
+	`+C:\Program Files\PATH-TO-IDL-DIRECTORY\lib;C:\PATH-TO-THE-DIRECTORY\WaLSAtools`
+
+    Replace `PATH-TO-IDL-DIRECTORY` and `PATH-TO-THE-DIRECTORY` with the actual paths. Separate multiple paths with semicolons (`;`), without adding any spaces.
 
 ## Using IDL Workbench :material-cog-box:
 
-The `IDL_PATH` can also be customised via the IDL Workbench (idlde) Preferences dialog.
+You can also customize the `IDL_PATH` through the IDL Workbench (idlde) Preferences dialog.
 
-- Open the Preferences dialog. 
+1.  Open the Preferences dialog. 
 
-     * :fontawesome-brands-apple: : Select IDL > Preferences
+     * :fontawesome-brands-apple: : IDL > Preferences
 
-     * :fontawesome-brands-linux: and :fontawesome-brands-windows: : Select Window > Preferences
+     * :fontawesome-brands-linux: and :fontawesome-brands-windows: : Window > Preferences
 
-- Expand and select on the left pane of the preferences dialog the items, IDL > Paths. 
+2.  Expand and select `IDL > Paths` in the left pane.
 
-- Next, on the right side of the dialog, select "IDL path" from the pull down item.
+3.  Select "IDL path" from the dropdown menu on the right.
 
-- Next, insert your additional IDL program search paths. 
+4.  Insert your additional IDL program search paths.
 
-- If <IDL_DEFAULT>is not already included in your path list, press the "Insert Default" button.  
+5.  If <IDL_DEFAULT>is not already included, press the "Insert Default" button. 
 
-- Click on Apply and then OK to save your changes.
+6.  Click "Apply" and then "OK" to save your changes.
 
-![logos]
-  [logos]: ../images/idl/idl_path.jpg
+![image]
+  [image]: ../images/idl/idl_path.jpg
 
 
   [1]: installation.md
   [2]: https://www.l3harrisgeospatial.com/Support/Self-Help-Tools/Help-Articles/Help-Articles-Detail/ArtMID/10220/ArticleID/16156/Quick-tips-for-customizing-your-IDL-program-search-path
   
+
+## Verifying the path
+
+To test if the path is set correctly, start IDL and run:
+
+```
+WaLSAtools, /version
+```
+
+The package is successfully installed if the output shows the WaLSAtools version and a brief overview of its functionalities.
+
+<br>

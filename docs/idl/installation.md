@@ -1,47 +1,52 @@
 ---
 template: main.html
-title: Installation
 ---
 
-# Installation
+# Installation - IDL version
 
-The **WaLSAtools** package requires the [Interactive Data Language (**IDL**)][3]{target=_blank}. The package has primarily been tested with IDL version 8.5, but should, in principle, work with earlier or later versions too. The packages includes all dependencies (i.e., no third-party libraries are required).
+The IDL version of the **WaLSAtools** package requires the [Interactive Data Language (**IDL**)][3]{target=_blank}. The package has primarily been tested with IDL version 8.5 and later, but should work with earlier versions as well. The package includes all third-party dependencies, so no other libraries are required.
 
-## With git :octicons-mark-github-16:
+## Installation with Git :octicons-mark-github-16:
 
-**WaLSAtools** should preferably be used from [GitHub][2] by cloning (i.e., downloading) the repository into your IDL library, or a location of your preference (that requires [setting your IDL PATH][4] by pointing to that location).
+The preferred method for installing **WaLSAtools** is through Git. This allows you to easily update to the latest version and track changes.
+
+1.  Clone the WaLSAtools repository from GitHub:
 
 ```
 git clone https://github.com/WaLSAteam/WaLSAtools
 ```
 
-Please note that you must have a GitHub account, and since 13 August 2021 you should enter your personal access token (PAT) for password authentication (see [here][6]{target=_blank} for more information).
-
-Update an existing installation to the **latest version** via:
+2.  Add the WaLSAtools directory to your IDL path by navigating to the idl directory, starting IDL and running:
 
 ```
-cd PATH-TO-THE-DIRECTORY/WaLSAtools
+.run setup.pro
+```
+
+See [Setting your IDL PATH][4] for further instructions.
+
+To update an existing installation to the latest version, navigate to the WaLSAtools directory in your terminal and run:
+
+```
 git pull
 ```
 
-where `PATH-TO-THE-DIRECTORY` is the location in where you have cloned the `WaLSAtools` (in your computer).
+## Installation via Direct Download :octicons-download-16:
 
-## Direct Download :octicons-download-16:
-
-Alternatively, the **WaLSAtools** package can be downloaded as a [zip file][5]. This way, the latest version should be downloaded and replaced with the older one manually.
+Alternatively, you can download the WaLSAtools package as a [zip file][5]{target=_blank}. After downloading, extract the contents of the zip file to a location of your choice and add that location to your IDL path (by simply navigating to the idl directory, starting IDL and running `.run setup.pro`).
 
 ## Hints :octicons-milestone-16:
 
 !!! walsa-info "IDL PATH"
-    Add the **`WaLSAtools`** location to your **IDL PATH**. See [**here**][4] for instructions.
+    Add **`WaLSAtools`** to your [IDL PATH][4].
 
-!!! walsa-test "Test installation"
-    To test a successful installation, start **IDL** in, e.g., your home directory (or anywhere ==outside== the WaLSAtools directory):
+!!! walsa-test "Verifying the Installation"
+	To verify that WaLSAtools is installed correctly, start IDL and run the following command (preferably, anywhere ==outside== the WaLSAtools directory):
+
     ```sh
     IDL> WaLSAtools, /version
     ```
 
-    The package is successfully installed if the results will look like this:
+    This should print the WaLSAtools version and a brief overview of its functionalities:
 
     ```
 	% Compiled module: WALSATOOLS.
@@ -73,14 +78,14 @@ Alternatively, the **WaLSAtools** package can be downloaded as a [zip file][5]. 
 	 ----------------------------------------------------------------------------
     ```
 
-!!! walsa-question "Installation issues"
-    In case you're running into problems, consult the [**troubleshooting**][1] section.
+!!! walsa-question "Troubleshooting"
+	If you encounter any problems during the installation process, please refer to the [Troubleshooting][1] section for common issues and solutions.
 
 <br>
 
   [1]: troubleshooting.md
   [2]: https://github.com/WaLSAteam/WaLSAtools
-  [3]: https://www.l3harrisgeospatial.com/Software-Technology/IDL
+  [3]: https://www.nv5geospatialsoftware.com/Products/IDL
   [4]: setting-idl-path.md
   [5]: https://github.com/WaLSAteam/WaLSAtools/zipball/master/
   [6]: https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls
