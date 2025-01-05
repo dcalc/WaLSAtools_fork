@@ -8,32 +8,49 @@ All people who have contributed, in one way or another, to the development of **
 
 While we make every effort to ensure that acknowledgements/credits in this document are complete and accurate, errors may occur. If you see an error or omission, please help us improve this document by sending us an [**email**][2]. 
 
-## Developers/contributors :material-account-group:
+We sincerely acknowledge all individuals who have contributed to the development of **WaLSAtools**, as well as third parties whose codes have been utilized within the package. **WaLSAtools** is the outcome of collaborative scientific discussions within the [**WaLSA team**][1]{target=_blank}, supported by the Research Council of Norway (project no. 262622), The Royal Society (award no. Hooke18b/SCTM), and the International Space Science Institute (ISSI Team 502).
 
-Below is a list of individuals who have contributed to **WaLSAtools** (either directly, or by providing their codes used as important part of the package).
+While every effort has been made to ensure the accuracy and completeness of the acknowledgements, errors may occur. If you notice any omissions or inaccuracies, please help us improve this document by sending an [**email**][2].
 
-  - [Dr Shahin Jafarzadeh][6]{target=_blank} (Max Planck Institute for Solar System Research, Germany)
-  - [Prof David B. Jess][7]{target=_blank} (Queen's University Belfast, UK)
-  - [Dr Marco Stangalini][8]{target=_blank} (Italian Space Agency, Italy)
-  - [Dr Peter H. Keys][16]{target=_blank} (Queen's University Belfast, UK)
-  - [Dr Samuel D. T. Grant][9]{target=_blank} (Queen's University Belfast, UK)
-  - [Prof Rob Rutten][10]{target=_blank} (Lingezicht Astrophysics, Netherlands) &#8212; :fontawesome-solid-ribbon: (1942-2022)
+---
+
+## Python Library Dependencies :material-language-python:
+
+**WaLSAtools** relies on several Python libraries to deliver its functionality. These libraries are widely used in the scientific computing community and facilitate efficient data processing, visualization, and user interaction. The following Python libraries are currently included as dependencies:
+
+- [numpy](https://numpy.org/)  
+- [astropy](https://www.astropy.org/)  
+- [ipython](https://ipython.org/)  
+- [ipywidgets](https://ipywidgets.readthedocs.io/en/latest/)  
+- [matplotlib](https://matplotlib.org/)  
+- [numba](https://numba.pydata.org/)  
+- [pyFFTW](https://github.com/pyFFTW/pyFFTW)  
+- [PyEMD](https://github.com/laszukdawid/PyEMD)  
+- [PyCWT](https://github.com/regeirk/pycwt)  
+- [scipy](https://scipy.org/)  
+- [setuptools](https://setuptools.pypa.io/en/latest/)  
+- [scikit-image](https://scikit-image.org/)  
+- [tqdm](https://tqdm.github.io/)
+
+We are grateful to the developers of these libraries for their contributions to open-source software, which greatly enhance the capabilities of **WaLSAtools**. Please refer to the respective library documentation for licensing details and additional information.
+
+---
 
 ## IDL Libraries :material-library:
 
-**WaLSAtools** includes third party components which are part of publicly available libraries (listed below). Most of these dependencies are included in the package, so there is no requirement for pre-installation of these libraries, though it is generally recommended. Only the standard IDL procedures, either the built-in routines or those in the IDL native library (of version 8.5), are not included. [**IDL**][3]{target=_blank} is a registered trademarks of L3Harris Technologies, Inc.
+**WaLSAtools** incorporates third-party components from publicly available libraries, as listed below. Most dependencies are included within the package, eliminating the need for pre-installation. Only standard IDL routines (built-in or from the native IDL library of version 8.5 and above) are not included. [**IDL**][3]{target=_blank} is a registered trademark of NV5 Geospatial Solutions, Inc.
 
   - [Solarsoft][11]{target=_blank}
-  - [Coyote][4]{target=_blank} (Prof David Fanning)
-  - [Daithi][5]{target=_blank} (Dr Dáithí A. Stone)
-  - [HeLIx+][12]{target=_blank} (Dr Andreas Korpi-Lagg)
+  - [Coyote Library][4]{target=_blank} (Prof. David Fanning)
+  - [Daithi Library][5]{target=_blank} (Dr. Dáithí A. Stone)
+  - [HeLIx+][12]{target=_blank} (Dr. Andreas Korpi-Lagg)
 
-*[WaLSA]: Waves in the Lower Solar Atmosphere
-*[IDL]: Interactive Data Language
+*[WaLSA]: Waves in the Lower Solar Atmosphere  
+*[IDL]: Interactive Data Language  
 
   [1]: https://WaLSA.team
   [2]: mailto:WaLSAtools@WaLSA.team
-  [3]: https://www.l3harrisgeospatial.com/Software-Technology/IDL
+  [3]: https://www.nv5geospatialsoftware.com/Products/IDL
   [4]: http://www.idlcoyote.com
   [5]: http://climate.web.runbox.net/idl_lib/
   [6]: https://walsa.team/shahin.jafarzadeh
@@ -45,13 +62,4 @@ Below is a list of individuals who have contributed to **WaLSAtools** (either di
   [12]: https://gitlab.gwdg.de/andreas.lagg/helix
   [16]: https://pure.qub.ac.uk/en/persons/peter-keys
 
-## Sample Datasets :material-database:
-
-To present examples on the use of **WaLSAtools**, we have included datacubes from the Atmospheric Imaging Assembly (AIA; [Lemen et al. 2012][14]{target=_blank}) and Helioseismic and Magnetic Imager (HMI; [Schou et al. 2012][15]{target=_blank}) instruments on the NASA's Solar Dynamic Observatory (SDO; [Pesnell et a. 2012][13]{target=_blank}). The AIA and HMI data (from 26 April 2016, 6:00-8:00 UTC; at around Sun's disc center) are courtesy of the NASA/SDO, as well as AIA and HMI science teams.
-
-  [13]: https://link.springer.com/content/pdf/10.1007%2Fs11207-011-9841-3.pdf
-  [14]: https://link.springer.com/content/pdf/10.1007/s11207-011-9776-8.pdf
-  [15]: https://link.springer.com/content/pdf/10.1007/s11207-011-9842-2.pdf
-
-*[NASA]: National Aeronautics and Space Administration
 <br>

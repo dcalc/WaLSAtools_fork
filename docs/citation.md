@@ -4,40 +4,43 @@ template: main.html
 
 # How to Cite WaLSAtools
 
-If you use **WaLSAtools** in your work, please cite it, as instructed below, in your publications/presentations.
+If you use **WaLSAtools** in your work, please cite it as described below in your publications or presentations.
 
 ## Main Article and Software Package :material-book-sync:
 
-- Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press
-- Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, WaLSAteam/WaLSAtools: v1.0, DOI: XX.XXXX/zenodo.XXXXXXX (to be created)
+- **Jafarzadeh, S., Jess, D. B., Stangalini, M., et al. 2025, Nature Reviews Methods Primers, in press**  
+- **Jafarzadeh, S., Jess, D. B., Stangalini, M., et al. 2025, WaLSAteam/WaLSAtools: v1.0, DOI: XX.XXXX/zenodo.XXXXXXX** (to be created)
 
-## Other Relevant Scientific Articles :material-bookshelf:
+---
 
-- **Waves in the lower solar atmosphere: the dawn of next-generation solar telescopes**: [Jess, D. B., Jafarzadeh, S., Keys, P. H., Stangalini, M., Verth G., Grant, S. D. T. 2023, Living Reviews in Solar Physics, 20, 1][5]{target=_blank} ([ADS][6]{target=_blank})
-  ```latex
-  @ARTICLE{2023LRSP...20....1J,
-         author = {{Jess}, David B. and {Jafarzadeh}, Shahin and {Keys}, Peter H. and {Stangalini}, Marco and {Verth}, Gary and {Grant}, Samuel D.~T.},
-          title = "{Waves in the lower solar atmosphere: the dawn of next-generation solar telescopes}",
-        journal = {Living Reviews in Solar Physics},
-       keywords = {Shock waves, Sun: chromosphere, Sun: oscillations, Sun: photosphere, Telescopes, Astrophysics - Solar and Stellar Astrophysics},
-           year = 2023,
-          month = dec,
-         volume = {20},
-         number = {1},
-            eid = {1},
-          pages = {1},
-            doi = {10.1007/s41116-022-00035-6},
-  archivePrefix = {arXiv},
-         eprint = {2212.09788},
-   primaryClass = {astro-ph.SR},
-         adsurl = {https://ui.adsabs.harvard.edu/abs/2023LRSP...20....1J},
-        adsnote = {Provided by the SAO/NASA Astrophysics Data System}
-  }
-  ```
+### Other Relevant Scientific Articles :material-bookshelf:
+
+- **Waves in the Lower Solar Atmosphere: The Dawn of Next-Generation Solar Telescopes**: [Jess, D. B., Jafarzadeh, S., Keys, P. H., Stangalini, M., Verth, G., Grant, S. D. T. 2023, Living Reviews in Solar Physics, 20, 1][5]{target=_blank} ([ADS][6]{target=_blank})
+
+```latex
+@ARTICLE{2023LRSP...20....1J,
+       author = {{Jess}, David B. and {Jafarzadeh}, Shahin and {Keys}, Peter H. and {Stangalini}, Marco and {Verth}, Gary and {Grant}, Samuel D.~T.},
+        title = "{Waves in the lower solar atmosphere: the dawn of next-generation solar telescopes}",
+      journal = {Living Reviews in Solar Physics},
+     keywords = {Shock waves, Sun: chromosphere, Sun: oscillations, Sun: photosphere, Telescopes, Astrophysics - Solar and Stellar Astrophysics},
+         year = 2023,
+        month = dec,
+       volume = {20},
+       number = {1},
+          eid = {1},
+        pages = {1},
+          doi = {10.1007/s41116-022-00035-6},
+archivePrefix = {arXiv},
+       eprint = {2212.09788},
+ primaryClass = {astro-ph.SR},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2023LRSP...20....1J},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+```
 
 ### Articles for particular functions
 
-In addition, if you use any of the particular analysis techniques listed below, please cite the original publications where those codes (or approaches) were first used/introduced.
+If you use any specific analysis techniques provided by WaLSAtools, please also cite the original publications where these codes or approaches were first introduced.
 
 - **k-&#969; Analysis and Fourier Filtering**: [Jess et al. 2017, The Astrophysical Journal, 842, 59][1]{target=_blank} ([ADS][2]{target=_blank})
   ```latex
@@ -60,28 +63,6 @@ In addition, if you use any of the particular analysis techniques listed below, 
         adsnote = {Provided by the SAO/NASA Astrophysics Data System}
   }
   ```
-<br>
-
-- **B-&#969; Analysis**: [Stangalini et al. 2021, Astronomy & Astrophysics, 649, A169][3]{target=_blank} ([ADS][4]{target=_blank})
-  ```latex
-  @ARTICLE{2021A&A...649A.169S,
-         author = {{Stangalini}, M. and {Jess}, D.~B. and {Verth}, G. and {Fedun}, V. and {Fleck}, B. and {Jafarzadeh}, S. and {Keys}, P.~H. and {Murabito}, M. and {Calchetti}, D. and {Aldhafeeri}, A.~A. and {Berrilli}, F. and {Del Moro}, D. and {Jefferies}, S.~M. and {Terradas}, J. and {Soler}, R.},
-          title = "{A novel approach to identify resonant MHD wave modes in solar pores and sunspot umbrae: B {\ensuremath{-}} {\ensuremath{\omega}} analysis}",
-        journal = {\aap},
-       keywords = {Sun: atmosphere, Sun: magnetic fields, Sun: photosphere, Sun: oscillations, Astrophysics - Solar and Stellar Astrophysics},
-           year = 2021,
-          month = may,
-         volume = {649},
-            eid = {A169},
-          pages = {A169},
-            doi = {10.1051/0004-6361/202140429},
-  archivePrefix = {arXiv},
-         eprint = {2103.11639},
-   primaryClass = {astro-ph.SR},
-         adsurl = {https://ui.adsabs.harvard.edu/abs/2021A&A...649A.169S},
-        adsnote = {Provided by the SAO/NASA Astrophysics Data System}
-  }
-  ``` 
 
   [1]: https://iopscience.iop.org/article/10.3847/1538-4357/aa73d6/pdf
   [2]: http://adsabs.harvard.edu/abs/2017ApJ...842...59J

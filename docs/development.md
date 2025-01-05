@@ -6,45 +6,53 @@ template: main.html
 
 ## Package Layout :material-package-variant-closed:
 
-There are a number of files for build, test, and continuous integration in the root of the package, but in general, it is broken up as illustrated below. Individual files, except the **WaLSAtools** main code and docs setup file, are not shown in the layout.
+The package contains files for building, testing, and continuous integration at its root, but it is broadly organized as shown below. Only the main components are included in this overview.
 
-```
-.
-├── codes
-│   ├── idl
-│   │   ├── dependencies_level1
-│   │   ├── dependencies_level2
-│   │   └── walsatools.pro
-│   └── python
-│       └── dependencies
-├── docs
-│   ├── idl
-│   ├── python
-│   ├── images
-│   ├── pdf
-│   ├── releases
-│   └── theme
-├── examples
-│   ├── idl
-│   ├── python
-│   └── sample_data
-└── mkdocs.yml
-```
+<pre>
+WaLSAtools/
+├── codes/
+│   ├── python/                # Python implementation of WaLSAtools
+│   │   ├── WaLSAtools/        # Core library
+│   │   ├── setup.py           # Setup script for Python
+│   │   └── README.md          # Python-specific README
+│   ├── idl/                   # IDL implementation of WaLSAtools
+│   │   ├── WaLSAtools/        # Core library
+│   │   ├── setup.pro          # Setup script for IDL
+│   │   └── README.md          # IDL-specific README
+├── docs/                      # Documentation for WaLSAtools
+├── examples/                  # Worked examples directory
+│   ├── python/                # Python-specific examples
+│   │   └── Worked_examples__NRMP/
+│   ├── idl/                   # IDL-specific examples
+│   │   └── Worked_examples__NRMP/
+├── LICENSE                    # License information
+├── NOTICE                     # Copyright Notice
+└── README.md                  # Main repository README
+</pre>
+
+**Directory Structure**
 
 Directory            | Description
 -------------------- | -----------
-`codes`              | This contains the main source codes (and their *dependencies*) for all analysis tools in both IDL and Python programming languages. Further sub-directories include third party components required for the package, as well as the `epstool-3.08` package which is a utility to, e.g., fix bounding boxes, in EPS files.
-`docs`               | This contains the source files for the documentations. Pull request for changes of the Markdown (.md) files under the root level of the directory and under *idl* and *python* directories can be submitted. Other sub-directories include files for style of the web document and should not be changed. Images and PDF files should be put in the associated folders.
-`examples`           | This contains various examples on sample data sets (stored in the `sample_data` folder under this directory) to show how WaLSAtools can be used.
+`codes`              | Contains the main source codes, their associated analysis modules and *dependencies* for analysis tools in both Python and IDL. Subdirectories house any third-party components required for the package.
+`docs`               | Contains the source files for documentation. Contributions to Markdown (`.md`) files under the root directory or *python* and *idl* subdirectories are welcome via pull requests. Other subdirectories manage the website's visual style and should not be edited. Images and PDF files should be stored in their respective subfolders.
+`examples`           | Includes sample datasets and example scripts demonstrating how to use **WaLSAtools**.
 
-Files                      | Description
--------------------------- | -----------
-`mkdocs.yml`               | The main configuration file for this documentation.
-`walsatools.pro`           | The main IDL code which provides all necessary information. This is the prime (only) code which should preferably be called when using WaLSAtools in IDL.
+**Key Files**
+
+File                      | Description
+------------------------- | -----------
+`mkdocs.yml`              | Configuration file for generating the documentation website using MkDocs.
+`WaLSAtools.py`           | The main Python script, serving as the core of WaLSAtools. This provides the essential framework for Python users.
+`walsatools.pro`          | The main IDL script, providing the necessary framework for WaLSAtools in IDL. It is the primary entry point when using WaLSAtools in IDL.
 
 ## Editing Documents :material-file-document-edit:
 
-Documents are in Markdown (with some additional syntax and extensions) and converted to HTML via Python Markdown (deployed using [`gh-pages`][1]{target=_blank}). To edit the documents, find out about Markdown and how it works [here][2]{target=_blank}. Working with Markdown in [Visual Studio Code][3]{target=_blank} (when all Markdown extensions installed) is simple and recommended.
+All documentation is written in Markdown, with some additional syntax and extensions. It is converted to HTML using Python Markdown and deployed via [`gh-pages`][1]{target=_blank}. For those new to Markdown, you can learn about its syntax and structure [here][2]{target=_blank}. 
+
+### Recommended Tools:
+- **Markdown Editing**: Using [Visual Studio Code][3]{target=_blank}  is highly recommended for working with Markdown files and coding in Python, IDL, or other languages. To ensure an optimal experience, install all necessary extensions for Markdown and the relevant programming languages.
+- **Contribution Process**: Edit Markdown files directly within the `docs` directory and submit your changes via pull requests. Always preview changes locally before pushing updates.
 
   [1]: https://www.mkdocs.org/user-guide/deploying-your-docs/
   [2]: https://www.markdownguide.org
