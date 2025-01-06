@@ -32,7 +32,7 @@ This repository is associated with a primer article titled *"Wave analysis tools
 * **Wide Range of Wave Analysis Techniques:**  From foundational methods like FFT and wavelet analysis to advanced techniques such as EMD, k-ω, and POD analysis.
 * **Cross-Disciplinary Applicability:**  Suitable for signal processing, oscillation studies, and multi-dimensional analysis in various fields.
 * **Interactive Interfaces:** Simplified workflows through interactive menus for both Python and IDL.
-* **Open Science Principles:** Promotes reproducibility and transparency in data analysis.
+* **Open Science Principles:** Promotes reproducibility and transparency in data analysis. 
 
 
 ## **Documentation**
