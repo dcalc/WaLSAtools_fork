@@ -89,7 +89,7 @@ def print_logo_and_credits():
         except NameError:
             # For Jupyter notebooks
             current_dir = os.getcwd()
-        img_path = os.path.join(current_dir, '..', 'assets', 'WaLSA_logo.png')
+        img_path = os.path.join(current_dir, '..', 'assets', 'WaLSAtools_black.png')
         # display(HTML(f'<img src="{img_path}" style="margin-left: 40px; margin-top: 20px; width:300px; height: auto;">')) # not shwon in Jupyter notebook, only in MS Code
         import base64
         # Convert the image to Base64

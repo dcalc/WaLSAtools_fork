@@ -668,7 +668,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
 
 
     ??? source-code "Source code"
-        ``` python linenums="1" hl_lines="17"
+        ``` python linenums="1"
         --8<-- "codes/idl/WaLSAtools/walsatools.pro"
         ```
 
