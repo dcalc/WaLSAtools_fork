@@ -1,8 +1,10 @@
-<div style="margin-bottom: 20px;">
+<div style="display: block; margin-bottom: 20px;">
   <a href="https://WaLSA.tools" target="_blank">
-    <img align="left" style="display: block; margin-bottom: 20px;" src="docs/images/WaLSAtools_black.svg" alt="WaLSAtools Documentation" width="400" height="auto">
+    <img align="left" src="docs/images/WaLSAtools_black.svg" alt="WaLSAtools Documentation" width="400" height="auto">
   </a>
 </div>
+
+<br><br>
 
 # WaLSAtools &ndash; Wave Analysis Tools
 
