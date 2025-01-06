@@ -1,5 +1,5 @@
-<a href="https://WaLSA.tools" target="_blank"><img align="left" src="docs/images/WaLSAtools_black.svg" alt="WaLSAtools Documentation" width="400" height="auto" /></a>
-<br>
+<a href="https://WaLSA.tools" target="_blank"><img align="left" src="docs/images/WaLSAtools_black.svg" alt="WaLSAtools Documentation" width="400" height="auto" /></a><br>
+
 # WaLSAtools &ndash; Wave Analysis Tools
 
 <p align="left">
@@ -48,23 +48,23 @@ The documentation includes:
 <pre>
 WaLSAtools/
 ├── codes/
-│   ├── python/                # Python implementation of WaLSAtools
-│   │   ├── WaLSAtools/        # Core library
-│   │   ├── setup.py           # Setup script for Python
-│   │   └── README.md          # Python-specific README
-│   ├── idl/                   # IDL implementation of WaLSAtools
-│   │   ├── WaLSAtools/        # Core library
-│   │   ├── setup.pro          # Setup script for IDL
-│   │   └── README.md          # IDL-specific README
-├── docs/                      # Documentation for WaLSAtools
-├── examples/                  # Worked examples directory
-│   ├── python/                # Python-specific examples
+│   ├── python/                      # Python implementation of WaLSAtools
+│   │   ├── WaLSAtools/              # Core library
+│   │   ├── setup.py                 # Setup script for Python
+│   │   └── README.md                # Python-specific README
+│   ├── idl/                         # IDL implementation of WaLSAtools
+│   │   ├── WaLSAtools/              # Core library
+│   │   ├── setup.pro                # Setup script for IDL
+│   │   └── README.md                # IDL-specific README
+├── docs/                            # Documentation for WaLSAtools
+├── examples/                        # Worked examples directory
+│   ├── python/                      # Python-specific examples
 │   │   └── Worked_examples__NRMP/
-│   ├── idl/                   # IDL-specific examples
+│   ├── idl/                         # IDL-specific examples
 │   │   └── Worked_examples__NRMP/
-├── LICENSE                    # License information
-├── NOTICE                     # Copyright Notice
-└── README.md                  # Main repository README
+├── LICENSE                          # License information
+├── NOTICE                           # Copyright Notice
+└── README.md                        # Main repository README
 </pre>
 
 ## **Installation**
