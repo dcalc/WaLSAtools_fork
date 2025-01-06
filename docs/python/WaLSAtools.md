@@ -180,7 +180,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
 </div>
 <!-- Logo -->
 <div style="margin-left: 30px; margin-top: 20px;">
-    <img src="https://walsa.team/images/WaLSAtools_black.png" style="width: 300px; height: auto;">
+    <img src="https://walsa.team/images/walsatools_black.png" style="width: 300px; height: auto;">
 </div>
 <!-- Credits -->
 <div style="margin-left: 30px; margin-top: 20px; font-size: 0.9em;">
