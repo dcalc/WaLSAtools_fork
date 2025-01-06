@@ -1,10 +1,10 @@
 <a href="https://WaLSA.tools" target="_blank"><img align="left" src="docs/images/WaLSAtools_black.svg" alt="WaLSAtools Documentation" width="400" height="auto" /></a>
-
+<br>
 # WaLSAtools &ndash; Wave Analysis Tools
 
 <p align="left">
     <a href="#"><img src="https://img.shields.io/badge/WaLSAtools-v1.0-0066cc"></a> 
-    <a href="https://walsa.team" target="_blank"><img src="https://img.shields.io/badge/copyright-WaLSA%20Team-000d1a"></a>
+    <a href="https://walsa.team" target="_blank"><img src="https://img.shields.io/badge/powered%20by-WaLSA%20Team-000d1a"></a>
     <a href="https://walsa.tools/license"><img src="https://img.shields.io/badge/license-Apache%202.0-green"></a>
     <a href="#"><img src="https://zenodo.org/badge/DOI/zenodo:%20tbd.svg"></a> 
     <a href="https://github.com/WaLSAteam/WaLSAtools/actions/workflows/ci.yml"><img src="https://github.com/WaLSAteam/WaLSAtools/workflows/docs/badge.svg"></a>
