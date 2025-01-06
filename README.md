@@ -1,6 +1,6 @@
-<p align="left">
+<h1 align="left">
 <a href="https://WaLSA.tools" target="_blank"><img align="left" src="docs/images/WaLSAtools_black.svg" alt="WaLSAtools Documentation" width="400" height="auto" /></a>
-</p><br>
+</h1><br>
 
 # WaLSAtools &ndash; Wave Analysis Tools
 
