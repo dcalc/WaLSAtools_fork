@@ -1,3 +1,7 @@
+<h1 align="center">
+<img src="https://raw.githubusercontent.com/WaLSAteam/WaLSAtools/main/docs/images/WaLSAtools_black.svg" width="400">
+</h1><br>
+
 # WaLSAtools &ndash; Wave Analysis Tools
 
 <p align="left">
