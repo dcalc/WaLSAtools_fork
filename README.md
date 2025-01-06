@@ -1,5 +1,5 @@
 <h1 align="center">
-<img src="https://raw.githubusercontent.com/WaLSAteam/WaLSAtools/main/docs/images/WaLSAtools_black.svg" width="400">
+<img src="docs/images/WaLSAtools_black.svg" width="400">
 </h1><br>
 
 # WaLSAtools &ndash; Wave Analysis Tools
@@ -33,7 +33,7 @@ This repository is associated with a primer article titled *"Wave analysis tools
 
 ## **Documentation**
 
-<a href="https://WaLSA.tools" target="_blank"><img align="right" src="docs/images/misc/WaLSAtool_documentation_screenshot.jpg" alt="WaLSAtools Documentation Screenshot" width="485" height="auto" /></a>
+<a href="https://WaLSA.tools" target="_blank"><img align="right" src="docs/images/misc/WaLSAtools_documentation_screenshot.png" alt="WaLSAtools Documentation Screenshot" width="485" height="auto" /></a>
 
 The complete documentation, including installation guides, method descriptions, and usage examples, is available online:
 
