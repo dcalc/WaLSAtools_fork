@@ -1,6 +1,6 @@
-<h1>
+<div>
 <a href="https://WaLSA.tools" target="_blank"><img align="left" src="docs/images/WaLSAtools_black.svg" alt="WaLSAtools Documentation" width="400" height="auto"></a>
-</h1><br>
+</div><br>
 
 <br>
 
