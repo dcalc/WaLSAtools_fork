@@ -4,7 +4,7 @@
   </a>
 </div>
 
-<br><div style="margin: 20;"><p></p></div><br><br>
+<br><div style="margin: 10;"><p></p></div><br><br>
 
 # WaLSAtools &ndash; Wave Analysis Tools
 
@@ -98,6 +98,7 @@ If you use WaLSAtools in your research, please consider citing:
 
 > Jafrzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press
 
+> Jafrzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, WaLSAteam/WaLSAtools: DOI TBD
 
 ## **License**
 
