@@ -6,13 +6,15 @@ template: main.html
 
 **WaLSAtools** is designed for ease of use and accessibility. Its interactive interface guides you through the analysis process, providing clear instructions and helpful information at each step. This section demonstrates how to use WaLSAtools and highlights its key features.
 
-Before diving into the interactive demonstration, we recommend familiarizing yourself with the various analysis methods available in WaLSAtools. You can find detailed descriptions of these methods in the [Introduction](introduction.md) section. Additionally, this page provides several **Worked Examples** of different analysis techniques applied to synthetic datasets (see the left menu). To learn more about its capabilities and how to apply it to your research, we encourage you to explore the WaLSAtools documentation, the associated *Nature Reviews Methods Primers* article, and the provided examples. If you use WaLSAtools in your work, please remember to cite it appropriately (see [Citation](citation.md)).
+Before diving into the interactive demonstration, we recommend familiarizing yourself with the various analysis methods available in WaLSAtools. You can find detailed descriptions of these methods in the [Introduction](introduction.md) section. Additionally, this page provides several **Worked Examples** of different analysis techniques applied to synthetic datasets (see the left menu). To learn more about its capabilities and how to apply it to your research, we encourage you to explore the WaLSAtools documentation, the associated *Nature Reviews Methods Primers* article, and the provided examples. If you use WaLSAtools in your work, please remember to cite it appropriately (see [Citation][9]).
 
 The ["Under the Hood"](routines.md) section provides details on the individual routines used for wave analysis within the **WaLSAtools** package, for those interested in exploring the underlying code. However, we strongly encourage all users to perform their analyses by running WaLSAtools directly, as this ensures the correct execution of the analysis workflow and provides a more user-friendly experience.
 
+  [9]: ../citation.md
+
 !!! walsa-gear "Interactive Demonstration"
 
-    WaLSAtools provides an interactive interface that simplifies wave analysis. To launch the interface, simply import the `WaLSAtools` package and run the `WaLSAtools` command in a Python terminal or Jupyter notebook.
+    **WaLSAtools** provides an interactive interface that simplifies wave analysis. To launch the interface, simply import the `WaLSAtools` package and run the `WaLSAtools` command in a Python terminal or Jupyter notebook.
 
     The interface will guide you through the following steps:
 

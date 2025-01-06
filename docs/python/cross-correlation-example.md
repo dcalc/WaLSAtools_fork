@@ -6,7 +6,7 @@ template: main.html
 
 This example demonstrates the application of cross-correlation analysis to two nearly identical synthetic 1D signals. The signals share the same base frequencies and amplitudes but have slight phase differences introduced between them. This simulates a scenario where similar wave signals are observed at different locations or with a time delay.
 
-By analyzing the cross-correlation between these signals, we can identify common frequencies, quantify the strength of their relationship, and determine the phase or time lag between their oscillations. This provides valuable insights into the potential connections or shared drivers influencing the signals.
+By analysing the cross-correlation between these signals, we can identify common frequencies, quantify the strength of their relationship, and determine the phase or time lag between their oscillations. This provides valuable insights into the potential connections or shared drivers influencing the signals.
 
 !!! walsa-example "Analysis and Figure"
 

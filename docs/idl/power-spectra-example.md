@@ -2,93 +2,42 @@
 template: main.html
 ---
 
-# Power-Spectra Examples
+# Worked Example - NRMP: Power Spectra
 
-Here is an example where all various power spectra, currently available through **WaLSAtools**, are calculated and plotted for a times series (i.e., at a pixel of time series of images) from observations with SDO/AIA 170 nm, sampling heights approximately corresponding to temperature minimum of the solar atmosphere.
+This example demonstrates the application of various spectral analysis techniques to a synthetic 1D signal constructed with predefined frequencies and amplitudes. The signal includes a range of oscillatory components with different characteristics, including:
 
-  [1]: introduction.md
+*   **Dominant oscillations:** Five dominant frequencies (5, 12, 15, 18, and 25 Hz) with varying amplitudes.
+*   **Transient oscillation:** A short-lived oscillation with a frequency of 2 Hz.
+*   **Weak oscillation:** A low-amplitude oscillation with a frequency of 33 Hz.
+*   **Quasi-periodic oscillation:** An oscillation with a frequency of 10 Hz and a time-varying amplitude.
+*   **Noise:** Random noise added to the signal.
 
-!!! walsa-example "Power Spectra at pixel `[10,10]` of the AIA 170 nm sample datacube"
+By analysing this synthetic signal with different methods, we can evaluate their ability to accurately identify and characterise these diverse oscillatory components. This provides valuable insights into the strengths and limitations of each technique, guiding the selection of appropriate methods for analysing real-world data. For a comprehensive discussion of the analysis and results, please refer to the associated article in *Nature Reviews Methods Primers*.
 
-    To learn how the datacube is read, and how the various power spectra are calculated, using **WaLSAtools**, and plotted, please go through the source code of this example accessible at the bottom of this page. 
-    The example IDL procedure can also be found under the `examples/idl/` directory of the package. 
-	The sample datacube is located in the `sample_data` folder under the `examples` directory. 
-	To run the example code, simply type the following command (while in the `examples/idl/` directory, which can be placed anywhere in your machine, also outside your `IDL_PATH`) and press ++enter++ 
+!!! walsa-example "Analysis and Figure"
 
-    ```sh
-    IDL> .r example_wave_power_spectra
-    ```
+    The figure below presents a comparative analysis of various wave analysis methods applied to the synthetic 1D signal. The signal was pre-processed by detrending (to remove any linear trends) and apodized (to reduce edge effects) using a Tukey window.
 
-    Within this example, we call **WaLSAtools** several times to calculate the various power spectra (those lines are highlighted in the example code), hence general information about the datacube as well as those about each particular method are printed after each call. Below are some examples of the information begin printed. For simplicity, `% Compiled module:` messages and repeated information are not shown below.
+    **Methods used:**
 
-    ```
-    % Compiled module: WALSATOOLS.
+    *   Fast Fourier Transform (FFT) 
+    *   Lomb-Scargle Periodogram
+    *   Welch's Method
+    *   Wavelet Transform (with Morlet, Paul, and Mexican Hat wavelets)
+    *   Global Wavelet Spectrum (GWS)
+    *   Refined Global Wavelet Spectrum (RGWS)
+    *   Hilbert-Huang Transform (HHT) with Empirical Mode Decomposition (EMD) and Ensemble EMD (EEMD)
 
-        __          __          _          _____
-        \ \        / /         | |        / ____|     /\
-         \ \  /\  / /  ▄▄▄▄▄   | |       | (___      /  \
-          \ \/  \/ /   ▀▀▀▀██  | |        \___ \    / /\ \
-           \  /\  /   ▄██▀▀██  | |____    ____) |  / ____ \
-            \/  \/    ▀██▄▄██  |______|  |_____/  /_/    \_\
+    **WaLSAtools version:** 1.0
 
+    These particular analyses generate the figure below (the IDL version of Figure 3 in *Nature Reviews Methods Primers*; copyrighted). For a full description of the datasets and the analyses performed, see the associated article. See the source code at the bottom of this page (or <a href="https://github.com/WaLSAteam/WaLSAtools/blob/main/examples/python/Worked_examples__NRMP/FIG3__walsatools_power_spectra.ipynb" target="_blank">here</a> on Github) for a complete analyses and the plotting routines used to generate this figure.
 
-      © WaLSA Team (www.WaLSA.team)
-     -----------------------------------------------------------------------------------
-      WaLSAtools v1.0
-      Documentation: www.WaLSA.tools
-      GitHub repository: www.github.com/WaLSAteam/WaLSAtools
-     -----------------------------------------------------------------------------------
-     
-     The input datacube is of size: [610]
+    ![jpg](/idl/Figures_nrmp_jpg/Fig3_power_spectra_1D_signal.jpg)
 
-     Temporally, the important values are:
-         2-element duration (Nyquist period) = 24.0000 seconds
-         Time series duration = 7320 seconds
-         Nyquist frequency = 41.6667 mHz
+    **Figure Caption:** Performance of diverse analysis methods on a synthetic 1D time series. **(a)** The detrended and apodized signal. **(b)** The unevenly sampled signal. **&#40;c&#41;** The FFT power spectrum. **(d)** The Lomb-Scargle periodogram. **(e)** The global wavelet spectrum (GWS) for the Morlet, Mexican Hat, and Paul wavelets. **(f)** The refined global wavelet spectrum (RGWS) for the Morlet, Mexican Hat, and Paul wavelets. **(g)** The HHT spectrum using EMD. **(h)** The FFT power spectra of the individual IMFs extracted by EMD. **(i)** The HHT spectrum using EEMD. **(j)** The FFT power spectra of the individual IMFs extracted by EEMD. **(k)** The Welch power spectrum. **(l)-(n)** The wavelet power spectra for the Morlet, Mexican Hat, and Paul wavelets, respectively. All powers are normalized to their maximum value and shown in percentages, with panels **&#40;c&#41;**, **(d)**, **(h)**, and **(j)** zoomed in on a smaller power range for better visibility of smaller peaks. The 95% confidence levels are indicated by dot-dashed curves for 1D power spectra and solid black contours for wavelet spectra. Vertical lines above each 1D spectrum mark the frequency resolution. Green vertical (or horizontal) lines on the frequency axes indicate the predefined frequencies used to construct the synthetic signal.
 
-      -- Detrend and apodize the cube .....
-      
-      -- Perform Wavelet Transform ..... 
-      ...... output Wavelet Spectra
-     
-      -- Perform FFT (Fast Fourier Transform) .....
-      
-      -- Perform Wavelet Transform .....
-      ...... output Global Wavelet Spectra
-      
-      -- Perform Lomb-Scargle Transform .....
-      
-      -- Perform Wavelet Transform .....
-      ...... output Global Wavelet Spectra: inside COI only
-      
-      -- Perform HHT (Hilbert-Huang Transform) .....
-	  ...... output Marginal HHT Spectra 
-      
-      mode = 1: linear power
-
-     COMPLETED!
-    ```
-    
-    The output figure of this example is shown below.
-    
-    ![logos]
-      [logos]: ../images/idl/example_power_spectra.jpg
-
-    The 1D signal (i.e., temporal variation of intensity at pixel [10,10] of the AIA 170 nm sample datacube) is illustrated in panel (**c**) after the application of linear detrending and apodisation (with a Tukey window).
-    Panels (**a**) and (**b**) display wavelet power spectra of the signal using the Morlet and Mexican-Hat wavelets, respectively. 
-    In both panels, CoIs are marked with the cross-hatched area. The background colour displays the normalised power (i.e., PSD), and the contours indicate the 95% confidence levels.
-    Global and Sensible wavelets of the two wavelet transforms (i.e., Morlet and Mexican-Hat) are respectively shown with the red solid lines and green dashed lines in both panels (**d**) and (**e**). 
-    The difference is that in panel (**d**) the *traditional* global wavelets are plotted (i.e., where the power is averaged over the entire time domain), whereas in panel (**e**) the so-called sensible wavelets represent time-integral of wavelet power excluding those affected by the CoI and those below the 95% confidence level (i.e., power-weighted frequency distribution with significant power unaffected by CoI).
-    In panel (**d**), the 95% confidence levels (i.e., the 5% significance levels) of the two global wavelets (i.e., Morlet and Mexican-Hat) are depicted with the black dotted-dashed lines and blue triple-dotted-dashed lines, respectively.
-    Panels (**f**), (**g**), and (**h**) illustrate PSDs determined using FFT, Lomb-Scargle, and HHT (marginal PSD) approaches, respectively (all shown with red solid lines). 
-	The black dotted-dashed lines in these three panels indicate the 95% confidence levels. Note that all power (PSD) are normalised to their maximum value to facilitate the comparison.
-    The purple and yellow stripes have been depicted to mark frequency ranges corresponding to the 3 and 5 min period windows (each with a width of 1 min), respectively.
-    Also, on the top of the 1D power spectra, panels (**d**-**h**), frequency resolutions are depicted. Note the irregular spacing of the frequency resolution of the wavelet transforms. 
-	Also note that some analysis techniques such as wavelet transform does padding by default. The time series could additionally be padded (by zeros) to (further) increase the frequency resolution, if desired.
 
     ??? source-code "Source code"
-        ``` python linenums="1" hl_lines="49 50 87 88 136 137 156 157 172 173 187 188 203 204 219 220 227 228"
-        --8<-- "examples/idl/example_wave_power_spectra.pro"
-        ```
-
-<br>
+	    ``` python linenums="1"
+	    --8<-- "examples/idl/Worked_examples__NRMP/FIG3__walsatools_power_spectra.pro"
+	    ```

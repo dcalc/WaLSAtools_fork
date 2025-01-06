@@ -4,7 +4,7 @@ template: main.html
 
 # Worked Example - NRMP: Dominant Frequency
 
-This example demonstrates the application of dominant frequency analysis to a synthetic spatio-temporal dataset. The dataset comprises a time series of 2D images, representing the evolution of wave patterns over both space and time. By analyzing the dominant frequencies at each spatial location, we can gain insights into the spatial distribution of oscillatory behavior and identify potential wave modes.
+This example demonstrates the application of dominant frequency analysis to a synthetic spatio-temporal dataset. The dataset comprises a time series of 2D images, representing the evolution of wave patterns over both space and time. By analysing the dominant frequencies at each spatial location, we can gain insights into the spatial distribution of oscillatory behaviour and identify potential wave modes.
 
 !!! walsa-example "Analysis and Figure"
 

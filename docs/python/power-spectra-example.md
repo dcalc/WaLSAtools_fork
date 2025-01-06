@@ -12,7 +12,7 @@ This example demonstrates the application of various spectral analysis technique
 *   **Quasi-periodic oscillation:** An oscillation with a frequency of 10 Hz and a time-varying amplitude.
 *   **Noise:** Random noise added to the signal.
 
-By analyzing this synthetic signal with different methods, we can evaluate their ability to accurately identify and characterize these diverse oscillatory components. This provides valuable insights into the strengths and limitations of each technique, guiding the selection of appropriate methods for analyzing real-world data. For a comprehensive discussion of the analysis and results, please refer to the associated article in *Nature Reviews Methods Primers*.
+By analysing this synthetic signal with different methods, we can evaluate their ability to accurately identify and characterise these diverse oscillatory components. This provides valuable insights into the strengths and limitations of each technique, guiding the selection of appropriate methods for analysing real-world data. For a comprehensive discussion of the analysis and results, please refer to the associated article in *Nature Reviews Methods Primers*.
 
 !!! walsa-example "Analysis and Figure"
 

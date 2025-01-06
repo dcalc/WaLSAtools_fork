@@ -4,24 +4,31 @@ template: main.html
 
 # WaLSAtools
 
-Below you can find information on how to use **WaLSAtools**. Please first read [description of the analysis methods][1] performed by **WaLSAtools**. Work examples of various analysis techniques are also provided (see the left menu), along with some hints on plotting the results.
+**WaLSAtools** is designed for ease of use and accessibility. Its interactive interface guides you through the analysis process, providing clear instructions and helpful information at each step. This section demonstrates how to use WaLSAtools and highlights its key features.
 
-We strongly encourage all users to perform their analyses by running **WaLSAtools** directly, instead of calling individual routines used within **WaLSAtools**. Please check out the [license and credits][7] as well as the [acknowledgements][8], and if you use **WaLSAtools** in your research, please [cite][9] it as instructed.
+Before diving into the interactive demonstration, we recommend familiarizing yourself with the various analysis methods available in WaLSAtools. You can find detailed descriptions of these methods in the [Introduction](introduction.md) section. Additionally, this page provides several **Worked Examples** of different analysis techniques applied to synthetic datasets (see the left menu). To learn more about its capabilities and how to apply it to your research, we encourage you to explore the WaLSAtools documentation, the associated *Nature Reviews Methods Primers* article, and the provided examples. If you use WaLSAtools in your work, please remember to cite it appropriately (see [Citation][9]).
 
-  [1]: introduction.md
-  [7]: ../license.md
-  [8]: ../acknowledgements.md
+The ["Under the Hood"](routines.md) section provides details on the individual routines used for wave analysis within the **WaLSAtools** package, for those interested in exploring the underlying code. However, we strongly encourage all users to perform their analyses by running WaLSAtools directly, as this ensures the correct execution of the analysis workflow and provides a more user-friendly experience.
+
   [9]: ../citation.md
 
-!!! walsa-gear "How to use WaLSAtools"
+!!! walsa-gear "Interactive Demonstration"
 
-    **WaLSAtools** is a wrapper of several analysis methods. It is written in a self-explanatory fashion, so one can get calling sequence and information about all inputs, keywords, and outputs for a specific analysis by simply typing **WaLSAtools** in IDL (press ++enter++ after typing each command/choice):
+    **WaLSAtools** provides an interactive interface that simplifies wave analysis. To launch the interface, simply run the `WaLSAtools` command in IDL:
 
     ```sh
     IDL> WaLSAtools
     ```
 
-    Various chain of information printed in terminal, based on choices of the user, are shown below. The code follows a *dynamic select option* scenario, in which each step is according to the previous selection.
+    The interface will guide you through the following steps:
+
+    1.  **Select a category of analysis:** Choose from single time series analysis or cross-correlation analysis.
+    2.  **Choose the data type:** Specify the type of data you are working with (e.g., 1D signal, 3D datacube).
+    3.  **Pick a specific analysis method:** Select the method most suitable for your data and research question.
+
+    The interface will then provide information on the selected method, including its calling sequence, input parameters, and expected outputs.
+
+	**Here's an example of the execution of WaLSAtools in IDL (in terminal)**
 
     ```
 	% Compiled module: WALSATOOLS.
@@ -657,14 +664,12 @@ We strongly encourage all users to perform their analyses by running **WaLSAtool
 		    -----------------------------------------------------------------------------------------
 			```
 	
-    If data, time or cadence, and the type of analysis are not provided, then the code returns the sequential information as documented above. 
-    
-    Running **WaLSAtools** is relatively painless, and easy to understand, if you follow the instruction printed in the terminal. 
-    Please note the format and unit of the input, keyword, and output parameters.
+    If the data, time, or cadence, and the type of analysis are not provided, the code enters a guidance mode, providing detailed instructions and prompting you for the necessary information.
+
 
     ??? source-code "Source code"
         ``` python linenums="1" hl_lines="17"
-        --8<-- "codes/idl/walsatools.pro"
+        --8<-- "codes/idl/WaLSAtools/walsatools.pro"
         ```
 
 <br>

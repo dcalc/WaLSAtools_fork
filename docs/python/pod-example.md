@@ -4,7 +4,7 @@ template: main.html
 
 # Worked Example - NRMP: Proper Orthogonal Decomposition (POD) Analysis
 
-This example demonstrates the application of Proper Orthogonal Decomposition (POD) to a synthetic spatio-temporal dataset. POD is a powerful technique for analyzing multi-dimensional data, identifying dominant spatial patterns (modes) that capture the most significant variations in the data. It is particularly useful for reducing the dimensionality of complex datasets and extracting coherent structures.
+This example demonstrates the application of Proper Orthogonal Decomposition (POD) to a synthetic spatio-temporal dataset. POD is a powerful technique for analysing multi-dimensional data, identifying dominant spatial patterns (modes) that capture the most significant variations in the data. It is particularly useful for reducing the dimensionality of complex datasets and extracting coherent structures.
 
 !!! walsa-example "Analysis and Figure"
 

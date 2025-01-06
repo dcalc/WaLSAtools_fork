@@ -4,7 +4,7 @@ template: main.html
 
 # Worked Example - NRMP: k-ω Analysis and Filtering
 
-This example demonstrates the application of k-ω analysis and filtering to a synthetic spatio-temporal dataset. The dataset consists of a time series of 2D images, representing the evolution of wave patterns over both space and time. By analyzing this dataset in the k-ω domain, we can gain insights into the relationship between spatial and temporal scales of oscillations, identify different wave modes, and isolate specific wave features through filtering.
+This example demonstrates the application of k-ω analysis and filtering to a synthetic spatio-temporal dataset. The dataset consists of a time series of 2D images, representing the evolution of wave patterns over both space and time. By analysing this dataset in the k-ω domain, we can gain insights into the relationship between spatial and temporal scales of oscillations, identify different wave modes, and isolate specific wave features through filtering.
 
 !!! walsa-example "Analysis and Figure"
 

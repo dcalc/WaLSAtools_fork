@@ -43,7 +43,7 @@ Here's a brief overview of the core analysis modules:
 
 !!! walsa-code2 "WaLSA_pod.py"
 
-    This module implements Proper Orthogonal Decomposition (POD), as well as Spectral POD (SPOD), for analyzing multi-dimensional data and extracting dominant spatial patterns.
+    This module implements Proper Orthogonal Decomposition (POD), as well as Spectral POD (SPOD), for analysing multi-dimensional data and extracting dominant spatial patterns.
 
     ??? source-code "WaLSA_pod.py"
         ``` python

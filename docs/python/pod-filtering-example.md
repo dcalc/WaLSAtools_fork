@@ -4,7 +4,7 @@ template: main.html
 
 # Worked Example - NRMP: POD with Frequency Filtering
 
-This example demonstrates the application of frequency filtering to the temporal coefficients of POD modes. By isolating specific frequencies in the temporal evolution of each mode, we can extract spatial patterns associated with those frequencies, revealing more detailed information about the wave behavior.
+This example demonstrates the application of frequency filtering to the temporal coefficients of POD modes. By isolating specific frequencies in the temporal evolution of each mode, we can extract spatial patterns associated with those frequencies, revealing more detailed information about the wave behaviour.
 
 !!! walsa-example "Analysis and Figure"
 
