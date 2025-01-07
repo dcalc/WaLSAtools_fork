@@ -1,4 +1,4 @@
-# ------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 # WaLSAtools - Wave analysis tools
 # Copyright (C) 2025 WaLSA Team - Shahin Jafarzadeh et al.
 #
@@ -16,9 +16,9 @@
 # 
 # Note: If you use WaLSAtools for research, please consider citing:
 # Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
-# ------------------------------------------------------------------------------------------------------
-# The following codes are baed on those originally written by Jonathan E. Higham & Luiz A. C. A. Schiavo
-# ------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
+# The following codes are based on those originally written by Jonathan E. Higham & Luiz A. C. A. Schiavo
+# --------------------------------------------------------------------------------------------------------
 
 import numpy as np
 from scipy.signal import welch, find_peaks
@@ -377,11 +377,11 @@ def WaLSA_pod(signal, time, **kwargs):
             if j == 0:
                 clean_signal=np.zeros((params['num_modes_reconstruct'],len(csignal)))
             clean_signal[j,:] = model_fun(time, *fit_params)
-        # forming a set of clean data (reconstructed data at the fitted frequencies; frequency filterred reconstructed data)
+        # forming a set of clean data (reconstructed data at the fitted frequencies; frequency filtered reconstructed data)
         clean_data[:,:,i] = p[:,0:params['num_modes_reconstruct']]@np.diag(sorg[0:params['num_modes_reconstruct']])@clean_signal
 
-    frequency_filtered_modes = np.zeros((data.shape[0], data.shape[1], data.shape[2], 10))
-    for jj in range(10):
+    frequency_filtered_modes = np.zeros((data.shape[0], data.shape[1], data.shape[2], params['num_top_frequencies']))
+    for jj in range(params['num_top_frequencies']):
         for frame_index in range(data.shape[0]):
             frequency_filtered_modes[frame_index, :, :, jj] = np.reshape(clean_data[:, frame_index, jj], (data.shape[1], data.shape[2]))
 
