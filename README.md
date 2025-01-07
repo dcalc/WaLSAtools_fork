@@ -4,7 +4,7 @@
   </a>
 </div>
 
-<br><div style="margin: 10;"><p></p></div><br><br>
+<br><br><br>
 
 # WaLSAtools &ndash; Wave Analysis Tools
 
