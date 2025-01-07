@@ -20,7 +20,7 @@
 
 The core of WaLSAtools is built upon Python, one of the most widely-used programming languages in science and engineering. This ensures accessibility and ease of use for a broad audience. We are actively developing counterparts in other popular languages to further enhance accessibility, enabling researchers from various backgrounds to leverage the power of WaLSAtools for their wave analysis needs. Currently, WaLSAtools is also available in IDL, with plans to expand to other languages in the future.
 
-Developed by the [WaLSA Team](https://WaLSA.team), WaLSAtools was initially inspired by the intricate wave dynamics observed in the solar atmosphere. However, its applications extend far beyond solar physics, offering a versatile toolkit for anyone working with oscillatory signals.
+Developed by the [WaLSA Team](https://WaLSA.team), WaLSAtools was initially inspired by the intricate wave dynamics observed in the Sun's atmosphere. However, its applications extend far beyond solar physics, offering a versatile toolkit for anyone working with oscillatory signals.
 
 WaLSAtools promotes reproducibility and transparency in wave analysis. Its robust implementations of both fundamental and advanced techniques ensure consistent and trustworthy results, empowering researchers to delve deeper into the complexities of their data. Through its interactive interface, WaLSAtools guides users through the analysis process, providing the necessary information and tools to perform various types of wave analysis with ease.
 
