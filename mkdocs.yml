@@ -156,13 +156,10 @@ nav:
 # Plugins
 plugins:
   - search
+  - exclude-search:
+      exclude:
+        - docs/python/converted_notebooks_nrmp/*.md
   - include-markdown
-  # - mkdocs-jupyter:
-  #     include: ["*.ipynb"]
-  #     ignore: ["*.py"]
-  #     allow_errors: false
-  #     include_source: True
-  #   - tags
 
 # Extensions
 markdown_extensions:
