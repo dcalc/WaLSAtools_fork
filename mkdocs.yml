@@ -158,7 +158,7 @@ plugins:
   - search
   - exclude-search:
       exclude:
-        - docs/python/converted_notebooks_nrmp/*.md
+        - python/converted_notebooks_nrmp/*.md
   - include-markdown
 
 # Extensions
