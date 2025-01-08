@@ -162,6 +162,7 @@ single_series_parameters = {
             'siglevel': {'type': 'float, optional', 'description': 'Significance level for the Welch spectrum. Default is 0.95.'},
             'timestep_to_reconstruct': {'type': 'int, optional', 'description': 'Timestep of the datacube to reconstruct using the top modes. Default is 0.'},
             'num_modes_reconstruct': {'type': 'int, optional', 'description': 'Number of modes to use for reconstruction. Default is None (all modes).'},
+            'reconstruct_all': {'type': 'bool, optional', 'description': 'If True, reconstruct the entire time series using the top modes. Default is False.'},
             'spod': {'type': 'bool, optional', 'description': 'If True, perform Spectral Proper Orthogonal Decomposition (SPOD) analysis. Default is False.'},
             'spod_filter_size': {'type': 'int, optional', 'description': 'Filter size for SPOD analysis. Default is None.'},
             'spod_num_modes': {'type': 'int, optional', 'description': 'Number of SPOD modes to compute. Default is None.'},

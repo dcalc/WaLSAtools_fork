@@ -45,7 +45,7 @@ def print_pod_results(results):
         'combined_welch_psd': 'Combined Welch power spectral density for the temporal coefficients of the firts "num_modes" modes (Shape: (Nf))',
         'frequencies': 'Frequencies identified in the Welch spectrum (Shape: (Nf))',
         'combined_welch_significance': 'Significance threshold of the combined Welch spectrum (Shape: (Nf,))',
-        'reconstructed': 'Reconstructed frame at the specified timestep using the top "num_modes" modes (Shape: (Ny, Nx))',
+        'reconstructed': 'Reconstructed frame at the specified timestep (or for the entire time series) using the top "num_modes" modes (Shape: (Ny, Nx))',
         'sorted_frequencies': 'Frequencies identified in the Welch combined power spectrum (Shape: (Nfrequencies))',
         'frequency_filtered_modes': 'Frequency-filtered spatial POD modes for the first "num_top_frequencies" frequencies (Shape: (Nt, Ny, Nx, num_top_frequencies))',
         'frequency_filtered_modes_frequencies': 'Frequencies corresponding to the frequency-filtered modes (Shape: (num_top_frequencies))',
@@ -194,6 +194,7 @@ def WaLSA_pod(signal, time, **kwargs):
         siglevel (float, optional): Significance level for the Welch spectrum. Default is 0.95.
         timestep_to_reconstruct (int, optional): Timestep of the datacube to reconstruct using the top modes. Default is 0.
         num_modes_reconstruct (int, optional): Number of modes to use for reconstruction. Default is None (all modes).
+        reconstruct_all (bool, optional): If True, reconstruct the entire time series using the top modes. Default is False.
         spod (bool, optional): If True, perform Spectral Proper Orthogonal Decomposition (SPOD) analysis. Default is False.
         spod_filter_size (int, optional): Filter size for SPOD analysis. Default is None.
         spod_num_modes (int, optional): Number of SPOD modes to compute. Default is None.
@@ -220,6 +221,7 @@ def WaLSA_pod(signal, time, **kwargs):
         'nperm': 1000,
         'siglevel': 0.95,
         'timestep_to_reconstruct': 0,
+        'reconstruct_all': False,
         'num_modes_reconstruct': None,
         'spod': False,
         'spod_filter_size': None,
@@ -288,9 +290,19 @@ def WaLSA_pod(signal, time, **kwargs):
         contm = 100 * eigenvalue[0:m] / np.sum(eigenvalue)
         cumulative_eigenvalues.append(np.sum(contm)) 
 
-    reconstructed = np.zeros((data.shape[1], data.shape[2]))
-    for i in range(params['num_modes_reconstruct']):
-        reconstructed=reconstructed+np.reshape(p[:, i], (data.shape[1], data.shape[2]))*a[i, params['timestep_to_reconstruct']]*sorg[i]
+    if params['reconstruct_all']:
+        # Reconstruct the entire time series using the top 'num_modes_reconstruct' modes
+        reconstructed = np.zeros((data.shape[0], data.shape[1], data.shape[2]))
+        for tindex in range(data.shape[0]):
+            reconim = np.zeros((data.shape[1], data.shape[2]))
+            for i in range(params['num_modes_reconstruct']):
+                reconim=reconim+np.reshape(p[:, i], (data.shape[1], data.shape[2]))*a[i, tindex]*sorg[i]
+            reconstructed[tindex, :, :] = reconim
+    else:
+        # Reconstruct the specified timestep using the top 'num_modes_reconstruct' modes
+        reconstructed = np.zeros((data.shape[1], data.shape[2]))
+        for i in range(params['num_modes_reconstruct']):
+            reconstructed=reconstructed+np.reshape(p[:, i], (data.shape[1], data.shape[2]))*a[i, params['timestep_to_reconstruct']]*sorg[i]
 
     #---------------------------------------------------------------------------------
     # Combined Welch power spectrum and its significance
@@ -401,7 +413,7 @@ def WaLSA_pod(signal, time, **kwargs):
         'combined_welch_psd': combined_welch_psd,  # Combined Welch power spectral density for the temporal coefficients (Shape: (Nf))
         'frequencies': frequencies,  # Frequencies identified in the Welch spectrum (Shape: (Nf))
         'combined_welch_significance': combined_welch_significance,  # Significance threshold of the combined Welch spectrum (Shape: (Nf))
-        'reconstructed': reconstructed,  # Reconstructed frame at the specified timestep using the top modes (Shape: (Ny, Nx))
+        'reconstructed': reconstructed,  # Reconstructed frame at the specified timestep (or for the entire time series) using the top modes (Shape: (Ny, Nx))
         'sorted_frequencies': sorted_frequencies,  # Frequencies identified in the Welch spectrum (Shape: (Nfrequencies,))
         'frequency_filtered_modes': frequency_filtered_modes,  # Frequency-filtered spatial POD modes (Shape: (Nt, Ny, Nx, Ntop_frequencies))
         'frequency_filtered_modes_frequencies': top_frequencies,  # Frequencies corresponding to the frequency-filtered modes (Shape: (Ntop_frequencies))
