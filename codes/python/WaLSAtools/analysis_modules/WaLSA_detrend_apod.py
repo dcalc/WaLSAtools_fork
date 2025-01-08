@@ -21,7 +21,7 @@
 
 import numpy as np
 from scipy.optimize import curve_fit
-from .walsa_wavelet import cwt, Morlet
+from .WaLSA_wavelet import cwt, Morlet
 
 # Linear detrending function for curve fitting
 def linear(x, a, b):
@@ -83,7 +83,7 @@ def WaLSA_detrend_apod(cube, apod=0.1, meandetrend=False, pxdetrend=2, polyfit=N
 
     # Wavelet-based Fourier reconstruction (optional)
     if recon and cadence:
-        apocube = walsa_wave_recon(apocube, cadence, dj=dj, lo_cutoff=lo_cutoff, hi_cutoff=hi_cutoff, upper=upper)
+        apocube = WaLSA_wave_recon(apocube, cadence, dj=dj, lo_cutoff=lo_cutoff, hi_cutoff=hi_cutoff, upper=upper)
     
     # Resampling to preserve amplitudes (optional)
     if resample_original:
@@ -99,7 +99,7 @@ def WaLSA_detrend_apod(cube, apod=0.1, meandetrend=False, pxdetrend=2, polyfit=N
     return apocube
 
 # Wavelet-based reconstruction function (optional)
-def walsa_wave_recon(signal, cadence, dj=32, lo_cutoff=None, hi_cutoff=None, upper=False):
+def WaLSA_wave_recon(signal, cadence, dj=32, lo_cutoff=None, hi_cutoff=None, upper=False):
     mother = Morlet(6)
     dt = cadence
     n = len(signal)

@@ -18,13 +18,12 @@
 # Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
 # -----------------------------------------------------------------------------------------------------
 
-
-import numpy as np
-from scipy.signal import coherence, csd
-from .WaLSA_speclizer import WaLSA_speclizer
-from .walsa_wavelet import xwt, wct
-from .WaLSA_detrend_apod import WaLSA_detrend_apod
-from .walsa_wavelet_confidence import walsa_wavelet_confidence 
+import numpy as np # type: ignore
+from scipy.signal import coherence, csd # type: ignore
+from .WaLSA_speclizer import WaLSA_speclizer # type: ignore
+from .WaLSA_wavelet import xwt, wct # type: ignore
+from .WaLSA_detrend_apod import WaLSA_detrend_apod # type: ignore
+from .WaLSA_wavelet_confidence import WaLSA_wavelet_confidence # type: ignore
 
 # -------------------------------------- Main Function ----------------------------------------
 def WaLSA_cross_spectra(signal=None, time=None, method=None, **kwargs):
@@ -98,11 +97,11 @@ def getcross_spectrum_Welch(signal, time, **kwargs):
     
     # Power spectrum for data1
     power_data1, frequencies, _ = WaLSA_speclizer(signal=data1, time=time, method='welch', 
-                                               amplitude=True, nosignificance=True, nperseg=500, **kwargs)
-    
+                                               amplitude=True, nosignificance=True, silent=kwargs.pop('silent', True), **kwargs)
+
     # Power spectrum for data2
     power_data2, _, _ = WaLSA_speclizer(signal=data2, time=time, method='welch', 
-                                               amplitude=True, nosignificance=True, nperseg=500, **kwargs)
+                                               amplitude=True, nosignificance=True, silent=kwargs.pop('silent', False), **kwargs)
 
     # Calculate cross-spectrum
     _, crosspower = csd(data1, data2, fs=1.0/cadence, window='hann', nperseg=500)
@@ -319,7 +318,7 @@ def getcross_spectrum_Wavelet(signal, time, **kwargs):
         cross_power_sig = np.abs(W12s) ** 2
         cross_perm[:, :, ip] = cross_power_sig
 
-    signifn = walsa_wavelet_confidence(cross_perm, siglevel=params['siglevel'])
+    signifn = WaLSA_wavelet_confidence(cross_perm, siglevel=params['siglevel'])
 
     cross_sig = cross_power / signifn
 
@@ -378,7 +377,7 @@ def getcross_spectrum_Wavelet(signal, time, **kwargs):
         )
         coh_perm[:, :, ip] = WCTs
 
-    sig_coh = walsa_wavelet_confidence(coh_perm, siglevel=params['siglevel'])
+    sig_coh = WaLSA_wavelet_confidence(coh_perm, siglevel=params['siglevel'])
 
     coh_sig = coherence / sig_coh  # Ratio > 1 means coherence is significant
 

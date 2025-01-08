@@ -18,7 +18,6 @@
 # Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
 # -----------------------------------------------------------------------------------------------------
 
-
 from IPython.display import HTML, display
 import shutil
 

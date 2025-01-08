@@ -20,10 +20,10 @@
 # The following codes are based on those originally written by Jonathan E. Higham & Luiz A. C. A. Schiavo
 # --------------------------------------------------------------------------------------------------------
 
-import numpy as np
-from scipy.signal import welch, find_peaks
-from scipy.linalg import svd
-from scipy.optimize import curve_fit
+import numpy as np # type: ignore
+from scipy.signal import welch, find_peaks # type: ignore
+from scipy.linalg import svd # type: ignore
+from scipy.optimize import curve_fit # type: ignore
 import math
 
 def print_pod_results(results):

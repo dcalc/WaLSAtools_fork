@@ -18,16 +18,15 @@
 # Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
 # -----------------------------------------------------------------------------------------------------
 
-
-import ipywidgets as widgets  # For interactive UI in Jupyter
-from IPython.display import display, clear_output, HTML, Image
-import os
+import ipywidgets as widgets # type: ignore
+from IPython.display import display, clear_output, HTML # type: ignore
+import os # type: ignore
 
 # Function to detect if it's running in a notebook or terminal
 def is_notebook():
     try:
         # Check if IPython is in the environment and if we're using a Jupyter notebook
-        from IPython import get_ipython
+        from IPython import get_ipython # type: ignore
         shell = get_ipython().__class__.__name__
         if shell == 'ZMQInteractiveShell':
             return True  # Jupyter notebook or qtconsole
@@ -39,7 +38,6 @@ def is_notebook():
         # NameError: get_ipython is not defined
         # ImportError: IPython is not installed
         return False  # Standard Python interpreter or shell
-
 
 # Function to print logo and credits for both environments
 def print_logo_and_credits():
@@ -266,9 +264,9 @@ def walsatools_terminal():
 
 
 # Jupyter-based interactive function
-import ipywidgets as widgets  # Import widgets for interactive UI in Jupyter
-from IPython.display import display, clear_output, HTML
-from .parameter_definitions import display_parameters_html, single_series_parameters, cross_correlation_parameters
+import ipywidgets as widgets # type: ignore
+from IPython.display import display, clear_output, HTML # type: ignore
+from .parameter_definitions import display_parameters_html, single_series_parameters, cross_correlation_parameters # type: ignore
 
 # Global flag to prevent multiple observers
 is_observer_attached = False

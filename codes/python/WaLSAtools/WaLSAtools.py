@@ -18,7 +18,7 @@
 # Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
 # -----------------------------------------------------------------------------------------------------
 
-import numpy as np
+import numpy as np # type: ignore
 from .analysis_modules.WaLSA_speclizer import WaLSA_speclizer
 from .analysis_modules.WaLSA_k_omega import WaLSA_k_omega
 from .analysis_modules.WaLSA_pod import WaLSA_pod
@@ -68,7 +68,7 @@ class WaLSAtools:
         if method in ['fft', 'lombscargle', 'wavelet', 'welch', 'emd'] and 'data1' in kwargs and 'data2' in kwargs:
             return WaLSA_cross_spectra(signal=np.ones(10), time=time, method=method, **kwargs)
         else:
-            return func(signal=signal, time=time, **kwargs)
+            return func(signal=signal, time=time, method=method, **kwargs)
     
     def __repr__(self):
         """

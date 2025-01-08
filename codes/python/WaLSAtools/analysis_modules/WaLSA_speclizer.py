@@ -18,14 +18,13 @@
 # Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
 # -----------------------------------------------------------------------------------------------------
 
-
-import numpy as np
-from astropy.timeseries import LombScargle
-from tqdm import tqdm
-from .WaLSA_detrend_apod import WaLSA_detrend_apod
-from .walsa_confidence import walsa_confidence 
-from .walsa_wavelet import cwt, significance
-from scipy.signal import welch
+import numpy as np # type: ignore
+from astropy.timeseries import LombScargle # type: ignore
+from tqdm import tqdm # type: ignore
+from .WaLSA_detrend_apod import WaLSA_detrend_apod # type: ignore
+from .WaLSA_confidence import WaLSA_confidence # type: ignore
+from .WaLSA_wavelet import cwt, significance # type: ignore
+from scipy.signal import welch # type: ignore
 
 # -------------------------------------- Main Function ----------------------------------------
 def WaLSA_speclizer(signal=None, time=None, method=None, 
@@ -165,8 +164,8 @@ def getpowerFFT(signal, time, **kwargs):
             perm_power = 2 * np.abs(perm_spec[1:len(frequencies) + 1]) ** 2
             ps_perm[:, ip] = perm_power
 
-        # Correct call to walsa_confidence
-        significance = walsa_confidence(ps_perm, siglevel=params['siglevel'], nf=len(frequencies))
+        # Correct call to WaLSA_confidence
+        significance = WaLSA_confidence(ps_perm, siglevel=params['siglevel'], nf=len(frequencies))
         significance = significance / frequencies[0]
     else:
         significance = None
@@ -277,7 +276,7 @@ def getpowerLS(signal, time, **kwargs):
                                      center_data=params['center_data'], nterms=params['nterms'], 
                                      normalization=params['normalization']).autopower()
             ps_perm[:, ip] = perm_power
-        significance = walsa_confidence(ps_perm, siglevel=params['siglevel'], nf=len(frequencies))
+        significance = WaLSA_confidence(ps_perm, siglevel=params['siglevel'], nf=len(frequencies))
     else:
         significance = None
 
@@ -508,7 +507,7 @@ def welch_psd(signal, time, **kwargs):
 
 # -------------------------------------- EMD / EEMD ----------------------------------------
 import numpy as np # type: ignore
-from .PyEMD import EMD, EEMD
+from .PyEMD import EMD, EEMD # type: ignore
 from scipy.stats import norm # type: ignore
 from scipy.signal import hilbert, welch # type: ignore
 from scipy.signal import find_peaks # type: ignore
@@ -876,7 +875,7 @@ def get_dominant_averaged(cube, time, **kwargs):
         for x in tqdm(range(nx), desc="Processing x", leave=True):
             for y in range(ny):
                 signal = cube[:, x, y]
-                fft_power, fft_freqs, _ = getpowerFFT(signal, time, silent=True, nosignificance=True, **kwargs)
+                fft_power, fft_freqs, _, _ = getpowerFFT(signal, time, silent=True, nosignificance=True, **kwargs)
                 if x == 0 and y == 0:
                     powermap = np.zeros((nx, ny, len(fft_freqs)))
                 powermap[x, y, :] = fft_power
@@ -909,9 +908,9 @@ def get_dominant_averaged(cube, time, **kwargs):
             for y in range(ny):
                 signal = cube[:, x, y]
                 if params['GWS']:
-                    _, wavelet_periods, _, _, (wavelet_power, _), (_, _) = getpowerWavelet(signal, time, silent=True, **kwargs)
+                    _, wavelet_periods, _, _, wavelet_power, _, _ = getpowerWavelet(signal, time, silent=True, **kwargs)
                 elif params['RGWS']:
-                    _, _, _, _, (wavelet_periods, wavelet_power) = getpowerWavelet(signal, time, silent=True, **kwargs)
+                    _, wavelet_periods, _, _, _, _, wavelet_power = getpowerWavelet(signal, time, silent=True, **kwargs)
                 if x == 0 and y == 0:
                     powermap = np.zeros((nx, ny, len(wavelet_periods)))
                 wavelet_freq = 1. / wavelet_periods

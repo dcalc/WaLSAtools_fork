@@ -23,8 +23,8 @@ from .analysis_modules.WaLSA_speclizer import WaLSA_speclizer
 from .analysis_modules.WaLSA_k_omega import WaLSA_k_omega
 from .analysis_modules.WaLSA_pod import WaLSA_pod
 from .analysis_modules.WaLSA_cross_spectra import WaLSA_cross_spectra
-from .analysis_modules.walsa_io import WaLSA_save_pdf, WaLSA_histo_opt
-from .analysis_modules.walsa_plot_k_omega import WaLSA_plot_k_omega
+from .analysis_modules.WaLSA_io import WaLSA_save_pdf, WaLSA_histo_opt
+from .analysis_modules.WaLSA_plot_k_omega import WaLSA_plot_k_omega
 from .WaLSAtools import WaLSAtools
 
 __all__ = ['WaLSAtools', 'WaLSA_detrend_apod', 'WaLSA_speclizer',

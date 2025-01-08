@@ -57,13 +57,13 @@
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-import numpy as np
-from tqdm import tqdm
-from scipy.stats import chi2
+import numpy as np # type: ignore
+from tqdm import tqdm # type: ignore
+from scipy.stats import chi2 # type: ignore
 
 # Try to import the Python wrapper for FFTW.
 try:
-    import pyfftw.interfaces.scipy_fftpack as fft
+    import pyfftw.interfaces.scipy_fftpack as fft # type: ignore
     from multiprocessing import cpu_count
 
     # Fast planning, use all available threads.
@@ -78,7 +78,7 @@ try:
 
 # Otherwise, fall back to 2 ** n padded scipy FFTPACK
 except ImportError:
-    import scipy.fftpack as fft
+    import scipy.fftpack as fft # type: ignore
     # Can be turned off, e.g. for MKL optimizations
     _FFT_NEXT_POW2 = True
 
@@ -87,7 +87,7 @@ except ImportError:
         if _FFT_NEXT_POW2:
             return {'n': int(2 ** np.ceil(np.log2(len(signal))))}
 
-from scipy.signal import lfilter
+from scipy.signal import lfilter # type: ignore
 from os import makedirs
 from os.path import exists, expanduser
 

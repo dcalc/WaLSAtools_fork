@@ -25,7 +25,7 @@ import numpy as np
 from matplotlib.colors import LinearSegmentedColormap
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
-def walsa_plot_wavelet_spectrum(t, power, periods, sig_slevel, coi, dt, normalize_power=False,
+def WaLSA_plot_wavelet_spectrum(t, power, periods, sig_slevel, coi, dt, normalize_power=False,
                                 title='Wavelet Power Spectrum', ylabel='Period [s]', xlabel='Time [s]', 
                                 colorbar_label='Power (%)', ax=None, colormap='custom', removespace=False):
     """Plots the wavelet power spectrum of a given signal.

@@ -18,13 +18,12 @@
 # Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
 # -----------------------------------------------------------------------------------------------------
 
-
 import subprocess
 import shutil
 import os
 import stat
-import numpy as np
-from matplotlib.backends.backend_pdf import PdfPages
+import numpy as np # type: ignore
+from matplotlib.backends.backend_pdf import PdfPages # type: ignore
 
 def WaLSA_save_pdf(fig, pdf_path, color_mode='RGB', dpi=300, bbox_inches=None, pad_inches=0):
     """

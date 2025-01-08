@@ -20,9 +20,9 @@
 # The following codes are baed on those originally written by Rob Rutten, David B. Jess, and Samuel D. T. Grant
 # --------------------------------------------------------------------------------------------------------------
 
-import numpy as np
-from scipy.optimize import curve_fit
-from scipy.signal import convolve
+import numpy as np # type: ignore
+from scipy.optimize import curve_fit # type: ignore
+from scipy.signal import convolve # type: ignore
 # --------------------------------------------------------------------------------------------
 
 def gaussian_function(sigma, width=None):

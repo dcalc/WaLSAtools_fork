@@ -20,15 +20,15 @@
 # The following codes are baed on those originally written by David B. Jess and Samuel D. T. Grant
 # -----------------------------------------------------------------------------------------------------
 
-import numpy as np
-from matplotlib.colors import ListedColormap
-from WaLSAtools import WaLSA_histo_opt
-from scipy.interpolate import griddata
-import matplotlib.pyplot as plt
-from matplotlib.ticker import FixedLocator, FixedFormatter
-import matplotlib.patches as patches
-import matplotlib.patheffects as path_effects
-from matplotlib.colors import Normalize
+import numpy as np # type: ignore
+from matplotlib.colors import ListedColormap # type: ignore
+from WaLSAtools import WaLSA_histo_opt # type: ignore
+from scipy.interpolate import griddata # type: ignore
+import matplotlib.pyplot as plt # type: ignore
+from matplotlib.ticker import FixedLocator, FixedFormatter # type: ignore
+import matplotlib.patches as patches # type: ignore
+import matplotlib.patheffects as path_effects # type: ignore
+from matplotlib.colors import Normalize # type: ignore
 
 def WaLSA_plot_k_omega(
     kopower, kopower_xscale, kopower_yscale, 

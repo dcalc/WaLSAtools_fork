@@ -18,10 +18,9 @@
 # Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
 # -----------------------------------------------------------------------------------------------------
 
+import numpy as np # type: ignore
 
-import numpy as np
-
-def walsa_wavelet_confidence(ps_perm, siglevel=None):
+def WaLSA_wavelet_confidence(ps_perm, siglevel=None):
     """
     Find the confidence levels (significance levels) for the given wavelet power spectrum permutations.
 
