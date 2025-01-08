@@ -17,3 +17,14 @@ The codes provided here correspond to the figures and analyses presented in the 
 ## Reference
 
 For a full description of the datasets and the analyses performed, see the NRMP article.
+
+## Copyright Notice
+
+The synthetic data and figures in this folder are published in:
+
+> Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
+
+These figures are (c) 2025 Nature Reviews Methods Primers and are subject to copyright restrictions. Any reuse, reproduction, or distribution of these figures requires explicit permission from the publisher.<br>
+For inquiries or permissions, please refer to the publisher's guidelines or contact Nature Reviews Methods Primers.
+
+Figures generated using WaLSAtools that are unrelated to the published article fall under the Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0).
