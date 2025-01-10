@@ -80,7 +80,7 @@ Refer to the `README.md` files in the `codes/python` and `codes/idl` directories
 **Quick Start:**
 
 1. Clone the repository: `git clone https://github.com/WaLSAteam/WaLSAtools`
-2. **Python:** `pip install WaLSAtools` (within `codes/python/`)
+2. **Python:** `pip install .` (within `codes/python/`)
 3. **IDL:**  `.run setup.pro` (within `codes/idl/` in IDL)
 
 
