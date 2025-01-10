@@ -28,6 +28,10 @@ git clone https://github.com/WaLSAteam/WaLSAtools.git
    
 2. Navigate to the *python* directory and run:
 ```bash
+pip install .
+```
+or
+```bash
 python setup.py install
 ```
 Alternatively, you can install via pip:
