@@ -250,4 +250,42 @@ EEMD processed.
 
     
 ![png](/python/converted_notebooks_nrmp/FIGS3__EEMD_files/FIGS3__EEMD_4_1.png)
+
+```python linenums="1"
+# Further tests 
+# FFT Spectra of individual significant IMFs (i.e., excluding the non-significant IMFs) - using EEMD
+_, _, _, psd_spectra_welch, confidence_levels_welch, _, _, _ = WaLSAtools(
+    signal = signal, 
+    time = time, 
+    method = 'emd', 
+    siglevel = 0.95,
+    EEMD = True,
+    significant_imfs = True
+)
+
+plt.figure(figsize=(12, 8))
+colors = plt.cm.tab20(np.linspace(0, 1, len(psd_spectra_welch)))
+
+for i, (f, psd) in enumerate(psd_spectra_welch):
+    plt.plot(f, psd, color=colors[i], label=f'IMF {i + 1}')
+    plt.plot(f, confidence_levels_welch[i], color=colors[i], linestyle='--', label=f'95% Confidence Level IMF {i + 1}')
+
+# Mark pre-defined frequencies with vertical lines
+pre_defined_freq = [2,5,10,12,15,18,25,33]
+for freq in pre_defined_freq:
+    plt.axvline(x=freq, color='gray', linestyle=':')
+
+plt.xlabel('Frequency (Hz)')
+plt.ylabel('PSD')
+plt.title('Welch PSD Spectra of IMFs with 95% Confidence Levels')
+plt.legend()
+plt.ylim(0, 1.5)
+plt.show()
+```
+
+Detrending and apodization complete.<br>
+EEMD processed.
+
     
+![png](/python/converted_notebooks_nrmp/FIGS3__EEMD_files/FIGS3__EEMD_5_1.png)
+

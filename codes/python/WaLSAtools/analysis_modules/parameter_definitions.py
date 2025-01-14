@@ -113,6 +113,7 @@ single_series_parameters = {
             'nperm': {'type': 'int', 'description': 'Number of permutations for significance testing. Default: 1000.'},
             'EEMD': {'type': 'bool', 'description': 'If True, use Ensemble Empirical Mode Decomposition (EEMD) instead of Empirical Mode Decomposition (EMD). Default: False.'},
             'Welch_psd': {'type': 'bool', 'description': 'If True, calculate Welch PSD spectra instead of FFT PSD spectra (for the psd_spectra and psd_confidence_levels). Default: False.'},
+            'significant_imfs': {'type': 'bool', 'description': 'If True, only significant IMFs and their associated parameters are retured. Default: False.'},
             'apod': {'type': 'float', 'description': 'Extent of apodization edges (of a Tukey window). Default: 0.1.'},
             'pxdetrend': {'type': 'int', 'description': 'Subtract linear trend with time per pixel. Options: 1 (simple) or 2 (advanced). Default: 2.'},
             'polyfit': {'type': 'int', 'description': 'Degree of polynomial fit for detrending the data. If set, a polynomial fit (instead of linear) is applied. Default: None.'},

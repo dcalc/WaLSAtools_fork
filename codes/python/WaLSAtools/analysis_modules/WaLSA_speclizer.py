@@ -746,7 +746,8 @@ def getEMD_HHT(signal, time, **kwargs):
         'resample_original': False,
         'EEMD': False,  # If True, calculate Ensemble Empirical Mode Decomposition (EEMD)
         'nodetrendapod': False,
-        'Welch_psd': False  # If True, calculate Welch PSD spectra
+        'Welch_psd': False,  # If True, calculate Welch PSD spectra
+        'significant_imfs': False  # If True, return only significant IMFs (and for associated calculations)
     }
 
     # Update defaults with any user-provided keyword arguments
@@ -786,7 +787,9 @@ def getEMD_HHT(signal, time, **kwargs):
     IMF_significance_levels = test_imf_significance(imfs, white_noise_imfs)
 
     # Determine significant IMFs
-    significant_imfs = [imf for imf, sig_level in zip(imfs, IMF_significance_levels) if sig_level < params['siglevel']]
+    significant_imfs_val = [imf for imf, sig_level in zip(imfs, IMF_significance_levels) if sig_level < params['siglevel']]
+    if params['significant_imfs']:
+        imfs = significant_imfs_val
 
     # Compute instantaneous frequencies of IMFs
     instantaneous_frequencies = compute_instantaneous_frequency(imfs, time)
