@@ -52,7 +52,8 @@
   </section>
 <script>
   function prolanguage() {
-    var thprolans = __md_get("__palette") || { index: e.findIndex((r) => matchMedia(r.getAttribute("data-md-color-media")).matches) };
+    <!-- var thprolans = __md_get("__palette") || { index: e.findIndex((r) => matchMedia(r.getAttribute("data-md-color-media")).matches) }; -->
+	var thprolans = __md_get("__palette") || { index: 0 };
     if (thprolans.index == 0) {
        window.location = "https://walsa.tools/idl/introduction/";
     } else if (thprolans.index == 1) {
