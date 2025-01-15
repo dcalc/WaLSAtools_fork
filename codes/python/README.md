@@ -40,6 +40,8 @@ Alternatively, you can install via pip:
 pip install WaLSAtools
 ```
 
+**NOTE**: This option will become available once the repository is public.
+
 ### **Interactive Usage**
 
 WaLSAtools includes an interactive interface to simplify usage. After installation, in a terminal (within Python) or in a Jupyter notebook, run:
