@@ -39,7 +39,7 @@
           {% set accent  = option.accent  | replace(" ", "-") | lower %}
           <input class="md-option" data-md-color-media="{{ option.media }}" data-md-color-scheme="{{ option.scheme }}" data-md-color-primary="{{ primary }}" data-md-color-accent="{{ accent }}" {% if option.toggle %} aria-label="{{ option.toggle.name }}" {% else %} aria-hidden="true" {% endif %} type="radio" name="__palette" id="__palette_{{ loop.index }}">
           {% if option.toggle %}
-            <label class="md-header__button md-icon" title="Click to toggle between IDL and Python" data-toggle="tooltip" data-placement="bottom" for="__palette_{{ loop.index0 or loop.length }}" hidden>
+            <label class="md-header__button md-icon" title="Click to toggle between Python and IDL" data-toggle="tooltip" data-placement="bottom" for="__palette_{{ loop.index0 or loop.length }}" hidden>
             
 			    <div style="display: inline-block; vertical-align: middle" class="icon-xs text-white">
 				  <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -61,21 +61,51 @@
     {% endif %}
 
     <script>
-      function programminglanguage() {
-      var currenturl = window.location.href;
-      var tprolans = __md_get("__palette") || { index: e.findIndex((r) => matchMedia(r.getAttribute("data-md-color-media")).matches) };
-        if (tprolans.index == 0) {
-          if (currenturl.match("/idl/")) {
-            var pythonurl = currenturl.replace('/idl/', '/python/');
-            $.get(pythonurl).done(function () { window.location = pythonurl }).fail(function () { window.location = "https://walsa.tools" });
-          } else { window.location.reload(true); }
-        } else if (tprolans.index == 1) {
-          if (currenturl.match("/python/")) {
-            var idlurl = currenturl.replace('/python/', '/idl/');
-            $.get(idlurl).done(function () { window.location = idlurl }).fail(function () { window.location = "https://walsa.tools" });
-          } else { window.location.reload(true); }
-        }
-      };
+      // function programminglanguage() {
+      // var currenturl = window.location.href;
+      // var tprolans = __md_get("__palette") || { index: e.findIndex((r) => matchMedia(r.getAttribute("data-md-color-media")).matches) };
+      //   if (tprolans.index == 0) {
+      //     if (currenturl.match("/idl/")) {
+      //       var pythonurl = currenturl.replace('/idl/', '/python/');
+      //       $.get(pythonurl).done(function () { window.location = pythonurl }).fail(function () { window.location = "https://walsa.tools" });
+      //     } else { window.location.reload(true); }
+      //   } else if (tprolans.index == 1) {
+      //     if (currenturl.match("/python/")) {
+      //       var idlurl = currenturl.replace('/python/', '/idl/');
+      //       $.get(idlurl).done(function () { window.location = idlurl }).fail(function () { window.location = "https://walsa.tools" });
+      //     } else { window.location.reload(true); }
+      //   }
+      // };
+	  function programminglanguage() {
+	    var currenturl = window.location.href;
+	    var tprolans = __md_get("__palette") || { index: 1 }; // Default to Python (index 1)
+
+	    if (tprolans.index == 0) {
+	      // Handle IDL case
+	      if (currenturl.match("/idl/")) {
+	        var pythonurl = currenturl.replace('/idl/', '/python/');
+	        $.get(pythonurl).done(function () {
+	          window.location = pythonurl;
+	        }).fail(function () {
+	          window.location = "https://walsa.tools";
+	        });
+	      } else {
+	        window.location.reload(true);
+	      }
+	    } else if (tprolans.index == 1) {
+	      // Handle Python case
+	      if (currenturl.match("/python/")) {
+	        var idlurl = currenturl.replace('/python/', '/idl/');
+	        $.get(idlurl).done(function () {
+	          window.location = idlurl;
+	        }).fail(function () {
+	          window.location = "https://walsa.tools";
+	        });
+	      } else {
+	        window.location.reload(true);
+	      }
+	    }
+	  }
     </script>
 
     {% if config.extra.alternate %}
