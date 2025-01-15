@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
-    // var tprolan = __md_get("__palette") || { index: e.findIndex((r) => matchMedia(r.getAttribute("data-md-color-media")).matches) };
-	var tprolan = __md_get("__palette") || { index: 0 }; // Default to Python
+    var tprolan = __md_get("__palette") || { index: e.findIndex((r) => matchMedia(r.getAttribute("data-md-color-media")).matches) };
     if (tprolan.index == 0) {
         var selectedplan = "python";
     } else if (tprolan.index == 1) {
