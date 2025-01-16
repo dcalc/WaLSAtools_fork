@@ -67,7 +67,7 @@ theme:
     - content.code.annotate
     - navigation.expand
   palette: 
-    - scheme: slate
+    - scheme: default
       primary: deep-orange
       accent: red
       toggle:
