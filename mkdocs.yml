@@ -67,18 +67,18 @@ theme:
     - content.code.annotate
     - navigation.expand
   palette: 
-    - scheme: default 
-      primary: deep-orange
-      accent: red
-      toggle:
-        icon: material/weather-night
-        name: Python
     - scheme: default
       primary: deep-orange
       accent: red
       toggle:
         icon: material/weather-sunny
         name: IDL
+    - scheme: default 
+      primary: deep-orange
+      accent: red
+      toggle:
+        icon: material/weather-night
+        name: Python
 
   font:
     text: Roboto
@@ -93,36 +93,17 @@ nav:
   - Home: index.md
 
   - Getting started:
-    - python/introduction.md # alias for introduction.md
-    # Python:
-    - Installation: python/installation.md
-    - Troubleshooting: python/troubleshooting.md
-
-  - Getting started:
     - idl/introduction.md # alias for introduction.md
     # IDL:
     - Installation: idl/installation.md
     - Setting IDL PATH: idl/setting-idl-path.md
     - Troubleshooting: idl/troubleshooting.md
 
-  # Python:
-  - Analysis Tools: 
-    - python/WaLSAtools.md
-    - Examples:
-      - Worked examples - NRMP:
-          - Power Spectra: python/power-spectra-example.md
-          - Dominant Frequency: python/dominant-frequency-example.md
-          - k-&#969; and POD: python/k-omega-pod-example.md
-          - Cross Correlations: python/cross-correlation-example.md
-          - EMD: python/emd-example.md
-          - EEMD: python/eemd-example.md
-          - k-&#969; analysis: python/k-omega-example.md
-          - POD analysis: python/pod-example.md
-          - POD eigenvalues: python/pod-eigenvalues-example.md
-          - POD filtering: python/pod-filtering-example.md
-          - SPOD analysis: python/spod-example.md
-    - Under the Hood:
-        - Main Routines: python/routines.md
+  - Getting started:
+    - python/introduction.md # alias for introduction.md
+    # Python:
+    - Installation: python/installation.md
+    - Troubleshooting: python/troubleshooting.md
 
   # IDL:
   - Analysis Tools: 
@@ -142,6 +123,25 @@ nav:
           - SPOD analysis: idl/spod-example.md
     - Under the Hood: 
         - Main Routines: idl/routines.md
+
+  # Python:
+  - Analysis Tools: 
+    - python/WaLSAtools.md
+    - Examples:
+      - Worked examples - NRMP:
+          - Power Spectra: python/power-spectra-example.md
+          - Dominant Frequency: python/dominant-frequency-example.md
+          - k-&#969; and POD: python/k-omega-pod-example.md
+          - Cross Correlations: python/cross-correlation-example.md
+          - EMD: python/emd-example.md
+          - EEMD: python/eemd-example.md
+          - k-&#969; analysis: python/k-omega-example.md
+          - POD analysis: python/pod-example.md
+          - POD eigenvalues: python/pod-eigenvalues-example.md
+          - POD filtering: python/pod-filtering-example.md
+          - SPOD analysis: python/spod-example.md
+    - Under the Hood:
+        - Main Routines: python/routines.md
         
   - About:
     - Contribution: contribution.md

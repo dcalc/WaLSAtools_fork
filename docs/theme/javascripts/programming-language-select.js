@@ -1,9 +1,9 @@
 $(document).ready(function () {
 
     var tprolan = __md_get("__palette") || { index: e.findIndex((r) => matchMedia(r.getAttribute("data-md-color-media")).matches) };
-    if (tprolan.index == 1) {
+    if (tprolan.index == 0) {
         var selectedplan = "python";
-    } else if (tprolan.index == 0) {
+    } else if (tprolan.index == 1) {
         var selectedplan = "idl";
     }
 

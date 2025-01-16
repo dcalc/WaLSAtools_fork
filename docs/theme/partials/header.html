@@ -60,16 +60,34 @@
       </form>
     {% endif %}
 
+	<script>
+	  (function() {
+	    // Check if the sessionStorage flag is set (which resets after the browser is closed)
+	    if (!sessionStorage.getItem("session_started")) {
+	      console.log("New browser session detected. Setting Python as default.");
+
+	      // Mark session as started (so this only runs once per session)
+	      sessionStorage.setItem("session_started", "true");
+
+	      // Set Python (index: 1) as the default in localStorage
+	      localStorage.setItem("__palette", JSON.stringify({ index: 1, color: { scheme: "default", primary: "deep-orange", accent: "red" } }));
+
+	      // Reload the page to apply the change
+	      window.location.reload();
+	    }
+	  })();
+	</script>
+  
     <script>
       function programminglanguage() {
       var currenturl = window.location.href;
       var tprolans = __md_get("__palette") || { index: e.findIndex((r) => matchMedia(r.getAttribute("data-md-color-media")).matches) };
-        if (tprolans.index == 1) {
+        if (tprolans.index == 0) {
           if (currenturl.match("/idl/")) {
             var pythonurl = currenturl.replace('/idl/', '/python/');
             $.get(pythonurl).done(function () { window.location = pythonurl }).fail(function () { window.location = "https://walsa.tools" });
           } else { window.location.reload(true); }
-        } else if (tprolans.index == 0) {
+        } else if (tprolans.index == 1) {
           if (currenturl.match("/python/")) {
             var idlurl = currenturl.replace('/python/', '/idl/');
             $.get(idlurl).done(function () { window.location = idlurl }).fail(function () { window.location = "https://walsa.tools" });
