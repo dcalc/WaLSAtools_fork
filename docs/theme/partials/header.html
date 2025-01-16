@@ -60,24 +60,6 @@
       </form>
     {% endif %}
 
-	<script>
-	  (function() {
-	    // Check if the sessionStorage flag is set (which resets after the browser is closed)
-	    if (!sessionStorage.getItem("session_started")) {
-	      console.log("New browser session detected. Setting Python as default.");
-
-	      // Mark session as started (so this only runs once per session)
-	      sessionStorage.setItem("session_started", "true");
-
-	      // Set Python (index: 1) as the default in localStorage
-	      localStorage.setItem("__palette", JSON.stringify({ index: 1, color: { scheme: "default", primary: "deep-orange", accent: "red" } }));
-
-	      // Reload the page to apply the change
-	      window.location.reload();
-	    }
-	  })();
-	</script>
-  
     <script>
       function programminglanguage() {
       var currenturl = window.location.href;
@@ -135,4 +117,24 @@
     {% endif %}
   {% endif %}
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Check if this is a new browser session
+    if (!sessionStorage.getItem("session_started")) {
+      console.log("New browser session detected. Forcing Python as the default...");
+
+      // Store a session flag to prevent repeated reloads in the same session
+      sessionStorage.setItem("session_started", "true");
+
+      // Force Python (index: 1) as the default
+      localStorage.setItem("__palette", JSON.stringify({ index: 1, color: { scheme: "default", primary: "deep-orange", accent: "red" } }));
+
+      // Ensure the language selection updates
+      setTimeout(function () {
+        window.location.reload();
+      }, 100); // Delay to allow the setting to apply
+    }
+  });
+</script>
+  
 </header>
