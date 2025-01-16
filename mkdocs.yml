@@ -67,18 +67,18 @@ theme:
     - content.code.annotate
     - navigation.expand
   palette: 
-    - scheme: default
+    - scheme: slate
       primary: deep-orange
       accent: red
       toggle:
         icon: material/weather-sunny
-        name: Python
+        name: IDL
     - scheme: default 
       primary: deep-orange
       accent: red
       toggle:
         icon: material/weather-night
-        name: IDL
+        name: Python
 
   font:
     text: Roboto
