@@ -64,12 +64,12 @@
       function programminglanguage() {
       var currenturl = window.location.href;
       var tprolans = __md_get("__palette") || { index: e.findIndex((r) => matchMedia(r.getAttribute("data-md-color-media")).matches) };
-        if (tprolans.index == 0) {
+        if (tprolans.index == 1) {
           if (currenturl.match("/idl/")) {
             var pythonurl = currenturl.replace('/idl/', '/python/');
             $.get(pythonurl).done(function () { window.location = pythonurl }).fail(function () { window.location = "https://walsa.tools" });
           } else { window.location.reload(true); }
-        } else if (tprolans.index == 1) {
+        } else if (tprolans.index == 0) {
           if (currenturl.match("/python/")) {
             var idlurl = currenturl.replace('/python/', '/idl/');
             $.get(idlurl).done(function () { window.location = idlurl }).fail(function () { window.location = "https://walsa.tools" });
