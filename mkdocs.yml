@@ -72,13 +72,13 @@ theme:
       accent: red
       toggle:
         icon: material/weather-sunny
-        name: IDL
+        name: Python
     - scheme: default 
       primary: deep-orange
       accent: red
       toggle:
         icon: material/weather-night
-        name: Python
+        name: IDL
 
   font:
     text: Roboto
