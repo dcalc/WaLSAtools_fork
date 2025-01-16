@@ -60,36 +60,6 @@
       </form>
     {% endif %}
 
-	<script>
-	  (function() {
-	    console.log("Checking default language and redirecting if needed...");
-
-	    // Get the current page URL
-	    var currenturl = window.location.href;
-
-	    // Fetch the palette settings from localStorage (if set)
-	    var storedPalette = localStorage.getItem("__palette");
-
-	    // Ensure Python (index: 1) is set as the default in localStorage
-	    if (!storedPalette || JSON.parse(storedPalette).index === 0) {
-	      console.log("Forcing Python as the default...");
-
-	      // Set Python (index: 1) as the default
-	      localStorage.setItem("__palette", JSON.stringify({
-	        index: 1,
-	        color: { scheme: "default", primary: "deep-orange", accent: "red" }
-	      }));
-
-	      // Redirect to the correct Python URL if user is on an IDL page
-	      if (currenturl.includes("/idl/")) {
-	        var pythonurl = currenturl.replace('/idl/', '/python/');
-	        console.log("Redirecting to Python:", pythonurl);
-	        window.location.href = pythonurl;
-	      }
-	    }
-	  })();
-	</script>
-  
     <script>
       function programminglanguage() {
       var currenturl = window.location.href;
