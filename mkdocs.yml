@@ -93,36 +93,17 @@ nav:
   - Home: index.md
 
   - Getting started:
-    - idl/introduction.md # alias for introduction.md
-    # IDL:
-    - Installation: idl/installation.md
-    - Setting IDL PATH: idl/setting-idl-path.md
-    - Troubleshooting: idl/troubleshooting.md
-
-  - Getting started:
     - python/introduction.md # alias for introduction.md
     # Python:
     - Installation: python/installation.md
     - Troubleshooting: python/troubleshooting.md
 
-  # IDL:
-  - Analysis Tools: 
-    - idl/WaLSAtools.md
-    - Examples:
-      - Worked examples - NRMP:
-          - Power Spectra: idl/power-spectra-example.md
-          - Dominant Frequency: idl/dominant-frequency-example.md
-          - k-&#969; and POD: idl/k-omega-pod-example.md
-          - Cross Correlations: idl/cross-correlation-example.md
-          - EMD: idl/emd-example.md
-          - EEMD: idl/eemd-example.md
-          - k-&#969; analysis: idl/k-omega-example.md
-          - POD analysis: idl/pod-example.md
-          - POD eigenvalues: idl/pod-eigenvalues-example.md
-          - POD filtering: idl/pod-filtering-example.md
-          - SPOD analysis: idl/spod-example.md
-    - Under the Hood: 
-        - Main Routines: idl/routines.md
+  - Getting started:
+    - idl/introduction.md # alias for introduction.md
+    # IDL:
+    - Installation: idl/installation.md
+    - Setting IDL PATH: idl/setting-idl-path.md
+    - Troubleshooting: idl/troubleshooting.md
 
   # Python:
   - Analysis Tools: 
@@ -142,6 +123,25 @@ nav:
           - SPOD analysis: python/spod-example.md
     - Under the Hood:
         - Main Routines: python/routines.md
+
+  # IDL:
+  - Analysis Tools: 
+    - idl/WaLSAtools.md
+    - Examples:
+      - Worked examples - NRMP:
+          - Power Spectra: idl/power-spectra-example.md
+          - Dominant Frequency: idl/dominant-frequency-example.md
+          - k-&#969; and POD: idl/k-omega-pod-example.md
+          - Cross Correlations: idl/cross-correlation-example.md
+          - EMD: idl/emd-example.md
+          - EEMD: idl/eemd-example.md
+          - k-&#969; analysis: idl/k-omega-example.md
+          - POD analysis: idl/pod-example.md
+          - POD eigenvalues: idl/pod-eigenvalues-example.md
+          - POD filtering: idl/pod-filtering-example.md
+          - SPOD analysis: idl/spod-example.md
+    - Under the Hood: 
+        - Main Routines: idl/routines.md
         
   - About:
     - Contribution: contribution.md
