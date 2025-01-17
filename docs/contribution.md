@@ -4,7 +4,7 @@ template: main.html
 
 # Contribution
 
-The [**WaLSA team**][8]{target=_blank} is dedicated to promoting openness, transparency, and reproducibility in research. To this end, we freely share our code via this open-access repository on [GitHub][11]{target=_blank}. The codebase evolves collaboratively, with contributions from diverse communities helping to refine and extend the functionality over time. Sharing the codes not only makes it accessible to other researchers but also invites valuable feedback and suggestions for improvement.
+**WaLSAtools** is an open-access and open-source library designed for researchers across diverse fields interested in analyzing oscillatory phenomena. Initially developed and maintained by the [**WaLSA team**][8]{target=_blank}, the project is driven by a commitment to openness, transparency, and reproducibility in research. By sharing this evolving codebase on [GitHub][11]{target=_blank}, we aim to foster collaboration, enabling contributions from a broad community to refine and extend its functionality. We welcome feedback, suggestions, and contributions that help improve WaLSAtools and expand its applications.
 
 The **WaLSAtools** package provided here marks the beginning of an exciting journey. We envision that the broader community will contribute to advancing these tools and methodologies. The core of WaLSAtools is built upon Python, a widely-used programming language in science and engineering, ensuring accessibility and ease of use for a broad audience. To further enhance accessibility, we are actively developing counterparts in other popular languages. Currently, WaLSAtools is also available in IDL, with plans to expand to additional languages, such as MATLAB, in the future.
 
@@ -12,7 +12,7 @@ Contributions of all kinds are welcome and highly appreciated!
 
 ## GitHub :material-github:
 
-**WaLSAtools** is managed using [Git][10]{target=_blank} as a distributed version control system and is hosted on [GitHub][11]{target=_blank}. To contribute, you will need a [GitHub account][18]{target=_blank}. Contributions can take various forms, such as [forking][14]{target=_blank} the repository to submit changes via a [pull request][15]{target=_blank], reporting [issues][16]{target=_blank}, or engaging in discussions directly on GitHub. If you are new to GitHub, we recommend exploring these [guides and resources][12]{target=_blank}.
+**WaLSAtools** is managed using [Git][10]{target=_blank} as a distributed version control system and is hosted on [GitHub][11]{target=_blank}. To contribute, you will need a [GitHub account][18]{target=_blank}. Contributions can take various forms, such as [forking][14]{target=_blank} the repository to submit changes via a [pull request][15]{target=_blank}, reporting [issues][16]{target=_blank}, or engaging in discussions directly on GitHub. If you are new to GitHub, we recommend exploring these [guides and resources][12]{target=_blank}.
 
 ## Bug Reports :material-bug:
 
@@ -21,7 +21,7 @@ Bugs are tracked through the GitHub [issue tracker][4]{target=_blank}. Before su
 When reporting a bug, please include the following details:
 
 - **WaLSAtools** version  
-- Version of Pythonor IDL  
+- Version of Python or IDL  
 - Operating System and version  
 - Any error messages or terminal/Jupyter-notebook output  
 - A clear and detailed description of the issue  
