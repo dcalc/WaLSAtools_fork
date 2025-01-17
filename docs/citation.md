@@ -6,7 +6,7 @@ template: main.html
 
 If you use **WaLSAtools** in your work, please cite it as described below in your publications or presentations.
 
-## Main Article and Software Package :material-book-sync:
+## Main Article and Software Package :octicons-cross-reference-24:
 
 - **Jafarzadeh, S., Jess, D. B., Stangalini, M., et al. 2025, Nature Reviews Methods Primers, in press**  
 - **Jafarzadeh, S., Jess, D. B., Stangalini, M., et al. 2025, WaLSAteam/WaLSAtools: v1.0, DOI: XX.XXXX/zenodo.XXXXXXX** (to be created)
