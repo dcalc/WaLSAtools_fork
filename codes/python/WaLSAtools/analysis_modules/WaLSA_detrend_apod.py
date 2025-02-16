@@ -49,6 +49,7 @@ def WaLSA_detrend_apod(cube, apod=0.1, meandetrend=False, pxdetrend=2, polyfit=N
                        max_resample=None, silent=False, dj=32, lo_cutoff=None, hi_cutoff=None, upper=False):
     
     nt = len(cube)  # Assume input is a 1D signal
+    cube = cube - np.mean(cube) # Remove the mean of the input signal
     apocube = np.copy(cube)  # Create a copy of the input signal
     t = np.arange(nt)  # Time array
 
@@ -111,6 +112,9 @@ def WaLSA_wave_recon(signal, cadence, dj=32, lo_cutoff=None, hi_cutoff=None, upp
     # Set default high cutoff if not provided
     if hi_cutoff is None:
         hi_cutoff = n * dt / (3. * np.sqrt(2))
+
+    if lo_cutoff is None:
+        lo_cutoff = 0.0
     
     # Filter periods based on the cutoff values
     if upper:
