@@ -13,10 +13,10 @@ FUNCTION wave_recon, ts, delt, $
 
     IF KEYWORD_SET(upper) THEN BEGIN
     	good_per = ( WHERE(period GT hi_cutoff) )(0)
-	bad_per = N_ELEMENTS(period)
+		  bad_per = N_ELEMENTS(period)
     ENDIF ELSE BEGIN
     	good_per = ( WHERE(period GT lo_cutoff) )(0)
-	bad_per = ( WHERE(period GT hi_cutoff) )(0)
+	    bad_per = ( WHERE(period GT hi_cutoff) )(0)
     ENDELSE
     
     recon_sum = FLTARR( N_ELEMENTS(ts) )
