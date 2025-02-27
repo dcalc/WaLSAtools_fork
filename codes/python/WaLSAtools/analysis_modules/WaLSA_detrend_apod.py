@@ -108,9 +108,6 @@ def getWavelet(signal, time, **kwargs):
     power = np.abs(W) ** 2  # Wavelet power spectrum
     periods = 1 / frequencies  # Convert frequencies to periods
 
-    if not params['silent']:
-        print("Wavelet (" + params['mother'] + ") processed.")
-
     return power, periods, coi, scales, W
 
 # -----------------------------------------------------------------------------------------------------
@@ -229,8 +226,6 @@ def WaLSA_wave_recon(ts, delt, dj=32, lo_cutoff=None, hi_cutoff=None, upper=Fals
         ii = np.where(period < coi[i])[0]  # Find indices where period is less than COI at time i
         if ii.size > 0:
             iampl[i, ii] = pcol[ii]  # Assign values where condition is met
-
-    print(good_per_idx, bad_per_idx)
 
     # Initialize reconstructed signal array
     recon_sum = np.zeros(len(ts))
