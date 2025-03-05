@@ -42,7 +42,7 @@ def WaLSA_save_pdf(fig, pdf_path, color_mode='RGB', dpi=300, bbox_inches=None, p
     if bbox_inches is None:
         # Save the initial PDF in RGB format
         with PdfPages(pdf_path) as pdf:
-            pdf.savefig(fig)
+            pdf.savefig(fig, transparent=True)
 
         if color_mode.upper() == 'CMYK':
             # Check if Ghostscript is installed
@@ -86,7 +86,8 @@ def WaLSA_save_pdf(fig, pdf_path, color_mode='RGB', dpi=300, bbox_inches=None, p
             format='pdf', 
             dpi=dpi, 
             bbox_inches=bbox_inches, 
-            pad_inches=pad_inches
+            pad_inches=pad_inches, 
+            transparent=True
         )
 
         if color_mode.upper() == 'CMYK':
