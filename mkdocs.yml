@@ -151,7 +151,7 @@ nav:
     - Citation: citation.md
     - Changelog: changelog.md
     - Release Notes:
-        - '1.0': releases/1.0.md
+        - 'v1.0.0': releases/v1.0.0.md
 
 # Plugins
 plugins:
