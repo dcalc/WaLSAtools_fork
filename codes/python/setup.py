@@ -20,29 +20,40 @@
 
 from setuptools import setup, find_packages
 
+# Read dependencies from requirements.txt
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
-    
+
+# Read long description safely
+try:
+    with open('README.md', encoding='utf-8') as f:
+        long_description = f.read()
+except FileNotFoundError:
+    long_description = "Wave analysis tools: A package for analyzing wave and oscillatory signals."
+
 setup(
-    name='WaLSAtools',
-    version='1.0',
+    name='WaLSAtools',  # Package name on PyPI
+    version='1.0.0',  # Update version as needed
     author='WaLSA Team - Shahin Jafarzadeh',
     author_email='Shahin.Jafarzadeh@WaLSA.team',
     description='Wave analysis tools: A package for analyzing wave and oscillatory signals',
-    long_description=open('README.md').read(),
+    long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/WaLSAteam/WaLSAtools',
-    packages=find_packages(),
+    packages=find_packages(where="WaLSAtools"),  
+    package_dir={"": "WaLSAtools"},
+    include_package_data=True,  
     install_requires=requirements,
     entry_points={
         'console_scripts': [
-            'WaLSAtools=WaLSAtools:WaLSAtools', 
+            'WaLSAtools=WaLSAtools.WaLSAtools:main', 
         ],
     },
     classifiers=[
         'Programming Language :: Python :: 3',
         'Intended Audience :: Science/Research',
-        'License :: OSI Approved :: MIT License',
+        'License :: OSI Approved :: Apache Software License',
         'Operating System :: OS Independent',
     ],
+    python_requires='>=3.6',  
 )
