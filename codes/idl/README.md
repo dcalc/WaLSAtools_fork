@@ -7,6 +7,7 @@ WaLSAtools is an open-source library designed for advanced wave analysis in time
 - **Lomb-Scargle Periodogram**
 - **Welch Power Spectral Density**
 - **Empirical Mode Decomposition (EMD)**
+- **Hilbert and Hilbert-Huang Transforms**
 - **k-omega Analysis**
 - **Proper Orthogonal Decomposition (POD)**
 - **Cross-Spectra Analysis**
@@ -15,9 +16,7 @@ WaLSAtools provides a set of tools for performing complex analyses in IDL, along
 
 ---
 
-## **Quick Start**
-
-### **Installation**
+## 🚀 **Installation**
 
 To set up WaLSAtools for IDL, follow these steps:
 

@@ -1,50 +1,46 @@
-# WaLSAtools: Python Implementation
+# WaLSAtools
 
-WaLSAtools is an open-source library designed for advanced wave analysis in time series and imaging data. The Python implementation supports a variety of spectral and spatio-temporal analysis techniques, including:
+**WaLSAtools** is an open-source library for advanced wave analysis in time series and imaging data. It provides a suite of spectral and spatio-temporal analysis techniques, including:
 
 - **Fast Fourier Transform (FFT)**
 - **Wavelet Analysis**
 - **Lomb-Scargle Periodogram**
 - **Welch Power Spectral Density**
 - **Empirical Mode Decomposition (EMD)**
+- **Hilbert and Hilbert-Huang Transforms**
 - **k-omega Analysis**
 - **Proper Orthogonal Decomposition (POD)**
 - **Cross-Spectra Analysis**
 
-WaLSAtools provides an interactive interface in both **terminal** and **Jupyter notebooks** for ease of use. For detailed information on installation, methods, and usage examples, please refer to the [WaLSAtools Documentation](https://WaLSA.tools/).
+WaLSAtools features an **interactive interface** available in both **terminal** and **Jupyter notebooks**, enabling an intuitive workflow for wave analysis.  
+For detailed installation instructions, method descriptions, and usage examples, visit the **[WaLSAtools Documentation](https://WaLSA.tools/).**
 
 ---
 
-## **Quick Start**
+## 🚀 **Installation**
 
-### **Installation**
-
-To set up WaLSAtools for Python, follow these steps:
-
-1. Clone or Download WaLSAtools Repository
-```bash
-git clone https://github.com/WaLSAteam/WaLSAtools.git
-```
-   
-2. Navigate to the *python* directory and run:
-```bash
-pip install .
-```
-or
-```bash
-python setup.py install
-```
-Alternatively, you can install via pip:
-
+### **1️⃣ Install via PyPI**
+The easiest way to install WaLSAtools is via **PyPI**:
 ```bash
 pip install WaLSAtools
 ```
 
-**NOTE**: This option will become available once the repository is public.
+### **2️⃣ Install from Source (GitHub)**
+If you prefer the latest development version:
+```bash
+git clone https://github.com/WaLSAteam/WaLSAtools.git
+cd WaLSAtools/codes/python/
+pip install .
+```
+Alternatively, use:
+```bash
+python setup.py install
+```
 
-### **Interactive Usage**
 
-WaLSAtools includes an interactive interface to simplify usage. After installation, in a terminal (within Python) or in a Jupyter notebook, run:
+### **🖥️ Interactive Usage**
+
+WaLSAtools includes an interactive interface to simplify usage. After installation, launch the interactive interface in a Python terminal or (ideally) a Jupyter notebook:
 
 ```python
 from WaLSAtools import WaLSAtools
@@ -59,10 +55,19 @@ This will launch an interactive menu with options for:
 
 The interface provides instructions and hints on calling sequences and parameter details for your chosen analysis.
 
-## **License**
+---
+
+## **📜 License**
 
 WaLSAtools is licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 If you use WaLSAtools in your research, please cite:
 
 **Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.**
+
+---
+
+## **🛠️ Contributing**
+
+Contributions, suggestions, and feedback are always welcome! If you encounter any issues or have ideas for improvements, please visit the **[GitHub repository](https://github.com/WaLSAteam/WaLSAtools)** to open an issue or contribute.
+

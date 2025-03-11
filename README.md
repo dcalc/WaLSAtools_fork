@@ -16,7 +16,7 @@
     <a href="https://github.com/WaLSAteam/WaLSAtools/actions/workflows/ci.yml"><img src="https://github.com/WaLSAteam/WaLSAtools/workflows/docs/badge.svg"></a>
 </p>
 
-**WaLSAtools** is an open-source library for analysing a wide variety of wave phenomena in time series data, including images and multi-dimensional datasets. It provides tools to extract meaningful insights from complex datasets and is applicable across diverse fields, including astrophysics, engineering, physical and environmental sciences, and biomedical studies, among others. The library is continuously expanding with new features and functionalities, ensuring it remains a valuable resource for the wave analysis research.
+**WaLSAtools** is an open-source library for analysing a wide variety of wave phenomena in time series data, including images and multi-dimensional datasets. It provides tools to extract meaningful insights from complex datasets and is applicable across diverse fields, including astrophysics, engineering, life, physical and environmental sciences, and biomedical studies, among others. The library is continuously expanding with new features and functionalities, ensuring it remains a valuable resource for the wave analysis research.
 
 The core of WaLSAtools is built upon [Python](https://www.python.org). This ensures accessibility and ease of use for a broad audience. We are actively developing counterparts in other popular languages to further enhance accessibility, enabling researchers from various backgrounds to leverage the power of WaLSAtools for their wave analysis needs. Currently, WaLSAtools is partially implemented in IDL, with plans to expand its functionality and extend to other programming languages in the future.
 
@@ -39,7 +39,7 @@ This repository is associated with a primer article titled *"Wave analysis tools
 
 <a href="https://WaLSA.tools" target="_blank"><img align="right" src="docs/images/misc/WaLSAtools_documentation_screenshot.png" alt="WaLSAtools Documentation" width="485" height="auto" /></a>
 
-The complete documentation, including installation guides, method descriptions, and usage examples, is available online:
+Complete documentation, including installation guides, method descriptions, and usage examples, is available online:
 
 **[WaLSAtools Documentation](https://WaLSA.tools)**
 
@@ -79,10 +79,22 @@ Refer to the `README.md` files in the `codes/python` and `codes/idl` directories
 
 **Quick Start:**
 
-1. Clone the repository: `git clone https://github.com/WaLSAteam/WaLSAtools`
-2. **Python:** `pip install .` (within `codes/python/`)
-3. **IDL:**  `.run setup.pro` (within `codes/idl/` in IDL)
-
+* **Python (via PyPI):** 
+  ```bash
+  pip install WaLSAtools
+  ```
+* **Python (from source):** 
+  ```bash
+  git clone https://github.com/WaLSAteam/WaLSAtools.git
+  cd WaLSAtools/codes/python/
+  pip install .
+  ```
+* **IDL:** 
+  ```bash
+  git clone https://github.com/WaLSAteam/WaLSAtools.git
+  cd WaLSAtools/codes/idl/
+  .run setup.pro
+  ```
 
 ## **Interactive Usage**
 
