@@ -33,7 +33,7 @@ except FileNotFoundError:
 
 setup(
     name='WaLSAtools',  # Package name on PyPI
-    version='1.0.0',  # Update version as needed
+    version='1.0.0.post1',  # Update version as needed
     author='WaLSA Team - Shahin Jafarzadeh',
     author_email='Shahin.Jafarzadeh@WaLSA.team',
     description='Wave analysis tools: A package for analyzing wave and oscillatory signals',
