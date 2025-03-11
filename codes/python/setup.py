@@ -41,7 +41,10 @@ setup(
     long_description_content_type='text/markdown',
     url='https://github.com/WaLSAteam/WaLSAtools',
     packages=find_packages(),
-    include_package_data=True,  
+    include_package_data=True, 
+    package_data={
+        "WaLSAtools": ["assets/*.png", "assets/*.jpg"],
+    },
     install_requires=requirements,
     entry_points={
         'console_scripts': [
