@@ -1,1 +1,2 @@
 include WaLSAtools/assets/*
+include requirements.txt

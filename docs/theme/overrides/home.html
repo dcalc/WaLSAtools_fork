@@ -1,6 +1,19 @@
 {% extends "main.html" %}
 {% block tabs %}
   {{ super() }}
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var palette = __md_get("__palette");
+      var firstVisit = sessionStorage.getItem("walsatools_first_visit");
+  
+      // Ensure `palette` exists before checking `.index`
+      if ((!palette || palette.index === 0) && !firstVisit) {
+        __md_set("__palette", { index: 1, scheme: "default" });
+        sessionStorage.setItem("walsatools_first_visit", "true"); // Store flag for this session
+        location.reload(); // Reload once to apply the new default
+      }
+    });
+  </script>
  <style>.md-header{position:initial}.md-main__inner{margin:0}.md-content{display:none}@media screen and (min-width:60em){.md-sidebar--secondary{display:none}}@media screen and (min-width:76.25em){.md-sidebar--primary{display:none}}</style>
   <section class="tx-container">
     <div class="md-grid md-typeset">
