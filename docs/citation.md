@@ -9,34 +9,33 @@ If you use **WaLSAtools** in your work, please cite it as described below in you
 ## Main Article and Software Package :octicons-cross-reference-24:
 
 - **Jafarzadeh, S., Jess, D. B., Stangalini, M., et al. 2025, Nature Reviews Methods Primers, in press**  
-- **Jafarzadeh, S., Jess, D. B., Stangalini, M., et al. 2025, WaLSAteam/WaLSAtools: v1.0, DOI: XX.XXXX/zenodo.XXXXXXX** (to be created)
+- **Jafarzadeh, S., Jess, D. B., Stangalini, M., et al. 2025, WaLSAtools, WaLSA Team (GitHub) / Zenodo, doi: [10.5281/zenodo.14978610](https://doi.org/10.5281/zenodo.14978610)**
 
 ---
 
 ### Other Relevant Scientific Articles :material-bookshelf:
 
 - **Waves in the Lower Solar Atmosphere: The Dawn of Next-Generation Solar Telescopes**: [Jess, D. B., Jafarzadeh, S., Keys, P. H., Stangalini, M., Verth, G., Grant, S. D. T. 2023, Living Reviews in Solar Physics, 20, 1][5]{target=_blank} ([ADS][6]{target=_blank})
-
-```latex
-@ARTICLE{2023LRSP...20....1J,
-       author = {{Jess}, David B. and {Jafarzadeh}, Shahin and {Keys}, Peter H. and {Stangalini}, Marco and {Verth}, Gary and {Grant}, Samuel D.~T.},
-        title = "{Waves in the lower solar atmosphere: the dawn of next-generation solar telescopes}",
-      journal = {Living Reviews in Solar Physics},
-     keywords = {Shock waves, Sun: chromosphere, Sun: oscillations, Sun: photosphere, Telescopes, Astrophysics - Solar and Stellar Astrophysics},
-         year = 2023,
-        month = dec,
-       volume = {20},
-       number = {1},
-          eid = {1},
-        pages = {1},
-          doi = {10.1007/s41116-022-00035-6},
-archivePrefix = {arXiv},
-       eprint = {2212.09788},
- primaryClass = {astro-ph.SR},
-       adsurl = {https://ui.adsabs.harvard.edu/abs/2023LRSP...20....1J},
-      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
-}
-```
+  ```latex
+  @ARTICLE{2023LRSP...20....1J,
+        author = {{Jess}, David B. and {Jafarzadeh}, Shahin and {Keys}, Peter H. and {Stangalini}, Marco and {Verth}, Gary and {Grant}, Samuel D.~T.},
+          title = "{Waves in the lower solar atmosphere: the dawn of next-generation solar telescopes}",
+        journal = {Living Reviews in Solar Physics},
+      keywords = {Shock waves, Sun: chromosphere, Sun: oscillations, Sun: photosphere, Telescopes, Astrophysics - Solar and Stellar Astrophysics},
+          year = 2023,
+          month = dec,
+        volume = {20},
+        number = {1},
+            eid = {1},
+          pages = {1},
+            doi = {10.1007/s41116-022-00035-6},
+  archivePrefix = {arXiv},
+        eprint = {2212.09788},
+  primaryClass = {astro-ph.SR},
+        adsurl = {https://ui.adsabs.harvard.edu/abs/2023LRSP...20....1J},
+        adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+  }
+  ```
 
 ### Articles for particular functions
 

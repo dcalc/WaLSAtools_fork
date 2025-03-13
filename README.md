@@ -109,9 +109,9 @@ The interface guides you through selecting an analysis category, data type, and 
 
 If you use WaLSAtools in your research, please consider citing:
 
-> Jafrzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, *Nature Reviews Methods Primers*, in press
+> Jafarzadeh, S., Jess, D. B., Stangalini, M., et al. 2025, *Nature Reviews Methods Primers*, in press
 
-> [Jafrzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, WaLSAtools, WaLSA Team (GitHub) / Zenodo, doi: 10.5281/zenodo.14978610](https://doi.org/10.5281/zenodo.14978610)
+> [Jafarzadeh, S., Jess, D. B., Stangalini, M., et al. 2025, WaLSAtools, WaLSA Team (GitHub) / Zenodo, doi: 10.5281/zenodo.14978610](https://doi.org/10.5281/zenodo.14978610)
 
 ## **License**
 

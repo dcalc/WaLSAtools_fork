@@ -9,7 +9,7 @@ title: Introduction
 
 **WaLSAtools** is an open-source library for analysing a wide variety of wave phenomena in time series data, including images and multi-dimensional datasets. It provides tools to extract meaningful insights from complex datasets and is applicable across diverse fields, including astrophysics, engineering, physical and environmental science, and biomedical studies, among others. The library is continuously expanding with new features and functionalities, ensuring it remains a valuable resource for the wave analysis research.
 
-The core of **WaLSAtools** is built upon [Python][9]{target=_blank}, one of the most widely-used programming languages in science and engineering. This ensures accessibility and ease of use for a broad audience. We are actively developing counterparts in other popular languages to further enhance accessibility, enabling researchers from various backgrounds to leverage the power of **WaLSAtools** for their wave analysis needs. Currently, **WaLSAtools** is partially implemented in [IDL][1]{target=_blank}, with plans to expand its functionality and extend to other programming languages in the future.
+The core of **WaLSAtools** is built upon [Python][9]{target=_blank}. This ensures accessibility and ease of use for a broad audience. We are actively developing counterparts in other popular languages to further enhance accessibility, enabling researchers from various backgrounds to leverage the power of **WaLSAtools** for their wave analysis needs. Currently, **WaLSAtools** is partially implemented in [IDL][1]{target=_blank}, with plans to expand its functionality and extend to other programming languages in the future.
 
 Developed by the [WaLSA Team](https://WaLSA.team), **WaLSAtools** was initially inspired by the intricate wave dynamics observed in the Sun's atmosphere. However, its applications extend far beyond solar physics, offering a versatile toolkit for anyone working with oscillatory signals.
 
@@ -318,9 +318,9 @@ All time series are pre-processed to mitigate unwanted effects, such as long-ter
 
 WaLSAtools is constantly evolving with new features and improvements. Here are some of the ongoing developments:
 
-*   **Expanding Language Support:** We are actively developing WaLSAtools in Matlab, aiming to provide equivalent functionality across all three supported languages (Python, IDL, and Matlab).
-*   **Enhancing Existing Methods:** We are improving the Dominant Frequency method to handle cases with multiple strong power peaks and provide uncertainty estimations.
-*   **Adding New Methods:** We are adding new analysis techniques, such as the Adaptive Local Iterative Filtering (ALIF) method.
+*   **Expanding Language Support:** Further development in IDL (for full consistency between the Python and IDL versions), with potential expansion to MATLAB and other programming languages.
+*   **Enhancing Existing Methods:** Improving the Dominant Frequency method to handle cases with multiple strong power peaks and provide uncertainty estimations.
+*   **Adding New Methods:** Implementing new analysis techniques, such as Adaptive Local Iterative Filtering (ALIF) and Synchrosqueezing Transform (SST).
 
 We welcome contributions from the community to help us expand and improve **WaLSAtools**. If you are interested in contributing, please see the [Contribution Guidelines][3].
 

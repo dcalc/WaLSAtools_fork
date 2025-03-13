@@ -23,13 +23,13 @@ Here's a brief overview of the core analysis modules:
         --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_speclizer.py"
         ```
 
-!!! walsa-code2 "walsa_wavelet.py"
+!!! walsa-code2 "WaLSA_wavelet.py"
 
     This module implements the Wavelet Transform and related functionalities.
 
-    ??? source-code "walsa_wavelet.py"
+    ??? source-code "WaLSA_wavelet.py"
         ``` python
-        --8<-- "codes/python/WaLSAtools/analysis_modules/walsa_wavelet.py"
+        --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_wavelet.py"
         ```
 
 !!! walsa-code1 "WaLSA_k_omega.py"
@@ -68,31 +68,31 @@ Here's a brief overview of the core analysis modules:
         --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_detrend_apod.py"
         ```
 
-!!! walsa-code2 "walsa_confidence.py"
+!!! walsa-code2 "WaLSA_confidence.py"
 
     This module implements statistical significance testing for the spectral analysis results using various methods.
 
-    ??? source-code "walsa_confidence.py"
+    ??? source-code "WaLSA_confidence.py"
         ``` python
-        --8<-- "codes/python/WaLSAtools/analysis_modules/walsa_confidence.py"
+        --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_confidence.py"
         ```
 
-!!! walsa-code1 "walsa_wavelet_confidence.py"
+!!! walsa-code1 "WaLSA_wavelet_confidence.py"
 
     This module implements statistical significance testing for the wavelet analysis results.
 
-    ??? source-code "walsa_wavelet_confidence.py"
+    ??? source-code "WaLSA_wavelet_confidence.py"
         ``` python
-        --8<-- "codes/python/WaLSAtools/analysis_modules/walsa_wavelet_confidence.py"
+        --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_wavelet_confidence.py"
         ```
 
-!!! walsa-code2 "walsa_io.py"
+!!! walsa-code2 "WaLSA_io.py"
 
     This module provides functions for input/output operations, such as saving images as PDF (in both RGB and CMYK formats) and image contrast enhancements.
 
-    ??? source-code "walsa_io.py"
+    ??? source-code "WaLSA_io.py"
         ``` python
-        --8<-- "codes/python/WaLSAtools/analysis_modules/walsa_io.py"
+        --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_io.py"
         ```
 
 !!! walsa-code1 "WaLSA_interactive.py"
@@ -104,22 +104,22 @@ Here's a brief overview of the core analysis modules:
         --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_interactive.py"
         ```
 
-!!! walsa-code1 "walsa_plot_k_omega.py"
+!!! walsa-code1 "WaLSA_plot_k_omega.py"
 
     This module provides functions for plotting k-ω diagrams and filtered datacubes.
 
-    ??? source-code "walsa_plot_k_omega.py"
+    ??? source-code "WaLSA_plot_k_omega.py"
         ``` python
-        --8<-- "codes/python/WaLSAtools/analysis_modules/walsa_plot_k_omega.py"
+        --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_plot_k_omega.py"
         ```
 
-!!! walsa-code2 "walsa_plot_wavelet_spectrum.py"
+!!! walsa-code2 "WaLSA_plot_wavelet_spectrum.py"
 
     This module provides functions for plotting wavelet power spectra and related visualizations.
 
-    ??? source-code "walsa_plot_wavelet_spectrum.py"
+    ??? source-code "WaLSA_plot_wavelet_spectrum.py"
         ``` python
-        --8<-- "codes/python/WaLSAtools/analysis_modules/walsa_plot_wavelet_spectrum.py"
+        --8<-- "codes/python/WaLSAtools/analysis_modules/WaLSA_plot_wavelet_spectrum.py"
         ```
 
 <br>

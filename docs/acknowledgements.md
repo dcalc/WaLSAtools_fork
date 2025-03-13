@@ -38,6 +38,7 @@ We are grateful to the developers of these libraries for their contributions to 
 
   - [Solarsoft][11]{target=_blank}
   - [Coyote Library][4]{target=_blank} (Prof. David Fanning)
+  - [RRIDL][10]{target=_blank} (Prof. Rob J. Rutten) &#8212; :fontawesome-solid-ribbon: (1942-2022)
   - [Daithi Library][5]{target=_blank} (Dr. Dáithí A. Stone)
   - [HeLIx+][12]{target=_blank} (Dr. Andreas Korpi-Lagg)
 
@@ -49,13 +50,8 @@ We are grateful to the developers of these libraries for their contributions to 
   [3]: https://www.nv5geospatialsoftware.com/Products/IDL
   [4]: http://www.idlcoyote.com
   [5]: http://climate.web.runbox.net/idl_lib/
-  [6]: https://walsa.team/shahin.jafarzadeh
-  [7]: https://davidjess.net
-  [8]: https://www.researchgate.net/profile/Marco-Stangalini
-  [9]: https://pure.qub.ac.uk/en/persons/samuel-grant
-  [10]: https://robrutten.nl
+  [10]: https://robrutten.nl/Recipes_IDL.html
   [11]: https://sohowww.nascom.nasa.gov/solarsoft/
   [12]: https://gitlab.gwdg.de/andreas.lagg/helix
-  [16]: https://pure.qub.ac.uk/en/persons/peter-keys
 
 <br>

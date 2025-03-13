@@ -23,8 +23,6 @@ The easiest way to install WaLSAtools is using pip:
 pip install WaLSAtools
 ```
 
-**NOTE**: This option will become available once the repository is public.
-
 This will download and install the latest stable version of WaLSAtools from the Python Package Index (PyPI).
 
 ## Installation from source
