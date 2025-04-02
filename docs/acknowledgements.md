@@ -48,7 +48,7 @@ We are grateful to the developers of these libraries for their contributions to 
   [1]: https://WaLSA.team
   [2]: mailto:WaLSAtools@WaLSA.team
   [3]: https://www.nv5geospatialsoftware.com/Products/IDL
-  [4]: http://www.idlcoyote.com
+  [4]: https://github.com/idl-coyote
   [5]: http://climate.web.runbox.net/idl_lib/
   [10]: https://robrutten.nl/Recipes_IDL.html
   [11]: https://sohowww.nascom.nasa.gov/solarsoft/

@@ -104,7 +104,7 @@ def getcross_spectrum_Welch(signal, time, **kwargs):
                                                amplitude=True, nosignificance=True, silent=kwargs.pop('silent', False), **kwargs)
 
     # Calculate cross-spectrum
-    _, crosspower = csd(data1, data2, fs=1.0/cadence, window='hann', nperseg=500)
+    _, crosspower = csd(data1, data2, fs=1.0/cadence, window='hann', nperseg=params['nperseg'],)
 
     cospectrum = np.abs(crosspower)
     
@@ -112,7 +112,7 @@ def getcross_spectrum_Welch(signal, time, **kwargs):
     phase_angle = np.angle(crosspower, deg=True)
 
     # Calculate coherence
-    freq_coh, coh = coherence(data1, data2, 1.0/cadence, nperseg=500)
+    freq_coh, coh = coherence(data1, data2, 1.0/cadence, nperseg=params['nperseg'])
     
     return frequencies, cospectrum, phase_angle, power_data1, power_data2, freq_coh, coh
 
