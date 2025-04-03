@@ -8,9 +8,9 @@ If you use **WaLSAtools** in your work, please cite it as described below in you
 
 ## Main Article and Software Package :octicons-cross-reference-24:
 
-- **[Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, 5, 21](https://www.nature.com/articles/s43586-025-00392-0)** 
-  Free access to a view-only version: [https://WaLSA.tools/nrmp](https://WaLSA.tools/nrmp)        
-  Supplementary Information: [https://WaLSA.tools/nrmp-si](https://WaLSA.tools/nrmp-si)     
+- **Wave analysis tools: [Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, 5, 21](https://www.nature.com/articles/s43586-025-00392-0)**         
+  - Free access to a view-only version: [https://WaLSA.tools/nrmp](https://WaLSA.tools/nrmp)        
+  - Supplementary Information: [https://WaLSA.tools/nrmp-si](https://WaLSA.tools/nrmp-si)     
 - **Jafarzadeh, S., Jess, D. B., Stangalini, M., et al. 2025, WaLSAtools, WaLSA Team (GitHub) / Zenodo, doi: [10.5281/zenodo.14978610](https://doi.org/10.5281/zenodo.14978610)**
 
 ---
