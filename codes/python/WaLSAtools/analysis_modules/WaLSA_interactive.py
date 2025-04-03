@@ -15,7 +15,7 @@
 # limitations under the License.
 # 
 # Note: If you use WaLSAtools for research, please consider citing:
-# Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
+# Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, 5, 21
 # -----------------------------------------------------------------------------------------------------
 
 import ipywidgets as widgets # type: ignore
@@ -56,9 +56,11 @@ def print_logo_and_credits():
         Documentation: www.WaLSA.tools
         GitHub repository: www.github.com/WaLSAteam/WaLSAtools
         -----------------------------------------------------------------------
-        If you use WaLSAtools in your research, please cite:
-        Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025,
-        Nature Reviews Methods Primers, in press
+        If you use WaLSAtools in your research, please cite:   
+        Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, 5, 21 
+
+        Free access to a view-only version: https://WaLSA.tools/nrmp     
+        Supplementary Information: https://WaLSA.tools/nrmp-si     
         -----------------------------------------------------------------------
         Choose a category, data type, and analysis method from the list below,
         to get hints on the calling sequence and parameters:
@@ -73,7 +75,9 @@ def print_logo_and_credits():
             <p>GitHub repository: <a href="https://www.github.com/WaLSAteam/WaLSAtools" target="_blank">www.github.com/WaLSAteam/WaLSAtools</a></p>
             <hr style="width: 70%; margin: 0; border: 0.98px solid #888; margin-bottom: 10px;">
             <p>If you use <strong>WaLSAtools</strong> in your research, please cite:</p>
-            <p>Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, <em>Nature Reviews Methods Primers</em>, in press</p>
+            <p>Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, <em>Nature Reviews Methods Primers</em>, 5, 21</p>
+            <p>Free access to a view-only version: <a href="https://WaLSA.tools/nrmp" target="_blank">www.WaLSA.tools</a></p>
+            <p>Supplementary Information: <a href="https://WaLSA.tools/nrmp-si" target="_blank">www.WaLSA.tools</a></p>
             <hr style="width: 70%; margin: 0; border: 0.98px solid #888; margin-bottom: 15px;">
             <p>Choose a category, data type, and analysis method from the list below,</p>
             <p>to get hints on the calling sequence and parameters:</p>

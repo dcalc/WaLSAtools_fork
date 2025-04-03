@@ -63,7 +63,7 @@ WaLSAtools is licensed under the [Apache License, Version 2.0](http://www.apache
 
 If you use WaLSAtools in your research, please cite:
 
-**Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.**
+**[Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, 5, 21](https://www.nature.com/articles/s43586-025-00392-0)**
 
 ---
 

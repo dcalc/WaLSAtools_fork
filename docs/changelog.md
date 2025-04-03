@@ -22,7 +22,7 @@ This is the first official release of WaLSAtools, a comprehensive open-source li
     *  Proper Orthogonal Decomposition (POD)
     *  Cross-Correlation Analysis
 * **Interactive Interface:** User-friendly interface for easy access to analysis tools and parameters.
-* **Worked Examples:** Reproducible examples demonstrating the application of WaLSAtools to synthetic datasets (presented in a *Nature Reviews Methods Primers* article)
+* **Worked Examples:** Reproducible examples demonstrating the application of WaLSAtools to synthetic datasets (presented in a *[Nature Reviews Methods Primers](https://www.nature.com/articles/s43586-025-00392-0)* article)
 * **Documentation:** Comprehensive documentation covering installation, usage, and analysis methods.
 * **Multi-Language Support:** Available in Python and IDL.
 

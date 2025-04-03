@@ -17,7 +17,7 @@ This example demonstrates the application of frequency filtering to the temporal
 
     **WaLSAtools version:** 1.0
 
-    These particular analyses generate the figure below (Supplementary Figure S7 in *Nature Reviews Methods Primers*; copyrighted). For a full description of the datasets and the analyses performed, see the associated article. See the source code at the bottom of this page (or <a href="https://github.com/WaLSAteam/WaLSAtools/blob/main/examples/python/Worked_examples__NRMP/FigS7__POD_frequency_filtered_spatial_modes.ipynb" target="_blank">here</a> on Github) for a complete analyses and the plotting routines used to generate this figure.
+    These particular analyses generate the figure below (Supplementary Figure S7 in *[Nature Reviews Methods Primers](https://www.nature.com/articles/s43586-025-00392-0)*; copyrighted). For a full description of the datasets and the analyses performed, see the associated article. See the source code at the bottom of this page (or <a href="https://github.com/WaLSAteam/WaLSAtools/blob/main/examples/python/Worked_examples__NRMP/FigS7__POD_frequency_filtered_spatial_modes.ipynb" target="_blank">here</a> on Github) for a complete analyses and the plotting routines used to generate this figure.
 
     ![jpg](/python/converted_notebooks_nrmp/Figures_jpg/FigS7_POD_frequency_filtered_spatial_modes.jpg)
 

@@ -25,7 +25,11 @@ Developed by the [WaLSA Team](https://WaLSA.team), WaLSAtools was initially insp
 
 WaLSAtools promotes reproducibility and transparency in wave analysis. Its robust implementations of both fundamental and advanced techniques ensure consistent and trustworthy results, empowering researchers to delve deeper into the complexities of their data. Through its interactive interface, WaLSAtools guides users through the analysis process, providing the necessary information and tools to perform various types of wave analysis with ease.
 
-This repository is associated with a primer article titled *"Wave analysis tools"* in [**Nature Reviews Methods Primers**](https://www.nature.com/nrmp/) (NRMP; in press), showcasing its capabilities through detailed analyses of synthetic datasets. The `examples/Worked_examples__NRMP` directories (for both Python and IDL) contain reproducible codes for generating all figures presented in the NRMP article, serving as a practical guide for applying WaLSAtools to real-world analyses.
+This repository is associated with a primer article titled *"Wave analysis tools"* in [**Nature Reviews Methods Primers**] (NRMP; [Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, 5, 21](https://www.nature.com/articles/s43586-025-00392-0)), showcasing its capabilities through detailed analyses of synthetic datasets. The `examples/Worked_examples__NRMP` directories (for both Python and IDL) contain reproducible codes for generating all figures presented in the NRMP article, serving as a practical guide for applying WaLSAtools to real-world analyses.
+
+**Free access to a view-only version of the Primer**: [https://WaLSA.tools/nrmp](https://WaLSA.tools/nrmp)
+
+**Supplementary Information**: [https://WaLSA.tools/nrmp-si](https://WaLSA.tools/nrmp-si)
 
 
 ## **Key Features**
@@ -109,7 +113,7 @@ The interface guides you through selecting an analysis category, data type, and 
 
 If you use WaLSAtools in your research, please consider citing:
 
-> Jafarzadeh, S., Jess, D. B., Stangalini, M., et al. 2025, *Nature Reviews Methods Primers*, in press
+> [Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, 5, 21](https://www.nature.com/articles/s43586-025-00392-0)
 
 > [Jafarzadeh, S., Jess, D. B., Stangalini, M., et al. 2025, WaLSAtools, WaLSA Team (GitHub) / Zenodo, doi: 10.5281/zenodo.14978610](https://doi.org/10.5281/zenodo.14978610)
 

@@ -4,7 +4,7 @@ template: main.html
 
 # Worked Example - NRMP: Synthetic Datasets
 
-This page provides detailed information about the synthetic datasets used in the worked examples presented in the *Nature Reviews Methods Primers* article. These datasets were carefully crafted to evaluate the performance of various wave analysis techniques in a controlled environment. They comprise a 1D time series and a spatio-temporal datacube, each containing a variety of oscillatory signals with known parameters.
+This page provides detailed information about the synthetic datasets used in the worked examples presented in the *[Nature Reviews Methods Primers](https://www.nature.com/articles/s43586-025-00392-0)* article. These datasets were carefully crafted to evaluate the performance of various wave analysis techniques in a controlled environment. They comprise a 1D time series and a spatio-temporal datacube, each containing a variety of oscillatory signals with known parameters.
 
 ## Synthetic 1D Time Series
 

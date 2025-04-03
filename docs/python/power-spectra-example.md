@@ -12,7 +12,7 @@ This example demonstrates the application of various spectral analysis technique
 *   **Quasi-periodic oscillation:** An oscillation with a frequency of 10 Hz and a time-varying amplitude.
 *   **Noise:** Random noise added to the signal.
 
-By analysing this synthetic signal with different methods, we can evaluate their ability to accurately identify and characterise these diverse oscillatory components. This provides valuable insights into the strengths and limitations of each technique, guiding the selection of appropriate methods for analysing real-world data. For a comprehensive discussion of the analysis and results, please refer to the associated article in *Nature Reviews Methods Primers*.
+By analysing this synthetic signal with different methods, we can evaluate their ability to accurately identify and characterise these diverse oscillatory components. This provides valuable insights into the strengths and limitations of each technique, guiding the selection of appropriate methods for analysing real-world data. For a comprehensive discussion of the analysis and results, please refer to the associated article in *[Nature Reviews Methods Primers](https://www.nature.com/articles/s43586-025-00392-0)*.
 
 !!! walsa-example "Analysis and Figure"
 
@@ -30,7 +30,7 @@ By analysing this synthetic signal with different methods, we can evaluate their
 
     **WaLSAtools version:** 1.0
 
-    These particular analyses generate the figure below (Figure 3 in *Nature Reviews Methods Primers*; copyrighted). For a full description of the datasets and the analyses performed, see the associated article. See the source code at the bottom of this page (or <a href="https://github.com/WaLSAteam/WaLSAtools/blob/main/examples/python/Worked_examples__NRMP/FIG3__walsatools_power_spectra.ipynb" target="_blank">here</a> on Github) for a complete analyses and the plotting routines used to generate this figure.
+    These particular analyses generate the figure below (Figure 3 in *[Nature Reviews Methods Primers](https://www.nature.com/articles/s43586-025-00392-0)*; copyrighted). For a full description of the datasets and the analyses performed, see the associated article. See the source code at the bottom of this page (or <a href="https://github.com/WaLSAteam/WaLSAtools/blob/main/examples/python/Worked_examples__NRMP/FIG3__walsatools_power_spectra.ipynb" target="_blank">here</a> on Github) for a complete analyses and the plotting routines used to generate this figure.
 
     ![jpg](/python/converted_notebooks_nrmp/Figures_jpg/Fig3_power_spectra_1D_signal.jpg)
 

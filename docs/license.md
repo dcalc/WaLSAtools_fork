@@ -78,7 +78,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 ```
 
 **Note**: If you use **WaLSAtools** for research, please consider citing:<br>
-**Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.**
+**Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, 5, 21**
 
 📍 **Contact**<br>
 For questions, permissions, or inquiries about this license, please contact:  <br>

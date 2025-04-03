@@ -18,7 +18,7 @@ This example demonstrates the application of Ensemble Empirical Mode Decompositi
 
     **WaLSAtools version:** 1.0
 
-    These particular analyses generate the figure below (Supplementary Figure S3 in *Nature Reviews Methods Primers*; copyrighted). For a full description of the datasets and the analyses performed, see the associated article. See the source code at the bottom of this page (or <a href="https://github.com/WaLSAteam/WaLSAtools/blob/main/examples/python/Worked_examples__NRMP/FIGS3__EEMD.ipynb" target="_blank">here</a> on Github) for a complete analyses and the plotting routines used to generate this figure.
+    These particular analyses generate the figure below (Supplementary Figure S3 in *[Nature Reviews Methods Primers](https://www.nature.com/articles/s43586-025-00392-0)*; copyrighted). For a full description of the datasets and the analyses performed, see the associated article. See the source code at the bottom of this page (or <a href="https://github.com/WaLSAteam/WaLSAtools/blob/main/examples/python/Worked_examples__NRMP/FIGS3__EEMD.ipynb" target="_blank">here</a> on Github) for a complete analyses and the plotting routines used to generate this figure.
 
     ![jpg](/python/converted_notebooks_nrmp/Figures_jpg/FigS3_EEMD_analysis.jpg)
 

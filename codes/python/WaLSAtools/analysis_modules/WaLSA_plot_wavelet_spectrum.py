@@ -15,7 +15,7 @@
 # limitations under the License.
 # 
 # Note: If you use WaLSAtools for research, please consider citing:
-# Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
+# Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, 5, 21
 # -----------------------------------------------------------------------------------------------------
 
 
