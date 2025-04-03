@@ -18,7 +18,7 @@
 # Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, in press.
 # -----------------------------------------------------------------------------------------------------
 
-from IPython.display import HTML, display
+from IPython.display import HTML, display # type: ignore
 import shutil
 
 single_series_parameters = {
@@ -221,6 +221,26 @@ cross_correlation_parameters = {
             'nperm': {'type': 'int', 'description': 'Number of permutations for significance testing. Default: 1000.'},
             'silent': {'type': 'bool', 'description': 'If True, suppress print statements. Default: False.'}
         }
+    },
+    'fft': {
+        'return_values': 'frequency, cospectrum, phase_angle, power_data1, power_data2, frequency_coherence, coherence',
+        'parameters': {
+            'Warning': {
+                'type': 'str',
+                'description': 'FFT method selected. Cross-spectra calculations will use Welch instead, '
+                            'which segments the signal into multiple parts to reduce noise sensitivity. '
+                            'Adjust frequency resolution vs. noise reduction with "nperseg".'
+            },
+            'data1': {'type': 'array', 'description': 'The first 1D time series signal.'},
+            'data2': {'type': 'array', 'description': 'The second 1D time series signal.'},
+            'time': {'type': 'array', 'description': 'The time array corresponding to the signals.'},
+            'nperseg': {'type': 'int', 'description': 'Length of each segment for analysis. Default: 256.'},
+            'noverlap': {'type': 'int', 'description': 'Number of points to overlap between segments. Default: 128.'},
+            'window': {'type': 'str', 'description': 'Type of window function used in the Welch method. Default: "hann".'},
+            'siglevel': {'type': 'float', 'description': 'Significance level for confidence intervals. Default: 0.95.'},
+            'nperm': {'type': 'int', 'description': 'Number of permutations for significance testing. Default: 1000.'},
+            'silent': {'type': 'bool', 'description': 'If True, suppress print statements. Default: False.'}
+        }
     }
 }
 
@@ -228,7 +248,7 @@ cross_correlation_parameters = {
 # For the Jupyter-based interactive function
 def display_parameters_html(method_name, category):
     """Display parameters as an HTML table (for Jupyter Notebooks)."""
-    if category == 'b: Cross-correlation between two time series':
+    if category == 'Cross-correlation between two time series':
         parameter_definitions = cross_correlation_parameters
     else:
         parameter_definitions = single_series_parameters
@@ -236,7 +256,19 @@ def display_parameters_html(method_name, category):
     if not parameters:
         display(HTML(f"<p><strong>No parameters available for method: {method_name}</strong></p>"))
         return
-			
+
+    # Check if there's a 'Warning' parameter defined explicitly
+    warning_html = ''
+    if 'Warning' in parameters:
+        warning_html = f"""
+        <div style="border: 2px solid #27AE60; padding: 10px; margin-left: 30px; margin-bottom: 15px; background-color: #E9F7EF; border-radius: 4px;">
+            <strong style="color: #196F3D;">Note: </strong>{parameters['Warning']['description']}
+        </div>
+        """
+        # Remove the Warning from parameters to avoid duplication in the table
+        parameters = {k: v for k, v in parameters.items() if k != 'Warning'}
+
+    # Parameters Table
     table = '<table style="border-collapse: collapse; border: 1px solid #222; width: calc(100% - 30px); box-sizing: border-box; margin-left: 30px; table-layout: auto;">'
     table += '<tr style="background-color: #fff;"><th colspan="3" style="text-align: left; color: #000; font-size: 110%;">Parameters (**kwargs)</th></tr>'
     table += '<tr style="background-color: #222;">'
@@ -253,12 +285,15 @@ def display_parameters_html(method_name, category):
         table += f'<td style="border: 1px solid #222; padding: 8px; text-align: left;">{description}</td>'
         table += '</tr>'
     table += '</table>'
-    display(HTML(table))
+    
+    # Display Warning above the table (if exists), then the table
+    display(HTML(warning_html + table))
 
 # For the Terminal-based interactive function
+import textwrap
 def display_parameters_text(method_name, category):
     """Display parameters as a plain text table for the terminal."""
-    if category == 'b':
+    if category == 'b' or category == 'Cross-correlation between two time series':
         parameter_definitions = cross_correlation_parameters
     else:
         parameter_definitions = single_series_parameters    
@@ -272,13 +307,43 @@ def display_parameters_text(method_name, category):
     # Calculate 90% of the width (and ensure it's an integer)
     line_width = int(terminal_width * 0.90)
 
-    print('    '+'-' * line_width)
+    # Extract and display warning separately
+    if 'Warning' in parameters:
+        warning_text = parameters['Warning']['description']
+        wrapper = textwrap.TextWrapper(width=line_width - 4, initial_indent='    ', subsequent_indent='    ')
+        wrapped_warning = wrapper.fill(f"Note: {warning_text}")
+        separator = ' ' * 4 + '-' * line_width
+        print('\n' + separator)
+        print(wrapped_warning)
+        print(separator)
+        # Remove Warning from parameters to avoid duplication
+        parameters = {k: v for k, v in parameters.items() if k != 'Warning'}
+
+    # Calculate column widths
+    param_col_width = 20
+    type_col_width = 8
+    desc_col_width = line_width - param_col_width - type_col_width - 10  # 10 chars for separators and spacing
+
+    separator = '    ' + '-' * line_width
+    print(separator)
     print('    | Parameters (**kwargs):')
-    print('    '+'-' * line_width)
-    print(f'    | {"Parameter":<15} | {"Type":<8} | {"Description":<30} ')
-    print('    '+'-' * line_width)
+    print(separator)
+    print(f'    | {"Parameter":<{param_col_width}} | {"Type":<{type_col_width}} | {"Description":<{desc_col_width}}')
+    print(separator)
+
     for param, info in parameters.items():
         param_type = info['type']
         description = info['description']
-        print(f'    | {param:<15} | {param_type:<8}| {description:<30} ')
-    print('    '+'-' * line_width)
+
+        # Wrap description properly within the cell
+        wrapper = textwrap.TextWrapper(width=desc_col_width)
+        wrapped_description = wrapper.wrap(description)
+
+        # Print first line with param and type
+        print(f'    | {param:<{param_col_width}} | {param_type:<{type_col_width}} | {wrapped_description[0]:<{desc_col_width}}')
+
+        # If there are more wrapped lines, print them with proper indentation
+        for line in wrapped_description[1:]:
+            print(f'    | {"":<{param_col_width}} | {"":<{type_col_width}} | {line:<{desc_col_width}}')
+
+    print(separator)

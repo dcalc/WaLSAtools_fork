@@ -40,6 +40,11 @@ def WaLSA_cross_spectra(signal=None, time=None, method=None, **kwargs):
         return getcross_spectrum_Welch(signal, time=time, **kwargs)
     elif method == 'wavelet':
         return getcross_spectrum_Wavelet(signal, time=time, **kwargs)
+    elif method == 'fft':
+        print("Note: FFT method selected. Cross-spectra calculations will use the Welch method instead, "
+              "which segments the signal into multiple parts to reduce noise sensitivity. "
+              "You can control frequency resolution vs. noise reduction using the 'nperseg' parameter.")
+        return getcross_spectrum_Welch(signal, time=time, **kwargs)
     else:
         raise ValueError(f"Unknown method: {method}")
 

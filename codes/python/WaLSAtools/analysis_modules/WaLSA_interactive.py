@@ -108,9 +108,16 @@ def print_logo_and_credits():
 from .parameter_definitions import display_parameters_text, single_series_parameters, cross_correlation_parameters
 
 # Terminal-based interactive function
+import textwrap
+import shutil
 def walsatools_terminal():
     """Main interactive function for terminal version of WaLSAtools."""
     print_logo_and_credits()
+
+    # Get terminal width
+    terminal_width = shutil.get_terminal_size().columns
+    # Calculate 90% of the width (and ensure it's an integer)
+    line_width = int(terminal_width * 0.90)
 
     # Step 1: Select Category
     while True:
@@ -163,8 +170,10 @@ def walsatools_terminal():
                         # Generate and display the calling sequence for 1D signal
                         print("\n    Calling sequence:\n")
                         return_values = single_series_parameters[selected_method]['return_values']
-                        command = f"    >>> {return_values} = WaLSAtools(signal=INPUT_DATA, time=TIME_ARRAY, method='{selected_method}', **kwargs)"
-                        print(command)
+                        command = f">>> {return_values} = WaLSAtools(signal=INPUT_DATA, time=TIME_ARRAY, method='{selected_method}', **kwargs)"
+                        wrapper = textwrap.TextWrapper(width=line_width - 4, initial_indent='    ', subsequent_indent='        ')
+                        wrapped_command = wrapper.fill(command)
+                        print(wrapped_command)
 
                         # Display parameter hints
                         display_parameters_text(selected_method, category='a')
@@ -197,8 +206,10 @@ def walsatools_terminal():
                                 # Generate and display the calling sequence for sub-method
                                 print("\n    Calling sequence:\n")
                                 return_values = 'dominant_frequency, mean_power, frequency, power_map'
-                                command = f"    >>> {return_values} = WaLSAtools(data=INPUT_DATA, time=TIME_ARRAY, averagedpower=True, dominantfreq=True, method='{selected_method}', **kwargs)"
-                                print(command)
+                                command = f">>> {return_values} = WaLSAtools(data=INPUT_DATA, time=TIME_ARRAY, averagedpower=True, dominantfreq=True, method='{selected_method}', **kwargs)"
+                                wrapper = textwrap.TextWrapper(width=line_width - 4, initial_indent='    ', subsequent_indent='        ')
+                                wrapped_command = wrapper.fill(command)
+                                print(wrapped_command)
 
                                 # Display parameter hints
                                 display_parameters_text(selected_method, category='a')
@@ -218,8 +229,10 @@ def walsatools_terminal():
                         # Generate and display the calling sequence for k-omega/POD
                         print("\n    Calling sequence:\n")
                         return_values = single_series_parameters[selected_method]['return_values']
-                        command = f"    >>> {return_values} = WaLSAtools(data1=INPUT_DATA, time=TIME_ARRAY, method='{selected_method}', **kwargs)"
-                        print(command)
+                        command = f">>> {return_values} = WaLSAtools(data1=INPUT_DATA, time=TIME_ARRAY, method='{selected_method}', **kwargs)"
+                        wrapper = textwrap.TextWrapper(width=line_width - 4, initial_indent='    ', subsequent_indent='        ')
+                        wrapped_command = wrapper.fill(command)
+                        print(wrapped_command)
 
                         # Display parameter hints
                         display_parameters_text(selected_method, category='a')
@@ -237,13 +250,15 @@ def walsatools_terminal():
 
                 while True:
                     print("\n    Analysis Method:")
-                    print("    (1) Wavelet")
-                    print("    (2) Welch")
+                    print("    (1) FFT")
+                    print("    (2) Wavelet")
+                    print("    (3) Welch")
                     analysis_type = input("    --- Select an analysis method (1-2): ").strip()
 
                     cross_correlation_map = {
-                        '1': 'wavelet',
-                        '2': 'welch'
+                        '1': 'fft',
+                        '2': 'wavelet',
+                        '3': 'welch'
                     }
 
                     selected_method = cross_correlation_map.get(analysis_type, 'unknown')
@@ -256,7 +271,9 @@ def walsatools_terminal():
                     print("\n    Calling sequence:\n")
                     return_values = cross_correlation_parameters[selected_method]['return_values']
                     command = f">>> {return_values} = WaLSAtools(data1=INPUT_DATA1, data2=INPUT_DATA2, time=TIME_ARRAY, method='{selected_method}', **kwargs)"
-                    print(command)
+                    wrapper = textwrap.TextWrapper(width=line_width - 4, initial_indent='    ', subsequent_indent='        ')
+                    wrapped_command = wrapper.fill(command)
+                    print(wrapped_command)
 
                     # Display parameter hints
                     display_parameters_text(selected_method, category='b')
@@ -349,7 +366,7 @@ def walsatools_jupyter():
         elif category.value == 'Cross-correlation between two time series':
             method.options = ['Select Data Type', '1D signal']
             if method.value == '1D signal':
-                analysis_type.options = ['Select Method', 'Wavelet', 'Welch']
+                analysis_type.options = ['Select Method', 'FFT', 'Wavelet', 'Welch']
             else:
                 analysis_type.options = ['Select Method']
         else:
@@ -418,7 +435,7 @@ def walsatools_jupyter():
 
             # Handle Cross-correlation
             elif category.value == 'Cross-correlation between two time series':
-                cross_correlation_map = {'Wavelet': 'wavelet', 'Welch': 'welch'}
+                cross_correlation_map = {'FFT': 'fft', 'Wavelet': 'wavelet', 'Welch': 'welch'}
                 selected_method = cross_correlation_map.get(analysis_type.value, 'unknown')
                 parameter_definitions = cross_correlation_parameters
                 return_values = parameter_definitions.get(selected_method, {}).get('return_values', '')
