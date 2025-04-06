@@ -235,7 +235,12 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
 <div class="output-container" id="outputContainer">
     <p style="font-size: 1.0em;">Calling Sequence:</p>
     <span id="callingSequence" style="font-size: 0.95em !important; margin: 0 !important; padding: 0 !important;"></span>
-    <div id="warningNote" style="font-size: 0.88em; color: #1a6e29; margin-left: 30px; margin-top: 10px;"></div>
+    <div id="warningNote" style="display: none;">
+        <div style="border: 2px solid #27AE60; padding: 10px; margin-left: 30px; margin-bottom: 15px; background-color: #E9F7EF; border-radius: 4px;">
+            <strong style="color: #196F3D;">Note: </strong>
+            <span id="warningMessage" style="color: #000;"></span>
+        </div>
+    </div>
     <table class="parameters-table">
         <thead>
             <tr style="background-color: #fff;"><th colspan="3" style="text-align: left; color: #000; font-size: 110%;">Parameters (**kwargs)</th></tr>
@@ -626,11 +631,14 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         `;
         // Update calling sequence and parameter table
         callingSequence.innerHTML = command;
-        const warningNote = document.getElementById('warningNote');
+        const warningBox = document.getElementById('warningNote');
+        const warningMessage = document.getElementById('warningMessage');
         if (category === 'b' && analysisMethod === 'fft') {
-            warningNote.innerText = parameters.cross_correlation.fft.warning;
+            warningMessage.innerText = parameters.cross_correlation.fft.warning;
+            warningBox.style.display = 'block';
         } else {
-            warningNote.innerText = '';
+            warningBox.style.display = 'none';
+            warningMessage.innerText = '';
         }
         if (analysisMethod === 'dominantfreq') {
             updateParameterTable(subMethod);
