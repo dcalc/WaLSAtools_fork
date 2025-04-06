@@ -535,6 +535,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
                         <option value="dominantfreq">Dominant Freq / Mean Power Spectrum</option>`;
                 } else if (category === 'b') {
                     analysisMethodDropdown.innerHTML += `
+                        <option value="fft">FFT</option>
                         <option value="wavelet">Wavelet</option>
                         <option value="welch">Welch</option>`;
                 }
