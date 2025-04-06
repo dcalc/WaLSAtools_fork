@@ -235,8 +235,8 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
 <div class="output-container" id="outputContainer">
     <p style="font-size: 1.0em;">Calling Sequence:</p>
     <span id="callingSequence" style="font-size: 0.95em !important; margin: 0 !important; padding: 0 !important;"></span>
-    <div id="warningNote" style="display: none;">
-        <div style="border: 2px solid #27AE60; padding: 10px; margin-left: 30px; margin-bottom: 15px; background-color: #E9F7EF; border-radius: 4px;">
+    <div id="warningNote" style="display: none; margin-left: 30px; margin-bottom: 15px;">
+        <div style="border: 2px solid #27AE60; padding: 10px; background-color: #E9F7EF; border-radius: 4px;">
             <strong style="color: #196F3D;">Note: </strong>
             <span id="warningMessage" style="color: #000;"></span>
         </div>
@@ -458,7 +458,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
             },
             fft: {
                 returnValues: 'frequency, cospectrum, phase_angle, power_data1, power_data2, frequency_coherence, coherence',
-                warning: 'Note: Selecting FFT for cross-correlation automatically runs Welch instead, to improve noise handling by averaging over segments. Consider adjusting "nperseg" to tune resolution.',
+                warning: 'Selecting FFT for cross-correlation automatically runs Welch instead, to improve noise handling by averaging over segments. Consider adjusting "nperseg" to tune resolution.',
                 parameters: {
                     data1: { type: 'array', description: 'The first 1D time series signal.' },
                     data2: { type: 'array', description: 'The second 1D time series signal.' },
