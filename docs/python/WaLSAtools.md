@@ -235,6 +235,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
 <div class="output-container" id="outputContainer">
     <p style="font-size: 1.0em;">Calling Sequence:</p>
     <span id="callingSequence" style="font-size: 0.95em !important; margin: 0 !important; padding: 0 !important;"></span>
+    <div id="warningNote" style="font-size: 0.88em; color: #1a6e29; margin-left: 30px; margin-top: 10px;"></div>
     <table class="parameters-table">
         <thead>
             <tr style="background-color: #fff;"><th colspan="3" style="text-align: left; color: #000; font-size: 110%;">Parameters (**kwargs)</th></tr>
@@ -449,6 +450,21 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
                     nperm: { type: 'int', description: 'Number of permutations for significance testing. Default: 1000.' },
                     silent: { type: 'bool', description: 'If True, suppress print statements. Default: False.' }
                 }
+            },
+            fft: {
+                returnValues: 'frequency, cospectrum, phase_angle, power_data1, power_data2, frequency_coherence, coherence',
+                warning: 'Note: Selecting FFT for cross-correlation automatically runs Welch instead, to improve noise handling by averaging over segments. Consider adjusting "nperseg" to tune resolution.',
+                parameters: {
+                    data1: { type: 'array', description: 'The first 1D time series signal.' },
+                    data2: { type: 'array', description: 'The second 1D time series signal.' },
+                    time: { type: 'array', description: 'The time array corresponding to the signals.' },
+                    nperseg: { type: 'int', description: 'Length of each segment for analysis. Default: 256.' },
+                    noverlap: { type: 'int', description: 'Number of points to overlap between segments. Default: 128.' },
+                    window: { type: 'str', description: 'Type of window function used in the Welch method. Default: "hann".' },
+                    siglevel: { type: 'float', description: 'Significance level for confidence intervals. Default: 0.95.' },
+                    nperm: { type: 'int', description: 'Number of permutations for significance testing. Default: 1000.' },
+                    silent: { type: 'bool', description: 'If True, suppress print statements. Default: False.' }
+                }
             }
         }
     };
@@ -609,6 +625,12 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
         `;
         // Update calling sequence and parameter table
         callingSequence.innerHTML = command;
+        const warningNote = document.getElementById('warningNote');
+        if (category === 'b' && analysisMethod === 'fft') {
+            warningNote.innerText = parameters.cross_correlation.fft.warning;
+        } else {
+            warningNote.innerText = '';
+        }
         if (analysisMethod === 'dominantfreq') {
             updateParameterTable(subMethod);
         } else {
