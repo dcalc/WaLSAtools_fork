@@ -19,22 +19,28 @@ extra:
       link: https://WaLSA.team
     - icon: fontawesome/brands/github
       link: https://github.com/WaLSAteam
-      name: GitHub.com/WaLSAteam
+      name: GitHub
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/WaLSAtools/
+      name: PyPI
     - icon: fontawesome/brands/facebook
       link: https://www.facebook.com/WaLSAteam
-      name: Facebook.com/WaLSAteam
+      name: Facebook
+    - icon: fontawesome/brands/bluesky
+      link: https://bsky.app/profile/walsateam.bsky.social
+      name: Bluesky
     - icon: fontawesome/brands/x-twitter
-      link: https://twitter.com/WaLSAteam
-      name: Twitter.com/WaLSAteam
+      link: https://x.com/WaLSAteam
+      name: X (Twitter)
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/walsa-team
-      name: LinkedIn.com/company/walsa-team
+      name: LinkedIn
     - icon: fontawesome/brands/instagram
       link: https://www.instagram.com/WaLSA_team
-      name: Instagram.com/WaLSA_team
+      name: Instagram
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/WaLSAteam
-      name: YouTube.com/WaLSAteam
+      name: YouTube
     - icon: fontawesome/solid/envelope
       link: mailto:WaLSAtools@WaLSA.team
       name: Contact us
