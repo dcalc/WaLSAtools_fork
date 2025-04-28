@@ -5,71 +5,92 @@ title: Installation
 
 # Installation
 
-## Prerequisites
+## Install WaLSAtools :material-package-variant-closed:
 
-Before installing WaLSAtools, ensure you have the following prerequisites:
+This page provides a direct and simple installation guide for **WaLSAtools**.    
+For a complete beginner-friendly setup from scratch, see the [Beginner's Guide](https://walsa.tools/python/beginner-friendly-guide/).
 
-* **Python:** WaLSAtools requires Python 3.7 or later. You can download the latest version of Python from the official website: [https://www.python.org/downloads/](https://www.python.org/downloads/)
-* **pip:** pip is the package installer for Python. It is usually included with Python installations. You can check if you have pip installed by running `pip --version` in your terminal. If you don't have pip, you can install it by following the instructions on the official website: [https://pip.pypa.io/en/stable/installation/](https://pip.pypa.io/en/stable/installation/)
+---
 
-## Installation using pip
+## Prerequisites :material-clipboard-text:
 
-The easiest way to install WaLSAtools is using pip:
+Before installing WaLSAtools, ensure you have the following:
 
-1. Open your terminal or command prompt.
-2. Run the following command:
+- **Python 3.8 or later** installed.  
+  👉 You can download the latest version of Python from [https://www.python.org/downloads/](https://www.python.org/downloads/) if needed.
 
+- **pip** (Python package installer) available.  
+  👉 You can check by running:
+    ```bash
+    pip --version
+    ```
+    If you do not have pip, follow the [official installation guide](https://pip.pypa.io/en/stable/installation/).
+
+    !!! walsa-info "Recommended Python version"
+        We have tested WaLSAtools most extensively with **Python 3.12.8**.
+
+- **Virtual Environment** (Recommended):
+    To avoid conflicts with existing packages (especially due to major changes in packages like NumPy 2.0+),
+    we strongly recommend installing WaLSAtools inside a fresh virtual environment.
+    This keeps WaLSAtools and its dependencies isolated from your system-wide Python or other projects.
+    If you are new to virtual environments, you can refer to our [Beginner's Guide](https://walsa.tools/python/beginner-friendly-guide/) for a full setup tutorial.
+
+## Installation via pip (Recommended) :material-cloud-download-outline:
+
+To install the latest stable release from PyPI (Python Package Index), simply run:
 ```bash
 pip install WaLSAtools
 ```
+This will automatically download and install WaLSAtools and its required dependencies into your environment.
 
-This will download and install the latest stable version of WaLSAtools from the Python Package Index (PyPI).
+!!! walsa-tip "Tip: Upgrade pip first"
+    Before installing any package, it is good practice to upgrade pip:
+    ```
+    pip install --upgrade pip
+    ```
 
-## Installation from source
+## Installation from Source (Optional) :material-git:
 
-If you prefer to install WaLSAtools from source, you can follow these steps:
+If you prefer installing the development version directly from GitHub:
 
-1.  Clone (or Download) the WaLSAtools repository from GitHub:
+1. Clone (or Download) the WaLSAtools GitHub repository:
+    ```bash
+    git clone https://github.com/WaLSAteam/WaLSAtools.git
+    ```
 
-```bash
-git clone https://github.com/WaLSAteam/WaLSAtools.git
-```
-   
-2.  Navigate to the `codes/python` directory:
+2. Navigate to the Python codes directory:
+    ```bash
+    cd WaLSAtools/codes/python/
+    ```
 
-```bash
-cd WaLSAtools/codes/python
-```
+3. Install using pip:
+    ```bash
+    pip install .
+    ```
+    Alternatively, you can use the traditional setup:
+    ```bash
+    python setup.py install
+    ```
 
-3.  Run the setup script:
+This method ensures you have access to the latest updates and examples.
 
-```bash
-python setup.py install
-```
-Alternatively, you can install via pip:
+!!! walsa-info "Cloning the GitHub repository"
+    Even if you install WaLSAtools via PyPI, we strongly recommend also cloning the WaLSAtools GitHub repository. This gives you full access to the source code, worked examples, and documentation files, and ensures you can easily explore, customize, or [contribute](https://walsa.tools/contribution/) to the project.
 
-```bash
-pip install .
-```
+## Verifying the Installation :material-check-decagram:
 
-This will install WaLSAtools in your Python environment.
-
-## Verifying the installation
-
-To verify that WaLSAtools is installed correctly, you can run the following Python code, either in terminal (in Python) or in a Jupyter notebook:
-
+After installation, verify that WaLSAtools is properly installed.    
+You can check inside the terminal by launching Python and typing:  
 ```python
 from WaLSAtools import WaLSAtools
 WaLSAtools
 ```
+If installed correctly, WaLSAtools’ interactive welcome menu will appear 🎉
 
-This will display the WaLSAtools logo and credits information and launch the interactive WaLSAtools interface, confirming that the library is installed and functioning properly.
+## Need Help? :material-lifebuoy:
 
-## Troubleshooting
-
-If you encounter any issues during the installation process, please refer to the [Troubleshooting][15] section for common problems and solutions.
-
-[15]: https://walsa.tools/python/troubleshooting/
+If you encounter any issues during installation, first check our [Troubleshooting](https://walsa.tools/python/troubleshooting/) and/or [Beginner's Guide](https://walsa.tools/python/beginner-friendly-guide/) pages.
+If you still need help, browse the topics in our [GitHub discussion](https://github.com/WaLSAteam/WaLSAtools/discussions) — and feel free to post your question if your issue has not yet been addressed.
  
  <br>
  

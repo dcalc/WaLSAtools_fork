@@ -1,73 +1,114 @@
-# WaLSAtools
+<div align="center">
+  <a href="https://WaLSA.tools" target="_blank">
+    <img align="left" src="https://walsa.tools/images/WaLSAtools_black.svg" alt="WaLSAtools" width="350" height="auto">
+  </a>
+</div>
 
-**WaLSAtools** is an open-source library for advanced wave analysis in time series and imaging data. It provides a suite of spectral and spatio-temporal analysis techniques, including:
+<br><br><br>
 
-- **Fast Fourier Transform (FFT)**
-- **Wavelet Analysis**
-- **Lomb-Scargle Periodogram**
-- **Welch Power Spectral Density**
-- **Empirical Mode Decomposition (EMD)**
-- **Hilbert and Hilbert-Huang Transforms**
-- **k-omega Analysis**
-- **Proper Orthogonal Decomposition (POD)**
-- **Cross-Spectra Analysis**
+# WaLSAtools &ndash; Wave Analysis Tools for Python
 
-WaLSAtools features an **interactive interface** available in both **terminal** and **Jupyter notebooks**, enabling an intuitive workflow for wave analysis.  
-For detailed installation instructions, method descriptions, and usage examples, visit the **[WaLSAtools Documentation](https://WaLSA.tools/).**
+<p align="left">
+  <a href="https://pypi.org/project/WaLSAtools/"><img src="https://img.shields.io/pypi/v/WaLSAtools.svg" alt="PyPI"></a>
+  <a href="https://walsa.team" target="_blank"><img src="https://img.shields.io/badge/powered%20by-WaLSA%20Team-000d1a"></a>
+  <a href="https://walsa.tools/license" target="_blank"><img src="https://img.shields.io/badge/license-Apache%202.0-green"></a>
+  <a href="https://doi.org/10.5281/zenodo.14978610" target="_blank"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.14978610.svg" alt="DOI"></a>
+</p>
 
----
+**WaLSAtools** is an open-source library for fundamental and advanced wave analysis in 1D signals, images, and multi-dimensional datasets. Designed as a one-stop resource, it empowers researchers across disciplines to extract insights from oscillatory phenomena. **WaLSAtools** is envisioned as a community-driven starting point — inviting collaboration to refine techniques, develop new methods, and advance discoveries wherever waves and fluctuations play a fundamental role. It encourages transparent, reproducible science by providing validated techniques, detailed documentation, and worked examples.
 
-## 🚀 **Installation**
+It currently provides a comprehensive set of analysis techniques, including:
 
-### **1️⃣ Install via PyPI**
-The easiest way to install WaLSAtools is via **PyPI**:
+- Fast Fourier Transform (FFT)
+- Wavelet Analysis
+- Lomb-Scargle Periodogram
+- Welch Power Spectral Density
+- Empirical Mode Decomposition (EMD)
+- Hilbert and Hilbert-Huang Transforms
+- k-ω (k-omega) Analysis
+- Proper Orthogonal Decomposition (POD)
+- Cross-Spectral Analysis
+
+**WaLSAtools** features an interactive interface for both Python terminals and Jupyter notebooks, simplifying the wave analysis workflow.
+
+For full documentation, see **[https://WaLSA.tools](https://WaLSA.tools)**.
+
+# Installation
+
+We strongly recommend installing **WaLSAtools** inside a new virtual environment to avoid dependency conflicts, especially with pre-installed packages.
+
+For a full setup guide, see the [Beginner-Friendly Guide](https://walsa.tools/python/beginner-friendly-guide/).
+
+## Install via PyPI
+
 ```bash
+pip install --upgrade pip
 pip install WaLSAtools
 ```
 
-### **2️⃣ Install from Source (GitHub)**
-If you prefer the latest development version:
+## Install from Source (GitHub)
+
 ```bash
 git clone https://github.com/WaLSAteam/WaLSAtools.git
 cd WaLSAtools/codes/python/
 pip install .
 ```
-Alternatively, use:
-```bash
-python setup.py install
-```
 
+For detailed instructions and troubleshooting tips, refer to:  
+- [Installation Guide](https://walsa.tools/python/installation/)  
+- [Troubleshooting](https://walsa.tools/python/troubleshooting/)
 
-### **🖥️ Interactive Usage**
+# Interactive Usage
 
-WaLSAtools includes an interactive interface to simplify usage. After installation, launch the interactive interface in a Python terminal or (ideally) a Jupyter notebook:
+After installing, launch the interactive interface by running:
 
 ```python
 from WaLSAtools import WaLSAtools
 WaLSAtools
 ```
 
-This will launch an interactive menu with options for:
+This will open an interactive menu where you can:
 
-- Selecting a category of analysis.
-- Choosing the data type (e.g., 1D time series or 3D data cube).
-- Picking an analysis method (e.g., FFT, wavelet, k-omega).
+- Select an analysis category.
+- Choose your data type (1D or 3D).
+- Pick an analysis method (FFT, wavelet, EMD, k-omega, POD, etc.).
+- View customised calling sequences and parameter hints.
 
-The interface provides instructions and hints on calling sequences and parameter details for your chosen analysis.
+Interactive usage is supported both in standard Python terminals and Jupyter notebooks.
 
----
+# Requirements
 
-## **📜 License**
+WaLSAtools requires Python ≥ 3.8 and automatically installs the following core dependencies:
 
-WaLSAtools is licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+- astropy
+- IPython
+- ipywidgets
+- matplotlib
+- numba
+- numpy
+- pyFFTW
+- scipy
+- setuptools
+- scikit-image
+- tqdm
+
+All dependencies are handled automatically during installation.
+
+# License
+
+WaLSAtools is licensed under the [Apache License, Version 2.0](https://walsa.tools/license/).
+
+# Citation
 
 If you use WaLSAtools in your research, please cite:
 
-**[Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, 5, 21](https://www.nature.com/articles/s43586-025-00392-0)**
+> Jafarzadeh, S., Jess, D. B., Stangalini, M., et al. 2025, *Nature Reviews Methods Primers*, 5, 21   
+> [https://www.nature.com/articles/s43586-025-00392-0](https://www.nature.com/articles/s43586-025-00392-0)
 
----
+Zenodo DOI: [10.5281/zenodo.14978610](https://doi.org/10.5281/zenodo.14978610)
 
-## **🛠️ Contributing**
+# Contributing
 
-Contributions, suggestions, and feedback are always welcome! If you encounter any issues or have ideas for improvements, please visit the **[GitHub repository](https://github.com/WaLSAteam/WaLSAtools)** to open an issue or contribute.
+We welcome contributions, suggestions, and feedback.
 
+Please check the [Contribution Guide](https://walsa.tools/contribution/), or join our discussions via [GitHub Discussions](https://github.com/WaLSAteam/WaLSAtools/discussions).

@@ -3,55 +3,223 @@ template: main.html
 title: Troubleshooting
 ---
 
-# Troubleshooting
+# Troubleshooting :material-bug-outline:
 
-This page provides solutions to common issues encountered during the installation or usage of **WaLSAtools**. If you encounter a problem not listed here, please refer to instructions provided in [Contribution](https://WaLSA.tools/contribution/) or [Contact Us](mailto:WaLSAtools@WaLSA.team) for assistance.
+This page provides detailed solutions to common issues encountered during the installation and usage of **WaLSAtools**.
 
-## Installation Issues
+If you experience a problem not listed here, we recommend:
 
-### 1. `pip` fails to install WaLSAtools
+- First, carefully reviewing the [Beginner-Friendly Guide](https://walsa.tools/python/beginner-friendly-guide/) and this Troubleshooting page. 
+- If the issue remains unresolved, posting your question in our [GitHub Discussions](https://github.com/WaLSAteam/WaLSAtools/discussions) area. 
+- If the problem appears to be a confirmed bug, submitting a [GitHub Issue](https://github.com/WaLSAteam/WaLSAtools/issues) (see the [Contribution](https://walsa.tools/contribution/) guideline for details). 
 
-* **Check your internet connection:** Ensure you have a stable internet connection.
-* **Upgrade `pip`:** Run `pip install --upgrade pip` to update to the latest version.
-* **Use a virtual environment:** Consider using a virtual environment to avoid conflicts with other packages. You can create a virtual environment using, e.g., `venv` or `conda`.
-* **Check for firewalls or proxies:** If you are behind a firewall or proxy, you may need to configure `pip` to use the appropriate settings.
-* **Specify Python version**: Ensure that you are using Python 3.7 or later, as older versions may not support WaLSAtools.
+!!! walsa-issues "New here?"
+    Many installation and setup problems are already covered step-by-step in the [Beginner-Friendly Guide](https://walsa.tools/python/beginner-friendly-guide/). We highly recommend checking it if you haven't already.
 
-### 2. Installation from source fails
+-----
 
-* **Check dependencies:** Ensure you have all the required dependencies installed. You can find the list of dependencies in the `setup.py` file under `codes/python/`. Installing **WaLSAtools** via `pip install .` ensures all dependencies are installed.
-* **Compiler issues:** If you are compiling WaLSAtools from source, ensure that you have a compatible C++ compiler installed.
-	•	On Linux: Install build-essential or similar packages.
-	•	On macOS: Install Xcode and its command-line tools.
-	•	On Windows: Install a C++ compiler like MinGW or Visual Studio.
-* **Permissions:** Ensure you have the necessary permissions to write to the installation directory. Try running the installation command with sudo (Linux/macOS) or as an administrator (Windows), if needed.
+## Installation Issues :material-download-network:
 
-## Usage Issues
+### 1. `pip install WaLSAtools` fails
 
-### 1. WaLSAtools crashes or produces unexpected results
+**Possible reasons and solutions:**
 
-* **Check input data:** Ensure your input data is in the correct format and meets the requirements of the analysis method you are using.
-* **Update WaLSAtools:** Try updating to the latest version of WaLSAtools (e.g., y running `pip install --upgrade WaLSAtools`).
-* **Check for conflicting packages:** If you are using other packages that might conflict with WaLSAtools, try temporarily disabling or removing them, or consider creating a clean virtual environment and reinstalling WaLSAtools there.
-* **Bug Report:** If you are unable to resolve the issue, please report the issue. See [Bug Report][16]. 
-* **Contact Us:** If the problem persists, please [Contact Us](mailto:WaLSAtools@WaLSA.team) with a detailed description of the problem and your code.
+- **Outdated `pip`**:  
+  Upgrade `pip` to the latest version:
 
-### 2. Interactive interface does not launch
+    ```bash
+    pip install --upgrade pip
+    ```
 
-* **Check your Python environment:** Ensure you have activated the correct Python environment where WaLSAtools is installed.
-* **Run from the terminal:** Try launching WaLSAtools from the terminal, or a Jupyter notebook, using the command `from WaLSAtools import WaLSAtools; WaLSAtools`.
-* **Check for conflicting packages:** If you are using other packages that might conflict with WaLSAtools, try temporarily disabling or removing them.
+- **Python version mismatch**:  
+  Ensure you are using **Python 3.8 or later** (preferably 3.12.8 as recommended). Some dependencies require newer Python versions.
 
-## Contributing to Troubleshooting
+- **Virtual environment not used**:  
+  To avoid conflicts (especially with libraries like **NumPy 2.0+**), we strongly recommend creating a clean [virtual environment](https://walsa.tools/python/beginner-friendly-guide/#step-2-create-a-virtual-environment).
 
-If you have encountered and resolved an issue not listed here, please consider contributing to this troubleshooting guide by submitting a [Pull Request][17] on GitHub. Your contribution will help other users overcome similar problems.
+	!!! walsa-warning "Conda Users"
+		If you are using [`Anaconda`](https://www.anaconda.com) or [`Miniconda`](https://www.anaconda.com/docs/getting-started/miniconda/main), be aware that some pre-installed packages (like numpy, scipy, matplotlib) may not match the latest stable versions or may be compiled differently, leading to compatibility problems.
+		Solution:
 
-## Final Notes
+		- Create a fresh `Conda` environment without preinstalled packages, or
+		- Prefer a clean virtual environment created with `pyenv` or `venv` when working with **WaLSAtools**.
+		- Always manually upgrade critical packages like `pip`, `setuptools`, and `wheel` after creating a new environment.
 
-* **Error logs:** Always check error messages carefully, as they often point to the exact issue.
-* **Documentation:** Refer to the WaLSAtools Documentation for detailed guidance on installation, usage, and analysis techniques.
+- **Firewall or proxy blocking installation**:  
+  If you are behind a firewall or corporate proxy, configure pip accordingly:
 
-[16]: https://walsa.tools/contribution/#bug-report 
-[17]: https://walsa.tools/contribution/#pull-requests
- 
+    ```bash
+    pip install WaLSAtools --proxy="your_proxy_address"
+    ```
+
+- **Temporary server issue**:  
+  If installation fails from PyPI, wait a few minutes and try again.
+
+### 2. Problems related to NumPy or compiled dependencies
+
+**Specific Issue:**  
+Some users reported installation failures due to **NumPy ABI (Application Binary Interface)** conflicts, especially when using **NumPy 2.0.0+**. See the [GitHub Discussion here](https://github.com/WaLSAteam/WaLSAtools/discussions/4#discussioncomment-12944031) for more details.
+
+**Solution:**  
+If you encounter NumPy-related errors:
+
+- Ensure you are installing inside a **fresh virtual environment**.
+- Manually install a compatible NumPy version:
+
+    ```bash
+    pip install "numpy<2.0"
+    ```
+
+- Then reinstall WaLSAtools:
+
+    ```bash
+    pip install WaLSAtools
+    ```
+
+!!! walsa-important "Important"
+    Avoid using pre-installed system Python or OS-level packages (e.g., `/usr/bin/python3`) for WaLSAtools. Always prefer user-managed virtual environments.
+
+### 3. Installation from source fails
+
+**Checklist:**
+
+- **Clone the repository properly**:
+
+    ```bash
+    git clone https://github.com/WaLSAteam/WaLSAtools.git
+    cd WaLSAtools/codes/python
+    ```
+
+- **Install using pip inside the directory**:
+
+    ```bash
+    pip install .
+    ```
+
+- **Ensure build tools are installed**:
+  - macOS: Install Xcode and command-line tools:
+
+    ```bash
+    xcode-select --install
+    ```
+
+  - Linux: Install build essentials:
+
+    ```bash
+    sudo apt install build-essential
+    ```
+
+  - Windows: Use pre-built binaries and ensure `pip` is up to date.
+
+- **Permission errors**:  
+  Never use `sudo pip install`. Always use virtual environments to avoid permission problems.
+
+-----
+
+## Usage Issues :material-cog-outline:
+
+### 1. WaLSAtools interactive interface does not launch
+
+**Solutions:**
+
+- **Confirm environment activation**:  
+  Ensure you are working inside the environment where WaLSAtools was installed.
+
+- **Correct import syntax**:  
+  Start a Python session and enter:
+
+    ```python
+    from WaLSAtools import WaLSAtools
+    WaLSAtools
+    ```
+
+- **Notebook environment issue**:  
+  Inside a Jupyter notebook, make sure you select the correct Python **kernel** linked to your WaLSAtools environment.
+
+- **Conflicting libraries**:  
+  Conflicts with old versions of packages like `matplotlib`, `scipy`, or `numpy` can prevent proper functioning. Use a clean environment.
+
+### 2. Problems related to data input or unit handling
+
+**Specific Issue:**  
+One user reported crashes when passing data arrays with attached **units** (e.g., astropy `Quantity` arrays for time or signal). See the [specific issue and solution here](https://github.com/WaLSAteam/WaLSAtools/issues/3#issuecomment-2829730034) for more details.
+
+**Solution:**  
+**WaLSAtools expects raw `numpy.ndarray` inputs** without units.
+
+- Remove units before passing:
+
+    ```python
+    data = data_with_units.value
+    ```
+
+- If using `astropy.Time` objects for time axes, convert them to seconds manually.
+
+!!! walsa-note "Future Improvements"
+    Support for native `Quantity` and `Time` inputs is planned for a future WaLSAtools release.
+
+### 3. WaLSAtools behaves differently across environments
+
+Different behavior (e.g., function outputs, warnings) can occur due to:
+
+- Different dependency versions (e.g., `numpy`, `scipy`, `matplotlib`).
+- Mixed installations (system vs. virtual environment).
+
+**Solution:**  
+Check installed versions and compare them with those listed in [`requirements.txt`](https://github.com/WaLSAteam/WaLSAtools/blob/main/codes/python/requirements.txt) under `WaLSAtools/codes/python`:
+```python
+import astropy
+import IPython
+import ipywidgets
+import matplotlib
+import numba
+import numpy
+import pyfftw
+import scipy
+import setuptools
+import skimage
+import tqdm
+
+modules = {
+    'astropy': astropy,
+    'ipython': IPython,
+    'ipywidgets': ipywidgets,
+    'matplotlib': matplotlib,
+    'numba': numba,
+    'numpy': numpy,
+    'pyFFTW': pyfftw,
+    'scipy': scipy,
+    'setuptools': setuptools,
+    'scikit-image': skimage,
+    'tqdm': tqdm
+}
+
+for name, module in modules.items():
+    print(f"{name}: {module.__version__}")
+```
+
+Always install WaLSAtools inside a fresh environment with the recommended package versions (that is done automatically when installing WaLSAtools).
+
+-----
+
+## Additional Resources :material-book-open-outline:
+
+- [Beginner-Friendly Guide](https://walsa.tools/python/beginner-friendly-guide/)
+- [Installation Guide](https://walsa.tools/python/installation/)
+- [Contribution Guidelines](https://walsa.tools/contribution/)
+- [GitHub Discussions](https://github.com/WaLSAteam/WaLSAtools/discussions)
+
+!!! walsa-issues "Still stuck?"
+    If the solutions above don't work, search GitHub Issues or Discussions.  
+    If your issue is not already reported, feel free to post a new discussion or bug report!
+
+-----
+
+## Final Notes :material-lightbulb-outline:
+
+- Always read error messages carefully — they usually point directly to the problem.
+- Keep your `pip`, `setuptools`, and `wheel` packages updated.
+- Prefer working inside clean virtual environments.
+- If you fix an issue not yet listed here, please consider contributing to this page!
+
 <br>

@@ -85,7 +85,7 @@ theme:
       toggle:
         icon: material/weather-night
         name: Python
-
+  
   font:
     text: Roboto
     code: Roboto Mono
@@ -109,6 +109,7 @@ nav:
     - python/introduction.md # alias for introduction.md
     # Python:
     - Installation: python/installation.md
+    - Beginner's Guide: python/beginner-friendly-guide.md
     - Troubleshooting: python/troubleshooting.md
 
   # IDL:
