@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://WaLSA.tools" target="_blank">
-    <img align="left" src="https://walsa.tools/images/WaLSAtools_black.svg" alt="WaLSAtools" width="350" height="auto">
+    <img align="left" src="https://walsa.team/images/WaLSAtools_logo.svg" alt="WaLSAtools" width="350" height="auto">
   </a>
 </div>
 
