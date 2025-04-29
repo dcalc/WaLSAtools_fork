@@ -6,7 +6,7 @@
 
 <br><br><br>
 
-# WaLSAtools &ndash; Wave Analysis Tools for Python
+# WaLSAtools &ndash; Wave Analysis Tools
 
 <p align="left">
   <a href="https://pypi.org/project/WaLSAtools/"><img src="https://img.shields.io/pypi/v/WaLSAtools.svg" alt="PyPI"></a>
@@ -80,17 +80,7 @@ Interactive usage is supported both in standard Python terminals and Jupyter not
 
 WaLSAtools requires Python ≥ 3.8 and automatically installs the following core dependencies:
 
-- astropy
-- IPython
-- ipywidgets
-- matplotlib
-- numba
-- numpy
-- pyFFTW
-- scipy
-- setuptools
-- scikit-image
-- tqdm
+`astropy`, `IPython`, `ipywidgets`, `matplotlib`, `numba`, `numpy`, `pyFFTW`, `scipy`, `setuptools`, `scikit-image`, `tqdm`.
 
 All dependencies are handled automatically during installation.
 

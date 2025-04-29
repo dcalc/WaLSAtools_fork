@@ -9,8 +9,25 @@ If you use **WaLSAtools** in your work, please cite it as described below in you
 ## Main Article and Software Package :octicons-cross-reference-24:
 
 - **Wave analysis tools: [Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, 5, 21](https://www.nature.com/articles/s43586-025-00392-0)**         
-  - Free access to a view-only version: [https://WaLSA.tools/nrmp](https://WaLSA.tools/nrmp)        
-  - Supplementary Information: [https://WaLSA.tools/nrmp-si](https://WaLSA.tools/nrmp-si)     
+    - Free read-only access: [https://WaLSA.tools/nrmp](https://WaLSA.tools/nrmp)        
+    - Supplementary Information: [https://WaLSA.tools/nrmp-si](https://WaLSA.tools/nrmp-si)     
+  ```latex
+  @ARTICLE{2025NRvMP...5...21J,
+        author = {{Jafarzadeh}, Shahin and {Jess}, David B. and {Stangalini}, Marco and {Grant}, Samuel D.~T. and {Higham}, Jonathan E. and {Pessah}, Martin E. and {Keys}, Peter H. and {Belov}, Sergey and {Calchetti}, Daniele and {Duckenfield}, Timothy J. and {Fedun}, Viktor and {Fleck}, Bernhard and {Gafeira}, Ricardo and {Jefferies}, Stuart M. and {Khomenko}, Elena and {Morton}, Richard J. and {Norton}, Aimee A. and {Rajaguru}, S.~P. and {Schiavo}, Luiz A.~C.~A. and {Sharma}, Rahul and {Silva}, Suzana S.~A. and {Solanki}, Sami K. and {Steiner}, Oskar and {Verth}, Gary and {Vigeesh}, Gangadharan and {Yadav}, Nitin},
+          title = "{Wave analysis tools}",
+        journal = {Nature Reviews Methods Primers},
+      keywords = {Waves, Oscillations, Methods},
+          year = 2025,
+          month = apr,
+        volume = {5},
+            eid = {21},
+          pages = {21},
+            doi = {10.1038/s43586-025-00392-0},
+        adsurl = {https://ui.adsabs.harvard.edu/abs/2025NRvMP...5...21J},
+        adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+  }
+  ```
+
 - **Jafarzadeh, S., Jess, D. B., Stangalini, M., et al. 2025, WaLSAtools, WaLSA Team (GitHub) / Zenodo, doi: [10.5281/zenodo.14978610](https://doi.org/10.5281/zenodo.14978610)**
 
 ---

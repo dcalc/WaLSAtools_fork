@@ -29,7 +29,7 @@ WaLSAtools promotes reproducibility and transparency in wave analysis. Its robus
 
 This repository is associated with a primer article titled *"Wave analysis tools"* in **[Nature Reviews Methods Primers](https://www.nature.com/articles/s43586-025-00392-0)** (NRMP), showcasing its capabilities through detailed analyses of synthetic datasets. The `examples/Worked_examples__NRMP` directories (for both Python and IDL) contain reproducible codes for generating all figures presented in the NRMP article, serving as a practical guide for applying WaLSAtools to real-world analyses.
 
-**Free access to a view-only version of the Primer**: [https://WaLSA.tools/nrmp](https://WaLSA.tools/nrmp)
+**Free read-only access to the Primer**: [https://WaLSA.tools/nrmp](https://WaLSA.tools/nrmp)
 
 **Supplementary Information**: [https://WaLSA.tools/nrmp-si](https://WaLSA.tools/nrmp-si)
 
@@ -106,7 +106,7 @@ Refer to the `README.md` files in the `codes/python` and `codes/idl` directories
 ## **Interactive Usage**
 
 * **Python:** Type `from WaLSAtools import WaLSAtools; WaLSAtools` in a terminal (in Python) or in a Jupyter notebook.
-* **IDL:** Run the command `WaLSAtools` (in IDl).
+* **IDL:** Run the command `WaLSAtools` (in IDL).
 
 The interface guides you through selecting an analysis category, data type, and method, providing hints on calling sequences and parameters.
 
