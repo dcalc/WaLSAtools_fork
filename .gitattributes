@@ -26,3 +26,5 @@
 /setup.pro eol=lf
 *.sh eol=lf
 *.bat eol=crlf
+# Exclude IDL code from language statistics (prioritising Python as the main language)
+codes/idl/* linguist-vendored

@@ -191,7 +191,7 @@ The ["Under the Hood"](routines.md) section provides details on the individual r
     <p>GitHub repository: <a href="https://www.github.com/WaLSAteam/WaLSAtools" target="_blank" style="color: #4169E1; text-decoration: none;">www.github.com/WaLSAteam/WaLSAtools</a></p>
     <hr style="width: 70%; margin: 0; border: 0.98px solid #888; margin-bottom: 10px;">
     <p>If you use <strong>WaLSAtools</strong> in your research, please cite:</p>
-    <p>Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, <em>Nature Reviews Methods Primers</em>, in press</p>
+    <p>Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, <em>Nature Reviews Methods Primers</em>, 5, 21</p>
     <hr style="width: 70%; margin: 0; border: 0.98px solid #888; margin-bottom: 15px;">
     <p>Choose a category, data type, and analysis method from the list below,</p>
     <p>to get hints on the calling sequence and parameters:</p>
