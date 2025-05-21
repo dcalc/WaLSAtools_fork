@@ -13,6 +13,7 @@
     <a href="https://walsa.team" target="_blank"><img src="https://img.shields.io/badge/powered%20by-WaLSA%20Team-000d1a"></a>
     <a href="https://walsa.tools/license"><img src="https://img.shields.io/badge/license-Apache%202.0-green"></a>
     <a href="https://doi.org/10.5281/zenodo.14978610"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.14978610.svg" alt="DOI"></a>
+    <a href="https://github.com/WaLSAteam/WaLSAtools/blob/main/CONTRIBUTORS.md"><img src="https://img.shields.io/badge/contributors-28-gold" alt="Contributors"></a>
     <a href="https://pypi.org/project/WaLSAtools/"><img src="https://img.shields.io/pypi/v/WaLSAtools.svg" alt="PyPI Latest Release"></a>
     <a href="https://github.com/WaLSAteam/WaLSAtools/actions/workflows/ci.yml"><img src="https://github.com/WaLSAteam/WaLSAtools/workflows/docs/badge.svg"></a>
 </p>
@@ -118,6 +119,15 @@ If you use WaLSAtools in your research, please consider citing:
 > [Jafarzadeh, S., Jess, D. B., Stangalini, M. et al. 2025, Nature Reviews Methods Primers, 5, 21](https://www.nature.com/articles/s43586-025-00392-0)
 
 > [Jafarzadeh, S., Jess, D. B., Stangalini, M., et al. 2025, WaLSAtools, WaLSA Team (GitHub) / Zenodo, doi: 10.5281/zenodo.14978610](https://doi.org/10.5281/zenodo.14978610)
+
+
+## **Contributing**
+
+We welcome contributions from researchers and developers across all disciplines.   
+To learn how to get involved, report issues, or propose improvements, please refer to our [Contribution Guide](https://walsa.tools/contribution/).
+
+You can also explore the list of [Contributors](https://github.com/WaLSAteam/WaLSAtools/blob/main/CONTRIBUTORS.md) to date.
+
 
 ## **License**
 
