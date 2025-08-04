@@ -134,7 +134,7 @@ def getpowerFFT(signal, time, **kwargs):
     powermap = np.zeros(len(frequencies))
     signal = apocube
     spec = np.fft.fft(signal)
-    power = 2 * np.abs(spec[1:len(frequencies)]) ** 2
+    power = 2 * np.abs(spec[1:len(frequencies)+1]) ** 2 # +1 necessary because the zeroth frequency is removed
     powermap[:] = power / frequencies[0]
 
     if params['amplitude']:
