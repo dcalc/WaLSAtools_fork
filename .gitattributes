@@ -1,8 +1,7 @@
 # Specify linguist language mapping
 *.py linguist-language=Python
 *.ipynb linguist-language=Python
-*.pro linguist-vendored
-
+# *.pro linguist-vendored
 codes/idl/** linguist-vendored linguist-generated
 
 # Handle text files to ensure consistent line endings
